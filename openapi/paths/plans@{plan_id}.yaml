@@ -1,0 +1,185 @@
+get:
+  description: ''
+  operationId: GetSubscriptionPlan
+  parameters:
+    - description: ''
+      in: path
+      name: plan_id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            properties:
+              data:
+                additionalFields: false
+                properties:
+                  amount:
+                    minimum: 0
+                    type: integer
+                  currency:
+                    example: EUR
+                    maxLength: 3
+                    minLength: 3
+                    type: string
+                  description:
+                    maxLength: 256
+                    type: string
+                  interval:
+                    enum:
+                      - 1 day
+                      - 1 week
+                      - 1 mon
+                      - 1 year
+                    example: 1 mon
+                    type: string
+                  interval_count:
+                    minimum: 0
+                    type: integer
+                  merchant_item_id:
+                    example: item-1-2-3
+                    type: string
+                  name:
+                    maxLength: 64
+                    type: string
+                  status:
+                    enum:
+                      - active
+                      - hidden
+                      - disabled
+                    type: string
+                required:
+                  - interval
+                  - interval_count
+                  - merchant_item_id
+                  - name
+                  - status
+                  - amount
+                  - currency
+                type: object
+              success:
+                type: boolean
+            type: object
+      description: ''
+  summary: Get Subscription Plan (BETA)
+  tags:
+    - Subscriptions (BETA)
+patch:
+  description: ''
+  operationId: UpdateSubscriptionPlan
+  parameters:
+    - description: ''
+      in: path
+      name: plan_id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          additionalFields: false
+          properties:
+            amount:
+              minimum: 0
+              type: integer
+            currency:
+              example: EUR
+              maxLength: 3
+              minLength: 3
+              type: string
+            description:
+              maxLength: 256
+              type: string
+            interval:
+              enum:
+                - 1 day
+                - 1 week
+                - 1 mon
+                - 1 year
+              example: 1 mon
+              type: string
+            interval_count:
+              minimum: 0
+              type: integer
+            name:
+              maxLength: 64
+              type: string
+            status:
+              enum:
+                - active
+                - hidden
+                - disabled
+              type: string
+          required: []
+          type: object
+    description: ''
+    required: 1
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            properties:
+              data:
+                additionalFields: false
+                properties:
+                  amount:
+                    minimum: 0
+                    type: integer
+                  currency:
+                    example: EUR
+                    maxLength: 3
+                    minLength: 3
+                    type: string
+                  description:
+                    maxLength: 256
+                    type: string
+                  interval:
+                    enum:
+                      - 1 day
+                      - 1 week
+                      - 1 mon
+                      - 1 year
+                    example: 1 mon
+                    type: string
+                  interval_count:
+                    minimum: 0
+                    type: integer
+                  merchant_item_id:
+                    example: item-1-2-3
+                    type: string
+                  name:
+                    maxLength: 64
+                    type: string
+                  status:
+                    enum:
+                      - active
+                      - hidden
+                      - disabled
+                    type: string
+                required:
+                  - interval
+                  - interval_count
+                  - merchant_item_id
+                  - name
+                  - status
+                  - amount
+                  - currency
+                type: object
+              success:
+                type: boolean
+            type: object
+      description: ''
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ValidationErrorResponse.yaml
+      description: Validation errors
+  summary: Update Subscription Plan (BETA)
+  tags:
+    - Subscriptions (BETA)

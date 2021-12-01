@@ -1,0 +1,250 @@
+get:
+  description: ''
+  operationId: GetDeliveryDetails
+  parameters:
+    - description: ''
+      in: path
+      name: delivery_details_id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            properties:
+              data:
+                additionalProperties: false
+                properties:
+                  address1:
+                    maxLength: 64
+                    type: string
+                  address2:
+                    maxLength: 64
+                    type: string
+                  address3:
+                    maxLength: 64
+                    type: string
+                  city:
+                    maxLength: 50
+                    type: string
+                  company_name:
+                    maxLength: 50
+                    type: string
+                  company_registration_number:
+                    maxLength: 25
+                    type: string
+                  country:
+                    format: country-alpha2
+                    type: string
+                  email:
+                    format: email
+                    type: string
+                  favorite:
+                    type: boolean
+                  first_name:
+                    maxLength: 25
+                    type: string
+                  house_number:
+                    maxLength: 10
+                    type: string
+                  last_name:
+                    maxLength: 25
+                    type: string
+                  mobile_phone:
+                    maxLength: 25
+                    type: string
+                  phone:
+                    maxLength: 25
+                    type: string
+                  status:
+                    enum:
+                      - active
+                      - disabled
+                    type: string
+                  title:
+                    maxLength: 15
+                    type: string
+                  zip_code:
+                    maxLength: 10
+                    type: string
+                required:
+                  - address1
+                  - city
+                  - country
+                  - first_name
+                  - house_number
+                  - last_name
+                  - status
+                  - zip_code
+                type: object
+              success:
+                type: boolean
+            type: object
+      description: ''
+    '404':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/GenericErrorResponse.yaml
+      description: Delivery details not found
+  summary: Get Delivery Details (BETA)
+  tags:
+    - Customers (BETA)
+patch:
+  description: ''
+  operationId: UpdateDeliveryDetails
+  parameters:
+    - description: ''
+      in: path
+      name: delivery_details_id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          additionalProperties: false
+          properties:
+            address1:
+              maxLength: 64
+              type: string
+            address2:
+              maxLength: 64
+              type: string
+            address3:
+              maxLength: 64
+              type: string
+            city:
+              maxLength: 50
+              type: string
+            company_name:
+              maxLength: 50
+              type: string
+            company_registration_number:
+              maxLength: 25
+              type: string
+            country:
+              format: country-alpha2
+              type: string
+            email:
+              format: email
+              type: string
+            favorite:
+              type: boolean
+            first_name:
+              maxLength: 25
+              type: string
+            house_number:
+              maxLength: 10
+              type: string
+            last_name:
+              maxLength: 25
+              type: string
+            mobile_phone:
+              maxLength: 25
+              type: string
+            phone:
+              maxLength: 25
+              type: string
+            status:
+              enum:
+                - active
+                - disabled
+              type: string
+            title:
+              maxLength: 15
+              type: string
+            zip_code:
+              maxLength: 10
+              type: string
+          required: []
+          type: object
+    description: ''
+    required: 1
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            properties:
+              data:
+                additionalProperties: false
+                properties:
+                  address1:
+                    maxLength: 64
+                    type: string
+                  address2:
+                    maxLength: 64
+                    type: string
+                  address3:
+                    maxLength: 64
+                    type: string
+                  city:
+                    maxLength: 50
+                    type: string
+                  company_name:
+                    maxLength: 50
+                    type: string
+                  company_registration_number:
+                    maxLength: 25
+                    type: string
+                  country:
+                    format: country-alpha2
+                    type: string
+                  email:
+                    format: email
+                    type: string
+                  favorite:
+                    type: boolean
+                  first_name:
+                    maxLength: 25
+                    type: string
+                  house_number:
+                    maxLength: 10
+                    type: string
+                  last_name:
+                    maxLength: 25
+                    type: string
+                  mobile_phone:
+                    maxLength: 25
+                    type: string
+                  phone:
+                    maxLength: 25
+                    type: string
+                  status:
+                    enum:
+                      - active
+                      - disabled
+                    type: string
+                  title:
+                    maxLength: 15
+                    type: string
+                  zip_code:
+                    maxLength: 10
+                    type: string
+                required:
+                  - address1
+                  - city
+                  - country
+                  - first_name
+                  - house_number
+                  - last_name
+                  - status
+                  - zip_code
+                type: object
+              success:
+                type: boolean
+            type: object
+      description: ''
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ValidationErrorResponse.yaml
+      description: Validation errors
+  summary: Update Delivery Details (BETA)
+  tags:
+    - Customers (BETA)

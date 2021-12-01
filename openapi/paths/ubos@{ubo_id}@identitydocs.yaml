@@ -1,0 +1,149 @@
+get:
+  description: List IDs's and/or passports uploaded for an ultimate beneficiary owner
+  operationId: ListIdentityDocs
+  parameters:
+    - description: ''
+      in: path
+      name: ubo_id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            properties:
+              data:
+                items:
+                  additionalFields: false
+                  properties:
+                    document_type:
+                      enum:
+                        - id
+                        - passport
+                        - driverslicense
+                        - proof_of_address
+                      type: string
+                    encoded_content:
+                      format: base64-encoded-content
+                      type: string
+                    filename:
+                      maxLength: 250
+                      type: string
+                    mime_type:
+                      enum:
+                        - application/pdf
+                        - image/jpeg
+                        - image/png
+                      type: string
+                  required:
+                    - filename
+                    - mime_type
+                    - encoded_content
+                    - document_type
+                  type: object
+                type: array
+              success:
+                type: boolean
+            type: object
+      description: ''
+  summary: List uploaded ID's or passports (BETA)
+  tags:
+    - Onboarding (BETA)
+post:
+  description: Upload an ID or a passport for an ultimate beneficiary owner
+  operationId: CreateIdentityDoc
+  parameters:
+    - description: ''
+      in: path
+      name: ubo_id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          additionalFields: false
+          properties:
+            document_type:
+              enum:
+                - id
+                - passport
+                - driverslicense
+                - proof_of_address
+              type: string
+            encoded_content:
+              format: base64-encoded-content
+              type: string
+            filename:
+              maxLength: 250
+              type: string
+            mime_type:
+              enum:
+                - application/pdf
+                - image/jpeg
+                - image/png
+              type: string
+          required:
+            - filename
+            - mime_type
+            - encoded_content
+            - document_type
+          type: object
+    description: ''
+    required: 1
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            properties:
+              data:
+                additionalFields: false
+                properties:
+                  document_type:
+                    enum:
+                      - id
+                      - passport
+                      - driverslicense
+                      - proof_of_address
+                    type: string
+                  encoded_content:
+                    format: base64-encoded-content
+                    type: string
+                  filename:
+                    maxLength: 250
+                    type: string
+                  mime_type:
+                    enum:
+                      - application/pdf
+                      - image/jpeg
+                      - image/png
+                    type: string
+                required:
+                  - filename
+                  - mime_type
+                  - encoded_content
+                  - document_type
+                type: object
+              success:
+                type: boolean
+            type: object
+      description: ''
+    '404':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/GenericErrorResponse.yaml
+      description: UBO not found
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ValidationErrorResponse.yaml
+      description: Validation errors
+  summary: Upload an ID or a passport (BETA)
+  tags:
+    - Onboarding (BETA)

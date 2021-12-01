@@ -1,0 +1,14 @@
+additionalProperties: false
+properties:
+  after:
+    type: string
+  before:
+    type: string
+  cursor:
+    after:
+      type: string
+    before:
+      type: string
+  limit:
+    type: integer
+type: object

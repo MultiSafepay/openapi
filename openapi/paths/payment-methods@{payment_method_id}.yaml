@@ -1,0 +1,65 @@
+get:
+  description: ''
+  operationId: GetCustomerPaymentMethod
+  parameters:
+    - description: ''
+      in: path
+      name: payment_method_id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            properties:
+              data:
+                additionalProperties: false
+                oneOf:
+                  - properties:
+                      type:
+                        enum:
+                          - direct_debit
+                    required:
+                      - direct_debit
+                properties:
+                  direct_debit:
+                    additionalProperties: false
+                    properties:
+                      bic:
+                        type: string
+                      holder_name:
+                        type: string
+                      iban:
+                        type: string
+                    required:
+                      - holder_name
+                      - iban
+                      - bic
+                    type: object
+                  status:
+                    enum:
+                      - active
+                    type: string
+                  type:
+                    enum:
+                      - direct_debit
+                    type: string
+                required:
+                  - type
+                  - status
+                type: object
+              success:
+                type: boolean
+            type: object
+      description: ''
+    '404':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/GenericErrorResponse.yaml
+      description: Payment method not found
+  summary: Get Payment method (BETA)
+  tags:
+    - Customers (BETA)

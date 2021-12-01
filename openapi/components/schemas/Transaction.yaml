@@ -1,0 +1,57 @@
+properties:
+  amount:
+    example: 100
+    type: integer
+  completed:
+    format: datetime
+    type: string
+  costs:
+    items:
+      amount:
+        type: integer
+      description:
+        type: string
+    type: array
+  created:
+    format: datetime
+    type: string
+  currency:
+    example: EUR
+    type: string
+  debit_credit:
+    enum:
+      - D
+      - C
+    type: string
+  description:
+    type: string
+  financial_status:
+    example: completed
+    type: string
+  invoice_id:
+    type: string
+  order_id:
+    type: string
+  payment_method:
+    example: VISA
+    type: string
+  site_id:
+    example: 123
+    type: integer
+  status:
+    example: completed
+    type: string
+  transaction_id:
+    type: integer
+  type:
+    type: string
+  updated:
+    format: datetime
+    type: string
+  var1:
+    type: string
+  var2:
+    type: string
+  var3:
+    type: string
+type: object

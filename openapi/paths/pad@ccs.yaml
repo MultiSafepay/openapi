@@ -1,0 +1,143 @@
+post:
+  description: Calculate customer credibility score
+  operationId: 'PAD::CustomerCredibilityScore'
+  parameters: []
+  requestBody:
+    content:
+      application/json:
+        schema:
+          additionalFields: false
+          properties:
+            billing_address:
+              properties:
+                apartment:
+                  type: string
+                city:
+                  type: string
+                country:
+                  type: string
+                street:
+                  type: string
+                zipcode:
+                  type: string
+              required:
+                - street
+                - apartment
+                - zipcode
+                - city
+                - country
+              type: object
+            browser_info:
+              properties:
+                accept_header:
+                  type: string
+                cookies_enabled:
+                  type: boolean
+                ip_address:
+                  type: string
+                java_enabled:
+                  type: boolean
+                javascript_enabled:
+                  type: boolean
+                language:
+                  type: string
+                platform:
+                  type: string
+                screen_color_depth:
+                  type: integer
+                screen_height:
+                  type: integer
+                screen_width:
+                  type: integer
+                time_zone:
+                  type: integer
+                user_agent:
+                  type: string
+              required: []
+              type: object
+            customer_info:
+              properties:
+                birthdate:
+                  format: date
+                  type: string
+                email:
+                  format: email
+                  type: string
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+                phone:
+                  type: string
+              required:
+                - first_name
+                - last_name
+                - email
+                - birthdate
+                - phone
+              type: object
+            customer_reference:
+              type: string
+            merchant_id:
+              type: integer
+            merchant_sub_id:
+              type: integer
+            order:
+              properties:
+                amount:
+                  type: integer
+                currency:
+                  type: string
+                description:
+                  type: string
+              required:
+                - amount
+                - currency
+                - description
+              type: object
+            shipping_address:
+              properties:
+                apartment:
+                  type: string
+                city:
+                  type: string
+                country:
+                  type: string
+                street:
+                  type: string
+                zipcode:
+                  type: string
+              required:
+                - street
+                - apartment
+                - zipcode
+                - city
+                - country
+              type: object
+          required:
+            - merchant_id
+            - merchant_sub_id
+            - customer_reference
+            - order
+          type: object
+    description: ''
+    required: 1
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            properties:
+              success:
+                type: boolean
+            type: object
+      description: ''
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ValidationErrorResponse.yaml
+      description: Validation errors
+  summary: Customer Credibility Score (BETA)
+  tags:
+    - PAD (BETA)

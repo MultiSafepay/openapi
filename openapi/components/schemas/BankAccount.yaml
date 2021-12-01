@@ -1,0 +1,16 @@
+additionalFields: false
+properties:
+  currency:
+    maxLength: 3
+    type: string
+  holder_name:
+    maxLength: 40
+    type: string
+  iban:
+    format: iban
+    type: string
+required:
+  - holder_name
+  - iban
+  - currency
+type: object

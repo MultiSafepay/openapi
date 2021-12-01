@@ -1,0 +1,35 @@
+additionalProperties: false
+oneOf:
+  - properties:
+      type:
+        enum:
+          - direct_debit
+    required:
+      - direct_debit
+properties:
+  direct_debit:
+    additionalProperties: false
+    properties:
+      bic:
+        type: string
+      holder_name:
+        type: string
+      iban:
+        type: string
+    required:
+      - holder_name
+      - iban
+      - bic
+    type: object
+  status:
+    enum:
+      - active
+    type: string
+  type:
+    enum:
+      - direct_debit
+    type: string
+required:
+  - type
+  - status
+type: object

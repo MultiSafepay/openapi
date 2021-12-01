@@ -1,0 +1,167 @@
+get:
+  description: ''
+  operationId: ListCustomerPaymentMethods
+  parameters:
+    - description: ''
+      in: path
+      name: customer_id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            properties:
+              data:
+                items:
+                  additionalProperties: false
+                  oneOf:
+                    - properties:
+                        type:
+                          enum:
+                            - direct_debit
+                      required:
+                        - direct_debit
+                  properties:
+                    direct_debit:
+                      additionalProperties: false
+                      properties:
+                        bic:
+                          type: string
+                        holder_name:
+                          type: string
+                        iban:
+                          type: string
+                      required:
+                        - holder_name
+                        - iban
+                        - bic
+                      type: object
+                    status:
+                      enum:
+                        - active
+                      type: string
+                    type:
+                      enum:
+                        - direct_debit
+                      type: string
+                  required:
+                    - type
+                    - status
+                  type: object
+                type: array
+              success:
+                type: boolean
+            type: object
+      description: ''
+  summary: List Payment Methods (BETA)
+  tags:
+    - Customers (BETA)
+post:
+  description: ''
+  operationId: CreateCustomerPaymentMethod
+  parameters:
+    - description: ''
+      in: path
+      name: customer_id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          additionalProperties: false
+          oneOf:
+            - properties:
+                type:
+                  enum:
+                    - direct_debit
+              required:
+                - direct_debit
+          properties:
+            direct_debit:
+              additionalProperties: false
+              properties:
+                bic:
+                  type: string
+                holder_name:
+                  type: string
+                iban:
+                  type: string
+              required:
+                - holder_name
+                - iban
+                - bic
+              type: object
+            status:
+              enum:
+                - active
+              type: string
+            type:
+              enum:
+                - direct_debit
+              type: string
+          required:
+            - type
+            - status
+          type: object
+    description: ''
+    required: 1
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            properties:
+              data:
+                additionalProperties: false
+                oneOf:
+                  - properties:
+                      type:
+                        enum:
+                          - direct_debit
+                    required:
+                      - direct_debit
+                properties:
+                  direct_debit:
+                    additionalProperties: false
+                    properties:
+                      bic:
+                        type: string
+                      holder_name:
+                        type: string
+                      iban:
+                        type: string
+                    required:
+                      - holder_name
+                      - iban
+                      - bic
+                    type: object
+                  status:
+                    enum:
+                      - active
+                    type: string
+                  type:
+                    enum:
+                      - direct_debit
+                    type: string
+                required:
+                  - type
+                  - status
+                type: object
+              success:
+                type: boolean
+            type: object
+      description: ''
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ValidationErrorResponse.yaml
+      description: Validation errors
+  summary: Create Payment Method (BETA)
+  tags:
+    - Customers (BETA)

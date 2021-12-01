@@ -1,0 +1,11 @@
+properties:
+  merchant_id:
+    type: integer
+  role:
+    type: string
+  site_id:
+    type: integer
+required:
+  - merchant_id
+  - site_id
+type: object

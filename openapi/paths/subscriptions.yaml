@@ -1,0 +1,342 @@
+post:
+  description: ''
+  operationId: CreateSubscription
+  parameters: []
+  requestBody:
+    content:
+      application/json:
+        schema:
+          additionalFields: false
+          properties:
+            allow_cancel_before_days:
+              minimum: 0
+              type: integer
+            collecting_flow_id:
+              minimum: 0
+              type: integer
+            collecting_method:
+              enum:
+                - charge_automatically
+                - send_invoice
+              type: string
+            current_period_end:
+              format: date
+              type: string
+            current_period_start:
+              format: date
+              type: string
+            customer_id:
+              type: string
+            delivery_details_id:
+              type: string
+            discount:
+              properties:
+                cap:
+                  minimum: 0
+                  type: number
+                percent_off:
+                  maximum: 100
+                  minimum: 0
+                  type: number
+              type: object
+            end_date:
+              format: date
+              type: string
+            items:
+              properties:
+                amount:
+                  minimum: 0
+                  type: integer
+                checkout_options:
+                  properties:
+                    tax_tables:
+                      properties:
+                        alternate:
+                          items:
+                            properties:
+                              name:
+                                type: string
+                              rules:
+                                items:
+                                  properties:
+                                    rate:
+                                      minimum: 0
+                                      type: number
+                                    shipping_taxed:
+                                      type: boolean
+                                  type: object
+                                type: array
+                            type: object
+                          type: array
+                        default:
+                          properties:
+                            rate:
+                              minimum: 0
+                              type: number
+                            shipping_taxed:
+                              type: boolean
+                          type: object
+                      type: object
+                  type: object
+                currency:
+                  example: EUR
+                  maxLength: 3
+                  minLength: 3
+                  type: string
+                items:
+                  items:
+                    properties:
+                      description:
+                        type: string
+                      merchant_item_id:
+                        type: string
+                      name:
+                        type: string
+                      plan_id:
+                        type: string
+                      quantity:
+                        minimum: 0
+                        type: number
+                      tax_table_selector:
+                        type: string
+                      unit_price:
+                        type: number
+                      weight:
+                        properties:
+                          unit:
+                            type: string
+                          value:
+                            minimum: 0
+                            type: number
+                        type: object
+                    required:
+                      - name
+                      - merchant_item_id
+                      - quantity
+                      - unit_price
+                    type: object
+                  type: array
+              required:
+                - amount
+                - currency
+              type: object
+            max_amount_outstanding:
+              minimum: 0
+              type: number
+            max_amount_outstanding_currency:
+              example: EUR
+              maxLength: 3
+              minLength: 3
+              type: string
+            max_orders_outstanding:
+              minimum: 0
+              type: integer
+            payment_method_id:
+              type: string
+            recurring_interval:
+              enum:
+                - 1 day
+                - 1 week
+                - 1 mon
+                - 1 year
+              example: 1 mon
+              type: string
+            recurring_interval_count:
+              minimum: 0
+              type: integer
+            start_date:
+              format: date
+              type: string
+            status:
+              enum:
+                - active
+                - inactive
+              type: string
+          required:
+            - collecting_flow_id
+            - collecting_method
+            - customer_id
+            - delivery_details_id
+            - items
+            - payment_method_id
+            - start_date
+            - status
+          type: object
+    description: ''
+    required: 1
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            properties:
+              data:
+                additionalFields: false
+                properties:
+                  allow_cancel_before_days:
+                    minimum: 0
+                    type: integer
+                  collecting_flow_id:
+                    minimum: 0
+                    type: integer
+                  collecting_method:
+                    enum:
+                      - charge_automatically
+                      - send_invoice
+                    type: string
+                  current_period_end:
+                    format: date
+                    type: string
+                  current_period_start:
+                    format: date
+                    type: string
+                  customer_id:
+                    type: string
+                  delivery_details_id:
+                    type: string
+                  discount:
+                    properties:
+                      cap:
+                        minimum: 0
+                        type: number
+                      percent_off:
+                        maximum: 100
+                        minimum: 0
+                        type: number
+                    type: object
+                  end_date:
+                    format: date
+                    type: string
+                  items:
+                    properties:
+                      amount:
+                        minimum: 0
+                        type: integer
+                      checkout_options:
+                        properties:
+                          tax_tables:
+                            properties:
+                              alternate:
+                                items:
+                                  properties:
+                                    name:
+                                      type: string
+                                    rules:
+                                      items:
+                                        properties:
+                                          rate:
+                                            minimum: 0
+                                            type: number
+                                          shipping_taxed:
+                                            type: boolean
+                                        type: object
+                                      type: array
+                                  type: object
+                                type: array
+                              default:
+                                properties:
+                                  rate:
+                                    minimum: 0
+                                    type: number
+                                  shipping_taxed:
+                                    type: boolean
+                                type: object
+                            type: object
+                        type: object
+                      currency:
+                        example: EUR
+                        maxLength: 3
+                        minLength: 3
+                        type: string
+                      items:
+                        items:
+                          properties:
+                            description:
+                              type: string
+                            merchant_item_id:
+                              type: string
+                            name:
+                              type: string
+                            plan_id:
+                              type: string
+                            quantity:
+                              minimum: 0
+                              type: number
+                            tax_table_selector:
+                              type: string
+                            unit_price:
+                              type: number
+                            weight:
+                              properties:
+                                unit:
+                                  type: string
+                                value:
+                                  minimum: 0
+                                  type: number
+                              type: object
+                          required:
+                            - name
+                            - merchant_item_id
+                            - quantity
+                            - unit_price
+                          type: object
+                        type: array
+                    required:
+                      - amount
+                      - currency
+                    type: object
+                  max_amount_outstanding:
+                    minimum: 0
+                    type: number
+                  max_amount_outstanding_currency:
+                    example: EUR
+                    maxLength: 3
+                    minLength: 3
+                    type: string
+                  max_orders_outstanding:
+                    minimum: 0
+                    type: integer
+                  payment_method_id:
+                    type: string
+                  recurring_interval:
+                    enum:
+                      - 1 day
+                      - 1 week
+                      - 1 mon
+                      - 1 year
+                    example: 1 mon
+                    type: string
+                  recurring_interval_count:
+                    minimum: 0
+                    type: integer
+                  start_date:
+                    format: date
+                    type: string
+                  status:
+                    enum:
+                      - active
+                      - inactive
+                    type: string
+                required:
+                  - collecting_flow_id
+                  - collecting_method
+                  - customer_id
+                  - delivery_details_id
+                  - items
+                  - payment_method_id
+                  - start_date
+                  - status
+                type: object
+              success:
+                type: boolean
+            type: object
+      description: ''
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ValidationErrorResponse.yaml
+      description: Validation errors
+  summary: Create Subscription (BETA)
+  tags:
+    - Subscriptions (BETA)

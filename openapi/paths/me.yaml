@@ -1,0 +1,29 @@
+get:
+  description: Provides currenty authenticated user details
+  operationId: Me
+  parameters: []
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            properties:
+              data:
+                properties:
+                  merchant_id:
+                    type: integer
+                  role:
+                    type: string
+                  site_id:
+                    type: integer
+                required:
+                  - merchant_id
+                  - site_id
+                type: object
+              success:
+                type: boolean
+            type: object
+      description: ''
+  summary: Currently authenticated user
+  tags:
+    - Generic

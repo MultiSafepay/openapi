@@ -1,0 +1,27 @@
+additionalFields: false
+properties:
+  document_type:
+    enum:
+      - id
+      - passport
+      - driverslicense
+      - proof_of_address
+    type: string
+  encoded_content:
+    format: base64-encoded-content
+    type: string
+  filename:
+    maxLength: 250
+    type: string
+  mime_type:
+    enum:
+      - application/pdf
+      - image/jpeg
+      - image/png
+    type: string
+required:
+  - filename
+  - mime_type
+  - encoded_content
+  - document_type
+type: object

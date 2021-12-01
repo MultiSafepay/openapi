@@ -1,0 +1,176 @@
+get:
+  description: ''
+  operationId: ListTransactions
+  parameters:
+    - description: ''
+      in: query
+      name: created_from
+      required: false
+      schema:
+        type: string
+    - description: ''
+      in: query
+      name: debit_credit
+      required: false
+      schema:
+        type: string
+    - description: ''
+      in: query
+      name: financial_status
+      required: false
+      schema:
+        type: string
+    - description: ''
+      in: query
+      name: completed_from
+      required: false
+      schema:
+        type: string
+    - description: ''
+      in: query
+      name: type
+      required: false
+      schema:
+        type: string
+    - description: ''
+      in: query
+      name: payment_method
+      required: false
+      schema:
+        type: string
+    - description: ''
+      in: query
+      name: created_until
+      required: false
+      schema:
+        type: string
+    - description: ''
+      in: query
+      name: completed_until
+      required: false
+      schema:
+        type: string
+    - description: ''
+      in: query
+      name: site_id
+      required: false
+      schema:
+        type: string
+    - description: ''
+      in: query
+      name: status
+      required: false
+      schema:
+        type: string
+    - description: Limit number of returned results
+      in: query
+      name: limit
+      required: false
+      schema:
+        description: Limit number of returned results
+        example: 5
+        maximum: 1000
+        minimum: 1
+        type: integer
+    - description: Next results after the cursor
+      in: query
+      name: after
+      required: false
+      schema:
+        description: Next results after the cursor
+        type: string
+    - description: Next results before the cursor
+      in: query
+      name: before
+      required: false
+      schema:
+        description: Next results before the cursor
+        type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            properties:
+              data:
+                items:
+                  properties:
+                    amount:
+                      example: 100
+                      type: integer
+                    completed:
+                      format: datetime
+                      type: string
+                    costs:
+                      items:
+                        amount:
+                          type: integer
+                        description:
+                          type: string
+                      type: array
+                    created:
+                      format: datetime
+                      type: string
+                    currency:
+                      example: EUR
+                      type: string
+                    debit_credit:
+                      enum:
+                        - D
+                        - C
+                      type: string
+                    description:
+                      type: string
+                    financial_status:
+                      example: completed
+                      type: string
+                    invoice_id:
+                      type: string
+                    order_id:
+                      type: string
+                    payment_method:
+                      example: VISA
+                      type: string
+                    site_id:
+                      example: 123
+                      type: integer
+                    status:
+                      example: completed
+                      type: string
+                    transaction_id:
+                      type: integer
+                    type:
+                      type: string
+                    updated:
+                      format: datetime
+                      type: string
+                    var1:
+                      type: string
+                    var2:
+                      type: string
+                    var3:
+                      type: string
+                  type: object
+                type: array
+              pager:
+                additionalProperties: false
+                properties:
+                  after:
+                    type: string
+                  before:
+                    type: string
+                  cursor:
+                    after:
+                      type: string
+                    before:
+                      type: string
+                  limit:
+                    type: integer
+                type: object
+              success:
+                type: boolean
+            type: object
+      description: ''
+  summary: List Transactions (BETA)
+  tags:
+    - Reconciliation (BETA)

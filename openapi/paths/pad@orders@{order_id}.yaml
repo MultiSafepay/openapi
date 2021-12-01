@@ -1,0 +1,23 @@
+get:
+  description: Get PAD order details
+  operationId: 'PAD::OrderDetails'
+  parameters:
+    - description: ''
+      in: path
+      name: order_id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            properties:
+              success:
+                type: boolean
+            type: object
+      description: ''
+  summary: PAD Order Details (BETA)
+  tags:
+    - PAD (BETA)

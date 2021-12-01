@@ -1,0 +1,73 @@
+get:
+  description: List all accounts signed up by a partner
+  operationId: 'Partner::ListAccounts'
+  parameters: []
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            properties:
+              data:
+                items:
+                  additionalFields: false
+                  properties:
+                    address1:
+                      example: Jodenbreestraat 4
+                      maxLength: 64
+                      type: string
+                    address2:
+                      maxLength: 64
+                      type: string
+                    address3:
+                      maxLength: 64
+                      type: string
+                    apartment:
+                      example: '2'
+                      maxLength: 9
+                      type: string
+                    city:
+                      example: Amsterdam
+                      maxLength: 50
+                      type: string
+                    coc_number:
+                      maxLength: 50
+                      type: string
+                    company_name:
+                      maxLength: 200
+                      type: string
+                    country:
+                      example: NL
+                      format: country-alpha2
+                      type: string
+                    email:
+                      example: merchant@example.com
+                      format: email
+                      maxLength: 100
+                      type: string
+                    fax:
+                      maxLength: 15
+                      type: string
+                    phone:
+                      maxLength: 15
+                      type: string
+                    vat_number:
+                      maxLength: 50
+                      type: string
+                    zipcode:
+                      example: 1011 NK
+                      maxLength: 30
+                      type: string
+                  required:
+                    - company_name
+                    - email
+                    - country
+                  type: object
+                type: array
+              success:
+                type: boolean
+            type: object
+      description: ''
+  summary: List Accounts (BETA)
+  tags:
+    - Onboarding (BETA)

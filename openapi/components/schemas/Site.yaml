@@ -1,0 +1,28 @@
+additionalFields: false
+properties:
+  name:
+    maxLength: 120
+    type: string
+  notification_url:
+    format: url
+    maxLength: 150
+    type: string
+  price_from:
+    type: integer
+  price_till:
+    type: integer
+  support_email:
+    format: email
+    maxLength: 100
+    type: string
+  support_phone:
+    maxLength: 100
+    type: string
+  url:
+    format: url
+    maxLength: 150
+    type: string
+required:
+  - name
+  - url
+type: object

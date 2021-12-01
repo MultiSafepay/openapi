@@ -1,0 +1,28 @@
+properties:
+  errors:
+    items:
+      properties:
+        attribute:
+          example: required
+          type: string
+        details:
+          example:
+            - (true)
+          items:
+            type: string
+          type: array
+        message:
+          example: Required
+          type: string
+        uri:
+          example: '#/email'
+          type: string
+      type: object
+    type: array
+  message:
+    example: Validation failed
+    type: string
+  success:
+    example: false
+    type: boolean
+type: object

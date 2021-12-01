@@ -1,0 +1,45 @@
+additionalFields: false
+properties:
+  amount:
+    minimum: 0
+    type: integer
+  currency:
+    example: EUR
+    maxLength: 3
+    minLength: 3
+    type: string
+  description:
+    maxLength: 256
+    type: string
+  interval:
+    enum:
+      - 1 day
+      - 1 week
+      - 1 mon
+      - 1 year
+    example: 1 mon
+    type: string
+  interval_count:
+    minimum: 0
+    type: integer
+  merchant_item_id:
+    example: item-1-2-3
+    type: string
+  name:
+    maxLength: 64
+    type: string
+  status:
+    enum:
+      - active
+      - hidden
+      - disabled
+    type: string
+required:
+  - interval
+  - interval_count
+  - merchant_item_id
+  - name
+  - status
+  - amount
+  - currency
+type: object

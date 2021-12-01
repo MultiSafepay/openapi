@@ -1,0 +1,8 @@
+properties:
+  message:
+    example: Not found
+    type: string
+  success:
+    example: false
+    type: boolean
+type: object

@@ -1,0 +1,86 @@
+components:
+  securitySchemes:
+    BearerAuth:
+      scheme: bearer
+      type: http
+info:
+  title: MultiSafepay API
+  version: 1.0.0
+openapi: 3.0.0
+paths:
+  /accounts:
+    $ref: paths/accounts.yaml
+  '/accounts/{account_id}':
+    $ref: 'paths/accounts@{account_id}.yaml'
+  '/accounts/{account_id}/balances':
+    $ref: 'paths/accounts@{account_id}@balances.yaml'
+  '/accounts/{account_id}/bank-accounts':
+    $ref: 'paths/accounts@{account_id}@bank-accounts.yaml'
+  '/accounts/{account_id}/charges':
+    $ref: 'paths/accounts@{account_id}@charges.yaml'
+  '/accounts/{account_id}/payouts':
+    $ref: 'paths/accounts@{account_id}@payouts.yaml'
+  '/accounts/{account_id}/sites':
+    $ref: 'paths/accounts@{account_id}@sites.yaml'
+  '/accounts/{account_id}/ubos':
+    $ref: 'paths/accounts@{account_id}@ubos.yaml'
+  '/bank-accounts/{bankaccount_id}':
+    $ref: 'paths/bank-accounts@{bankaccount_id}.yaml'
+  '/bank-accounts/{bankaccount_id}/bank-statements':
+    $ref: 'paths/bank-accounts@{bankaccount_id}@bank-statements.yaml'
+  '/bank-accounts/{bankaccount_id}/payment-links':
+    $ref: 'paths/bank-accounts@{bankaccount_id}@payment-links.yaml'
+  '/bank-statements/{bankstatement_id}':
+    $ref: 'paths/bank-statements@{bankstatement_id}.yaml'
+  /creditcard/bin:
+    $ref: paths/creditcard@bin.yaml
+  /customers:
+    $ref: paths/customers.yaml
+  '/customers/{customer_id}':
+    $ref: 'paths/customers@{customer_id}.yaml'
+  '/customers/{customer_id}/delivery-details':
+    $ref: 'paths/customers@{customer_id}@delivery-details.yaml'
+  '/customers/{customer_id}/payment-methods':
+    $ref: 'paths/customers@{customer_id}@payment-methods.yaml'
+  '/delivery-details/{delivery_details_id}':
+    $ref: 'paths/delivery-details@{delivery_details_id}.yaml'
+  '/identitydocs/{identitydoc_id}':
+    $ref: 'paths/identitydocs@{identitydoc_id}.yaml'
+  /me:
+    $ref: paths/me.yaml
+  /pad/ccs:
+    $ref: paths/pad@ccs.yaml
+  '/pad/orders/{order_id}':
+    $ref: 'paths/pad@orders@{order_id}.yaml'
+  /payment-methods:
+    $ref: paths/payment-methods.yaml
+  '/payment-methods/{payment_method_id}':
+    $ref: 'paths/payment-methods@{payment_method_id}.yaml'
+  /plans:
+    $ref: paths/plans.yaml
+  '/plans/{plan_id}':
+    $ref: 'paths/plans@{plan_id}.yaml'
+  /signup-account:
+    $ref: paths/signup-account.yaml
+  '/sites/{site_id}':
+    $ref: 'paths/sites@{site_id}.yaml'
+  /subscriptions:
+    $ref: paths/subscriptions.yaml
+  '/subscriptions/{subscription_id}':
+    $ref: 'paths/subscriptions@{subscription_id}.yaml'
+  '/subscriptions/{subscription_id}/invoices':
+    $ref: 'paths/subscriptions@{subscription_id}@invoices.yaml'
+  /test/bank-transfers:
+    $ref: paths/test@bank-transfers.yaml
+  /transactions:
+    $ref: paths/transactions.yaml
+  '/ubos/{ubo_id}':
+    $ref: 'paths/ubos@{ubo_id}.yaml'
+  '/ubos/{ubo_id}/identitydocs':
+    $ref: 'paths/ubos@{ubo_id}@identitydocs.yaml'
+  /wallets/sessions/applepay:
+    $ref: paths/wallets@sessions@applepay.yaml
+security:
+  - BearerAuth: []
+servers:
+  - url: 'https://testapi.multisafepay.com/v1/json'

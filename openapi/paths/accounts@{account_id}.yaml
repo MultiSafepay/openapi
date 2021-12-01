@@ -1,0 +1,228 @@
+get:
+  description: Fetch information about an existing account
+  operationId: 'Partner::GetAccount'
+  parameters:
+    - description: ''
+      in: path
+      name: account_id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            properties:
+              data:
+                additionalFields: false
+                properties:
+                  address1:
+                    example: Jodenbreestraat 4
+                    maxLength: 64
+                    type: string
+                  address2:
+                    maxLength: 64
+                    type: string
+                  address3:
+                    maxLength: 64
+                    type: string
+                  apartment:
+                    example: '2'
+                    maxLength: 9
+                    type: string
+                  city:
+                    example: Amsterdam
+                    maxLength: 50
+                    type: string
+                  coc_number:
+                    maxLength: 50
+                    type: string
+                  company_name:
+                    maxLength: 200
+                    type: string
+                  country:
+                    example: NL
+                    format: country-alpha2
+                    type: string
+                  email:
+                    example: merchant@example.com
+                    format: email
+                    maxLength: 100
+                    type: string
+                  fax:
+                    maxLength: 15
+                    type: string
+                  phone:
+                    maxLength: 15
+                    type: string
+                  vat_number:
+                    maxLength: 50
+                    type: string
+                  zipcode:
+                    example: 1011 NK
+                    maxLength: 30
+                    type: string
+                required:
+                  - company_name
+                  - email
+                  - country
+                type: object
+              success:
+                type: boolean
+            type: object
+      description: ''
+    '404':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/GenericErrorResponse.yaml
+      description: Account not found
+  summary: Get Account (BETA)
+  tags:
+    - Onboarding (BETA)
+patch:
+  description: Update information about an existing merchant account
+  operationId: 'Partner::UpdateAccount'
+  parameters:
+    - description: ''
+      in: path
+      name: account_id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          additionalFields: false
+          properties:
+            address1:
+              example: Jodenbreestraat 4
+              maxLength: 64
+              type: string
+            address2:
+              maxLength: 64
+              type: string
+            address3:
+              maxLength: 64
+              type: string
+            apartment:
+              example: '2'
+              maxLength: 9
+              type: string
+            city:
+              example: Amsterdam
+              maxLength: 50
+              type: string
+            coc_number:
+              maxLength: 50
+              type: string
+            company_name:
+              maxLength: 200
+              type: string
+            country:
+              example: NL
+              format: country-alpha2
+              type: string
+            email:
+              example: merchant@example.com
+              format: email
+              maxLength: 100
+              type: string
+            fax:
+              maxLength: 15
+              type: string
+            phone:
+              maxLength: 15
+              type: string
+            vat_number:
+              maxLength: 50
+              type: string
+            zipcode:
+              example: 1011 NK
+              maxLength: 30
+              type: string
+          required: []
+          type: object
+    description: ''
+    required: 1
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            properties:
+              data:
+                additionalFields: false
+                properties:
+                  address1:
+                    example: Jodenbreestraat 4
+                    maxLength: 64
+                    type: string
+                  address2:
+                    maxLength: 64
+                    type: string
+                  address3:
+                    maxLength: 64
+                    type: string
+                  apartment:
+                    example: '2'
+                    maxLength: 9
+                    type: string
+                  city:
+                    example: Amsterdam
+                    maxLength: 50
+                    type: string
+                  coc_number:
+                    maxLength: 50
+                    type: string
+                  company_name:
+                    maxLength: 200
+                    type: string
+                  country:
+                    example: NL
+                    format: country-alpha2
+                    type: string
+                  email:
+                    example: merchant@example.com
+                    format: email
+                    maxLength: 100
+                    type: string
+                  fax:
+                    maxLength: 15
+                    type: string
+                  phone:
+                    maxLength: 15
+                    type: string
+                  vat_number:
+                    maxLength: 50
+                    type: string
+                  zipcode:
+                    example: 1011 NK
+                    maxLength: 30
+                    type: string
+                required:
+                  - company_name
+                  - email
+                  - country
+                type: object
+              success:
+                type: boolean
+            type: object
+      description: ''
+    '404':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/GenericErrorResponse.yaml
+      description: Account not found
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ValidationErrorResponse.yaml
+      description: Validation errors
+  summary: Update Account (BETA)
+  tags:
+    - Onboarding (BETA)

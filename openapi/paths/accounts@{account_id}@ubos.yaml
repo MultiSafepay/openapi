@@ -1,0 +1,278 @@
+get:
+  description: List all ultimate beneficiary owners for a merchant account
+  operationId: 'Partner::ListAccountUbos'
+  parameters:
+    - description: ''
+      in: path
+      name: account_id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            properties:
+              data:
+                items:
+                  additionalFields: false
+                  properties:
+                    address:
+                      maxLength: 100
+                      type: string
+                    address_apartment:
+                      maxLength: 15
+                      type: string
+                    birthday:
+                      format: yyyy-mm-dd
+                      type: string
+                    city:
+                      maxLength: 100
+                      type: string
+                    country:
+                      format: country-alpha2
+                      type: string
+                    country_of_birth:
+                      format: country-alpha2
+                      type: string
+                    email:
+                      format: email
+                      maxLength: 100
+                      type: string
+                    fax:
+                      maxLength: 15
+                      type: string
+                    job_title:
+                      maxLength: 100
+                      type: string
+                    mobile_phone:
+                      maxLength: 25
+                      type: string
+                    name:
+                      maxLength: 200
+                      type: string
+                    office_phone:
+                      maxLength: 25
+                      type: string
+                    percentage:
+                      type: integer
+                    state:
+                      maxLength: 100
+                      type: string
+                    title:
+                      enum:
+                        - mr
+                        - mrs
+                      type: string
+                    type:
+                      enum:
+                        - control_rights
+                        - other
+                        - shareholder
+                        - voting_rights
+                      type: string
+                    zipcode:
+                      maxLength: 20
+                      type: string
+                  required:
+                    - type
+                    - percentage
+                    - title
+                    - name
+                    - birthday
+                    - country_of_birth
+                    - job_title
+                    - email
+                    - country
+                  type: object
+                type: array
+              success:
+                type: boolean
+            type: object
+      description: ''
+  summary: List UBOs (BETA)
+  tags:
+    - Onboarding (BETA)
+post:
+  description: Create an ultimate beneficiary owner
+  operationId: 'Partner::CreateAccountUbo'
+  parameters:
+    - description: ''
+      in: path
+      name: account_id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          additionalFields: false
+          properties:
+            address:
+              maxLength: 100
+              type: string
+            address_apartment:
+              maxLength: 15
+              type: string
+            birthday:
+              format: yyyy-mm-dd
+              type: string
+            city:
+              maxLength: 100
+              type: string
+            country:
+              format: country-alpha2
+              type: string
+            country_of_birth:
+              format: country-alpha2
+              type: string
+            email:
+              format: email
+              maxLength: 100
+              type: string
+            fax:
+              maxLength: 15
+              type: string
+            job_title:
+              maxLength: 100
+              type: string
+            mobile_phone:
+              maxLength: 25
+              type: string
+            name:
+              maxLength: 200
+              type: string
+            office_phone:
+              maxLength: 25
+              type: string
+            percentage:
+              type: integer
+            state:
+              maxLength: 100
+              type: string
+            title:
+              enum:
+                - mr
+                - mrs
+              type: string
+            type:
+              enum:
+                - control_rights
+                - other
+                - shareholder
+                - voting_rights
+              type: string
+            zipcode:
+              maxLength: 20
+              type: string
+          required:
+            - type
+            - percentage
+            - title
+            - name
+            - birthday
+            - country_of_birth
+            - job_title
+            - email
+            - country
+          type: object
+    description: ''
+    required: 1
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            properties:
+              data:
+                additionalFields: false
+                properties:
+                  address:
+                    maxLength: 100
+                    type: string
+                  address_apartment:
+                    maxLength: 15
+                    type: string
+                  birthday:
+                    format: yyyy-mm-dd
+                    type: string
+                  city:
+                    maxLength: 100
+                    type: string
+                  country:
+                    format: country-alpha2
+                    type: string
+                  country_of_birth:
+                    format: country-alpha2
+                    type: string
+                  email:
+                    format: email
+                    maxLength: 100
+                    type: string
+                  fax:
+                    maxLength: 15
+                    type: string
+                  job_title:
+                    maxLength: 100
+                    type: string
+                  mobile_phone:
+                    maxLength: 25
+                    type: string
+                  name:
+                    maxLength: 200
+                    type: string
+                  office_phone:
+                    maxLength: 25
+                    type: string
+                  percentage:
+                    type: integer
+                  state:
+                    maxLength: 100
+                    type: string
+                  title:
+                    enum:
+                      - mr
+                      - mrs
+                    type: string
+                  type:
+                    enum:
+                      - control_rights
+                      - other
+                      - shareholder
+                      - voting_rights
+                    type: string
+                  zipcode:
+                    maxLength: 20
+                    type: string
+                required:
+                  - type
+                  - percentage
+                  - title
+                  - name
+                  - birthday
+                  - country_of_birth
+                  - job_title
+                  - email
+                  - country
+                type: object
+              success:
+                type: boolean
+            type: object
+      description: ''
+    '404':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/GenericErrorResponse.yaml
+      description: Account not found
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ValidationErrorResponse.yaml
+      description: Validation errors
+  summary: Create a UBO (BETA)
+  tags:
+    - Onboarding (BETA)

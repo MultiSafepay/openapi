@@ -1,0 +1,40 @@
+additionalFields: false
+properties:
+  amount:
+    minimum: 0
+    type: integer
+  checkoutdata:
+    format: checkout-data
+    type: object
+  currency:
+    example: EUR
+    maxLength: 3
+    minLength: 3
+    type: string
+  description:
+    example: monthly commission
+    maxLength: 512
+    minLength: 2
+    type: string
+  order_id:
+    example: fa423fabc31915acd97dew89
+    maxLength: 128
+    type: string
+  var1:
+    example: custom variable 1
+    maxLength: 128
+    type: string
+  var2:
+    example: custom variable 2
+    maxLength: 128
+    type: string
+  var3:
+    example: custom variable 3
+    maxLength: 128
+    type: string
+required:
+  - amount
+  - currency
+  - description
+  - order_id
+type: object

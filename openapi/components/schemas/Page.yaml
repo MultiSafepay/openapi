@@ -1,0 +1,5 @@
+additionalProperties: false
+properties:
+  total:
+    type: integer
+type: object
