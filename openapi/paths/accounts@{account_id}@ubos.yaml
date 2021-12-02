@@ -93,7 +93,7 @@ get:
       description: ''
   summary: List UBOs (BETA)
   tags:
-    - Onboarding (BETA)
+    - Accounts
 post:
   description: Create an ultimate beneficiary owner
   operationId: 'Partner::CreateAccountUbo'
@@ -275,4 +275,4 @@ post:
       description: Validation errors
   summary: Create a UBO (BETA)
   tags:
-    - Onboarding (BETA)
+    - Accounts

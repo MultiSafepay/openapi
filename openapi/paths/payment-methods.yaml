@@ -140,4 +140,4 @@ get:
       description: ''
   summary: Payment Methods
   tags:
-    - Payment Methods
+    - Payments

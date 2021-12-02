@@ -55,7 +55,7 @@ get:
       description: Site not found
   summary: Get Site (BETA)
   tags:
-    - Onboarding (BETA)
+    - Accounts
 patch:
   description: Update information about an existing site
   operationId: UpdateSite
@@ -151,4 +151,4 @@ patch:
       description: Validation errors
   summary: Update Site (BETA)
   tags:
-    - Onboarding (BETA)
+    - Accounts

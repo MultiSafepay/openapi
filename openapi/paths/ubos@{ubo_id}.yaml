@@ -97,7 +97,7 @@ get:
       description: UBO not found
   summary: Get UBO (BETA)
   tags:
-    - Onboarding (BETA)
+    - Accounts
 patch:
   description: Update information about an existing ultimate beneficiary owner
   operationId: UpdateUbo
@@ -270,4 +270,4 @@ patch:
       description: Validation errors
   summary: Update UBO (BETA)
   tags:
-    - Onboarding (BETA)
+    - Accounts

@@ -38,4 +38,4 @@ post:
       description: Validation errors
   summary: Create a Payment Link (BETA)
   tags:
-    - Onboarding (BETA)
+    - Accounts

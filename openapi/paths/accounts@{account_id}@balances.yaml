@@ -68,4 +68,4 @@ get:
       description: ''
   summary: List Account Balances (BETA)
   tags:
-    - Finance (BETA)
+    - Accounts

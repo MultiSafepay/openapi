@@ -50,7 +50,7 @@ get:
       description: ''
   summary: List uploaded ID's or passports (BETA)
   tags:
-    - Onboarding (BETA)
+    - Accounts
 post:
   description: Upload an ID or a passport for an ultimate beneficiary owner
   operationId: CreateIdentityDoc
@@ -146,4 +146,4 @@ post:
       description: Validation errors
   summary: Upload an ID or a passport (BETA)
   tags:
-    - Onboarding (BETA)
+    - Accounts

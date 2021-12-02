@@ -26,4 +26,4 @@ get:
       description: ''
   summary: Currently authenticated user
   tags:
-    - Generic
+    - Accounts

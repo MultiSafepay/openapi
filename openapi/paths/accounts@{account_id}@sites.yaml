@@ -51,7 +51,7 @@ get:
       description: ''
   summary: List Merchant Account Sites (BETA)
   tags:
-    - Onboarding (BETA)
+    - Accounts
 post:
   description: Create a new site for merchant account
   operationId: 'Partner::CreateAccountSite'
@@ -143,4 +143,4 @@ post:
       description: Validation errors
   summary: Create Account Site (BETA)
   tags:
-    - Onboarding (BETA)
+    - Accounts

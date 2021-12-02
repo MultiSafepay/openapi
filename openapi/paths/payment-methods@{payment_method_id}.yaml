@@ -62,4 +62,4 @@ get:
       description: Payment method not found
   summary: Get Payment method (BETA)
   tags:
-    - Customers (BETA)
+    - Payments

@@ -56,4 +56,4 @@ get:
       description: Identity doc not found
   summary: Get an ID or a passport (BETA)
   tags:
-    - Onboarding (BETA)
+    - Accounts

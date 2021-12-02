@@ -43,4 +43,4 @@ get:
       description: Bank account not found
   summary: Get Bank Account (BETA)
   tags:
-    - Onboarding (BETA)
+    - Accounts

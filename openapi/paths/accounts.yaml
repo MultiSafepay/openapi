@@ -70,4 +70,4 @@ get:
       description: ''
   summary: List Accounts (BETA)
   tags:
-    - Onboarding (BETA)
+    - Accounts

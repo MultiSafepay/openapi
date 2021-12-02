@@ -180,4 +180,4 @@ post:
       description: Validation errors
   summary: Signup Account (BETA)
   tags:
-    - Onboarding (BETA)
+    - Accounts

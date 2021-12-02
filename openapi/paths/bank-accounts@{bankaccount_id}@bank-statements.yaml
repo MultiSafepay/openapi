@@ -49,7 +49,7 @@ get:
       description: Bank account not found
   summary: List Bank Statements (BETA)
   tags:
-    - Onboarding (BETA)
+    - Accounts
 post:
   description: Upload a bank statement for a previously created bank account
   operationId: CreateBankStatement
@@ -131,4 +131,4 @@ post:
       description: Validation errors
   summary: Create a Bank Statement (BETA)
   tags:
-    - Onboarding (BETA)
+    - Accounts

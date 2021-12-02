@@ -47,4 +47,4 @@ get:
       description: Bank statement not found
   summary: Get Bank Statement (BETA)
   tags:
-    - Onboarding (BETA)
+    - Accounts

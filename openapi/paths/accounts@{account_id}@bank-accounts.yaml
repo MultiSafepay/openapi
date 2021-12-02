@@ -45,7 +45,7 @@ get:
       description: Merchant not found
   summary: List Bank Accounts (BETA)
   tags:
-    - Onboarding (BETA)
+    - Accounts
 post:
   description: Create a bank account
   operationId: 'Partner::CreateAccountBankAccount'
@@ -119,4 +119,4 @@ post:
       description: Validation errors
   summary: Create a Bank Account (BETA)
   tags:
-    - Onboarding (BETA)
+    - Accounts
