@@ -178,6 +178,6 @@ post:
           schema:
             $ref: ../components/schemas/ValidationErrorResponse.yaml
       description: Validation errors
-  summary: Signup Account (BETA)
+  summary: Create affiliated account
   tags:
     - Accounts

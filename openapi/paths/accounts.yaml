@@ -68,6 +68,6 @@ get:
                 type: boolean
             type: object
       description: ''
-  summary: List Accounts (BETA)
+  summary: List affiliated accounts
   tags:
     - Accounts

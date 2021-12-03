@@ -48,7 +48,7 @@ get:
                 type: boolean
             type: object
       description: ''
-  summary: List uploaded ID's or passports (BETA)
+  summary: List identity documents
   tags:
     - Accounts
 post:
@@ -144,6 +144,6 @@ post:
           schema:
             $ref: ../components/schemas/ValidationErrorResponse.yaml
       description: Validation errors
-  summary: Upload an ID or a passport (BETA)
+  summary: Add identity document
   tags:
     - Accounts

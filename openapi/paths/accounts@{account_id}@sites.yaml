@@ -49,7 +49,7 @@ get:
                 type: boolean
             type: object
       description: ''
-  summary: List Merchant Account Sites (BETA)
+  summary: List Merchant Account Sites
   tags:
     - Accounts
 post:
@@ -141,6 +141,6 @@ post:
           schema:
             $ref: ../components/schemas/ValidationErrorResponse.yaml
       description: Validation errors
-  summary: Create Account Site (BETA)
+  summary: Add website
   tags:
     - Accounts

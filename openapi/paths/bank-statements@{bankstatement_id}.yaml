@@ -45,6 +45,6 @@ get:
           schema:
             $ref: ../components/schemas/GenericErrorResponse.yaml
       description: Bank statement not found
-  summary: Get Bank Statement (BETA)
+  summary: Get bank statement
   tags:
     - Accounts

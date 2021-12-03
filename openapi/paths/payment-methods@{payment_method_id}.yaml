@@ -60,6 +60,6 @@ get:
           schema:
             $ref: ../components/schemas/GenericErrorResponse.yaml
       description: Payment method not found
-  summary: Get Payment method (BETA)
+  summary: Get payment method
   tags:
     - Payments

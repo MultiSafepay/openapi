@@ -95,7 +95,7 @@ get:
           schema:
             $ref: ../components/schemas/GenericErrorResponse.yaml
       description: UBO not found
-  summary: Get UBO (BETA)
+  summary: Get UBO
   tags:
     - Accounts
 patch:
@@ -268,6 +268,6 @@ patch:
           schema:
             $ref: ../components/schemas/ValidationErrorResponse.yaml
       description: Validation errors
-  summary: Update UBO (BETA)
+  summary: Update UBO
   tags:
     - Accounts

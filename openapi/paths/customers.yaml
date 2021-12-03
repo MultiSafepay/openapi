@@ -132,7 +132,7 @@ get:
                 type: boolean
             type: object
       description: ''
-  summary: List Customers (BETA)
+  summary: List customers (BETA)
   tags:
     - Customers (BETA)
 post:
@@ -346,6 +346,6 @@ post:
           schema:
             $ref: ../components/schemas/ValidationErrorResponse.yaml
       description: Validation errors
-  summary: Create Customer (BETA)
+  summary: Create customer (BETA)
   tags:
     - Customers (BETA)

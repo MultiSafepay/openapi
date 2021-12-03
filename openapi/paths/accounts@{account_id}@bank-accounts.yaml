@@ -43,7 +43,7 @@ get:
           schema:
             $ref: ../components/schemas/GenericErrorResponse.yaml
       description: Merchant not found
-  summary: List Bank Accounts (BETA)
+  summary: List bank accounts
   tags:
     - Accounts
 post:
@@ -117,6 +117,6 @@ post:
           schema:
             $ref: ../components/schemas/ValidationErrorResponse.yaml
       description: Validation errors
-  summary: Create a Bank Account (BETA)
+  summary: Add bank account
   tags:
     - Accounts

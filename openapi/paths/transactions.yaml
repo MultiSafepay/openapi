@@ -171,6 +171,6 @@ get:
                 type: boolean
             type: object
       description: ''
-  summary: List Transactions (BETA)
+  summary: List transactions
   tags:
     - Reconciliation

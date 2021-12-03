@@ -111,6 +111,6 @@ post:
           schema:
             $ref: ../components/schemas/ValidationErrorResponse.yaml
       description: Validation errors
-  summary: Do payout on behalf of a subaccount (BETA)
+  summary: Pay out affiliated account
   tags:
     - Accounts

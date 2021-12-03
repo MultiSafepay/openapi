@@ -36,6 +36,6 @@ post:
           schema:
             $ref: ../components/schemas/ValidationErrorResponse.yaml
       description: Validation errors
-  summary: Create a Payment Link (BETA)
+  summary: Create payment link
   tags:
     - Accounts

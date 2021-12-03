@@ -66,6 +66,6 @@ get:
                 type: boolean
             type: object
       description: ''
-  summary: List Account Balances (BETA)
+  summary: List affiliated account balances
   tags:
     - Accounts

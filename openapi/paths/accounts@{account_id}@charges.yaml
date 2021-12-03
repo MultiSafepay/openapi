@@ -111,6 +111,6 @@ post:
           schema:
             $ref: ../components/schemas/ValidationErrorResponse.yaml
       description: Validation errors
-  summary: Charge subaccount (BETA)
+  summary: Charge affiliated account
   tags:
     - Accounts

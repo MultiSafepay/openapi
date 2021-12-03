@@ -91,7 +91,7 @@ get:
                 type: boolean
             type: object
       description: ''
-  summary: List UBOs (BETA)
+  summary: List UBOs
   tags:
     - Accounts
 post:
@@ -273,6 +273,6 @@ post:
           schema:
             $ref: ../components/schemas/ValidationErrorResponse.yaml
       description: Validation errors
-  summary: Create a UBO (BETA)
+  summary: Add UBO
   tags:
     - Accounts

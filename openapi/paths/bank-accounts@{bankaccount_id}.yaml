@@ -41,6 +41,6 @@ get:
           schema:
             $ref: ../components/schemas/GenericErrorResponse.yaml
       description: Bank account not found
-  summary: Get Bank Account (BETA)
+  summary: Get bank account
   tags:
     - Accounts

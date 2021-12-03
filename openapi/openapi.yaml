@@ -32,8 +32,6 @@ paths:
     $ref: 'paths/bank-accounts@{bankaccount_id}@payment-links.yaml'
   '/bank-statements/{bankstatement_id}':
     $ref: 'paths/bank-statements@{bankstatement_id}.yaml'
-  /creditcard/bin:
-    $ref: paths/creditcard@bin.yaml
   /customers:
     $ref: paths/customers.yaml
   '/customers/{customer_id}':
@@ -56,31 +54,26 @@ paths:
     $ref: paths/payment-methods.yaml
   '/payment-methods/{payment_method_id}':
     $ref: 'paths/payment-methods@{payment_method_id}.yaml'
-  /plans:
-    $ref: paths/plans.yaml
-  '/plans/{plan_id}':
-    $ref: 'paths/plans@{plan_id}.yaml'
   /signup-account:
     $ref: paths/signup-account.yaml
   '/sites/{site_id}':
     $ref: 'paths/sites@{site_id}.yaml'
-  /subscriptions:
-    $ref: paths/subscriptions.yaml
-  '/subscriptions/{subscription_id}':
-    $ref: 'paths/subscriptions@{subscription_id}.yaml'
-  '/subscriptions/{subscription_id}/invoices':
-    $ref: 'paths/subscriptions@{subscription_id}@invoices.yaml'
-  /test/bank-transfers:
-    $ref: paths/test@bank-transfers.yaml
   /transactions:
     $ref: paths/transactions.yaml
   '/ubos/{ubo_id}':
     $ref: 'paths/ubos@{ubo_id}.yaml'
   '/ubos/{ubo_id}/identitydocs':
     $ref: 'paths/ubos@{ubo_id}@identitydocs.yaml'
-  /wallets/sessions/applepay:
-    $ref: paths/wallets@sessions@applepay.yaml
+tags:
+  - name: Payments
+    description: "Create and manage payments"
+  - name: Customers (BETA)
+    description: "Create and manage customers"
+  - name: Accounts
+    description: "Create and manage affiliated accounts"
+  - name: Reconciliation
+    description: "List transactions"
 security:
-  - BearerAuth: []
+  - BearerAuth: ['c2e8507e3bb11df070f6c45d36ea2a366eaecea2']
 servers:
   - url: 'https://testapi.multisafepay.com/v1/json'
