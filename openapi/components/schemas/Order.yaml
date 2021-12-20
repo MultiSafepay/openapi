@@ -1,0 +1,246 @@
+additionalFields: false
+properties:
+  type:
+    description: |
+      - `redirect` orders redirect the customer to a MultiSafepay payment page where the customer can select a payment method and/or complete the payment. 
+      - `direct` orders redirect the customer to an authentication or success page, depending on the payment method.
+      - `payment_link` orders are accessible through a the [merchant dashboard](https://merchant.multisafepay.com/).
+      - `checkout` for FastCheckout orders.
+    example: redirect
+    type: string
+    enum: [direct, redirect, checkout, payment_link]
+  order_id:
+    description: Your unique (client-defined) identifier for the order.
+    example: test-order-0001
+    maxLength: 50
+    type: string
+  gateway:
+    description: |
+      The unique gateway identifier for the payment method.
+
+      If unset, and `type` is set to `redirect`, a MultiSafepay payment page with all available payment methods is returned.
+    example: IDEAL
+    type: string
+    enum: [AFTERPAY, ALIPAY, APPLEPAY, MISTERCASH, BANKTRANS, BELFIUS, CBC, CREDITCARD, AMEX, MASTERCARD, VISA, DOTPAY, EDENCOM, EINVOICE, EPS, GIROPAY, GOOGLEPAY, IDEAL, IN3, KLARNA, MAESTRO, PAYAFTER, PAYPAL, DBRTP, SANTANDER, DIREB, DIRECTBANK, TRUSTLY, TRUSTPAY, WECHAT]
+  currency:
+    description: |
+      The currency you want the customer to pay in.
+
+      See also, Wikipedia – [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217).
+    example: EUR
+    type: string
+    format: ISO-4217 currency code
+  amount:
+    description: |
+      The amount the customer needs to pay in the currency’s smallest unit.
+
+      **Example**: For a payment of €14,95 set amount to `1495` and currency to `EUR`.
+    example: 100
+    type: unsigned integer
+    maxLength:
+  description:
+    description: |
+      The order description that appears:
+      - In your merchant dashboard 
+      - On the MultiSafepay payment page (set `type` to `redirect`)
+      - On the customer’s bank statement (if supported by their bank)
+    example: Test order description
+    type: string
+    maxLength: 200
+  payment_options:
+    description: contains URLs to the success page, cancel page and your webhook endpoint.
+    type: object
+    properties:
+      notification_url: 
+        description: Endpoint for MultiSafepay to send status updates and other notifications to you.
+        type: string
+        example: https://www.example.com/payment-updates/
+      notification_method:
+        description: |
+          Sets the notification method.
+          
+          We advice setting the notification method to `POST`, to reduce network load and increase security.
+
+          See also, [Notification URL](https://docs.multisafepay.com/developer/api/notification-url/).
+        type: string
+        enum: [POST, GET]
+        default: GET
+        example: POST
+      redirect_url:
+        description: Page that the customer is redirected to after **successful** payments.
+        type: string
+        example: https://www.example.com/test-order-0001/successful/
+      cancel_url:
+        description: Page that the customer is redirected to after **unsuccessful** payments.
+        type: string
+        example: https://www.example.com/test-order-0001/unsuccessful/
+      close_window:
+        description: To display the MultiSafepay payment page in a new window that automatically closes after the customer completes payment, set to `true`.
+        type: boolean
+        default: false
+  customer:
+    description: The customer’s personal information.
+    type: object
+    properties: 
+      locale:
+        description: |
+          Localizes the payment page with the customer’s language, region, and available payment methods.
+
+          For more information, see [Locale parameter](https://docs.multisafepay.com/developer/api/locale-parameter/).
+        format: ab_CD with ISO 639 language codes and ISO 3166 country codes.
+        default: 'en_US (American English)'
+      ip_address: 
+        description: |
+          The customer’s IP address.
+
+          Required for pay later methods and credit cards as part of our fraud check, optional but recommended for other payment methods.
+          If empty or incorrect (e.g. your IP address instead of the customer’s) when required, the transaction status may be Uncleared, or even Declined.
+        type: string
+        format: IP address
+        example: "123.123.123.123"
+      forwarded_ip:
+        description:
+          The [X-Forwarded-For](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For) header of the customer object when using a proxy.
+        type: string
+        format: IP address
+      first_name:
+        description: |
+          The customer’s first name.
+
+          We recommend always requiring the customer to provide their full name, instead of initials or abbreviations.
+        type: string
+        minLength: 2
+        example: John
+      last_name:
+        description: |
+          The customer’s last name.
+
+          We recommend always requiring the customer to provide their full name, instead of initials or abbreviations.
+        type: string
+        minLength: 2
+        example: Doe
+      gender:
+        description: The customer's title.
+        type: string
+        example: Mr.
+      birthday:
+        description: The customer's birthday.
+        type: string
+        format: yyyy-MM-dd
+        example: "1980-12-31"
+      address1:
+        description: The first line of the customer’s address.
+        type: string
+        example: Kraanspoor
+      address2:
+        description: The second line of the customer’s address.
+        type: string
+        example: ""
+      house_number:
+        description: The customer’s house number.
+        type: string
+        example: 39C
+      zip_code:
+        description: The customer’s ZIP/postal code.
+        type: string
+        example: 1033SC
+      city: 
+        description: The customer’s city of residence.
+        type: string
+        example: Amsterdam
+      country: 
+        description: |
+          The customer’s country of residence.
+          
+          See also, [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+        type: string
+        example: NL
+        format: ISO 3166-1 alpha-2
+      phone: 
+        description: The customer’s phone number.
+        type: string
+        example: 0208500500
+      email:
+        description: |
+          The customer’s email address.
+
+          Used to send [Second Chance](https://docs.multisafepay.com/features/second-chance/) emails and to conduct fraud checks.
+        type: string
+        example: customer@emailprovider.com
+      user_agent:
+        description: A characteristic string that identifies a browser.
+        type: string
+        example: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36
+      referrer: 
+        description: The unique identifier of where the customer/browser originates from.
+        type: string
+      reference:
+        description: |
+          A unique client-defined identifier for your customer.
+
+          See also, [Recurring payments orders](https://docs.multisafepay.com/api/#recurring-payments-orders).
+        type: string
+        example: customer-0001
+  gateway_info:
+    type: object
+    description: Information specific to the payment method (gateway).
+    properties:
+      flexible_3d: 
+        description: |
+          Sets whether or not 3D Secure authentication is required
+
+          **True**: enable the 3D Secure authentication  
+          **False**: disable the 3D Secure authentication
+        type: boolean
+      card_number:
+        description: The customer's credit card number
+        type: string
+        example: "4111111111111111"
+      card_holder_name:
+        description: The cardholder's name
+        type: name
+        example: John Doe
+      card_expiry_date:
+        description: The credit card's expiry date
+        type: string
+        format: yyMM
+        example: '2412'
+      card_cvc:
+        description: |
+          The card verification code (CVC) is a 3 or 4 digit number used as an additional security feature for card-not-present transactions.  
+          
+          `card_cvc` is not required for:
+          - Debit cards, like `MAESTRO`
+          - Recurring payments
+        type: string
+        example: '123'
+      term_url: 
+        description: URL that is used to instruct the card issuer where to redirect the authorisation query.
+        type: string
+        format: URL
+        example: https://example.com/?type=term&api_key=<api_key>
+      issuer_id:
+        description: The unique identifier of the gateway issuer.
+        type: string
+        example: '0021'
+  second_chance:
+    description: |
+      Sends a reminder email to the customer containing a payment link.
+
+      See also, [Second Chance](https://docs.multisafepay.com/features/second-chance/).
+    type: object
+    properties:
+      send_mail:
+        description: |
+          Sets whether reminder emails are sent if the customer doesn't complete the payment.
+
+          - If `true`, sends reminder emails.
+          - If `false` or unset, doesn't send reminder emails.
+        type: boolean
+type: object
+required:
+  - type
+  - order_id
+  - currency
+  - amount
+

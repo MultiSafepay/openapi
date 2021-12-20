@@ -56,9 +56,9 @@ get:
                 type: boolean
             type: object
       description: ''
-  summary: List Payment Methods (BETA)
+  summary: List payment methods
   tags:
-    - Customers (BETA)
+    - Customers
 post:
   description: ''
   operationId: CreateCustomerPaymentMethod
@@ -109,7 +109,7 @@ post:
             - status
           type: object
     description: ''
-    required: 1
+    required: true
   responses:
     '200':
       content:
@@ -162,6 +162,6 @@ post:
           schema:
             $ref: ../components/schemas/ValidationErrorResponse.yaml
       description: Validation errors
-  summary: Create Payment Method (BETA)
+  summary: Create payment method
   tags:
-    - Customers (BETA)
+    - Customers

@@ -89,9 +89,9 @@ get:
           schema:
             $ref: ../components/schemas/GenericErrorResponse.yaml
       description: Delivery details not found
-  summary: Get Delivery Details (BETA)
+  summary: Get delivery details
   tags:
-    - Customers (BETA)
+    - Customers
 patch:
   description: ''
   operationId: UpdateDeliveryDetails
@@ -163,7 +163,7 @@ patch:
           required: []
           type: object
     description: ''
-    required: 1
+    required: true
   responses:
     '200':
       content:
@@ -245,6 +245,6 @@ patch:
           schema:
             $ref: ../components/schemas/ValidationErrorResponse.yaml
       description: Validation errors
-  summary: Update Delivery Details (BETA)
+  summary: Update delivery details
   tags:
-    - Customers (BETA)
+    - Customers

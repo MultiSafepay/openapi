@@ -93,7 +93,7 @@ post:
             - document_type
           type: object
     description: ''
-    required: 1
+    required: true
   responses:
     '200':
       content:

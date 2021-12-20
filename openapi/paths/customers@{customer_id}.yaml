@@ -117,9 +117,9 @@ get:
           schema:
             $ref: ../components/schemas/GenericErrorResponse.yaml
       description: Customer not found
-  summary: Get Customer (BETA)
+  summary: Get Customer
   tags:
-    - Customers (BETA)
+    - Customers
 patch:
   description: ''
   operationId: UpdateCustomer
@@ -217,7 +217,7 @@ patch:
           required: []
           type: object
     description: ''
-    required: 1
+    required: true
   responses:
     '200':
       content:
@@ -327,6 +327,6 @@ patch:
           schema:
             $ref: ../components/schemas/ValidationErrorResponse.yaml
       description: Validation errors
-  summary: Update Customer (BETA)
+  summary: Update Customer
   tags:
-    - Customers (BETA)
+    - Customers

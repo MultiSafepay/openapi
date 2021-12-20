@@ -179,7 +179,7 @@ post:
             - country
           type: object
     description: ''
-    required: 1
+    required: true
   responses:
     '200':
       content:

@@ -85,9 +85,9 @@ get:
                 type: boolean
             type: object
       description: ''
-  summary: List Delivery Details (BETA)
+  summary: List Delivery Details
   tags:
-    - Customers (BETA)
+    - Customers
 post:
   description: ''
   operationId: CreateDeliveryDetails
@@ -167,7 +167,7 @@ post:
             - zip_code
           type: object
     description: ''
-    required: 1
+    required: true
   responses:
     '200':
       content:
@@ -249,6 +249,6 @@ post:
           schema:
             $ref: ../components/schemas/ValidationErrorResponse.yaml
       description: Validation errors
-  summary: Create Delivery Details (BETA)
+  summary: Create delivery details
   tags:
-    - Customers (BETA)
+    - Customers

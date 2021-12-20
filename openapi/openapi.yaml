@@ -3,11 +3,25 @@ components:
     BearerAuth:
       scheme: bearer
       type: http
+    ApiKeyQuery:
+      type: apiKey
+      name: api_key
+      in: query
+    ApiKeyHeader:
+      type: apiKey
+      name: api_key
+      in: header
 info:
   title: MultiSafepay API
   version: 1.0.0
+  contact:
+    name: MultiSafepay Integration Team
+    url: https://www.multisafepay.com/contact
+    email: integration@multisafepay.com
 openapi: 3.0.0
 paths:
+  /orders:
+    $ref: paths/orders.yaml
   /accounts:
     $ref: paths/accounts.yaml
   '/accounts/{account_id}':
@@ -67,13 +81,13 @@ paths:
 tags:
   - name: Payments
     description: "Create and manage payments"
-  - name: Customers (BETA)
+  - name: Customers
     description: "Create and manage customers"
   - name: Accounts
     description: "Create and manage affiliated accounts"
   - name: Reconciliation
     description: "List transactions"
 security:
-  - BearerAuth: ['c2e8507e3bb11df070f6c45d36ea2a366eaecea2']
+  - ApiKeyQuery: ['c2e8507e3bb11df070f6c45d36ea2a366eaecea2']
 servers:
   - url: 'https://testapi.multisafepay.com/v1/json'

@@ -132,9 +132,9 @@ get:
                 type: boolean
             type: object
       description: ''
-  summary: List customers (BETA)
+  summary: List customers
   tags:
-    - Customers (BETA)
+    - Customers
 post:
   description: Create a new customer
   operationId: CreateCustomer
@@ -236,7 +236,7 @@ post:
             - zip_code
           type: object
     description: ''
-    required: 1
+    required: true
   responses:
     '200':
       content:
@@ -348,4 +348,4 @@ post:
       description: Validation errors
   summary: Create customer (BETA)
   tags:
-    - Customers (BETA)
+    - Customers
