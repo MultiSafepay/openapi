@@ -1,6 +1,6 @@
 # MultiSafepay API OpenAPI Definition
 
-## Working on your OpenAPI Definition
+## Working on the OpenAPI Definition
 
 ### Install
 
@@ -20,13 +20,6 @@ Validates the definition.
 
 ## Contribution Guide
 
-Below is a sample contribution guide. The tools
-in the repository don't restrict you to any
-specific structure. Adjust the contribution guide
-to match your own structure. However, if you
-don't have a structure in mind, this is a
-good place to start.
-
 Update this contribution guide if you
 adjust the file/folder organization.
 
@@ -35,7 +28,6 @@ tools including the lint tool and the reference
 docs engine.  Open it to find examples and
 [read the docs](https://redoc.ly/docs/cli/configuration/)
 for more information.
-
 
 ### Schemas
 
