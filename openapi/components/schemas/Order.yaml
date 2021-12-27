@@ -35,9 +35,9 @@ properties:
       The amount the customer needs to pay in the currency’s smallest unit.
 
       **Example**: For a payment of €14,95 set amount to `1495` and currency to `EUR`.
-    example: 100
     type: unsigned integer
-    maxLength:
+    minimum: 0
+    example: 100
   description:
     description: |
       The order description that appears:
@@ -95,6 +95,41 @@ properties:
           Apply a [payment page styling template](https://docs.multisafepay.com/payment-pages/styling/) through it's identifier.
 
           If `payment_options.template` is also set, `payment_options.template` is used.
+        type: string
+      template: 
+        description: |
+          A template object structure.
+          
+          The template structure overrides the `payment_options.template_id`.
+        properties:
+          version: 
+            description:
+  var1:
+    description: Variable for storing additional data.
+    type: string
+    example: ""
+  var2:
+    description: Variable for storing additional data.
+    type: string
+    example: ""
+  var3:
+    description: |
+      Variable for storing additional data.
+
+      `var3` is also used to store Split Payment metadata.
+    type: string
+    example: ""
+  custom_info:
+    description: Used to store custom information about the order
+    properties:
+      custom_1:
+        description: First string to store 
+        type: string
+      custom_2:
+        description:
+        type: string
+      custom_3:
+        description:
         type: string
   customer:
     description: The customer’s personal information.
@@ -177,7 +212,7 @@ properties:
       phone: 
         description: The customer’s phone number.
         type: string
-        example: 0208500500
+        example: "0208500500"
       email:
         description: |
           The customer’s email address.
@@ -199,9 +234,46 @@ properties:
           See also, [Recurring payments orders](https://docs.multisafepay.com/api/#recurring-payments-orders).
         type: string
         example: customer-0001
+  delivery:
+    description: The delivery information for shipping the order.
+    type: object
+    properties:
+      first_name:
+        description: The customer’s first name.
+        type: string
+        minLength: 2
+        example: "John"
+      last_name:
+        description: The customer's last name.
+        type: string
+        minLength: 2
+        example: "Doe"
+      address1:
+        description: The first line of the customer’s address.
+        type: string
+        example: "Kraanspoor"
+      house_number:
+        description: The customer’s house number.
+        type: string
+        example: "39C"
+      zip_code:
+        description: The customer’s ZIP/postal code.
+        type: string
+        example: "1033 SC"
+      city:
+        description: The customer’s city of residence.
+        type: string
+        example: "Amsterdam"
+      country:
+        description: | 
+          The customer’s country of residence.
+
+          **Format**: [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+        type: string
+        example: "NL"
   gateway_info:
     type: object
-    description: Information specific to the payment method (gateway).
+    description: Information specific to the payment method (`gateway`).
     properties:
       flexible_3d: 
         description: |
@@ -222,7 +294,7 @@ properties:
         description: The credit card's expiry date
         type: string
         format: yyMM
-        example: '2412'
+        example: "2412"
       card_cvc:
         description: |
           The card verification code (CVC) is a 3 or 4 digit number used as an additional security feature for card-not-present transactions.  
@@ -231,7 +303,7 @@ properties:
           - Debit cards, like `MAESTRO`
           - Recurring payments
         type: string
-        example: '123'
+        example: "123"
       term_url: 
         description: URL that is used to instruct the card issuer where to redirect the authorisation query.
         type: string
@@ -259,6 +331,16 @@ properties:
     description: The settings for payment processing.
     type: object 
     properties:
+      validate_cart:
+        description: |
+          If set to `true`, the value of `amount` is compared with the calculated total value of the shopping cart (returned as `order_total`).
+
+          If the values:
+          
+          - Match: the request is successful.
+          - Don’t match: the request is not successful and error_code 1027 is returned.
+        type: boolean
+        default: false
       tax_tables:
         description: Set default VAT settings and create VAT classes in the alternate array that you can apply to individual shopping cart items.
         type: object
@@ -273,7 +355,8 @@ properties:
               rate:
                 description: |
                   The tax rate percentage as a fraction e.g. 15% is expressed as `0.15`
-                type: float
+                type: number
+                format: float
                 example: 0.15
                 minimum: 0
           alternate: 
@@ -295,7 +378,8 @@ properties:
                     properties:
                       rate:
                         description: The tax rate percentage expressed as a fraction.
-                        type: float
+                        type: number
+                        format: float
                         example: 0.0825
                         minimum: 0
                       country:
@@ -306,18 +390,6 @@ properties:
                         type: string
                         example: US
                         format: ISO 3166-1 alpha-2
-  custom_info:
-    description: Used to store custom information about the order
-    properties:
-      custom_1:
-        description: First string to store 
-        type: string
-      custom_2:
-        description:
-        type: string
-      custom_3:
-        description:
-        type: string
   items:
     description: Lets you display the items in the customer’s order in a single line on your checkout page instead of including a `shopping_cart` object.
     type: string
@@ -326,16 +398,141 @@ properties:
     description: |
       Number of days the payment link is valid for.
 
-      If `seconds_active` is also set, `seconds_active` is used.
-    default: 30
-    type: integer
-  seconds_active: 
-      description: |
-        Number of seconds the payment link is valid for.
+      Applies only to `redirect`-type orders.
 
-        If `days_active` is also set, `seconds_active` is used.
-      default: 2592000
-      type: integer 
+      If `seconds_active` is also set, `seconds_active` is used.
+    type: integer
+    minimum: 1
+    default: 30
+  seconds_active: 
+    description: |
+      Number of seconds the payment link is valid for.
+
+      Applies only to `redirect`-type orders.
+
+      If `days_active` is also set, `seconds_active` is used.
+    type: integer
+    minimum: 1
+    default: 2592000
+  plugin:
+    description: Specifies information about your integration, useful for debugging.
+    properties:
+      shop:
+        description: The ecommerce platform that you use.
+        type: string
+        example: "My custom-built ecommerce"
+      plugin_version:
+        description: The version of the plugin.
+        type: string
+        example: "1.0.0"
+      shop_version: 
+        description: The version of the ecommerce webshop you use.
+        type: string
+        example: ""
+      partner: 
+        description: The name of the third party that developed the ecommerce webshop.
+        type: string
+      shop_root_url:
+        description: The root/base URL of the ecommerce webshop.
+        type: string
+        example: "https://www.my-ecommerce.com"
+  affiliate:
+    description: Settings related to affiliated MultiSafepay accounts
+    type: object
+    properties:
+      split_payments:
+        description: |
+          Split the amount of a transaction between partner or affiliate accounts by a percentage, a fixed amount, or both.
+
+          For every split payment rule, add an object to the array.
+        type: array
+        items:
+          type: object
+          properties:
+            merchant: 
+              description: The account ID of the MultiSafepay account
+              type: string
+              example: 1001001
+            fixed: 
+              description: Specify the amount to split in cents.
+              type: integer
+              minimum: 1
+            percentage: 
+              description: Specify a percentage of the amount to split.
+              type: number
+              format: float
+              minimum: 1
+            description: 
+              description: The description of the split payment.
+              type: string
+  shopping_cart:
+    description: |
+      Array of items in the customer's shopping cart, including the tax class.
+
+      If you have a custom integration, include the complete specification of the `shopping_cart`.
+    type: object
+    properties:
+      items:
+        description: |
+          The items in the customer's shopping cart. 
+        
+          Specify the relevant tax ruling per item.
+        array:
+        items:
+          type: object
+          properties:
+            name:
+              description: Name of the product/service
+              type: string
+              example: Backpack
+            description:
+              description: Description of the product/service
+              type: string
+              example: Black cotton backpack with logo.
+            unit_price:
+              description: | 
+                The unit price (in decimals) of the item, excluding VAT.
+
+                The currency of the shopping cart is set at an order-level with `currency`. 
+
+                **Example**: A €90 backpack has value `90`
+              type: number
+              format: float
+              example: 90.00
+            quantity:
+              description: The number of sold units of the item.
+              type: integer
+              example: 1
+            merchant_item_id:
+              description: |
+                Your unique (client-defined) identifier for the product/service.
+
+                If this item specifies the shipping costs, set to `msp-shipping`.
+              type: string
+              example: "12345678"
+              maxLength: 
+            tax_table_selector:
+              description: Your client-defined identifier for a tax table, specified as `checkout_options.tax_tables.alternate.name`.
+              type: string
+              example: "VAT-21"
+            weight:
+              description: The weight per product.
+              type: object
+              properties:
+                unit: 
+                  description: The unit of weight.
+                  type: string
+                  enum: [KG]
+                  example: KG
+                value: 
+                  description: |
+                    The weight of the item corresponding to the unit.
+
+                    For a 2 kilogram product:
+                    - Set `value` to `2`.
+                    - Set `unit` to `KG`.
+                  type: number
+                  example: 2
 type: object
 required:
   - type

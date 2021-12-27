@@ -1,8 +1,8 @@
 components:
   securitySchemes:
     BearerAuth:
-      scheme: bearer
       type: http
+      scheme: bearer
     ApiKeyQuery:
       type: apiKey
       name: api_key
@@ -91,3 +91,6 @@ security:
   - ApiKeyQuery: ['c2e8507e3bb11df070f6c45d36ea2a366eaecea2']
 servers:
   - url: 'https://testapi.multisafepay.com/v1/json'
+    description: Test environment
+  - url: 'https://api.multisafepay.com/v1/json'
+    description: Production environment
