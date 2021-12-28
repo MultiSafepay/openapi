@@ -1,6 +1,6 @@
 post:
-  description: Calculate customer credibility score
-  operationId: 'PAD::CustomerCredibilityScore'
+  description: Calculate customer credit score
+  operationId: 'PAD::CustomerCreditScore'
   parameters: []
   requestBody:
     content:
@@ -138,6 +138,6 @@ post:
           schema:
             $ref: ../components/schemas/ValidationErrorResponse.yaml
       description: Validation errors
-  summary: Customer Credibility Score (BETA)
+  summary: Request customer credit score (BETA)
   tags:
-    - PAD (BETA)
+    - Pay after delivery (BETA)

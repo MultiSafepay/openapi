@@ -87,6 +87,8 @@ tags:
     description: "Create and manage affiliated accounts"
   - name: Reconciliation
     description: "List transactions"
+  - name: Pay after delivery (BETA)
+    description: "Request customer credit scores, track collecting statuses"
 security:
   - ApiKeyQuery: ['c2e8507e3bb11df070f6c45d36ea2a366eaecea2']
 servers:
