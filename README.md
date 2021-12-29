@@ -1,52 +1,50 @@
-# MultiSafepay API OpenAPI Definition
+# MultiSafepay API OpenAPI definition
 
-## Working on the OpenAPI Definition
+## Working on the OpenAPI definition
 
-### Install
+## Installation
 
 1. Install [Node JS](https://nodejs.org/).
-2. Clone this repo and run `npm install` in the repo root.
+2. Clone this repo, and then in the repo root, run `npm install`.
 
-### Usage
+### Use
 
 #### `npm start`
 Starts the reference docs preview server.
 
 #### `npm run build`
-Bundles the definition to the dist folder.
+Bundles the definition in the dist folder.
 
 #### `npm test`
 Validates the definition.
 
-## Contribution Guide
+## Contribution guide
 
-Update this contribution guide if you
-adjust the file/folder organization.
+If you adjust the file/folder organization, update this contribution guide.
 
-The `.redocly.yaml` controls settings for various
-tools including the lint tool and the reference
-docs engine.  Open it to find examples and
-[read the docs](https://redoc.ly/docs/cli/configuration/)
-for more information.
+The `.redocly.yaml` controls the settings for various
+tools, including the lint tool and the reference
+docs engine. For examples, open the file. For more information,
+[read the docs](https://redoc.ly/docs/cli/configuration/).
 
 ### Schemas
 
-#### Adding Schemas
+#### Adding schemas
 
-1. Navigate to the `openapi/components/schemas` folder.
-2. Add a file named as you wish to name the schema.
+1. Go to the `openapi/components/schemas` folder.
+2. To name the schema, add a file with an appropriate filename.
 3. Define the schema.
-4. Refer to the schema using the `$ref` (see example below).
+4. Refer to the schema using the `$ref`. See the example below.
 
-##### Example Schema
-This is a very simple schema example:
+##### Example schema
+A very simple example:
 ```yaml
 type: string
-description: The resource ID. Defaults to UUID v4
+description: The resource ID. Default: UUID v4
 maxLength: 50
 example: 4f6cf35x-2c4y-483z-a0a9-158621f77a21
 ```
-This is a more complex schema example:
+A more complex example:
 ```yaml
 type: object
 properties:
@@ -63,11 +61,10 @@ properties:
     type: string
     writeOnly: true
     description: |
-      A write-only payment token; if supplied, it will be converted into a
-      payment instrument and be set as the `defaultPaymentInstrument`. The
-      value of this property will override the `defaultPaymentInstrument`
-      in the case that both are supplied. The token may only be used once
-      before it is expired.
+      A write-only payment token. If supplied, it is converted into a
+      payment instrument and set as the `defaultPaymentInstrument`. If both are supplied, the
+      value of this property overrides the `defaultPaymentInstrument. The token can only be used once
+      before it expires.
   defaultPaymentInstrument:
     $ref: ./PaymentInstrument.yaml
   createdTime:
@@ -119,34 +116,34 @@ properties:
 
 ##### Using the `$ref`
 
-Notice in the complex example above the schema definition itself has `$ref` links to other schemas defined.
+In the complex example above, the schema definition contains `$ref` links to other schema definitions.
 
-Here is a small excerpt with an example:
+Example:
 
 ```yaml
 defaultPaymentInstrument:
   $ref: ./PaymentInstrument.yaml
 ```
 
-The value of the `$ref` is the path to the other schema definition.
+The value of the `$ref` is the path to another schema definition.
 
-You may use `$ref`s to compose schema from other existing schema to avoid duplication.
+You can use `$ref`s to build schemas using other existing schemas to avoid duplication.
 
-You will use `$ref`s to reference schema from your path definitions.
+Use `$ref`s to reference schemas from your path definitions.
 
-#### Editing Schemas
+#### Editing schemas
 
-1. Navigate to the `openapi/components/schemas` folder.
-2. Open the file you wish to edit.
-3. Edit.
+1. Go to the `openapi/components/schemas` folder.
+2. Open the file you want to edit.
+3. Edit as required.
 
 ### Paths
 
-#### Adding a Path
+#### Adding a path
 
-1. Navigate to the `openapi/paths` folder.
-2. Add a new YAML file named like your URL endpoint except replacing `/` with `@` and putting path parameters into curly braces like `{example}`.
-3. Add the path and a ref to it inside of your `openapi.yaml` file inside of the `openapi` folder.
+1. Go to the `openapi/paths` folder.
+2. Add a new YAML file named with your URL endpoint, but replace `/` with `@` and put path parameters between curly braces like `{example}`.
+3. Add the path and a ref to it in your `openapi.yaml` file in the `openapi` folder.
 
 Example addition to the `openapi.yaml` file:
 ```yaml
@@ -154,7 +151,7 @@ Example addition to the `openapi.yaml` file:
   $ref: './paths/customers@{id}.yaml'
 ```
 
-Here is an example of a YAML file named `customers@{id}.yaml` in the `paths` folder:
+Example of a YAML file named `customers@{id}.yaml` in the `paths` folder:
 
 ```yaml
 get:
@@ -163,7 +160,7 @@ get:
   summary: Retrieve a list of customers
   operationId: GetCustomerCollection
   description: |
-    You can have a markdown description here.
+    You can include a markdown description here.
   parameters:
     - $ref: ../components/parameters/collectionLimit.yaml
     - $ref: ../components/parameters/collectionOffset.yaml
@@ -173,7 +170,7 @@ get:
     - $ref: ../components/parameters/collectionFields.yaml
   responses:
     '200':
-      description: A list of Customers was retrieved successfully
+      description: A list of customers was successfully retrieved
       headers:
         Rate-Limit-Limit:
           $ref: ../components/headers/Rate-Limit-Limit.yaml
@@ -227,16 +224,14 @@ post:
         $ref: ../code_samples/PHP/customers/post.php
 ```
 
-You'll see extensive usage of `$ref`s in this example to different types of components including schemas.
+This example contains a lot of `$ref`s to different types of components, including schemas, as well as `$ref`s to code samples.
 
-You'll also notice `$ref`s to code samples.
+### Adding code samples
 
-### Code samples
+1. Go to the `openapi/code_samples` folder.
+2. Then go to the `<language>` (e.g. PHP) sub-folder.
+3. Go to the `path` folder, and add the ref to the code sample.
 
-1. Navigate to the `openapi/code_samples` folder.
-2. Navigate to the `<language>` (e.g. PHP) sub-folder.
-3. Navigate to the `path` folder, and add ref to the code sample.
+To add other languages, add new folders at the appropriate path level.
 
-You can add languages by adding new folders at the appropriate path level.
-
-More details inside the `code_samples` folder README.
+For more information, see the `code_samples` README.
