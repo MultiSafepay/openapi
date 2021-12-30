@@ -16,7 +16,6 @@ get:
             properties:
               data:
                 items:
-                  additionalFields: false
                   properties:
                     currency:
                       maxLength: 3
@@ -60,7 +59,6 @@ post:
     content:
       application/json:
         schema:
-          additionalFields: false
           properties:
             currency:
               maxLength: 3
@@ -85,7 +83,6 @@ post:
           schema:
             properties:
               data:
-                additionalFields: false
                 properties:
                   currency:
                     maxLength: 3

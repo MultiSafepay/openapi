@@ -28,6 +28,8 @@ post:
         application/json:
           schema:
             $ref: '../components/schemas/Order.yaml'
+            type: object
+              - var1
   summary: Create an order
   tags:
     - Payments

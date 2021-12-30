@@ -1,4 +1,3 @@
-additionalFields: false
 properties:
   type:
     description: |
@@ -539,4 +538,3 @@ required:
   - order_id
   - currency
   - amount
-

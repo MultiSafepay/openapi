@@ -6,10 +6,8 @@ post:
     content:
       application/json:
         schema:
-          additionalFields: false
           properties:
             account:
-              additionalFields: false
               properties:
                 address1:
                   example: Jodenbreestraat 4
@@ -97,7 +95,6 @@ post:
             properties:
               data:
                 account:
-                  additionalFields: false
                   properties:
                     address1:
                       example: Jodenbreestraat 4

@@ -1,4 +1,3 @@
-additionalFields: false
 properties:
   allow_cancel_before_days:
     minimum: 0

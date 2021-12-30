@@ -16,7 +16,6 @@ get:
             properties:
               data:
                 items:
-                  additionalFields: false
                   properties:
                     document_type:
                       enum:
@@ -65,7 +64,6 @@ post:
     content:
       application/json:
         schema:
-          additionalFields: false
           properties:
             document_type:
               enum:
@@ -101,7 +99,6 @@ post:
           schema:
             properties:
               data:
-                additionalFields: false
                 properties:
                   document_type:
                     enum:

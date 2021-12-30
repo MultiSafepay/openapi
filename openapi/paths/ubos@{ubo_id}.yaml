@@ -15,7 +15,6 @@ get:
           schema:
             properties:
               data:
-                additionalFields: false
                 properties:
                   address:
                     maxLength: 100
@@ -112,7 +111,6 @@ patch:
     content:
       application/json:
         schema:
-          additionalFields: false
           properties:
             address:
               maxLength: 100
@@ -182,7 +180,6 @@ patch:
           schema:
             properties:
               data:
-                additionalFields: false
                 properties:
                   address:
                     maxLength: 100

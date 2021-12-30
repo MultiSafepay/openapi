@@ -1,4 +1,3 @@
-additionalFields: false
 properties:
   address:
     maxLength: 100

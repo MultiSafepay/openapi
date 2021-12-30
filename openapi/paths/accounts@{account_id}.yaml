@@ -15,7 +15,6 @@ get:
           schema:
             properties:
               data:
-                additionalFields: false
                 properties:
                   address1:
                     example: Jodenbreestraat 4
@@ -95,7 +94,6 @@ patch:
     content:
       application/json:
         schema:
-          additionalFields: false
           properties:
             address1:
               example: Jodenbreestraat 4
@@ -155,7 +153,6 @@ patch:
           schema:
             properties:
               data:
-                additionalFields: false
                 properties:
                   address1:
                     example: Jodenbreestraat 4

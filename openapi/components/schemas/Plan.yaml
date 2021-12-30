@@ -1,4 +1,3 @@
-additionalFields: false
 properties:
   amount:
     minimum: 0

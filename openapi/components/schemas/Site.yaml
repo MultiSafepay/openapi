@@ -1,4 +1,3 @@
-additionalFields: false
 properties:
   name:
     maxLength: 120

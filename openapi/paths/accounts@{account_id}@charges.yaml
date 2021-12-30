@@ -12,7 +12,6 @@ post:
     content:
       application/json:
         schema:
-          additionalFields: false
           properties:
             amount:
               minimum: 0
@@ -61,7 +60,6 @@ post:
           schema:
             properties:
               data:
-                additionalFields: false
                 properties:
                   amount:
                     minimum: 0

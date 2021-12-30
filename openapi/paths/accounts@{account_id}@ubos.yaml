@@ -16,7 +16,6 @@ get:
             properties:
               data:
                 items:
-                  additionalFields: false
                   properties:
                     address:
                       maxLength: 100
@@ -108,7 +107,6 @@ post:
     content:
       application/json:
         schema:
-          additionalFields: false
           properties:
             address:
               maxLength: 100
@@ -187,7 +185,6 @@ post:
           schema:
             properties:
               data:
-                additionalFields: false
                 properties:
                   address:
                     maxLength: 100

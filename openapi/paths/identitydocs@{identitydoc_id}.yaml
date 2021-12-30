@@ -17,7 +17,6 @@ get:
           schema:
             properties:
               data:
-                additionalFields: false
                 properties:
                   document_type:
                     enum:

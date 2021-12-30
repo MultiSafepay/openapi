@@ -16,7 +16,6 @@ get:
             properties:
               data:
                 items:
-                  additionalFields: false
                   properties:
                     encoded_content:
                       format: base64-encoded-content
@@ -64,7 +63,6 @@ post:
     content:
       application/json:
         schema:
-          additionalFields: false
           properties:
             encoded_content:
               format: base64-encoded-content
@@ -93,7 +91,6 @@ post:
           schema:
             properties:
               data:
-                additionalFields: false
                 properties:
                   encoded_content:
                     format: base64-encoded-content

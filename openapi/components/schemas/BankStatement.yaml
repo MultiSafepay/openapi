@@ -1,4 +1,3 @@
-additionalFields: false
 properties:
   encoded_content:
     format: base64-encoded-content

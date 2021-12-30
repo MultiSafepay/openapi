@@ -6,7 +6,6 @@ post:
     content:
       application/json:
         schema:
-          additionalFields: false
           properties:
             billing_address:
               properties:
