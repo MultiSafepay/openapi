@@ -1,0 +1,47 @@
+get:
+  description: | 
+    Get a list of issuers for a specific payment method. 
+
+    **Note:** The list of issuers may differ when requested via the test environment.
+  operationId: ListGatewayIssuers
+  parameters:
+    - description: 'The unique identifier of the payment method you want to retrieve a list of issuers for.'
+    
+      in: path
+      name: gateway
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            properties:
+              success:
+                type: boolean
+              data:
+                type: array
+                items: 
+                  type: object
+                  properties: 
+                    code:
+                      type: string
+                      enum: ["0031", "0761", "4371", "1235", "0721", "0801", "0021", "0771", "1099", "0751", "0511", "0161"]
+                      description: The unique identifiers of the issuers.
+                      example: "0031" 
+                    description:
+                      type: string
+                      example: "ABN AMRO" 
+            type: object
+      description: ''
+    '404':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/GenericErrorResponse.yaml
+      description: Customer not found
+  summary: List gateway issuers
+  tags:
+    - Payments
+
