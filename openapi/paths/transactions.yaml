@@ -68,7 +68,8 @@ get:
       schema:
         type: array
         items:
-          $ref: "../components/parameters/paymentmethods.yaml"
+          $ref: "../components/parameters/gatewayIdentifiers.yaml"
+          type: string
     - name: status
       description: Returns transactions with the specified [order status](https://docs.multisafepay.com/about-payments/multisafepay-statuses/)
       in: query
