@@ -5,7 +5,7 @@ get:
     **Note:** The list of issuers may differ when requested via the test environment.
   operationId: ListGatewayIssuers
   parameters:
-    - description: | 
+    - description: "The unique identifier of the payment method you want to retrieve a list of issuers for."
       in: path
       name: gateway
       required: true
