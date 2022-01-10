@@ -58,6 +58,8 @@ paths:
     $ref: 'paths/delivery-details@{delivery_details_id}.yaml'
   '/identitydocs/{identitydoc_id}':
     $ref: 'paths/identitydocs@{identitydoc_id}.yaml'
+  /gateways/{id}:
+    $ref: paths/gateways@{gateway_id}.yaml
   /issuers/{gateway}:
     $ref: paths/issuers@{gateway}.yaml
   /me:
