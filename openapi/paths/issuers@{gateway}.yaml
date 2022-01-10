@@ -6,7 +6,6 @@ get:
   operationId: ListGatewayIssuers
   parameters:
     - description: | 
-        The unique identifier of the payment method you want to retrieve a list of issuers for.
       in: path
       name: gateway
       required: true
