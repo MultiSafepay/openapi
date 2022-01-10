@@ -62,6 +62,8 @@ paths:
     $ref: paths/gateways@{gateway_id}.yaml
   /issuers/{gateway}:
     $ref: paths/issuers@{gateway}.yaml
+  /gateways:
+    $ref: paths/gateways.yaml
   /me:
     $ref: paths/me.yaml
   /pad/ccs:
