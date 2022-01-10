@@ -1,38 +1,60 @@
 get:
   description: | 
-    Get a list of issuers for a specific payment method. 
+    List the available issuers for a payment method – supports iDEAL only.
 
     **Note:** The list of issuers may differ when requested via the test environment.
   operationId: ListGatewayIssuers
   parameters:
-    - description: 'The unique identifier of the payment method you want to retrieve a list of issuers for.'
-    
+    - description: | 
+        The unique identifier of the payment method you want to retrieve a list of issuers for.
       in: path
       name: gateway
       required: true
       schema:
         type: string
+        enum: ["IDEAL"]
   responses:
     '200':
       content:
         application/json:
+          example:
+            $ref: '../components/examples/responses/gatewayIssuers.json'
           schema:
             properties:
               success:
                 type: boolean
               data:
                 type: array
+                description: |
+                  | Code | Description |
+                  |---|---|
+                  | 0031     | ABN AMRO              |
+                  | 0761     | ASN Bank              |
+                  | 4371     | bunq                  |
+                  | 1235     | Handelsbanken         |
+                  | 0721     | ING                   |
+                  | 0801     | Knab                  |
+                  | 0021     | Rabobank              |
+                  | 0771     | Regio Bank            |
+                  | 1099     | Revolut               |
+                  | 0751     | SNS Bank              |
+                  | 0511     | Triodos Bank          |
+                  | 0161     | Van Lanschot Bankiers |
                 items: 
                   type: object
                   properties: 
                     code:
                       type: string
-                      enum: ["0031", "0761", "4371", "1235", "0721", "0801", "0021", "0771", "1099", "0751", "0511", "0161"]
-                      description: The unique identifiers of the issuers.
-                      example: "0031" 
-                    description:
+                      description: | 
+                        The unique identifier of the issuer.  
+                        
+                        For the values, see the table above.
+                    description: 
                       type: string
-                      example: "ABN AMRO" 
+                      description: |
+                        The name of the issuer.  
+
+                        For the values, see the table above. 
             type: object
       description: ''
     '404':
@@ -40,7 +62,7 @@ get:
         application/json:
           schema:
             $ref: ../components/schemas/GenericErrorResponse.yaml
-      description: Customer not found
+      description: Error 
   summary: List gateway issuers
   tags:
     - Payments
