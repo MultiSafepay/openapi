@@ -1,3 +1,65 @@
+get:
+  description: 'Get information about an order.'
+  operationId: GetOrderDetails
+  parameters:
+    - description: | 
+        The unique identifier of the order. 
+      
+        Max length: 50 characters.
+      in: path
+      name: order_id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          example:
+            $ref: '../components/examples/responses/getOrderDetails.json'
+          schema:
+            properties:
+              success:
+                type: boolean
+              data: 
+                type: array
+                description: 'The structure of the response may differ depending on the order type or method.'
+                items:
+                  type: object
+                  properties:
+                    transaction_id:
+                      type: integer
+                      description: 'MultiSafepay's unique identifier for the transaction (also known as the PSP ID).'
+                    order_id:
+                      type: string
+                      description: 'The unique identifier of the order.'
+                    created:
+                      type: string
+                      description: 'The timestamp for when the order was created.'
+                    currency:
+                      type: string
+                      description: 'The currency of the transaction.'
+                      format: ISO-4217 currency code
+                    amount:
+                      type: integer
+                      description: |
+                        The amount the customer needs to pay in the currency's smallest unit:
+
+                        - Decimal currencies: Value for 10 EUR = 1000 (1000 cents)
+                        - Zero-decimal currencies: Value for 10 YEN = 10
+                    description:
+                      type: string
+            type: object
+      description: ''
+    '404':
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/GenericErrorResponse.yaml'
+      description: Error
+  summary: Get order details
+  tags:
+    - Payments
 patch:
   description: 'Update details about an order, especially its status and shipping information.'
   operationId: UpdateOrder
