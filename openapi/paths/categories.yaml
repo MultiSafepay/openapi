@@ -12,14 +12,16 @@ get:
               success:
                 type: boolean
               data:
-                type: object
-                properties: 
-                  code:
-                    type: string
-                    description: 'The unique identifier of the website category.' 
-                  description: 
-                    type: string
-                    description: 'The website category name.'  
+                type: array
+                items: 
+                  type: object
+                  properties: 
+                    code:
+                      type: string
+                      description: 'The unique identifier of the website category.' 
+                    description: 
+                      type: string
+                      description: 'The website category name.'  
             type: object
       description: ''
     '404':
