@@ -11,8 +11,10 @@ get:
             properties:
               success:
                 type: boolean
+                description: Indicates whether the request was successful. 
               data:
                 type: array
+                description: 'Array of website categories.'
                 items: 
                   type: object
                   properties: 
