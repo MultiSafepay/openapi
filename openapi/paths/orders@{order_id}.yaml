@@ -1,6 +1,6 @@
 get:
-  description: 'Get information about an order.'
-  operationId: GetOrderDetails
+  description: 'Get an order by its ID.'
+  operationId: GetOrder
   parameters:
     - description: | 
         The unique identifier of the order. 
@@ -57,7 +57,7 @@ get:
           schema:
             $ref: '../components/schemas/GenericErrorResponse.yaml'
       description: Error
-  summary: Get order details
+  summary: Get order
   tags:
     - Payments
 patch:
@@ -147,6 +147,6 @@ patch:
           schema:
             $ref: '../components/schemas/GenericErrorResponse.yaml'
       description: Error
-  summary: Update an order
+  summary: Update order
   tags:
     - Payments
