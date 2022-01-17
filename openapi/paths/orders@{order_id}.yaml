@@ -29,7 +29,7 @@ get:
                   properties:
                     transaction_id:
                       type: integer
-                      description: 'MultiSafepay's unique identifier for the transaction (also known as the PSP ID).'
+                      description: "MultiSafepay's unique identifier for the transaction (also known as the PSP ID)."
                     order_id:
                       type: string
                       description: 'The unique identifier of the order.'
