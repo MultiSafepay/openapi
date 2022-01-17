@@ -46,6 +46,8 @@ paths:
     $ref: 'paths/bank-accounts@{bankaccount_id}@payment-links.yaml'
   '/bank-statements/{bankstatement_id}':
     $ref: 'paths/bank-statements@{bankstatement_id}.yaml'
+  '/categories':
+    $ref: 'paths/categories.yaml'
   /customers:
     $ref: paths/customers.yaml
   '/customers/{customer_id}':

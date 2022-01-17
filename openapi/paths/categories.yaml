@@ -1,0 +1,38 @@
+get:
+  description: 'List the names of all website categories.'
+  operationId: ListWebsiteCategories
+  responses:
+    '200':
+      content:
+        application/json:
+          example:
+            $ref: '../components/examples/responses/listWebsiteCategories.json'
+          schema:
+            properties:
+              success:
+                type: boolean
+                description: 'Indicates whether the request was successful.'
+              data:
+                type: array
+                description: 'Array of website categories.'
+                items: 
+                  type: object
+                  properties: 
+                    code:
+                      type: string
+                      description: 'The unique identifier of the website category.' 
+                    description: 
+                      type: string
+                      description: 'The website category name.'  
+            type: object
+      description: ''
+    '404':
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/GenericErrorResponse.yaml'
+      description: Error 
+  summary: List website categories
+  tags:
+    - Accounts
+
