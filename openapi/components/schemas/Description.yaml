@@ -1,0 +1,6 @@
+type: string
+description: |
+  The description of the customer's order. Also appears on the customer's bank statement (if supported by their bank).
+
+  HTML is **not** supported. Use the `items` or `shopping_cart` objects for this. 
+maxLength: 200 

@@ -4,10 +4,10 @@ properties:
     type: string
     description: 'The name of the account holder to be charged for the transaction.'
   account_id:
-    example: NL87ABNA0000000001
     type: string
     description: |
       The international bank account number (IBAN) to charge for the transaction.
+    example: NL87ABNA0000000001
   recurring_id:
     type: string
     description: |

@@ -113,9 +113,7 @@ properties:
     example: ""
   var3:
     description: |
-      Variable for storing additional data.
-
-      `var3` is also used to store Split Payment metadata.
+      Variable for storing additional data, including Split Payment metadata.
     type: string
     example: ""
   custom_info:

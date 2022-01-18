@@ -1,5 +1,5 @@
 get:
-  description: 'Get an order by its ID.'
+  description: Get information about an order.
   operationId: GetOrder
   parameters:
     - description: | 
@@ -23,47 +23,38 @@ get:
                 type: boolean
               data: 
                 type: array
-                description: 'The structure of the response may differ depending on the order type or method.'
+                description: The structure of the response may differ depending on the order type or method.
                 items:
                   type: object
                   properties:
                     transaction_id:
                       type: integer
-                      description: "MultiSafepay's unique identifier for the transaction (also known as the PSP ID)."
+                      description: MultiSafepay's unique identifier for the transaction (also known as the PSP ID).
                     order_id:
                       type: string
-                      description: 'The unique identifier of the order.'
+                      description: The unique identifier of the order.
                     created:
                       type: string
-                      description: 'The timestamp for when the order was created.'
+                      description: The timestamp for when the order was created.
                     currency:
                       type: string
-                      description: 'The currency of the transaction.'
+                      description: The currency of the transaction.
                       format: ISO-4217 currency code
                     amount:
-                      type: integer
-                      description: |
-                        The amount the customer needs to pay in the currency's smallest unit:
-
-                        - Decimal currencies: Value for 10 EUR = 1000 (1000 cents)
-                        - Zero-decimal currencies: Value for 10 YEN = 10
+                      $ref: '../components/schemas/Amount.yaml'
                     description:
-                      type: string
-                      description: |
-                        The description of the customer's order. Also appears on the customer's bank statement (if supported by their bank).
-
-                        HTML is **not** supported. Use the `items` or `shopping_cart` objects for this. 
-                      maxLength: 200 
+                      $ref: '../components/schemas/Description.yaml'
                     var1/var2/var3:
                       type: string
-                      description: 'Variables for storing additional data.'
+                      description: | 
+                        Variables for storing additional data. 
+                        
+                        `var3` stores [Split Payments](https://docs.multisafepay.com/features/split-payments/) metadata.
                     items:
-                      type: string
-                      description: |
-                        The items in the customer's order.
+                      $ref: '../components/schemas/Items.yaml'
                     amount_refunded:
                       type: integer
-                      description: 'The amount refunded to the customer.'
+                      description: The amount refunded to the customer.
                     status:
                       type: string
                       description: |
@@ -74,22 +65,31 @@ get:
                         The [transaction status](https://docs.multisafepay.com/payments/multisafepay-statuses/).
                     reason:
                       type: string
-                      description: 'The reason for any updates to the order.'
+                      description: The reason for any updates to the order.
                     reason_code:
                       type: string
-                      description: 'The code for the reason for any updates to the order.'
+                      description: The code for the reason for any updates to the order.
                     fastcheckout:
                       type: boolean
-                      description: 'Whether the order was processed using FastCheckout.'
+                      description: Whether the order was processed using FastCheckout.
                     modified:
                       type: string
-                      description: 'The timestamp for when the order was last updated.'
+                      description: The timestamp for when the order was last updated.
                     customer:
                       type: object
                       $ref: '../components/schemas/CustomerObject.yaml'
                     payment_details:
                       type: object
                       $ref: '../components/schemas/PaymentDetails.yaml'
+                    costs:
+                      type: object
+                      $ref: '../components/schemas/Costs.yaml'
+                    related_transactions:
+                      type: object
+                      $ref: '../components/schemas/RelatedTransactions.yaml'
+                    payment_methods:
+                      type: object
+                      $ref: '../components/schemas/PaymentMethods.yaml'
             type: object
       description: ''
     '404':
@@ -102,7 +102,7 @@ get:
   tags:
     - Payments
 patch:
-  description: 'Update details about an order, especially its status and shipping information.'
+  description: Update details about an order, especially its status and shipping information.
   operationId: UpdateOrder
   parameters: []
   requestBody:
