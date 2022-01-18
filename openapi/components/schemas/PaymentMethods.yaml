@@ -1,32 +1,24 @@
-additionalProperties: false
+type: object
 properties:
-  account_id:
+  account_holder_name:
     type: string
-    description: |
-      The international bank account number (IBAN) to charge for the transaction.
-    example: NL87ABNA0000000001
+    description: The name of the account holder.
+    example: John Doe
   amount: 
-    type: integer
-    description: |
-      The amount the customer needs to pay in the currency's smallest unit:
-
-      - Decimal currencies: Value for 10 EUR = 1000 (1000 cents)
-      - Zero-decimal currencies: Value for 10 YEN = 10
+    $ref: 'Amount.yaml'
+  card_expiry_date:
+    $ref: 'CardExpiryDate.yaml'
   currency:
-    description: |
-      The currency of the transaction.
-
-      See also Wikipedia – [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217).
-    example: EUR
-    type: string
-    format: ISO-4217 currency code
+    $ref: 'Currency.yaml'
   description:
+    $ref: 'Description.yaml' 
+  external_transaction_id:
     type: string
     description: |
-      The description of the customer's order. Also appears on the customer's bank statement (if supported by their bank).
-
-      HTML is **not** supported. Use the `items` or `shopping_cart` objects for this. 
-    maxLength: 200 
+      The order reference number of a third party, e.g. the payment method.
+  last4:
+    type: integer
+    description: "The last 4 digits of the customer’s credit card number."
   payment_description:
     type: string
     description: The payment method.
@@ -34,18 +26,6 @@ properties:
     type: string
     description: |
       The [order status](https://docs.multisafepay.com/payments/multisafepay-statuses/).
-  external_transaction_id:
-    type: string
-    description: |
-      The order reference number of a third party, e.g. the payment method.
   type:
     type: string
     description: The payment gateway.
-  card_expiry_date:
-    type: string
-    description: The expiry date of the customer's credit card.
-    format: YYMM
-  last4:
-    type: integer
-    description: The last 4 digits of the customer’s credit card number.
-type: object

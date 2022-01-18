@@ -22,74 +22,63 @@ get:
               success:
                 type: boolean
               data: 
-                type: array
-                description: The structure of the response may differ depending on the order type or method.
-                items:
-                  type: object
-                  properties:
-                    transaction_id:
-                      type: integer
-                      description: MultiSafepay's unique identifier for the transaction (also known as the PSP ID).
-                    order_id:
-                      type: string
-                      description: The unique identifier of the order.
-                    created:
-                      type: string
-                      description: The timestamp for when the order was created.
-                    currency:
-                      type: string
-                      description: The currency of the transaction.
-                      format: ISO-4217 currency code
-                    amount:
-                      $ref: '../components/schemas/Amount.yaml'
-                    description:
-                      $ref: '../components/schemas/Description.yaml'
-                    var1/var2/var3:
-                      type: string
-                      description: | 
-                        Variables for storing additional data. 
-                        
-                        `var3` stores [Split Payments](https://docs.multisafepay.com/features/split-payments/) metadata.
+                type: object
+                description: The structure of the response may differ depending on the order type and payment method.
+                properties:
+                  transaction_id:
+                    $ref: '../components/schemas/TransactionId.yaml'
+                  order_id:
+                    $ref: '../components/schemas/OrderId.yaml'
+                  created:
+                    $ref: '../components/schemas/Created.yaml'
+                  currency:
+                    $ref: '../components/schemas/Currency.yaml'
+                  amount:
+                    $ref: '../components/schemas/Amount.yaml'
+                  description:
+                    $ref: '../components/schemas/Description.yaml'
+                  items:
+                    $ref: '../components/schemas/Items.yaml'
+                  amount_refunded:
+                    type: integer
+                    description: The amount refunded to the customer.
+                  status:
+                    $ref: '../components/schemas/Status.yaml'
+                  financial_status:
+                    $ref: '../components/schemas/FinancialStatus.yaml'
+                  reason:
+                    type: string
+                    description: The reason for any updates to the order.
+                  reason_code:
+                    type: string
+                    description: The code for the reason for any updates to the order.
+                  fastcheckout:
+                    type: boolean
+                    description: Whether the order was processed using FastCheckout.
+                  modified:
+                    $ref: '../components/schemas/Modified.yaml'
+                  customer:
+                    $ref: '../components/schemas/CustomerObject.yaml'
+                  payment_details:
+                    $ref: '../components/schemas/PaymentDetails.yaml'
+                  costs:
+                    type: array
                     items:
-                      $ref: '../components/schemas/Items.yaml'
-                    amount_refunded:
-                      type: integer
-                      description: The amount refunded to the customer.
-                    status:
-                      type: string
-                      description: |
-                        The [order status](https://docs.multisafepay.com/payments/multisafepay-statuses/).
-                    financial_status:
-                      type: string
-                      description: |
-                        The [transaction status](https://docs.multisafepay.com/payments/multisafepay-statuses/).
-                    reason:
-                      type: string
-                      description: The reason for any updates to the order.
-                    reason_code:
-                      type: string
-                      description: The code for the reason for any updates to the order.
-                    fastcheckout:
-                      type: boolean
-                      description: Whether the order was processed using FastCheckout.
-                    modified:
-                      type: string
-                      description: The timestamp for when the order was last updated.
-                    customer:
-                      type: object
-                      $ref: '../components/schemas/CustomerObject.yaml'
-                    payment_details:
-                      type: object
-                      $ref: '../components/schemas/PaymentDetails.yaml'
-                    costs:
-                      type: object
                       $ref: '../components/schemas/Costs.yaml'
-                    related_transactions:
-                      type: object
+                  related_transactions:
+                    type: array
+                    items:
                       $ref: '../components/schemas/RelatedTransactions.yaml'
-                    payment_methods:
-                      type: object
+                  payment_methods:
+                    type: array
+                    items:
                       $ref: '../components/schemas/PaymentMethods.yaml'
+                  var1:
+                    $ref: '../components/schemas/var12.yaml'
+                  var2:
+                    $ref: '../components/schemas/var12.yaml'
+                  var3:
+                    $ref: '../components/schemas/var3.yaml'
             type: object
       description: ''
     '404':

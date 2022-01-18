@@ -1,37 +1,30 @@
 properties:
   amount:
-    example: 100
-    type: integer
+    $ref: 'Amount.yaml'
   completed:
     format: datetime
     type: string
   costs:
     items:
-      amount:
-        type: integer
-      description:
-        type: string
+      $ref: 'Costs.yaml'
     type: array
   created:
-    format: datetime
-    type: string
+    $ref: 'Created.yaml'
   currency:
-    example: EUR
-    type: string
+    $ref: 'Currency.yaml'
   debit_credit:
     enum:
       - D
       - C
     type: string
   description:
-    type: string
+    $ref: 'Description.yaml'
   financial_status:
-    example: completed
-    type: string
+    $ref: 'FinancialStatus.yaml'
   invoice_id:
     type: string
   order_id:
-    type: string
+    $ref: 'OrderId.yaml'
   payment_method:
     example: VISA
     type: string
@@ -39,19 +32,18 @@ properties:
     example: 123
     type: integer
   status:
-    example: completed
-    type: string
+    $ref: 'Status.yaml'
   transaction_id:
-    type: integer
+    $ref: 'TransactionId.yaml'
   type:
     type: string
   updated:
     format: datetime
     type: string
   var1:
-    type: string
+    $ref: 'var12.yaml'
   var2:
-    type: string
+    $ref: 'var12.yaml'
   var3:
-    type: string
+    $ref: 'var3.yaml'
 type: object

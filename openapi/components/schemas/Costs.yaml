@@ -1,40 +1,16 @@
+type: object
 properties:
-  transaction_id: 
-    description: MultiSafepay's unique identifier for the transaction (also known as the PSP ID).
-    type: integer
-    example: "123456789"
+  transaction_id:
+    $ref: 'TransactionId.yaml'
   amount:
-    type: integer
-    description: |
-      The amount the customer needs to pay in the currency's smallest unit:
-
-      - Decimal currencies: Value for 10 EUR = 1000 (1000 cents)
-      - Zero-decimal currencies: Value for 10 YEN = 10
+    $ref: 'Amount.yaml'
   description:
-    type: string
-    description: |
-      The description of the customer's order. Also appears on the customer's bank statement (if supported by their bank).
-
-      HTML is **not** supported. Use the `items` or `shopping_cart` objects for this. 
-    maxLength: 200 
+    $ref: 'Description.yaml'
   type:
     type: string
     enum: [SYSTEM, internal]
     example: "internal"
   created:
-    type: string
-    description: The timestamp for when the order was created.
-    example: "2019-03-01T16:14:02"
-  currency:
-    description: |
-      The currency of the transaction.
-
-      See also Wikipedia – [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217).
-    example: EUR
-    type: string
-    format: ISO-4217 currency code
+    $ref: 'Created.yaml'
   status:
-    type: string
-    description: |
-      The [order status](https://docs.multisafepay.com/payments/multisafepay-statuses/).
-  
+    $ref: 'Status.yaml'

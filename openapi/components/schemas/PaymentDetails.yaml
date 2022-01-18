@@ -1,4 +1,3 @@
-additionalProperties: false
 properties:
   account_holder_name:
     type: string

@@ -1,4 +1,5 @@
-additionalProperties: false
+type: object
+description: The customer’s personal information.
 properties:
   locale:
     type: string
@@ -102,24 +103,3 @@ properties:
       See also [Recurring payments orders](https://docs.multisafepay.com/api/#recurring-payments-orders).
     type: string
     example: customer-0001
-required:
-  - address1
-  - address2
-  - birthday
-  - brand
-  - city
-  - country
-  - email
-  - first_name
-  - forwarded_ip
-  - gender
-  - house_number
-  - ip_address
-  - last_name
-  - locale
-  - phone
-  - referrer
-  - reference
-  - user_agent
-  - zip_code
-type: object
