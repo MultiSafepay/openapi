@@ -75,5 +75,5 @@ get:
       description: Error 
   summary: Get token details
   tags:
-    - Payments
     - Recurring payments
+    - Payments
