@@ -50,7 +50,7 @@ paths:
     $ref: 'paths/bank-accounts@{bankaccount_id}@payment-links.yaml'
   '/bank-statements/{bankstatement_id}':
     $ref: 'paths/bank-statements@{bankstatement_id}.yaml'
-  '/categories':
+  /categories:
     $ref: 'paths/categories.yaml'
   /customers:
     $ref: paths/customers.yaml
@@ -80,6 +80,8 @@ paths:
     $ref: paths/payment-methods.yaml
   '/payment-methods/{payment_method_id}':
     $ref: 'paths/payment-methods@{payment_method_id}.yaml'
+  /recurring/{your_customer_reference}/token/{your_token}:
+    $ref: 'paths/recurring@{your_customer_reference}@token@{your_token}.yaml'
   /signup-account:
     $ref: paths/signup-account.yaml
   '/sites/{site_id}':
@@ -97,6 +99,8 @@ tags:
     description: "Create and manage customers"
   - name: Accounts
     description: "Create and manage affiliated accounts"
+  - name: Recurring payments
+    description: "Manage tokens"
   - name: Reconciliation
     description: "List transactions"
   - name: Pay after delivery (BETA)
