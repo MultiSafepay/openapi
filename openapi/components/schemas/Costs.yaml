@@ -1,0 +1,16 @@
+type: object
+properties:
+  transaction_id:
+    $ref: 'TransactionId.yaml'
+  amount:
+    $ref: 'Amount.yaml'
+  description:
+    $ref: 'Description.yaml'
+  type:
+    type: string
+    enum: [SYSTEM, internal]
+    example: "internal"
+  created:
+    $ref: 'Created.yaml'
+  status:
+    $ref: 'Status.yaml'

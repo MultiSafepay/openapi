@@ -1,0 +1,33 @@
+properties:
+  account_holder_name:
+    type: string
+    description: 'The name of the account holder to be charged for the transaction.'
+  account_id:
+    type: string
+    description: |
+      The international bank account number (IBAN) to charge for the transaction.
+    example: NL87ABNA0000000001
+  recurring_id:
+    type: string
+    description: |
+      The [recurring model](https://docs.multisafepay.com/features/recurring-payments/#recurring-models).
+    enum: [unscheduled, subscription, cardonfile]
+  type:
+    example: DIRECTBANK
+    type: string
+    description: 'The payment method.'
+  account_bic:
+    type: string
+    description: |
+      The bank identification code (BIC) of the customer's bank.
+  issuer_id:
+    type: integer
+    description: |
+      The unique identifier of the issuer.
+
+      See List gateway issuers.
+  external_transaction_id:
+    type: string
+    description: |
+      The order reference number of a third party, e.g. the payment method.
+type: object

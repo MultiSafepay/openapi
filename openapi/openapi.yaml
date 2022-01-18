@@ -22,6 +22,8 @@ openapi: 3.0.0
 paths:
   /orders:
     $ref: paths/orders.yaml
+  '/orders/{order_id}':
+    $ref: 'paths/orders@{order_id}.yaml'
   /accounts:
     $ref: paths/accounts.yaml
   '/accounts/{account_id}':

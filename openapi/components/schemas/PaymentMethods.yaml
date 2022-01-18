@@ -1,0 +1,31 @@
+type: object
+properties:
+  account_holder_name:
+    type: string
+    description: The name of the account holder.
+    example: John Doe
+  amount: 
+    $ref: 'Amount.yaml'
+  card_expiry_date:
+    $ref: 'CardExpiryDate.yaml'
+  currency:
+    $ref: 'Currency.yaml'
+  description:
+    $ref: 'Description.yaml' 
+  external_transaction_id:
+    type: string
+    description: |
+      The order reference number of a third party, e.g. the payment method.
+  last4:
+    type: integer
+    description: "The last 4 digits of the customer’s credit card number."
+  payment_description:
+    type: string
+    description: The payment method.
+  status:
+    type: string
+    description: |
+      The [order status](https://docs.multisafepay.com/payments/multisafepay-statuses/).
+  type:
+    type: string
+    description: The payment gateway.

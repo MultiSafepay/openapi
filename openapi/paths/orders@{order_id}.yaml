@@ -1,0 +1,182 @@
+get:
+  description: Get information about an order.
+  operationId: GetOrder
+  parameters:
+    - description: | 
+        The unique identifier of the order. 
+      
+        Max length: 50 characters.
+      in: path
+      name: order_id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          example:
+            $ref: '../components/examples/responses/getOrderDetails.json'
+          schema:
+            properties:
+              success:
+                type: boolean
+              data: 
+                type: object
+                description: The structure of the response may differ depending on the order type and payment method.
+                properties:
+                  transaction_id:
+                    $ref: '../components/schemas/TransactionId.yaml'
+                  order_id:
+                    $ref: '../components/schemas/OrderId.yaml'
+                  created:
+                    $ref: '../components/schemas/Created.yaml'
+                  currency:
+                    $ref: '../components/schemas/Currency.yaml'
+                  amount:
+                    $ref: '../components/schemas/Amount.yaml'
+                  description:
+                    $ref: '../components/schemas/Description.yaml'
+                  items:
+                    $ref: '../components/schemas/Items.yaml'
+                  amount_refunded:
+                    type: integer
+                    description: The amount refunded to the customer.
+                  status:
+                    $ref: '../components/schemas/Status.yaml'
+                  financial_status:
+                    $ref: '../components/schemas/FinancialStatus.yaml'
+                  reason:
+                    type: string
+                    description: The reason for any updates to the order.
+                  reason_code:
+                    type: string
+                    description: The code for the reason for any updates to the order.
+                  fastcheckout:
+                    type: boolean
+                    description: Whether the order was processed using FastCheckout.
+                  modified:
+                    $ref: '../components/schemas/Modified.yaml'
+                  customer:
+                    $ref: '../components/schemas/CustomerObject.yaml'
+                  payment_details:
+                    $ref: '../components/schemas/PaymentDetails.yaml'
+                  costs:
+                    type: array
+                    items:
+                      $ref: '../components/schemas/Costs.yaml'
+                  related_transactions:
+                    type: array
+                    items:
+                      $ref: '../components/schemas/RelatedTransactions.yaml'
+                  payment_methods:
+                    type: array
+                    items:
+                      $ref: '../components/schemas/PaymentMethods.yaml'
+                  var1:
+                    $ref: '../components/schemas/var12.yaml'
+                  var2:
+                    $ref: '../components/schemas/var12.yaml'
+                  var3:
+                    $ref: '../components/schemas/var3.yaml'
+            type: object
+      description: ''
+    '404':
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/GenericErrorResponse.yaml'
+      description: Error
+  summary: Get order
+  tags:
+    - Payments
+patch:
+  description: Update details about an order, especially its status and shipping information.
+  operationId: UpdateOrder
+  parameters: []
+  requestBody:
+    content:
+      application/json:
+        schema:
+          additionalProperties: false
+          properties:
+            id:
+              description: | 
+                The unique identifier of the order you want to update. **Required.**
+              example: MSP12345
+              type: string
+            status:
+              description: | 
+                The [order status](https://docs.multisafepay.com/payments/multisafepay-statuses/). **Required.**
+              
+                To cancel the order, set to `cancelled`.
+
+                To communicate that you have shipped the order, set to `shipped`.
+              example: shipped
+              type: string
+            tracktrace_code:
+              description: | 
+                The track and trace code provided by the shipping company. 
+              example: 3SMSP0123456789
+              type: string
+            tracktrace_url:
+              description: | 
+                The track and trace URL provided by the shipping company.
+              example: https://tracktrace-url.com/
+              type: string
+            carrier:
+              description: | 
+                The name of the shipping company.
+              example: MSP Logistics
+              type: string
+            ship_date:
+              description: | 
+                The date the order was shipped.
+              example: 01-01-1911
+              type: string
+            reason:
+              description: | 
+                The reason for updating the order. 
+              example: Fulfilled by warehouse
+              type: string
+            invoice_id:
+              description: | 
+                Add the invoice ID to the order. 
+
+                The invoice ID appears on [reports](https://docs.multisafepay.com/business/accounting/reports/) generated from your MultiSafepay dashboard.
+              example: AB12345
+              type: string
+            invoice_url:
+              description: | 
+                The invoice URL linking to the `invoice_id`. 
+              example: https://mspinvoice-AB12345.com
+              type: string
+            po_number:
+              description: | 
+                The shipping company's purchase order number. 
+              example: XY123456789
+              type: string
+          required: []
+          type: object
+    description: ''
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            properties:
+              success:
+                type: boolean
+              data: []
+            type: object
+      description: ''
+    '404':
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/GenericErrorResponse.yaml'
+      description: Error
+  summary: Update order
+  tags:
+    - Payments

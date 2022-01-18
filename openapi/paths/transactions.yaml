@@ -69,7 +69,7 @@ get:
         type: array
         items:
           allOf:
-            - $ref: "../components/parameters/gatewayIdentifiers.yaml"
+            - $ref: "../components/schemas/GatewayIdentifiers.yaml"
           type: string
     - name: status
       description: Returns transactions with the specified [order status](https://docs.multisafepay.com/about-payments/multisafepay-statuses/)
@@ -104,85 +104,7 @@ get:
       content:
         application/json:
           schema:
-            properties:
-              data:
-                items:
-                  properties:
-                    amount:
-                      example: 100
-                      type: integer
-                    completed:
-                      format: datetime
-                      type: string
-                    costs:
-                      items:
-                        amount:
-                          type: integer
-                        description:
-                          type: string
-                      type: array
-                    created:
-                      format: datetime
-                      type: string
-                    currency:
-                      example: EUR
-                      type: string
-                    debit_credit:
-                      enum:
-                        - D
-                        - C
-                      type: string
-                    description:
-                      type: string
-                    financial_status:
-                      example: completed
-                      type: string
-                    invoice_id:
-                      type: string
-                    order_id:
-                      type: string
-                    payment_method:
-                      example: VISA
-                      type: string
-                    site_id:
-                      example: 123
-                      type: integer
-                    status:
-                      example: completed
-                      type: string
-                    transaction_id:
-                      type: integer
-                    type:
-                      type: string
-                    updated:
-                      format: datetime
-                      type: string
-                    var1:
-                      type: string
-                    var2:
-                      type: string
-                    var3:
-                      type: string
-                  type: object
-                type: array
-              pager:
-                additionalProperties: false
-                properties:
-                  after:
-                    type: string
-                  before:
-                    type: string
-                  cursor:
-                    after:
-                      type: string
-                    before:
-                      type: string
-                  limit:
-                    type: integer
-                type: object
-              success:
-                type: boolean
-            type: object
+            $ref: '../components/schemas/Transaction.yaml'
       description: ''
   summary: List transactions
   tags:

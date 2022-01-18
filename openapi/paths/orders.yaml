@@ -30,6 +30,6 @@ post:
             $ref: '../components/schemas/Order.yaml'
             type: object
               - var1
-  summary: Create an order
+  summary: Create order
   tags:
     - Payments

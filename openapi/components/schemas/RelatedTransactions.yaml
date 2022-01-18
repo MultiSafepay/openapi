@@ -1,0 +1,33 @@
+type: object
+properties:
+  amount:
+    $ref: 'Amount.yaml'
+  costs: 
+    type: array
+    items:
+      type: object
+      properties:
+        amount:
+          $ref: 'Amount.yaml'
+        description:
+          $ref: 'Description.yaml'
+        type:
+          type: string
+          enum: [SYSTEM, internal]
+          example: "internal"
+        currency:
+          $ref: 'Currency.yaml'
+        status:
+          $ref: 'Status.yaml'
+  created:
+    $ref: 'Created.yaml'
+  currency:
+    $ref: 'Currency.yaml'
+  description:
+    $ref: 'Description.yaml'
+  modified:
+    $ref: 'Modified.yaml'
+  status:
+    $ref: 'Status.yaml'
+  transaction_id:
+    $ref: 'TransactionId.yaml'

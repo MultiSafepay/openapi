@@ -1,0 +1,28 @@
+properties:
+  notification_url: 
+    description: Endpoint for MultiSafepay to send status updates and other notifications to you.
+    type: string
+    example: https://www.example.com/payment-updates/
+  notification_method:
+    description: |
+      Sets the notification method.
+      
+      We advice setting the notification method to `POST`, to reduce network load and increase security.
+
+      See also, [Notification URL](https://docs.multisafepay.com/developer/api/notification-url/).
+    type: string
+    enum: [POST, GET]
+    default: GET
+    example: POST
+  redirect_url:
+    description: Page that the customer is redirected to after **successful** payments.
+    type: string
+    example: https://www.example.com/test-order-0001/successful/
+  cancel_url:
+    description: Page that the customer is redirected to after **unsuccessful** payments.
+    type: string
+    example: https://www.example.com/test-order-0001/unsuccessful/
+  close_window:
+    description: To display the MultiSafepay payment page in a new window that automatically closes after the customer completes payment, set to `true`.
+    type: boolean
+    default: false
