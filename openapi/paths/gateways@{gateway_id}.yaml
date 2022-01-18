@@ -8,7 +8,7 @@ get:
       required: true
       schema:
         allOf: 
-          - $ref: '../components/parameters/gatewayIdentifiers.yaml'
+          - $ref: '../components/schemas/GatewayIdentifiers.yaml'
         type: string
   responses:
     '200':

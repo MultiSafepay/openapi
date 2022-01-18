@@ -11,13 +11,11 @@ properties:
   order_id:
     $ref: 'OrderId.yaml'
   gateway:
-    description: |
-      The unique gateway identifier for the payment method.
-
-      If unset, and `type` is set to `redirect`, a MultiSafepay payment page with all available payment methods is returned.
-    example: IDEAL
-    type: string
-    enum: [AFTERPAY, ALIPAY, APPLEPAY, MISTERCASH, BANKTRANS, BELFIUS, CBC, CREDITCARD, AMEX, MASTERCARD, VISA, DOTPAY, EDENCOM, EINVOICE, EPS, GIROPAY, GOOGLEPAY, IDEAL, IN3, KLARNA, MAESTRO, PAYAFTER, PAYPAL, DBRTP, SANTANDER, DIREB, DIRECTBANK, TRUSTLY, TRUSTPAY, WECHAT]
+    allOf:
+      - description: "The unique gateway identifier for the payment method.<br><br>If unset, and `type` is set to `redirect`, a MultiSafepay payment page with all available payment methods is returned."
+      - example: IDEAL
+      - type: string
+      - $ref: 'GatewayIdentifiers.yaml'
   currency:
     $ref: 'Currency.yaml'
   amount:

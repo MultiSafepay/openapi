@@ -69,7 +69,7 @@ get:
         type: array
         items:
           allOf:
-            - $ref: "../components/parameters/gatewayIdentifiers.yaml"
+            - $ref: "../components/schemas/GatewayIdentifiers.yaml"
           type: string
     - name: status
       description: Returns transactions with the specified [order status](https://docs.multisafepay.com/about-payments/multisafepay-statuses/)
