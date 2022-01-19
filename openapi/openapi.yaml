@@ -81,7 +81,7 @@ paths:
   '/payment-methods/{payment_method_id}':
     $ref: 'paths/payment-methods@{payment_method_id}.yaml'
   /recurring/{your_customer_reference}:
-    $ref: 'paths/recurring@your_customer_reference.yaml'
+    $ref: 'paths/recurring@{your_customer_reference}.yaml'
   '/recurring/{your_customer_reference}/token/{your_token}':
     $ref: 'paths/recurring@{your_customer_reference}@token@{your_token}.yaml'
   /signup-account:

@@ -1,0 +1,52 @@
+get:
+  description: |
+    Retrieve all [tokens](https://docs.multisafepay.com/features/recurring-payments/) related to a specific customer reference. 
+
+    If there are lots of tokens, you can use the `limit` and `offset` parameters to limit the number of tokens retrieved. 
+
+    Example: If `limit` is set to 15 and `offset` to 0, then 17 tokens are listed (tokens 0 to 16).'
+  operationId: GetAllCustomerTokens
+  parameters:
+    - name: your_customer_reference
+      in: path
+      description: 'The customer reference.'
+      required: true
+      schema:
+        type: string
+    - name: limit
+      in: query
+      description: |
+        The number of tokens to list.
+
+        If empty, the default is 10.
+      required: false
+      schema:
+        type: integer
+    - name: offset
+      in: query
+      description: |
+        The number of the token to start the list from.
+
+        If empty, the default is 0, i.e. the first token.
+      required: false
+      schema:
+        type: integer
+  responses:
+    '200':
+      content:
+        application/json:
+          example: 
+            $ref: '../components/examples/responses/getAllCustomerTokens.json'
+          schema:
+            $ref: '../components/schemas/Token.yaml'
+      description: ''
+    '404':
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/GenericErrorResponse.yaml'
+      description: Error 
+  summary: Get all customer tokens
+  tags:
+    - Recurring payments
+    - Payments
