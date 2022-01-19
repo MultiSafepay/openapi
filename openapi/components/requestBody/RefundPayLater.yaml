@@ -1,0 +1,14 @@
+properties:
+  checkout_data:
+    type: object
+    description: |
+      Contains the original order's array of `item` objects and duplicate `item` objects to be refunded.
+
+      To retrieve the original order's array of `item` objects, make a `GET /orders/{order_id}` request.
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '../schemas/ItemRefund.yaml'
+required:
+  - checkout_data

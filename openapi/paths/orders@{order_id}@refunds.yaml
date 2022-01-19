@@ -1,10 +1,10 @@
 post:
   description: | 
-    Process a full or partial [refund](https://docs.multisafepay.com/payments/refunds/) for an order.
+    Process a full or partial [refund](https://docs.multisafepay.com/refunds/) for an order.
 
     Refunding creates a new order (with a unique ID) linked to the original order. 
     
-    To refund pay later orders, see Refund with shopping cart. 
+    To refund pay later orders, see `RefundPayLater`. 
   operationId: 'RefundOrder'
   parameters:
     - description: | 
@@ -20,38 +20,20 @@ post:
     content:
       application/json:
         schema:
-          properties:
-            currency:
-              description: The currency to process the refund in. This must be the same as the original transaction.
-              type: string
-              format: ISO-4217 currency code
-              required: true
-              example: EUR
-            amount:
-              description: |
-                The amount to be refunded in the currency's smallest unit.
-
-                - Decimal currencies: Value for 10 EUR = 1000 (1000 cents)
-                - Zero-decimal currencies: Value for 10 YEN = 10
-
-                **Note:** A 0 amount triggers a full refund. Use if you don't know the current balance of the transaction.
-              type: integer
-              required: true
-              example: 500
-            description:
-              $ref: '../components/schemas/Description.yaml'
-              required: true
-            refund_order_id:
-              type: string
-              required: false
-              maxLength: 50
-              example: refund-order-id-1234
-            var1:
-              $ref: '../components/schemas/var12.yaml'
-            var2:
-              $ref: '../components/schemas/var12.yaml'
-            var3:
-              $ref: '../components/schemas/var3.yaml'
+          oneOf:
+            - $ref: '../components/requestBody/Refund.yaml'
+              title: Refund
+            - $ref: '../components/requestBody/RefundPayLater.yaml'
+              title: Refund pay later
+        examples: 
+          Refund: 
+            summary: Refund
+            value:  
+              $ref: '../components/examples/requests/refunds/refund.json'
+          Refund pay later:
+            summary: Refund pay later
+            value:  
+              $ref: '../components/examples/requests/refunds/refundPayLater.json'
   responses:
     '200':
       description: Successful request
@@ -67,9 +49,7 @@ post:
                   transaction_id:
                     $ref: '../components/schemas/TransactionId.yaml'
                   refund_id:
-                    description: "MultiSafepay's unique identifier for the refund transaction (also known as the PSP ID)."
-                    type: integer
-                    example: 3326969
+                    $ref: '../components/schemas/RefundId.yaml'
   summary: Refund an order
   tags:
     - Refunds
