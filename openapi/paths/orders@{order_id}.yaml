@@ -91,16 +91,27 @@ get:
   tags:
     - Payments
 patch:
-  description: Update details about an order, especially its status and shipping information.
+  description: Update details about an order, used to mark pay later orders as shipped or cancel orders.
   operationId: UpdateOrder
-  parameters: []
+  parameters:
+    - description: | 
+        The unique identifier of the order. 
+      
+        Max length: 50 characters.
+      in: path
+      name: order_id
+      required: true
+      schema:
+        type: string
   requestBody:
     content:
       application/json:
         schema:
           oneOf:
             - $ref: '../components/requestBody/ShipOrder.yaml'
+              title: Ship an order
             - $ref: '../components/requestBody/CancelOrder.yaml'
+              title: Cancel an order
     required: true
   responses:
     '200':
