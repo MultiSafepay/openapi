@@ -84,6 +84,8 @@ paths:
     $ref: 'paths/recurring@{your_customer_reference}.yaml'
   '/recurring/{your_customer_reference}/token/{your_token}':
     $ref: 'paths/recurring@{your_customer_reference}@token@{your_token}.yaml'
+  '/recurring/{your_customer_reference}/update/{your_token}':
+    $ref: 'paths/recurring@{your_customer_reference}@update@{your_token}.yaml'
   /signup-account:
     $ref: paths/signup-account.yaml
   '/sites/{site_id}':

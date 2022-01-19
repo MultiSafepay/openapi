@@ -1,0 +1,68 @@
+patch:
+  description: |
+    Update the credit card expiry date for a token when it expires.
+
+    Make a PATCH request with the required placeholders in the URL:
+
+    - `your_customer_reference`: Your unique reference number for the customer.
+    - `your_token`: The unique token identifier associated with the customer.
+  operationId: UpdateCardExpiryDate
+  parameters:
+    - name: your_customer_reference
+      in: path
+      description: 'The customer reference.'
+      required: true
+      schema:
+        type: string
+    - name: your_token
+      in: path
+      description: 'The unique token linked to the customer reference..'
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          properties:
+            expiry_date:
+              description: |
+                The updated expiry date.
+
+                Format: `monthnumberdatenumber`.
+
+                Example: December 2025 is formatted as `1225`.
+              example: 2903
+              type: integer
+          required: [expiry_date]
+          type: object
+    description: ''
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            properties:
+              success:
+                type: boolean
+                example: true
+              data:
+                description: ''
+                properties:
+                  updated:
+                    type: boolean
+                    example: true
+                    description: 'Whether the card expiry date was successfully updated.'
+            type: object
+      description: ''
+    '404':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/GenericErrorResponse.yaml
+      description: Error 
+  summary: Update card expiry date
+  tags:
+    - Recurring payments
+    - Payments
