@@ -6,7 +6,13 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../components/schemas/Order.yaml'
+          allOf:
+            - $ref: '../components/schemas/Order.yaml'
+            - required:
+              - type
+              - order_id
+              - currency
+              - amount
         examples:
           iDEAL: 
             summary: iDEAL

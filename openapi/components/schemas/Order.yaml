@@ -399,8 +399,3 @@ properties:
                   type: number
                   example: 2
 type: object
-required:
-  - type
-  - order_id
-  - currency
-  - amount
