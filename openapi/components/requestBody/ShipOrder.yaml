@@ -1,0 +1,53 @@
+type: object
+properties:
+  status:
+    description: | 
+      The [order status](https://docs.multisafepay.com/payments/multisafepay-statuses/).
+      
+      To communicate that you have shipped the order, set to `shipped`.
+    example: shipped
+    type: string
+  tracktrace_code:
+    description: | 
+      The track and trace code provided by the shipping company. 
+    example: 3SMSP0123456789
+    type: string
+  tracktrace_url:
+    description: | 
+      The track and trace URL provided by the shipping company.
+    example: https://tracktrace-url.com/
+    type: string
+  carrier:
+    description: | 
+      The name of the shipping company.
+    example: MSP Logistics
+    type: string
+  ship_date:
+    description: | 
+      The date the order was shipped.
+    example: 01-01-1911
+    type: string
+  reason:
+    description: | 
+      The reason for updating the order. 
+    example: Fulfilled by warehouse
+    type: string
+  invoice_id:
+    description: | 
+      Add the invoice ID to the order. 
+
+      The invoice ID appears on [reports](https://docs.multisafepay.com/business/accounting/reports/) generated from your MultiSafepay dashboard.
+    example: AB12345
+    type: string
+  invoice_url:
+    description: | 
+      The invoice URL linking to the `invoice_id`. 
+    example: https://mspinvoice-AB12345.com
+    type: string
+  po_number:
+    description: | 
+      The shipping company's purchase order number. 
+    example: XY123456789
+    type: string
+required:
+  - status
