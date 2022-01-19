@@ -1,0 +1,64 @@
+post:
+  description: | 
+    MultiSafepay can challenge [chargebacks](https://docs.multisafepay.com/payments/chargebacks/) on your behalf. To do so, we need documented proof of the order. 
+
+    Use this request to upload relevant files.  
+  operationId: 'ChallengeChargeback'
+  parameters:
+    - description: | 
+        The unique identifier of the order. 
+      
+        Max length: 50 characters.
+      in: path
+      name: order_id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            type:
+              description: The type of order you want to create, in this case a chargeback challenge. 
+              type: string
+              enum: [chargeback]
+              required: true
+              example: chargeback
+            base64:
+              description: The format of the file you're uploading.
+              type: string
+              required: true
+              format: PDF, JPEG, PNG.
+              example: PDF
+            description:
+              description: A description of or comments on the file you're uploading.
+              type: string
+              required: true
+              example: Email chain of discussions with customer.
+            name:
+              description: The filename of the file you're uploading.
+              type: string
+              required: true
+              example: EmailsWithCustomerX
+          required:
+            - base64
+            - description
+            - name
+            - type
+  responses:
+    '200':
+      description: Successful request
+      content:
+        application/json:
+          schema:
+            properties:
+              success:
+                type: boolean
+              data: 
+                description: Empty.
+                type: object
+  summary: Challenge a chargeback
+  tags:
+    - Refunds, discounts, chargebacks
