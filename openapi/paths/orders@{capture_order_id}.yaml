@@ -1,6 +1,7 @@
 get:
-  description: Get information about an order.
-  operationId: GetOrder
+  description: | 
+    Set the [order status](https://docs.multisafepay.com/payments/multisafepay-statuses/) of a captured order. 
+  operationId: SetStatusCapturedOrder
   parameters:
     - description: | 
         The unique identifier of the order. 
@@ -16,19 +17,17 @@ get:
       content:
         application/json:
           example:
-            $ref: '../components/examples/responses/getOrderDetails.json'
+              $ref: '../components/examples/responses/setOrderStatusCapturedTransaction.json'
           schema:
             properties:
               success:
                 type: boolean
               data: 
-                type: object
-                description: The structure of the response may differ depending on the order type and payment method.
                 properties:
-                  transaction_id:
-                    $ref: '../components/schemas/TransactionId.yaml'
-                  order_id:
-                    $ref: '../components/schemas/OrderId.yaml'
+                  transaction_ID:
+                    $ref: '../components/schemas/TransactionID.yaml'
+                  order_ID:
+                    $ref: '../components/schemas/OrderID.yaml'
                   created:
                     $ref: '../components/schemas/Created.yaml'
                   currency:
@@ -60,23 +59,28 @@ get:
                   payment_details:
                     $ref: '../components/schemas/PaymentDetails.yaml'
                   costs:
-                    type: array
-                    items:
-                      $ref: '../components/schemas/Costs.yaml'
+                    $ref: '../components/schemas/Costs.yaml'
                   related_transactions:
-                    type: array
-                    items:
-                      $ref: '../components/schemas/RelatedTransactions.yaml'
+                    $ref: '../components/schemas/RelatedTransactions.yaml'
                   payment_methods:
-                    type: array
-                    items:
-                      $ref: '../components/schemas/PaymentMethods.yaml'
+                    $ref: '../components/schemas/PaymentMethods.yaml'
                   var1:
                     $ref: '../components/schemas/var12.yaml'
                   var2:
                     $ref: '../components/schemas/var12.yaml'
                   var3:
                     $ref: '../components/schemas/var3.yaml'
+                required:
+                  - address1
+                  - brand
+                  - city
+                  - country
+                  - email
+                  - first_name
+                  - house_number
+                  - last_name
+                  - locale
+                  - zip_code
             type: object
       description: ''
     '404':
@@ -85,58 +89,6 @@ get:
           schema:
             $ref: '../components/schemas/GenericErrorResponse.yaml'
       description: Error
-  summary: Get order
+  summary: Set captured order status
   tags:
-    - Payments
-patch:
-  description: Update details about an order, used to mark pay later orders as shipped or cancel orders.
-  operationId: UpdateOrder
-  parameters:
-    - description: | 
-        The unique identifier of the order. 
-      
-        Max length: 50 characters.
-      in: path
-      name: order_id
-      required: true
-      schema:
-        type: string
-  requestBody:
-    content:
-      application/json:
-        schema:
-          oneOf:
-            - $ref: '../components/requestBody/ShipOrder.yaml'
-              title: Ship an order
-            - $ref: '../components/requestBody/CancelOrder.yaml'
-              title: Cancel an order
-        examples:
-          Ship an order: 
-            summary: Ship an order
-            value:
-              $ref: '../components/examples/requests/patch-orders/shipOrder.json'
-          Cancel an order:
-            summary: Cancel an order
-            value:
-              $ref: '../components/examples/requests/patch-orders/cancelOrder.json'
-    required: true
-  responses:
-    '200':
-      content:
-        application/json:
-          schema:
-            properties:
-              success:
-                type: boolean
-              data: []
-            type: object
-      description: ''
-    '404':
-      content:
-        application/json:
-          schema:
-            $ref: '../components/schemas/GenericErrorResponse.yaml'
-      description: Error
-  summary: Update order
-  tags:
-    - Payments
+    - Manual capture

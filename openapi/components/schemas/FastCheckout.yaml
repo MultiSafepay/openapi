@@ -1,0 +1,2 @@
+description: Whether the order was processed using FastCheckout.
+type: boolean
