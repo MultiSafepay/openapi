@@ -5,6 +5,8 @@ properties:
       - `direct`: Redirects the customer to an authentication or success page, depending on the payment method.
       - `paymentlink`: Creates a [payment lin](https://docs.multisafepay.com/payment-links/).
       - `checkout`: Creates a FastCheckout order.
+      
+      For more information, see [Direct vs redirect API requests](https://docs.multisafepay.com/developer/direct-vs-redirect).
     example: redirect
     type: string
     enum: [direct, redirect, checkout, paymentlink]
