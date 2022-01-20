@@ -1,7 +1,7 @@
 get:
   description: >-
-    Fetch information about an ID or a passport uploaded for an ultimate
-    beneficiary owner
+    Get information about a passport or other identification document uploaded for an ultimate
+    beneficiary owner (UBO).
   operationId: GetIdentityDoc
   parameters:
     - description: ''
@@ -55,4 +55,4 @@ get:
       description: Identity doc not found
   summary: Get identity document
   tags:
-    - Accounts
+    - UBOs

@@ -1,5 +1,5 @@
 get:
-  description: Provides currenty authenticated user details
+  description: Submit information about an authenticated user.
   operationId: Me
   parameters: []
   responses:
@@ -24,6 +24,6 @@ get:
                 type: boolean
             type: object
       description: ''
-  summary: Currently authenticated user
+  summary: Identify authenticated user
   tags:
     - Accounts

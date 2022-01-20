@@ -1,5 +1,5 @@
 get:
-  description: List IDs's and/or passports uploaded for an ultimate beneficiary owner
+  description: List passports and other identification documents uploaded for an ultimate beneficiary owner (UBO).
   operationId: ListIdentityDocs
   parameters:
     - description: ''
@@ -49,9 +49,9 @@ get:
       description: ''
   summary: List identity documents
   tags:
-    - Accounts
+    - UBOs
 post:
-  description: Upload an ID or a passport for an ultimate beneficiary owner
+  description: Upload a passport or other identification document for an ultimate beneficiary owner (UBO).
   operationId: CreateIdentityDoc
   parameters:
     - description: ''
@@ -143,4 +143,4 @@ post:
       description: Validation errors
   summary: Add identity document
   tags:
-    - Accounts
+    - UBOs

@@ -1,5 +1,5 @@
 get:
-  description: List all sites belonging to a merchant account
+  description: 'List all websites under a merchant account.'
   operationId: 'Partner::ListAccountSites'
   parameters:
     - description: ''
@@ -48,11 +48,11 @@ get:
                 type: boolean
             type: object
       description: ''
-  summary: List Merchant Account Sites
+  summary: List websites
   tags:
-    - Accounts
+    - Websites
 post:
-  description: Create a new site for merchant account
+  description: 'Add a new website to a merchant account.'
   operationId: 'Partner::CreateAccountSite'
   parameters:
     - description: ''
@@ -140,4 +140,4 @@ post:
       description: Validation errors
   summary: Add website
   tags:
-    - Accounts
+    - Websites

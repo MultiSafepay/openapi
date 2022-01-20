@@ -1,5 +1,5 @@
 get:
-  description: List all bank statements linked to a bank account
+  description: List all bank statements for a bank account.
   operationId: ListBankStatements
   parameters:
     - description: ''
@@ -50,8 +50,8 @@ get:
   tags:
     - Accounts
 post:
-  description: Upload a bank statement for a previously created bank account
-  operationId: CreateBankStatement
+  description: Upload a bank statement for a bank account.
+  operationId: AddBankStatement
   parameters:
     - description: ''
       in: path

@@ -1,5 +1,5 @@
 get:
-  description: List all bank accounts linked to a merchant account
+  description: 'List all bank accounts linked to an affiliated account.'
   operationId: 'Partner::ListAccountBankAccounts'
   parameters:
     - description: ''
@@ -42,11 +42,11 @@ get:
           schema:
             $ref: ../components/schemas/GenericErrorResponse.yaml
       description: Merchant not found
-  summary: List bank accounts
+  summary: List affiliate's bank accounts
   tags:
-    - Accounts
+    - Affiliated accounts
 post:
-  description: Create a bank account
+  description: 'Add a bank account to an affiliated account.'
   operationId: 'Partner::CreateAccountBankAccount'
   parameters:
     - description: ''
@@ -116,4 +116,4 @@ post:
       description: Validation errors
   summary: Add bank account
   tags:
-    - Accounts
+    - Affiliated accounts

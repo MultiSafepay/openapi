@@ -1,5 +1,5 @@
 post:
-  description: Calculate customer credit score
+  description: Calculate a customer's credit score.
   operationId: 'PAD::CustomerCreditScore'
   parameters: []
   requestBody:

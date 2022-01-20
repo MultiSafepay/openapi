@@ -1,6 +1,6 @@
 get:
-  description: Get customer by id
-  operationId: GetCustomer
+  description: Get information about a customer using their customer ID.
+  operationId: GetCustomerProfile
   parameters:
     - description: ''
       in: path
@@ -117,12 +117,12 @@ get:
           schema:
             $ref: ../components/schemas/GenericErrorResponse.yaml
       description: Customer not found
-  summary: Get Customer
+  summary: Get customer profile
   tags:
     - Customers
 patch:
-  description: ''
-  operationId: UpdateCustomer
+  description: 'Update information about a customer in their profile.'
+  operationId: UpdateCustomerProfile
   parameters:
     - description: ''
       in: path
@@ -327,6 +327,6 @@ patch:
           schema:
             $ref: ../components/schemas/ValidationErrorResponse.yaml
       description: Validation errors
-  summary: Update Customer
+  summary: Update customer profile
   tags:
     - Customers

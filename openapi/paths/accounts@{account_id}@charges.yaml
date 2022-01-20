@@ -1,5 +1,5 @@
 post:
-  description: ''
+  description: 'Charge a fee to an affiliated account.'
   operationId: 'Partner::CreateChargeForSubaccount'
   parameters:
     - description: ''
@@ -111,4 +111,4 @@ post:
       description: Validation errors
   summary: Charge affiliated account
   tags:
-    - Accounts
+    - Affiliated accounts

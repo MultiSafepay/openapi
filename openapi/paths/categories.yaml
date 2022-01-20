@@ -34,5 +34,5 @@ get:
       description: Error 
   summary: List website categories
   tags:
-    - Accounts
+    - Websites
 

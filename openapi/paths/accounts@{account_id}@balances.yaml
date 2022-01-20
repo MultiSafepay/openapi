@@ -1,5 +1,5 @@
 get:
-  description: ''
+  description: 'List the balances of affiliated accounts.'
   operationId: 'Partner::ListAccountBalances'
   parameters:
     - description: ''
@@ -68,4 +68,4 @@ get:
       description: ''
   summary: List affiliated account balances
   tags:
-    - Accounts
+    - Affiliated accounts

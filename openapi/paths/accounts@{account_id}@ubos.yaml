@@ -1,5 +1,5 @@
 get:
-  description: List all ultimate beneficiary owners for a merchant account
+  description: 'List all of the ultimate beneficiary owners (UBOs) for a merchant account.'
   operationId: 'Partner::ListAccountUbos'
   parameters:
     - description: ''
@@ -92,9 +92,9 @@ get:
       description: ''
   summary: List UBOs
   tags:
-    - Accounts
+    - UBOs
 post:
-  description: Create an ultimate beneficiary owner
+  description: "Add an ultimate beneficiary owner (UBO) profile to a merchant account."
   operationId: 'Partner::CreateAccountUbo'
   parameters:
     - description: ''
@@ -272,4 +272,4 @@ post:
       description: Validation errors
   summary: Add UBO
   tags:
-    - Accounts
+    - UBOs
