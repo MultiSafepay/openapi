@@ -1,0 +1,54 @@
+type: object
+properties:
+  name:
+    description: The name of the product or service.
+    type: string
+    example: Backpack
+  description:
+    description: A description of the product or service.
+    type: string
+    example: Black cotton backpack with logo.
+  unit_price:
+    description: | 
+      The unit price (in decimals) of the item, excluding VAT.
+
+      The currency of the shopping cart is set at an order-level with `currency`. 
+
+      **Example**: A €90 backpack has value `90`
+    type: number
+    format: float
+    example: 90.00
+  quantity:
+    description: The number of refunded units of the item.
+    type: integer
+    example: -1
+  merchant_item_id:
+    description: |
+      Your unique (client-defined) identifier for the product/service.
+
+      If this item specifies the shipping costs, set to `msp-shipping`.
+    type: string
+    example: "12345678"
+    maxLength: 
+  tax_table_selector:
+    description: Your client-defined identifier for a tax table, specified as `checkout_options.tax_tables.alternate.name`.
+    type: string
+    example: "VAT-21"
+  weight:
+    description: The weight per product.
+    type: object
+    properties:
+      unit: 
+        description: The unit of weight.
+        type: string
+        enum: [KG]
+        example: KG
+      value: 
+        description: |
+          The weight of the item corresponding to the unit.
+
+          For a 2 kilogram product:
+          - Set `value` to `2`.
+          - Set `unit` to `KG`.
+        type: number
+        example: 2
