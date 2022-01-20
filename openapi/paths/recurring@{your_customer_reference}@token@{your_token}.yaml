@@ -1,6 +1,6 @@
 get:
   description: 'Retrieve information about a specific [token](https://docs.multisafepay.com/features/recurring-payments/).'
-  operationId: GetTokenDetails
+  operationId: GetToken
   parameters:
     - name: your_customer_reference
       in: path
@@ -10,7 +10,7 @@ get:
         type: string
     - name: your_token
       in: path
-      description: 'The unique token linked to the customer reference..'
+      description: 'The unique token linked to the customer reference.'
       required: true
       schema:
         type: string
@@ -19,7 +19,13 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../components/schemas/Token.yaml'
+            properties: 
+              success:
+                $ref: '../components/schemas/Success.yaml'
+              data:
+                allOf:
+                  - $ref: '../components/schemas/Token.yaml'
+                  - description: The token details
       description: ''
     '404':
       content:
@@ -27,7 +33,7 @@ get:
           schema:
             $ref: '../components/schemas/GenericErrorResponse.yaml'
       description: Error 
-  summary: Get token details
+  summary: Get token
   tags:
     - Recurring payments
     - Payments
