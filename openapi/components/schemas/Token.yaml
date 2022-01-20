@@ -8,6 +8,16 @@ properties:
     type: string
     description: 'The unique identifier of the payment gateway.'
     example: MASTERCARD
+    enum:
+      - AMEX
+      - MISTERCASH
+      - CREDITCARD
+      - IDEAL
+      - MAESTRO
+      - MASTERCARD
+      - DIRDEB
+      - DIRECTBANK
+      - VISA
   display:
     type: string
     description: 'How the customer’s credit card number is displayed.'
@@ -17,16 +27,16 @@ properties:
     description: 'The card holder’s name.'
     example: Testperson-nl
   expiry_date:
-    type: string
+    type: integer
     description: |
       The credit card expiry date.
       
       Example: December 2025 is formatted as `1225`.
-    example: '3166'
-    format: mmYY
+    example: 3166
+    format: MMYY
   expired:
-    type: boolean
-    description: 'Whether the card has expired.'
+    type: integer
+    description: 'Whether the card has expired. If `1`, the card has expired. If `0`, the card is valid.'
     example: 0
   last4:
     type: string
@@ -37,6 +47,6 @@ properties:
     description: The recurring model.
     example: cardOnFile
     enum: 
-      - cardonfile
+      - cardOnFile
       - subscription
       - unscheduled

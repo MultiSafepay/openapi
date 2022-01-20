@@ -29,10 +29,9 @@ patch:
               description: |
                 The updated expiry date.
 
-                Format: `monthnumberdatenumber`.
-
                 Example: December 2025 is formatted as `1225`.
               example: 2903
+              format: MMYY
               type: integer
           required: [expiry_date]
           type: object
