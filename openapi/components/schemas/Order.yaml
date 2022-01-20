@@ -25,7 +25,12 @@ properties:
   description:
     $ref: 'Description.yaml'
   payment_options:
-    description: Contains URLs to your success page and cancel page, and your webhook endpoint.
+    description: | 
+      Contains: 
+      
+      - URLs to your success page and cancel page
+      - Your webhook endpoint
+      - Templates for styling [MultiSafepay payment pages](https://docs.multisafepay.com/payment-pages/).
     type: object
     properties:
       notification_url: 
