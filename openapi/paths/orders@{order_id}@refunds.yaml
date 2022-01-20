@@ -52,4 +52,4 @@ post:
                     $ref: '../components/schemas/RefundId.yaml'
   summary: Refund an order
   tags:
-    - Refunds
+    - Refunds and chargebacks
