@@ -268,7 +268,7 @@ properties:
     example: "<ol><li>Article 1: € 1,95</li><li>Article 2: € 2,95</li><li>Article 3: € 3,95</li></ol>"
   days_active:
     description: |
-      The number of days the payment link is valid for (redirect orders only).
+      For `redirect` and `paymentlink` orders, he number of days the payment link is valid for.
 
       If `seconds_active` is also set, `seconds_active` is used.
     type: integer
@@ -276,7 +276,7 @@ properties:
     default: 30
   seconds_active: 
     description: |
-      The number of seconds the payment link is valid for (redirect orders only).
+      For `redirect` and `paymentlink` orders, the number of seconds the payment link is valid for.
 
       If `days_active` is also set, `seconds_active` is used.
     type: integer
