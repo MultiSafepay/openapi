@@ -1,0 +1,58 @@
+patch:
+  description: Cancel an authorized credit or debit card payment.
+  operationId: CancelAuthorizedOrder
+  parameters:
+    - description: | 
+        The unique identifier of the order. 
+      
+        Max length: 50 characters.
+      in: path
+      name: order_id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          properties:
+            status:
+              description: |
+                The [order status](https://docs.multisafepay.com/payments/multisafepay-statuses/).
+              type: string
+              enum: [cancelled]
+              example: cancelled
+            reason:
+              description: The reason for cancelling the order. 
+              type: string
+              example: The transaction appeared fraudulent.
+            description:
+              description: Any additional information.
+              type: string
+              example: Suspiciously large order from unusual country. 
+          required:
+          - reason
+          - status
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            properties:
+              success:
+                type: boolean
+              data: 
+                description: Empty.
+                type: object
+            type: object
+      description: ''
+    '404':
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/GenericErrorResponse.yaml'
+      description: Error
+  summary: Cancel authorized order
+  tags:
+    - Manual capture

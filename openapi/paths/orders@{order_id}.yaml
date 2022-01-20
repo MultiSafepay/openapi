@@ -91,8 +91,8 @@ get:
   tags:
     - Payments
 patch:
-  description: Update details about an order, used to mark pay later orders as shipped or cancel orders.
-  operationId: UpdateOrderDetails
+  description: Update details about an order. Use this request to change the status of pay later orders to shipped, or to cancel orders.
+  operationId: UpdateOrder
   parameters:
     - description: | 
         The unique identifier of the order. 

@@ -1,5 +1,5 @@
 post:
-  description: Create an order, to collect a payment from your customer.
+  description: Create an order to collect payment from a customer.
   operationId: 'CreateOrder'
   parameters: []
   requestBody:
