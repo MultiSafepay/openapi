@@ -72,4 +72,4 @@ post:
                     example: 3326969
   summary: Refund an order
   tags:
-    - Refunds, discounts, chargebacks
+    - Refunds and chargebacks

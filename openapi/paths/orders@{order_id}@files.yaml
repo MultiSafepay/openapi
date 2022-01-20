@@ -21,27 +21,26 @@ post:
           type: object
           properties:
             type:
-              description: The type of order you want to create, in this case a chargeback challenge. 
+              description: The file type of the file you're uploading.
               type: string
-              enum: [chargeback]
+              enum: [PDF,JPEG,PNG]
               required: true
-              example: chargeback
-            base64:
-              description: The format of the file you're uploading.
-              type: string
-              required: true
-              format: PDF, JPEG, PNG.
               example: PDF
+            base64:
+              description: The base64 encoded file.
+              type: string
+              required: true
+              example: "VGhpcyBpcyBkdW1teSBmaWxlIGNvbnRlbnQgdGhhdCdzIGJhc2U2NCBlbmNvZGVkLg=="
             description:
               description: A description of or comments on the file you're uploading.
               type: string
               required: true
-              example: Email chain of discussions with customer.
+              example: "Email chain of discussions with customer."
             name:
               description: The filename of the file you're uploading.
               type: string
               required: true
-              example: EmailsWithCustomerX
+              example: EmailsWithCustomerX.pdf
           required:
             - base64
             - description
@@ -55,10 +54,9 @@ post:
           schema:
             properties:
               success:
-                type: boolean
+                $ref: '../components/schemas/Success.yaml'
               data: 
-                description: Empty.
                 type: object
   summary: Challenge a chargeback
   tags:
-    - Refunds, discounts, chargebacks
+    - Refunds and chargebacks
