@@ -1,25 +1,31 @@
 post:
-  description: Create an order, to collect a payment from your customer.
+  description: Create an order to collect payment from a customer.
   operationId: 'CreateOrder'
   parameters: []
   requestBody:
     content:
       application/json:
         schema:
-          $ref: '../components/schemas/Order.yaml'
+          allOf:
+            - $ref: '../components/schemas/Order.yaml'
+            - required:
+              - type
+              - order_id
+              - currency
+              - amount
         examples:
           iDEAL: 
             summary: iDEAL
             value:
-              $ref: '../components/examples/requests/orders/ideal.json'
+              $ref: '../components/examples/requests/post-orders/ideal.json'
           Pay After Delivery: 
             summary: Pay After Delivery
             value:
-              $ref: '../components/examples/requests/orders/pad.json'
+              $ref: '../components/examples/requests/post-orders/pad.json'
           Credit card: 
             summary: Credit card
             value:
-              $ref: '../components/examples/requests/orders/credit-card.json'
+              $ref: '../components/examples/requests/post-orders/credit-card.json'
     required: true
   responses:
     '200':

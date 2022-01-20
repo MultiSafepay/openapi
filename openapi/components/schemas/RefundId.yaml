@@ -1,0 +1,3 @@
+description: "MultiSafepay's unique identifier for the refund transaction (also known as the PSP ID)."
+type: integer
+example: 3326969
