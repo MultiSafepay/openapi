@@ -1,6 +1,6 @@
 post:
   description: Manually capture the full or a partial amount for a credit or debit card payment.
-  operationId: ManualCaptureFullPartial
+  operationId: ManualCapture
   parameters:
     - description: | 
         The unique identifier of the order. 
@@ -14,6 +14,15 @@ post:
   requestBody:
     content:
       application/json:
+        examples:
+          Full capture: 
+              summary: Full capture
+              value:
+                $ref: '../components/examples/requests/capture/fullCapture.json'
+          Partial capture: 
+              summary: Partial capture
+              value:
+                $ref: '../components/examples/requests/capture/partialCapture.json'
         schema:
           type: object
           properties:
@@ -86,6 +95,6 @@ post:
           schema:
             $ref: '../components/schemas/GenericErrorResponse.yaml'
       description: Error
-  summary: Full or partial capture
+  summary: Manual capture
   tags:
     - Manual capture
