@@ -34,7 +34,7 @@ properties:
     type: string
   invoice_id:
     description: | 
-      Add the invoice ID to the order. 
+      Add your invoice ID to the order. 
 
       The invoice ID appears on [reports](https://docs.multisafepay.com/business/accounting/reports/) generated from your MultiSafepay dashboard.
     example: AB12345
@@ -51,3 +51,4 @@ properties:
     type: string
 required:
   - status
+summary: Ship an order

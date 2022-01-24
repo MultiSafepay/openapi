@@ -1,10 +1,12 @@
 properties:
   type:
     description: |
-      - `redirect` orders redirect the customer to a MultiSafepay payment page where the customer can select a payment method and/or complete the payment. 
-      - `direct` orders redirect the customer to an authentication or success page, depending on the payment method.
-      - `paymentlink` orders are accessible through a the [merchant dashboard](https://merchant.multisafepay.com/).
-      - `checkout` for FastCheckout orders.
+      - `redirect`: Redirects the customer to a [MultiSafepay payment page](https://docs.multisafepay.com/payment-pages/), where they can select a payment method and complete payment. 
+      - `direct`: Redirects the customer to an authentication or success page, depending on the payment method.
+      - `paymentlink`: Creates a [payment link](https://docs.multisafepay.com/payment-links/).
+      - `checkout`: Creates a FastCheckout order.
+      
+      For more information, see [Direct vs redirect API requests](https://docs.multisafepay.com/developer/direct-vs-redirect).
     example: redirect
     type: string
     enum: [direct, redirect, checkout, paymentlink]
@@ -23,30 +25,35 @@ properties:
   description:
     $ref: 'Description.yaml'
   payment_options:
-    description: contains URLs to the success page, cancel page and your webhook endpoint.
+    description: | 
+      Contains: 
+      
+      - URLs to your success page and cancel page
+      - Your webhook endpoint
+      - Templates for styling [MultiSafepay payment pages](https://docs.multisafepay.com/payment-pages/).
     type: object
     properties:
       notification_url: 
-        description: Endpoint for MultiSafepay to send status updates and other notifications to you.
+        description: The webhook endpoint for MultiSafepay to send you status updates and other notifications.
         type: string
         example: https://www.example.com/payment-updates/
       notification_method:
         description: |
           Sets the notification method.
           
-          We advice setting the notification method to `POST`, to reduce network load and increase security.
+          We recommend setting this to `POST` to reduce network load and increase security.
 
-          See also, [Notification URL](https://docs.multisafepay.com/developer/api/notification-url/).
+          See also [Notification URL](https://docs.multisafepay.com/developer/api/notification-url/).
         type: string
         enum: [POST, GET]
         default: GET
         example: POST
       redirect_url:
-        description: Page that the customer is redirected to after **successful** payments.
+        description: The page customers are redirected to after **successful** payment.
         type: string
         example: https://www.example.com/test-order-0001/successful/
       cancel_url:
-        description: Page that the customer is redirected to after **unsuccessful** payments.
+        description: The page that customers are redirected to after **unsuccessful** payments.
         type: string
         example: https://www.example.com/test-order-0001/unsuccessful/
       close_window:
@@ -54,20 +61,20 @@ properties:
         type: boolean
         default: false
       settings:
-        description: Contains gateway-specific settings
+        description: Contains gateway-specific settings.
         type: object
         properties:
           coupons: 
-            description: Contains settings for gift cards
+            description: Contains settings for gift cards.
             properties:
               allow:
-                description: Specifies what gift cards the customer may pay with
+                description: Specifies what gift cards the customer can pay with.
                 type: array
                 example: EDENCO
                 enum: [BABYCAD, BEAUTYWELL, BLOEMENCAD, BOEKENBON, DEGROTESPL, EDENCOM, EDENCO, EDENRES, EDENSPORTS, FASHIONCHQ, FASHIONGFT, FIETSENBON, GOOD4FUN, GEZONDHEID, NATNLBIOSC, NATNLETUIN, PARFUMCADE, SPORTENFIT, VRGIFTCARD, VVVGIFTCRD, WEBSHOPGFT, WIJNCADEAU, YOURGIFT]
       template_id: 
         description: |
-          Apply a [payment page styling template](https://docs.multisafepay.com/payment-pages/styling/) through it's identifier.
+          Applies a [payment page styling template](https://docs.multisafepay.com/payment-pages/styling/) using its identifier.
 
           If `payment_options.template` is also set, `payment_options.template` is used.
         type: string
@@ -86,10 +93,10 @@ properties:
   var3:
     $ref: 'var3.yaml'
   custom_info:
-    description: Used to store custom information about the order
+    description: Stores custom information about the order.
     properties:
       custom_1:
-        description: First string to store 
+        description: The first string to store. 
         type: string
       custom_2:
         description:
@@ -100,7 +107,7 @@ properties:
   customer:
     $ref: 'CustomerObject.yaml'
   delivery:
-    description: The delivery information for shipping the order.
+    description: The customer's address details for shipping the order.
     type: object
     properties:
       first_name:
@@ -142,35 +149,35 @@ properties:
     properties:
       flexible_3d: 
         description: |
-          Sets whether or not 3D Secure authentication is required
+          Sets whether or not 3D Secure authentication is required.
 
-          **True**: enable the 3D Secure authentication  
-          **False**: disable the 3D Secure authentication
+          **True**: Enables 3D Secure authentication  
+          **False**: Disables 3D Secure authentication
         type: boolean
       card_number:
-        description: The customer's credit card number
+        description: "The customer's credit card number."
         type: string
         example: "4111111111111111"
       card_holder_name:
-        description: The cardholder's name
+        description: "The cardholder's name."
         type: name
         example: John Doe
       card_expiry_date:
-        description: The credit card's expiry date
+        description: "The credit card's expiry date."
         type: string
         format: yyMM
         example: "2412"
       card_cvc:
         description: |
-          The card verification code (CVC) is a 3 or 4 digit number used as an additional security feature for card-not-present transactions.  
+          The card verification code (CVC) – a 3 or 4 digit number used as an additional security feature for card-not-present transactions.  
           
           `card_cvc` is not required for:
-          - Debit cards, like `MAESTRO`
+          - Debit cards, e.g. `MAESTRO`
           - Recurring payments
         type: string
         example: "123"
       term_url: 
-        description: URL that is used to instruct the card issuer where to redirect the authorisation query.
+        description: URL that tells the card issuer where to redirect the authorisation query.
         type: string
         format: URL
         example: https://example.com/?type=term&api_key=<api_key>
@@ -180,14 +187,14 @@ properties:
         example: '0021'
   second_chance:
     description: |
-      Sends a reminder email to the customer containing a payment link.
+      Sends a reminder email to the customer containing a payment link to complete an abandoned payment.
 
-      See also, [Second Chance](https://docs.multisafepay.com/features/second-chance/).
+      See also [Second Chance](https://docs.multisafepay.com/features/second-chance/).
     type: object
     properties:
       send_mail:
         description: |
-          Sets whether reminder emails are sent if the customer doesn't complete the payment.
+          Sets whether to send reminder emails if the customer doesn't complete payment.
 
           - If `true`, sends reminder emails.
           - If `false` or unset, doesn't send reminder emails.
@@ -198,16 +205,16 @@ properties:
     properties:
       validate_cart:
         description: |
-          If set to `true`, the value of `amount` is compared with the calculated total value of the shopping cart (returned as `order_total`).
+          If set to `true`, the value of `amount` is compared to the calculated total value of the shopping cart (returned as `order_total`).
 
           If the values:
           
-          - Match: the request is successful.
-          - Don’t match: the request is not successful and error_code 1027 is returned.
+          - Match, the request is successful.
+          - Don’t match, the request is unsuccessful and error_code 1027 is returned.
         type: boolean
         default: false
       tax_tables:
-        description: Set default VAT settings and create VAT classes in the alternate array that you can apply to individual shopping cart items.
+        description: Sets default VAT settings and creates VAT classes in the alternate array, which you can apply to individual shopping cart items.
         type: object
         properties:
           default:
@@ -219,7 +226,7 @@ properties:
                 type: boolean
               rate:
                 description: |
-                  The tax rate percentage as a fraction e.g. 15% is expressed as `0.15`
+                  The tax rate percentage as a fraction, e.g. 15% is expressed as `0.15`.
                 type: number
                 format: float
                 example: 0.15
@@ -251,19 +258,17 @@ properties:
                         description: |
                           The country where the tax rate applies.
 
-                          See also, [ISO 3166-1 alpha-2]()
+                          See also [ISO 3166-1 alpha-2]()
                         type: string
                         example: US
                         format: ISO 3166-1 alpha-2
   items:
-    description: Lets you display the items in the customer’s order in a single line on your checkout page instead of including a `shopping_cart` object.
+    description: Displays the items in the customer’s order in a single line on your checkout page, instead of including a `shopping_cart` object.
     type: string
     example: "<ol><li>Article 1: € 1,95</li><li>Article 2: € 2,95</li><li>Article 3: € 3,95</li></ol>"
   days_active:
     description: |
-      Number of days the payment link is valid for.
-
-      Applies only to `redirect`-type orders.
+      For `redirect` and `paymentlink` orders, he number of days the payment link is valid for.
 
       If `seconds_active` is also set, `seconds_active` is used.
     type: integer
@@ -271,16 +276,14 @@ properties:
     default: 30
   seconds_active: 
     description: |
-      Number of seconds the payment link is valid for.
-
-      Applies only to `redirect`-type orders.
+      For `redirect` and `paymentlink` orders, the number of seconds the payment link is valid for.
 
       If `days_active` is also set, `seconds_active` is used.
     type: integer
     minimum: 1
     default: 2592000
   plugin:
-    description: Specifies information about your integration, useful for debugging.
+    description: Specifies information about your integration, which is useful for debugging.
     properties:
       shop:
         description: The ecommerce platform that you use.
@@ -302,12 +305,12 @@ properties:
         type: string
         example: "https://www.my-ecommerce.com"
   affiliate:
-    description: Settings related to affiliated MultiSafepay accounts
+    description: Settings for affiliated MultiSafepay accounts.
     type: object
     properties:
       split_payments:
         description: |
-          Split the amount of a transaction between partner or affiliate accounts by a percentage, a fixed amount, or both.
+          Split the amount of a transaction between partner or affiliated accounts by a percentage, a fixed amount, or both.
 
           For every split payment rule, add an object to the array.
         type: array
@@ -315,7 +318,7 @@ properties:
           type: object
           properties:
             merchant: 
-              description: The account ID of the MultiSafepay account
+              description: The account ID of the affiliated account.
               type: string
               example: 1001001
             fixed: 
@@ -328,13 +331,13 @@ properties:
               format: float
               minimum: 1
             description: 
-              description: The description of the split payment.
+              description: A description of the split payment.
               type: string
   shopping_cart:
     description: |
-      Array of items in the customer's shopping cart, including the tax class.
+      The array of items in the customer's shopping cart, including the tax class.
 
-      If you have a custom integration, include the complete specification of the `shopping_cart`.
+      If you have a self-made integration, include the complete specification of the `shopping_cart`.
     type: object
     properties:
       items:
@@ -342,65 +345,7 @@ properties:
           The items in the customer's shopping cart. 
         
           Specify the relevant tax ruling per item.
-        array:
+        type: array
         items:
-          type: object
-          properties:
-            name:
-              description: Name of the product/service
-              type: string
-              example: Backpack
-            description:
-              description: Description of the product/service
-              type: string
-              example: Black cotton backpack with logo.
-            unit_price:
-              description: | 
-                The unit price (in decimals) of the item, excluding VAT.
-
-                The currency of the shopping cart is set at an order-level with `currency`. 
-
-                **Example**: A €90 backpack has value `90`
-              type: number
-              format: float
-              example: 90.00
-            quantity:
-              description: The number of sold units of the item.
-              type: integer
-              example: 1
-            merchant_item_id:
-              description: |
-                Your unique (client-defined) identifier for the product/service.
-
-                If this item specifies the shipping costs, set to `msp-shipping`.
-              type: string
-              example: "12345678"
-              maxLength: 
-            tax_table_selector:
-              description: Your client-defined identifier for a tax table, specified as `checkout_options.tax_tables.alternate.name`.
-              type: string
-              example: "VAT-21"
-            weight:
-              description: The weight per product.
-              type: object
-              properties:
-                unit: 
-                  description: The unit of weight.
-                  type: string
-                  enum: [KG]
-                  example: KG
-                value: 
-                  description: |
-                    The weight of the item corresponding to the unit.
-
-                    For a 2 kilogram product:
-                    - Set `value` to `2`.
-                    - Set `unit` to `KG`.
-                  type: number
-                  example: 2
+          $ref: 'Item.yaml'
 type: object
-required:
-  - type
-  - order_id
-  - currency
-  - amount

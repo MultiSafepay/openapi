@@ -91,7 +91,7 @@ get:
   tags:
     - Payments
 patch:
-  description: Update details about an order, used to mark pay later orders as shipped or cancel orders.
+  description: Update details about an order. Use this request to change the status of pay later orders to shipped, or to cancel orders.
   operationId: UpdateOrder
   parameters:
     - description: | 
@@ -112,6 +112,15 @@ patch:
               title: Ship an order
             - $ref: '../components/requestBody/CancelOrder.yaml'
               title: Cancel an order
+        examples:
+          Ship an order: 
+            summary: Ship an order
+            value:
+              $ref: '../components/examples/requests/patch-orders/shipOrder.json'
+          Cancel an order:
+            summary: Cancel an order
+            value:
+              $ref: '../components/examples/requests/patch-orders/cancelOrder.json'
     required: true
   responses:
     '200':
