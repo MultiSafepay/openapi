@@ -24,6 +24,8 @@ paths:
     $ref: paths/orders.yaml
   '/orders/{order_id}':
     $ref: 'paths/orders@{order_id}.yaml'
+  '/orders/{order_id}/capture':
+    $ref: 'paths/orders@{order_id}@capture.yaml'
   '/orders/{order_id}/files':
     $ref: 'paths/orders@{order_id}@files.yaml'
   '/orders/{order_id}/refunds':
