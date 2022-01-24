@@ -1,6 +1,6 @@
 post:
   description: Manually capture the full or a partial amount for a credit or debit card payment.
-  operationId: ManualCapture
+  operationId: CapturePayment
   parameters:
     - description: | 
         The unique identifier of the order. 
@@ -95,6 +95,6 @@ post:
           schema:
             $ref: '../components/schemas/GenericErrorResponse.yaml'
       description: Error
-  summary: Manual capture
+  summary: Capture payment
   tags:
     - Manual capture
