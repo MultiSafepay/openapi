@@ -102,6 +102,8 @@ paths:
     $ref: 'paths/sites@{site_id}.yaml'
   /transactions:
     $ref: paths/transactions.yaml
+  '/transactions/{transaction_id}':
+    $ref: 'paths/transactions@{transaction_id}.yaml'
   '/ubos/{ubo_id}':
     $ref: 'paths/ubos@{ubo_id}.yaml'
   '/ubos/{ubo_id}/identitydocs':

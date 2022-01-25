@@ -1,5 +1,5 @@
 get:
-  description: 'List all transactions under an account or website.'
+  description: "List all transactions under an account or website."
   operationId: ListTransactions
   parameters:
     - name: site_id
@@ -103,8 +103,39 @@ get:
     '200':
       content:
         application/json:
+          example: 
+            $ref: '../components/examples/responses/listTransactions.json'
           schema:
-            $ref: '../components/schemas/Transaction.yaml'
+            properties: 
+              data:
+                allOf:
+                  - $ref: '../components/schemas/Transaction.yaml'
+                  - description: The transaction details
+              pager:
+                type: object
+                description: "The page navigation details."
+                properties:
+                  after:
+                    type: string
+                    description: "The URL for the next page of pageinated results."
+                  before:
+                    type: string
+                    description: "The URL for the previous page of pageinated results."
+                  cursor:
+                    type: object
+                    description: "The cursor navigation details."
+                    properties:
+                      after:
+                        type: string
+                        description: "The identifier of the next page."
+                      before: 
+                        type: string
+                        description: "The identifier of the previous page."
+                  limit:
+                    type: integer
+                    description: "The number of results returned per page."
+              success:
+                $ref: '../components/schemas/Success.yaml'
       description: ''
   summary: List transactions
   tags:

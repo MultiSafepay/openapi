@@ -1,0 +1,24 @@
+get:
+  description: 'Fetch information about a transaction.'
+  operationId: GetTransactionDetails
+  parameters:
+    - name: transaction_id
+      in: path
+      required: true
+      schema:
+        $ref: '../components/schemas/TransactionId.yaml'
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            properties: 
+              data:
+                allOf:
+                  - $ref: '../components/schemas/Transaction.yaml'
+                  - description: The transaction details
+              success:
+                $ref: '../components/schemas/Success.yaml'
+  summary: Fetch transaction details
+  tags:
+    - Reconciliation
