@@ -100,6 +100,6 @@ properties:
     description: |
       A unique client-defined identifier for your customer.
 
-      See also [Recurring payments orders](https://docs.multisafepay.com/api/#recurring-payments-orders).
+      Required for [Recurring payments orders](https://docs.multisafepay.com/api/#recurring-payments-orders).
     type: string
     example: customer-0001
