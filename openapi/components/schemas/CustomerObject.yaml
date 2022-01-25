@@ -103,21 +103,3 @@ properties:
       Required for [Recurring payments orders](https://docs.multisafepay.com/api/#recurring-payments-orders).
     type: string
     example: customer-0001
-required:
-- address1
-- address2
-- birthday
-- city
-- country
-- email
-- first_name
-- forwarded_ip
-- gender
-- house_number
-- ip_address
-- last_name
-- locale
-- phone
-- referrer
-- user_agent
-- zip_code
