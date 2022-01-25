@@ -2,10 +2,6 @@ delete:
   description: |
     Delete a token related to a single customer reference.
 
-    Make a DELETE request with the required placeholders in the URL:
-
-    - `your_customer_reference`: Your unique reference number for the customer.
-    - `your_token`: The unique token identifier associated with the customer.
   operationId: DeleteToken
   parameters:
     - name: your_customer_reference
