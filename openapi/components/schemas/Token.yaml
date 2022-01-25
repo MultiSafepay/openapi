@@ -1,0 +1,42 @@
+type: object
+properties:
+  token:
+    type: string
+    description:  'The unique token linked to the customer reference.'
+    example: azbkvsE0up4
+  code:
+    type: string
+    description: 'The unique identifier of the payment gateway.'
+    example: MASTERCARD
+  display:
+    type: string
+    description: 'How the customer’s credit card number is displayed.'
+    example: 'Card xxxx xxxx xxxx 4444'
+  name_holder:
+    type: string
+    description: 'The card holder’s name.'
+    example: Testperson-nl
+  expiry_date:
+    type: string
+    description: |
+      The credit card expiry date.
+      
+      Example: December 2025 is formatted as `1225`.
+    example: '3166'
+    format: mmYY
+  expired:
+    type: boolean
+    description: 'Whether the card has expired.'
+    example: 0
+  last4:
+    type: string
+    description: 'The last 4 digits of the credit card number.'
+    example: 4444
+  model:
+    type: string
+    description: The recurring model.
+    example: cardOnFile
+    enum: 
+      - cardonfile
+      - subscription
+      - unscheduled
