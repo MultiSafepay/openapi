@@ -1,0 +1,55 @@
+post:
+  description: | 
+    Process a full or partial [refund](https://docs.multisafepay.com/refunds/) for an order.
+
+    Refunding creates a new order (with a unique ID) linked to the original order. 
+    
+    To refund pay later orders, see `RefundPayLater`. 
+  operationId: 'RefundOrder'
+  parameters:
+    - description: | 
+        The unique identifier of the order. 
+      
+        Max length: 50 characters.
+      in: path
+      name: order_id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          oneOf:
+            - $ref: '../components/requestBody/Refund.yaml'
+              title: Refund
+            - $ref: '../components/requestBody/RefundPayLater.yaml'
+              title: Refund pay later
+        examples: 
+          Refund: 
+            summary: Refund
+            value:  
+              $ref: '../components/examples/requests/refunds/refund.json'
+          Refund pay later:
+            summary: Refund pay later
+            value:  
+              $ref: '../components/examples/requests/refunds/refundPayLater.json'
+  responses:
+    '200':
+      description: Successful request
+      content:
+        application/json:
+          schema:
+            properties:
+              success:
+                type: boolean
+              data: 
+                type: object
+                properties:
+                  transaction_id:
+                    $ref: '../components/schemas/TransactionId.yaml'
+                  refund_id:
+                    $ref: '../components/schemas/RefundId.yaml'
+  summary: Refund an order
+  tags:
+    - Refunds and chargebacks

@@ -26,6 +26,12 @@ paths:
     $ref: 'paths/orders@{order_id}.yaml'
   '/orders/{capture_order_id}':
     $ref: 'paths/orders@{capture_order_id}.yaml'
+  '/orders/{order_id}/capture':
+    $ref: 'paths/orders@{order_id}@capture.yaml'
+  '/orders/{order_id}/files':
+    $ref: 'paths/orders@{order_id}@files.yaml'
+  '/orders/{order_id}/refunds':
+    $ref: 'paths/orders@{order_id}@refunds.yaml'
   /accounts:
     $ref: paths/accounts.yaml
   '/accounts/{account_id}':
@@ -50,8 +56,10 @@ paths:
     $ref: 'paths/bank-accounts@{bankaccount_id}@payment-links.yaml'
   '/bank-statements/{bankstatement_id}':
     $ref: 'paths/bank-statements@{bankstatement_id}.yaml'
-  '/categories':
+  /categories:
     $ref: 'paths/categories.yaml'
+  /capture/{order_id}:
+    $ref: paths/capture@{order_id}.yaml
   /customers:
     $ref: paths/customers.yaml
   '/customers/{customer_id}':
@@ -64,12 +72,12 @@ paths:
     $ref: 'paths/delivery-details@{delivery_details_id}.yaml'
   '/identitydocs/{identitydoc_id}':
     $ref: 'paths/identitydocs@{identitydoc_id}.yaml'
-  /gateways/{id}:
-    $ref: paths/gateways@{gateway_id}.yaml
   /issuers/{gateway}:
     $ref: paths/issuers@{gateway}.yaml
   /gateways:
     $ref: paths/gateways.yaml
+  '/gateways/{id}':
+    $ref: 'paths/gateways@{gateway_id}.yaml'
   /me:
     $ref: paths/me.yaml
   /pad/ccs:
@@ -80,6 +88,10 @@ paths:
     $ref: paths/payment-methods.yaml
   '/payment-methods/{payment_method_id}':
     $ref: 'paths/payment-methods@{payment_method_id}.yaml'
+  /recurring/{your_customer_reference}:
+    $ref: 'paths/recurring@{your_customer_reference}.yaml'
+  '/recurring/{your_customer_reference}/token/{your_token}':
+    $ref: 'paths/recurring@{your_customer_reference}@token@{your_token}.yaml'
   /signup-account:
     $ref: paths/signup-account.yaml
   '/sites/{site_id}':
@@ -97,6 +109,8 @@ tags:
     description: "Create and manage customers"
   - name: Accounts
     description: "Create and manage affiliated accounts"
+  - name: Recurring payments
+    description: "Manage tokens"
   - name: Reconciliation
     description: "List transactions"
   - name: Pay after delivery (BETA)
