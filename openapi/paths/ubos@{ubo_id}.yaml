@@ -1,5 +1,5 @@
 get:
-  description: Get information about a ultimate beneficiary owner (UBO).
+  description: Fetch information about a ultimate beneficiary owner (UBO).
   operationId: GetUbo
   parameters:
     - description: ''
@@ -96,7 +96,7 @@ get:
       description: UBO not found
   summary: Get UBO details
   tags:
-    - UBOs
+    - Affiliate UBOs
 patch:
   description: Update information about a ultimate beneficiary owner (UBO).
   operationId: UpdateUbo
@@ -267,4 +267,4 @@ patch:
       description: Validation errors
   summary: Update UBO details
   tags:
-    - UBOs
+    - Affiliate UBOs

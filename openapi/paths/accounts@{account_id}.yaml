@@ -1,5 +1,5 @@
 get:
-  description: 'Get information about an existing affiliated account.'
+  description: 'Fetch information about an existing affiliated account.'
   operationId: 'Partner::GetAccount'
   parameters:
     - description: ''
@@ -79,7 +79,7 @@ get:
       description: Account not found
   summary: Get affiliated account
   tags:
-    - Affiliated accounts
+    - Affiliate accounts
 patch:
   description: 'Update information about an existing affiliated account.'
   operationId: 'Partner::UpdateAccount'
@@ -223,4 +223,4 @@ patch:
       description: Validation errors
   summary: Update affiliated account
   tags:
-    - Affiliated accounts
+    - Affiliate accounts

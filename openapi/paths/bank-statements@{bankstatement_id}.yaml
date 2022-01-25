@@ -1,5 +1,5 @@
 get:
-  description: Get information about an uploaded bank statement.
+  description: Fetch information about an uploaded bank statement.
   operationId: GetBankStatement
   parameters:
     - description: ''

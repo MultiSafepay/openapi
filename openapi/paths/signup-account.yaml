@@ -177,4 +177,4 @@ post:
       description: Validation errors
   summary: Create affiliated account
   tags:
-    - Affiliated accounts
+    - Affiliate accounts

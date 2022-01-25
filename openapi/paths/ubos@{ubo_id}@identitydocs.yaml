@@ -49,7 +49,7 @@ get:
       description: ''
   summary: List identity documents
   tags:
-    - UBOs
+    - Affiliate UBOs
 post:
   description: Upload a passport or other identification document for an ultimate beneficiary owner (UBO).
   operationId: CreateIdentityDoc
@@ -143,4 +143,4 @@ post:
       description: Validation errors
   summary: Add identity document
   tags:
-    - UBOs
+    - Affiliate UBOs

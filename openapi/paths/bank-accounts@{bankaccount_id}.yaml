@@ -1,5 +1,5 @@
 get:
-  description: Get information about a bank account.
+  description: Fetch information about a bank account.
   operationId: GetBankAccount
   parameters:
     - description: ''

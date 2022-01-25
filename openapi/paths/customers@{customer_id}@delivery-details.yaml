@@ -1,5 +1,5 @@
 get:
-  description: "Get a customer's address details."
+  description: "Fetch a customer's address details."
   operationId: GetCustomerAddress
   parameters:
     - description: ''
