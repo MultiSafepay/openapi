@@ -1,0 +1,46 @@
+delete:
+  description: |
+    Delete a token related to a single customer reference.
+
+  operationId: DeleteToken
+  parameters:
+    - name: your_customer_reference
+      in: path
+      description: 'The customer reference.'
+      required: true
+      schema:
+        type: string
+    - name: your_token
+      in: path
+      description: 'The unique token linked to the customer reference.'
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            properties:
+              success:
+                type: boolean
+                example: true
+              data:
+                description: ''
+                properties:
+                  removed:
+                    type: boolean
+                    example: true
+                    description: 'Whether the token was successfully deleted.'
+            type: object
+      description: ''
+    '404':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/GenericErrorResponse.yaml
+      description: Error 
+  summary: Delete a token
+  tags:
+    - Recurring payments
+    - Payments
