@@ -14,6 +14,46 @@ post:
               - currency
               - amount
         examples:
+          AfterPay – Redirect:
+            summary: AfterPay – Redirect
+            value: 
+              $ref: '../components/examples/requests/post-orders/afterpay-redirect.json'
+          AfterPay – Direct:
+            summary: AfterPay – Direct
+            value: 
+              $ref: '../components/examples/requests/post-orders/afterpay-direct.json'   
+          AliPay – Redirect:
+            summary: AliPay – Redirect
+            value: 
+              $ref: '../components/examples/requests/post-orders/alipay-redirect.json'
+          AliPay – Direct:
+            summary: AliPay – Direct
+            value: 
+              $ref: '../components/examples/requests/post-orders/alipay-direct.json'
+          Apple Pay – Redirect:
+            summary: Apple Pay – Redirect
+            value:
+              $ref: '../components/examples/requests/post-orders/apple-pay-redirect.json'
+          Apple Pay – Direct:
+            summary: Apple Pay – Direct
+            value:
+              $ref: '../components/examples/requests/post-orders/apple-pay-direct.json'
+          Bancontact:
+            summary: Bancontact
+            value:
+              $ref: '../components/examples/requests/post-orders/bancontact.json'
+          Bancontact QR:
+            summary: Bancontact QR
+            value:
+              $ref: '../components/examples/requests/post-orders/bancontact-qr.json'
+          Bank Transfer – Redirect:
+            summary: Bank Transfer – Redirect
+            value:
+              $ref: '../components/examples/requests/post-orders/bank-transfer-redirect.json'
+          Bank Transfer – Direct:
+            summary: Bank Transfer – Direct
+            value:
+              $ref: '../components/examples/requests/post-orders/bank-transfer-direct.json'    
           iDEAL: 
             summary: iDEAL
             value:

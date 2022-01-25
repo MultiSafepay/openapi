@@ -1,0 +1,14 @@
+{
+    "type": "redirect",
+    "order_id": "my-order-id-1",
+    "gateway": "APPLEPAY",
+    "currency": "EUR",
+    "amount": "100",
+    "description": "Test Order Description",
+    "manual": "false",
+    "payment_options": {
+        "notification_url": "http://10.1.10.111/testtool/client/json-test/notification?type=notification",
+        "redirect_url": "http://10.1.10.111/testtool/client/json-test/notification?type=redirect",
+        "cancel_url": "http://10.1.10.111/testtool/client/json-test/notification?type=cancel"
+    }
+}
