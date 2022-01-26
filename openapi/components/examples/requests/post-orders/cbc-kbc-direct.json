@@ -1,9 +1,9 @@
 {
     "type": "direct",
-    "gateway": "ALIPAY",
+    "gateway": "CBC",
     "order_id": "my-order-id-1",
     "currency": "EUR",
-    "amount": 1000,
+    "amount": 100,
     "description": "product description",
     "custom_info": {},
     "payment_options": {

@@ -1,7 +1,7 @@
 {
     "type":"direct",
-    "order_id":"my-order-id-1",
     "gateway":"APPLEPAY",
+    "order_id":"my-order-id-1",
     "currency":"EUR",
     "amount":1495,
     "description":"Order Description",

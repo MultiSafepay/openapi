@@ -1,5 +1,8 @@
 post:
-  description: Create an order to collect payment from a customer.
+  description: | 
+    Create an order to collect payment from a customer.
+
+    For example requests for each payment method
   operationId: 'CreateOrder'
   parameters: []
   requestBody:
@@ -30,6 +33,10 @@ post:
             summary: AliPay – Direct
             value: 
               $ref: '../components/examples/requests/post-orders/alipay-direct.json'
+          American Express:
+            summary: American Express
+            value:
+              $ref: '../components/examples/requests/post-orders/amex-redirect.json'
           Apple Pay – Redirect:
             summary: Apple Pay – Redirect
             value:
@@ -38,12 +45,12 @@ post:
             summary: Apple Pay – Direct
             value:
               $ref: '../components/examples/requests/post-orders/apple-pay-direct.json'
-          Bancontact:
-            summary: Bancontact
+          Bancontact – Redirect:
+            summary: Bancontact – Redirect
             value:
-              $ref: '../components/examples/requests/post-orders/bancontact.json'
-          Bancontact QR:
-            summary: Bancontact QR
+              $ref: '../components/examples/requests/post-orders/bancontact-redirect.json'
+          Bancontact – QR:
+            summary: Bancontact – QR
             value:
               $ref: '../components/examples/requests/post-orders/bancontact-qr.json'
           Bank Transfer – Redirect:
@@ -54,18 +61,174 @@ post:
             summary: Bank Transfer – Direct
             value:
               $ref: '../components/examples/requests/post-orders/bank-transfer-direct.json'    
-          iDEAL: 
-            summary: iDEAL
+          Belfius – Redirect:
+            summary: Belfius – Redirect
             value:
-              $ref: '../components/examples/requests/post-orders/ideal.json'
-          Pay After Delivery: 
-            summary: Pay After Delivery
+              $ref: '../components/examples/requests/post-orders/belfius-redirect.json'
+          Belfius – Direct:
+            summary: Belfius – Direct
             value:
-              $ref: '../components/examples/requests/post-orders/pad.json'
+              $ref: '../components/examples/requests/post-orders/belfius-direct.json'
+          Betaal per Maand – Redirect: 
+            summary: Betaal per Maand – Redirect
+            value:
+              $ref: '../components/examples/requests/post-orders/betaal-per-maand-redirect.json'
+          Betaal per Maand – Direct: 
+            summary: Betaal per Maand – Direct
+            value:
+              $ref: '../components/examples/requests/post-orders/betaal-per-maand-direct.json'
+          CBC/KBC – Redirect:
+            summary: CBC/KBC – Redirect
+            value: 
+              $ref: '../components/examples/requests/post-orders/cbc-kbc-redirect.json'
+          CBC/KBC – Direct:
+            summary: CBC/KBC – Direct
+            value: 
+              $ref: '../components/examples/requests/post-orders/cbc-kbc-direct.json'
           Credit card: 
             summary: Credit card
             value:
               $ref: '../components/examples/requests/post-orders/credit-card.json'
+          Dotpay:
+            summary: Dotpay
+            value:
+              $ref: '../components/examples/requests/post-orders/dotpay.json'
+          Edenred:
+            summary: Edenred
+            value:
+              $ref: '../components/examples/requests/post-orders/edenred.json'
+          E-Invoicing – Redirect:
+            summary: E-Invoicing – Redirect
+            value:
+              $ref: '../components/examples/requests/post-orders/einvoicing-redirect.json'
+          E-Invoicing – Direct:
+            summary: E-Invoicing – Direct
+            value:
+              $ref: '../components/examples/requests/post-orders/einvoicing-direct.json'
+          EPS:
+            summary: EPS
+            value:
+              $ref: '../components/examples/requests/post-orders/eps.json'
+          Gift card:
+            summary: Gift card
+            value:
+              $ref: '../components/examples/requests/post-orders/gift-card.json'
+          Giropay:
+            summary: Giropay
+            value:
+              $ref: '../components/examples/requests/post-orders/giropay.json'
+          Google Pay – Redirect:
+            summary: Google Pay – Redirect
+            value:
+              $ref: '../components/examples/requests/post-orders/google-pay-redirect.json'
+          Google Pay – Direct:
+            summary: Google Pay – Direct
+            value:
+              $ref: '../components/examples/requests/post-orders/google-pay-direct.json'
+          iDEAL – Redirect: 
+            summary: iDEAL – Redirect
+            value:
+              $ref: '../components/examples/requests/post-orders/ideal-redirect.json'
+          iDEAL – Direct: 
+            summary: iDEAL – Direct
+            value:
+              $ref: '../components/examples/requests/post-orders/ideal-direct.json'
+          iDEAL – QR: 
+            summary: iDEAL – QR
+            value:
+              $ref: '../components/examples/requests/post-orders/ideal-qr.json'
+          in3 – Redirect: 
+            summary: in3 – Redirect
+            value:
+              $ref: '../components/examples/requests/post-orders/in3-redirect.json'
+          in3 – Direct: 
+            summary: in3 – Direct
+            value:
+              $ref: '../components/examples/requests/post-orders/in3-direct.json'
+          Klarna – Redirect: 
+            summary: Klarna – Redirect
+            value:
+              $ref: '../components/examples/requests/post-orders/klarna-redirect.json'
+          Klarna – Direct: 
+            summary: Klarna – Direct
+            value:
+              $ref: '../components/examples/requests/post-orders/klarna-direct.json'
+          Maestro: 
+            summary: Maestro
+            value:
+              $ref: '../components/examples/requests/post-orders/maestro.json'
+          Mastercard: 
+            summary: Mastercard
+            value:
+              $ref: '../components/examples/requests/post-orders/mastercard.json'
+          Pay After Delivery – Redirect: 
+            summary: Pay After Delivery – Redirect
+            value:
+              $ref: '../components/examples/requests/post-orders/pad-redirect.json'
+          Pay After Delivery – Direct: 
+            summary: Pay After Delivery – Direct
+            value:
+              $ref: '../components/examples/requests/post-orders/pad-direct.json'
+          PayPal – Redirect: 
+            summary: PayPal – Redirect
+            value:
+              $ref: '../components/examples/requests/post-orders/paypal-redirect.json'
+          PayPal – Direct: 
+            summary: PayPal – Direct
+            value:
+              $ref: '../components/examples/requests/post-orders/paypal-direct.json'
+          Postepay: 
+            summary: Postepay
+            value:
+              $ref: '../components/examples/requests/post-orders/postepay.json'
+          Request to Pay – Redirect: 
+            summary: Request to Pay – Redirect
+            value:
+              $ref: '../components/examples/requests/post-orders/request-to-pay-redirect.json'
+          Request to Pay – Direct: 
+            summary: Request to Pay – Direct
+            value:
+              $ref: '../components/examples/requests/post-orders/request-to-pay-direct.json'
+          SEPA Direct Debit – Redirect: 
+            summary: SEPA Direct Debit – Redirect
+            value:
+              $ref: '../components/examples/requests/post-orders/sepa-direct-debit-redirect.json'
+          SEPA Direct Debit – Direct:
+            summary: SEPA Direct Debit – Direct
+            value:
+              $ref: '../components/examples/requests/post-orders/sepa-direct-debit-direct.json'
+          Sofort – Redirect:
+            summary: Sofort – Redirect
+            value:
+              $ref: '../components/examples/requests/post-orders/sofort-redirect.json'
+          Sofort – Direct:
+            summary: Sofort – Direct
+            value:
+              $ref: '../components/examples/requests/post-orders/sofort-direct.json'
+          Trustly – Redirect:
+            summary: Trustly – Redirect
+            value:
+              $ref: '../components/examples/requests/post-orders/trustly-redirect.json'
+          Trustly – Direct:
+            summary: Trustly – Direct
+            value:
+              $ref: '../components/examples/requests/post-orders/trustly-direct.json'
+          TrustPay:
+            summary: TrustPay
+            value:
+              $ref: '../components/examples/requests/post-orders/trustpay-redirect.json'
+          Visa: 
+            summary: Visa
+            value:
+              $ref: '../components/examples/requests/post-orders/visa.json'
+          WeChat Pay – Redirect:
+            summary: WeChat Pay – Redirect
+            value:
+              $ref: '../components/examples/requests/post-orders/wechat-pay-redirect.json'
+          WeChat Pay – Direct:
+            summary: WeChat Pay – Direct
+            value:
+              $ref: '../components/examples/requests/post-orders/wechat-pay-direct.json'
     required: true
   responses:
     '200':

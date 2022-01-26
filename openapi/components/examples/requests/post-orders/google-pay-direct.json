@@ -1,20 +1,16 @@
 {
-    "type":"redirect",
-    "gateway":"MISTERCASH",
+    "type":"direct",
+    "gateway":"GOOGLEPAY",
     "order_id":"my-order-id-1",
     "currency":"EUR",
-    "amount":1000,
-    "description":"Test order description",
+    "amount":1495,
+    "description":"Order Description",
     "payment_options":{
       "notification_url":"https://www.example.com/client/notification?type=notification",
       "redirect_url":"https://www.example.com/client/notification?type=redirect",
-      "cancel_url":"https://www.example.com/client/notification?type=cancel",
-      "close_window":true
+      "cancel_url":"https://www.example.com/client/notification?type=cancel"
     },
     "gateway_info":{
-      "qr_enabled":1
-    },
-    "customer":{
-      "locale":"nl_BE"
+      "payment_token":"<google-pay-payment-token>"
     }
   }

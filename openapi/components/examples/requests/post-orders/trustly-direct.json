@@ -1,6 +1,6 @@
 {
     "type": "direct",
-    "gateway": "ALIPAY",
+    "gateway": "TRUSTLY",
     "order_id": "my-order-id-1",
     "currency": "EUR",
     "amount": 1000,
@@ -10,5 +10,11 @@
         "notification_url": "http://10.1.10.111/testtool/client/json-test/notification?type=notification",
         "redirect_url": "http://10.1.10.111/testtool/client/json-test/notification?type=redirect",
         "cancel_url": "http://10.1.10.111/testtool/client/json-test/notification?type=cancel"
+    },
+    "customer": {
+        "first_name": "Testperson-nl",
+        "last_name": "Approved",
+        "country": "NL",
+        "email": "example@multisafepay.com"
     }
 }

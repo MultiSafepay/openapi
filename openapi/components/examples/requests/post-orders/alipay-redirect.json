@@ -1,9 +1,9 @@
 {
     "type": "redirect",
+    "gateway": "ALIPAY",
     "order_id": "my-order-id-1",
     "currency": "EUR",
     "amount": 1000,
-    "gateway": "ALIPAY",
     "description": "product description",
     "custom_info": {},
     "payment_options": {

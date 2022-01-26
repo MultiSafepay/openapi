@@ -1,15 +1,16 @@
 {
-    "type": "direct",
-    "gateway": "BANKTRANS",
+    "type": "redirect",
+    "gateway": "AMEX",
     "order_id": "my-order-id-1",
     "currency": "EUR",
-    "amount": 1000,
-    "description": "product description",
+    "amount": "100",
+    "description": "Test Order Description",
+    "manual": "false",
     "payment_options": {
         "notification_url": "http://10.1.10.111/testtool/client/json-test/notification?type=notification",
         "redirect_url": "http://10.1.10.111/testtool/client/json-test/notification?type=redirect",
         "cancel_url": "http://10.1.10.111/testtool/client/json-test/notification?type=cancel",
-        "close_window": true
+        "close_window": ""
     },
     "customer": {
         "locale": "nl",
@@ -28,7 +29,7 @@
         "gender": "male",
         "phone": "0612345678",
         "email": "example@multisafepay.com",
-        "referrer": "http://example.com",
+        "referrer": "http://test.com",
         "user_agent": "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36"
     }
 }

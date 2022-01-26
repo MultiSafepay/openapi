@@ -1,6 +1,6 @@
 {
     "type":"redirect",
-    "gateway":"MISTERCASH",
+    "gateway":"VISA",
     "order_id":"my-order-id-1",
     "currency":"EUR",
     "amount":1000,
@@ -11,10 +11,8 @@
       "cancel_url":"https://www.example.com/client/notification?type=cancel",
       "close_window":true
     },
-    "gateway_info":{
-      "qr_enabled":1
-    },
     "customer":{
-      "locale":"nl_BE"
+      "locale":"it_IT",
+      "ip_address":"123.123.123.123"
     }
   }
