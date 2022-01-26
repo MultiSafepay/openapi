@@ -1,5 +1,5 @@
 get:
-  description: "Fetch a customer's address details."
+  description: "Fetch a customer's shipping address."
   operationId: GetCustomerAddress
   parameters:
     - description: ''
@@ -89,7 +89,7 @@ get:
   tags:
     - Customers
 post:
-  description: "Add a customer's address details to their profile."
+  description: "Add a customer's shipping address to their profile."
   operationId: CreateCustomerAddress
   parameters:
     - description: ''
