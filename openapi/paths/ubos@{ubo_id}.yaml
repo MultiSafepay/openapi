@@ -1,5 +1,5 @@
 get:
-  description: Fetch information about an existing ultimate beneficiary owner
+  description: Fetch information about a ultimate beneficiary owner (UBO).
   operationId: GetUbo
   parameters:
     - description: ''
@@ -94,11 +94,11 @@ get:
           schema:
             $ref: ../components/schemas/GenericErrorResponse.yaml
       description: UBO not found
-  summary: Get UBO
+  summary: Get UBO details
   tags:
-    - Accounts
+    - Affiliate UBOs
 patch:
-  description: Update information about an existing ultimate beneficiary owner
+  description: Update information about a ultimate beneficiary owner (UBO).
   operationId: UpdateUbo
   parameters:
     - description: ''
@@ -265,6 +265,6 @@ patch:
           schema:
             $ref: ../components/schemas/ValidationErrorResponse.yaml
       description: Validation errors
-  summary: Update UBO
+  summary: Update UBO details
   tags:
-    - Accounts
+    - Affiliate UBOs

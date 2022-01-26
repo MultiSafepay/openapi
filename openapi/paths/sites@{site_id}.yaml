@@ -1,6 +1,6 @@
 get:
-  description: Fetch information about an existing site
-  operationId: GetSite
+  description: Fetch information about a website.
+  operationId: GetWebsite
   parameters:
     - description: ''
       in: path
@@ -54,10 +54,10 @@ get:
       description: Site not found
   summary: Get website
   tags:
-    - Accounts
+    - Affiliate websites
 patch:
-  description: Update information about an existing site
-  operationId: UpdateSite
+  description: Update information about a website.
+  operationId: UpdateWebsite
   parameters:
     - description: ''
       in: path
@@ -148,4 +148,4 @@ patch:
       description: Validation errors
   summary: Update website
   tags:
-    - Accounts
+    - Affiliate websites

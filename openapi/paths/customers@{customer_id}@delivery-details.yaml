@@ -1,6 +1,6 @@
 get:
-  description: ''
-  operationId: ListDeliveryDetails
+  description: "Fetch a customer's shipping address."
+  operationId: GetCustomerAddress
   parameters:
     - description: ''
       in: path
@@ -85,12 +85,12 @@ get:
                 type: boolean
             type: object
       description: ''
-  summary: List Delivery Details
+  summary: Get customer address
   tags:
     - Customers
 post:
-  description: ''
-  operationId: CreateDeliveryDetails
+  description: "Add a customer's shipping address to their profile."
+  operationId: CreateCustomerAddress
   parameters:
     - description: ''
       in: path
@@ -249,6 +249,6 @@ post:
           schema:
             $ref: ../components/schemas/ValidationErrorResponse.yaml
       description: Validation errors
-  summary: Create delivery details
+  summary: Create customer address
   tags:
     - Customers

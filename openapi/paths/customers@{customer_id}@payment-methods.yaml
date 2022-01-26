@@ -1,5 +1,5 @@
 get:
-  description: ''
+  description: 'List the payment methods available to a specific customer.'
   operationId: ListCustomerPaymentMethods
   parameters:
     - description: ''
@@ -56,11 +56,11 @@ get:
                 type: boolean
             type: object
       description: ''
-  summary: List payment methods
+  summary: List customer's payment methods
   tags:
     - Customers
 post:
-  description: ''
+  description: "Add payment details for a payment method to a customer's profile."
   operationId: CreateCustomerPaymentMethod
   parameters:
     - description: ''
@@ -162,6 +162,6 @@ post:
           schema:
             $ref: ../components/schemas/ValidationErrorResponse.yaml
       description: Validation errors
-  summary: Create payment method
+  summary: Create customer payment method
   tags:
     - Customers

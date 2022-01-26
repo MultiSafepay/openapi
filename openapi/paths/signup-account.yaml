@@ -1,5 +1,5 @@
 post:
-  description: Create a new merchant account
+  description: Create a new affiliated account.
   operationId: 'Partner::SignupAccount'
   parameters: []
   requestBody:
@@ -177,4 +177,4 @@ post:
       description: Validation errors
   summary: Create affiliated account
   tags:
-    - Accounts
+    - Affiliate accounts

@@ -136,8 +136,8 @@ get:
   tags:
     - Customers
 post:
-  description: Create a new customer
-  operationId: CreateCustomer
+  description: Create a new customer profile.
+  operationId: CreateCustomerProfile
   parameters: []
   requestBody:
     content:
@@ -346,6 +346,6 @@ post:
           schema:
             $ref: ../components/schemas/ValidationErrorResponse.yaml
       description: Validation errors
-  summary: Create customer (BETA)
+  summary: Create customer profile
   tags:
     - Customers

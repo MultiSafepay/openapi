@@ -1,8 +1,8 @@
 post:
   description: >-
-    Create a payment link for a refundable 1 EUR transfer confirming bank
-    account ownership
-  operationId: CreatePaymentLink
+    Create a payment link for a refundable 1 EUR transfer to validate the ownership of a bank
+    account.
+  operationId: ValidateBankAccount
   parameters:
     - description: ''
       in: path
@@ -36,6 +36,6 @@ post:
           schema:
             $ref: ../components/schemas/ValidationErrorResponse.yaml
       description: Validation errors
-  summary: Create payment link
+  summary: Validate bank account
   tags:
     - Accounts

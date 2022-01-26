@@ -1,5 +1,5 @@
 get:
-  description: ''
+  description: 'List all transactions under an account or website.'
   operationId: ListTransactions
   parameters:
     - name: site_id

@@ -1,5 +1,5 @@
 get:
-  description: List all accounts signed up by a partner
+  description: 'List all the accounts of your affiliated merchants.'
   operationId: 'Partner::ListAccounts'
   parameters: []
   responses:
@@ -69,4 +69,4 @@ get:
       description: ''
   summary: List affiliated accounts
   tags:
-    - Accounts
+    - Affiliate accounts
