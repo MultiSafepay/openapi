@@ -78,18 +78,8 @@ paths:
     $ref: paths/gateways@{gateway_id}.yaml
   '/issuers/{gateway}':
     $ref: paths/issuers@{gateway}.yaml
-  /issuers/{gateway}:
-    $ref: paths/issuers@{gateway}.yaml
-  /gateways:
-    $ref: paths/gateways.yaml
-  '/gateways/{id}':
-    $ref: 'paths/gateways@{gateway_id}.yaml'
   /me:
     $ref: paths/me.yaml
-  /orders:
-    $ref: paths/orders.yaml
-  '/orders/{order_id}':
-    $ref: 'paths/orders@{order_id}.yaml'
   /pad/ccs:
     $ref: paths/pad@ccs.yaml
   '/pad/orders/{order_id}':
