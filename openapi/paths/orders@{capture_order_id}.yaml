@@ -91,4 +91,4 @@ get:
       description: Error
   summary: Set captured order status
   tags:
-    - Manual capture
+    - Manual capture payments

@@ -20,4 +20,4 @@ get:
       description: ''
   summary: Get PAD order details
   tags:
-    - Pay after delivery (BETA)
+    - Pay After Delivery (BETA)

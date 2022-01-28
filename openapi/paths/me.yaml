@@ -26,4 +26,4 @@ get:
       description: ''
   summary: Identify authenticated user
   tags:
-    - Accounts
+    - My account

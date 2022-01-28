@@ -108,17 +108,25 @@ paths:
     $ref: 'paths/ubos@{ubo_id}@identitydocs.yaml'
 tags:
   - name: Payments
-    description: "Create and manage payments"
-  - name: Customers
-    description: "Create and manage customers"
-  - name: Accounts
-    description: "Create and manage affiliated accounts"
+    description: "Create and manage payments."
+  - name: Manual capture payments
+    description: "Manually capture credit card payments."
   - name: Recurring payments
-    description: "Manage tokens"
+    description: "Manage tokens."
+  - name: Pay After Delivery (BETA)
+    description: "Request customer credit scores, and track collecting statuses."
+  - name: Refunds and chargebacks
+    description: "Process refunds and challenge chargebacks."
+  - name: My account
+    description: "Create and manage affiliated accounts."
+  - name: Onboard affiliates
+    description: "Onboard affiliated merchant accounts."
+  - name: Manage affiliates
+    description: "Manage the accounts of affiliated merchants."
+  - name: Customers
+    description: "Create and manage customer profiles."
   - name: Reconciliation
-    description: "List transactions"
-  - name: Pay after delivery (BETA)
-    description: "Request customer credit scores, track collecting statuses"
+    description: "List transactions for your reconciliation processes."
 security:
   - ApiKeyQuery: ['c2e8507e3bb11df070f6c45d36ea2a366eaecea2']
 servers:
