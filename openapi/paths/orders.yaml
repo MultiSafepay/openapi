@@ -26,6 +26,10 @@ post:
             summary: Credit card
             value:
               $ref: '../components/examples/requests/post-orders/credit-card.json'
+          Payment Component:
+            summary: Payment Component
+            value:
+              $ref: '../components/examples/requests/post-orders/payment-component.json'
     required: true
   responses:
     '200':
