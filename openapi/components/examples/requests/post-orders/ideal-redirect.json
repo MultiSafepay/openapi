@@ -1,6 +1,6 @@
 {
   "type": "redirect",
-  "gateway": "CREDITCARD",
+  "gateway": "IDEAL",
   "order_id": "my-order-id-1",
   "currency": "EUR",
   "amount": 1000,

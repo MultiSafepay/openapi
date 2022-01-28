@@ -1,7 +1,7 @@
 {
   "type": "redirect",
+  "gateway": "VISA",
   "order_id": "my-order-id-1",
-  "gateway": "IDEAL",
   "currency": "EUR",
   "amount": 1000,
   "description": "Test order description",
@@ -12,6 +12,7 @@
     "close_window": true
   },
   "customer": {
-    "locale": "nl_NL"
+    "locale": "it_IT",
+    "ip_address": "123.123.123.123"
   }
 }
