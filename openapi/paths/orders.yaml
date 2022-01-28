@@ -1,8 +1,23 @@
 post:
   description: | 
-    Create an order to collect payment from a customer.
+    Create an order to collect payment from a customer, including:
 
-    For example requests for each payment method
+    - FastCheckout orders: See `type`.
+    - [Payment Component](https://docs.multisafepay.com/payment-components/) orders: See `payment_data`.
+    - [Payment links](https://docs.multisafepay.com/payment-links/): See `type`, `days_active`, and `seconds_active`.
+    - [Recurring Payments](https://docs.multisafepay.com/features/recurring-payments/) orders: See `customer.reference`.
+    - [Split Payments](https://docs.multisafepay.com/features/split-payments/) orders: See `affiliate.split_payments` and `var3`.
+
+    You can also use this request to apply the following payment features:
+    
+    - Credit card payments: See `gateway_info`.
+      - [3D Secure](https://docs.multisafepay.com/features/3d-secure/)
+      - [Manual Capture](https://docs.multisafepay.com/features/manual-capture/)
+      - [MOTO](https://docs.multisafepay.com/features/moto/)
+      - [Server to Server](https://docs.multisafepay.com/features/server-to-server/)
+      - [Zero Authorization](https://docs.multisafepay.com/features/zero-authorization/)
+    - [Second Chance](https://docs.multisafepay.com/features/second-chance/): See `second_chance`.
+    - Styling [MultiSafepay payment pages](https://docs.multisafepay.com/payment-pages/): See `payment_options`.
   operationId: 'CreateOrder'
   parameters: []
   requestBody:
@@ -229,6 +244,10 @@ post:
             summary: WeChat Pay – Direct
             value:
               $ref: '../components/examples/requests/post-orders/wechat-pay-direct.json'
+          FastCheckout:
+            summary: FastCheckout
+            value:
+              $ref: '../components/examples/requests/post-orders/fastcheckout.json'
     required: true
   responses:
     '200':
