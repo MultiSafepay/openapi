@@ -33,8 +33,8 @@ post:
             summary: AliPay – Direct
             value: 
               $ref: '../components/examples/requests/post-orders/alipay-direct.json'
-          American Express:
-            summary: American Express
+          American Express – Redirect:
+            summary: American Express – Redirect
             value:
               $ref: '../components/examples/requests/post-orders/amex-redirect.json'
           Apple Pay – Redirect:
@@ -85,16 +85,16 @@ post:
             summary: CBC/KBC – Direct
             value: 
               $ref: '../components/examples/requests/post-orders/cbc-kbc-direct.json'
-          Credit card: 
-            summary: Credit card
+          Credit card – Redirect: 
+            summary: Credit card – Redirect
             value:
               $ref: '../components/examples/requests/post-orders/credit-card.json'
-          Dotpay:
-            summary: Dotpay
+          Dotpay – Redirect:
+            summary: Dotpay – Redirect
             value:
               $ref: '../components/examples/requests/post-orders/dotpay.json'
-          Edenred:
-            summary: Edenred
+          Edenred – Redirect:
+            summary: Edenred – Redirect
             value:
               $ref: '../components/examples/requests/post-orders/edenred.json'
           E-Invoicing – Redirect:
@@ -105,16 +105,16 @@ post:
             summary: E-Invoicing – Direct
             value:
               $ref: '../components/examples/requests/post-orders/einvoicing-direct.json'
-          EPS:
-            summary: EPS
+          EPS – Redirect:
+            summary: EPS – Redirect
             value:
               $ref: '../components/examples/requests/post-orders/eps.json'
-          Gift card:
-            summary: Gift card
+          Gift card – Redirect:
+            summary: Gift card – Redirect
             value:
               $ref: '../components/examples/requests/post-orders/gift-card.json'
-          Giropay:
-            summary: Giropay
+          Giropay – Redirect:
+            summary: Giropay – Redirect
             value:
               $ref: '../components/examples/requests/post-orders/giropay.json'
           Google Pay – Redirect:
@@ -153,12 +153,12 @@ post:
             summary: Klarna – Direct
             value:
               $ref: '../components/examples/requests/post-orders/klarna-direct.json'
-          Maestro: 
-            summary: Maestro
+          Maestro – Redirect: 
+            summary: Maestro – Redirect
             value:
               $ref: '../components/examples/requests/post-orders/maestro.json'
-          Mastercard: 
-            summary: Mastercard
+          Mastercard – Redirect: 
+            summary: Mastercard – Redirect
             value:
               $ref: '../components/examples/requests/post-orders/mastercard.json'
           Pay After Delivery – Redirect: 
@@ -177,8 +177,8 @@ post:
             summary: PayPal – Direct
             value:
               $ref: '../components/examples/requests/post-orders/paypal-direct.json'
-          Postepay: 
-            summary: Postepay
+          Postepay – Redirect: 
+            summary: Postepay – Redirect
             value:
               $ref: '../components/examples/requests/post-orders/postepay.json'
           Request to Pay – Redirect: 
@@ -213,12 +213,12 @@ post:
             summary: Trustly – Direct
             value:
               $ref: '../components/examples/requests/post-orders/trustly-direct.json'
-          TrustPay:
-            summary: TrustPay
+          TrustPay – Redirect:
+            summary: TrustPay – Redirect
             value:
               $ref: '../components/examples/requests/post-orders/trustpay-redirect.json'
-          Visa: 
-            summary: Visa
+          Visa – Redirect: 
+            summary: Visa – Redirect
             value:
               $ref: '../components/examples/requests/post-orders/visa.json'
           WeChat Pay – Redirect:
