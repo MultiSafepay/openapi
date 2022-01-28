@@ -1,18 +1,18 @@
 {
-    "type": "direct",
-    "gateway": "iDEAL",
-    "order_id": "my-order-id-1",
-    "currency": "EUR",
-    "amount": 1000,
-    "description": "product description",
-    "custom_info": {},
-    "gateway_info": {
-        "issuer_id": "3151"
-    },
-    "payment_options": {
-        "notification_url": "http://10.1.10.111/testtool/client/json-test/notification?type=notification",
-        "redirect_url": "http://10.1.10.111/testtool/client/json-test/notification?type=redirect",
-        "cancel_url": "http://10.1.10.111/testtool/client/json-test/notification?type=cancel",
-        "close_window": true
-    }
+  "type": "direct",
+  "gateway": "iDEAL",
+  "order_id": "my-order-id-1",
+  "currency": "EUR",
+  "amount": 1000,
+  "description": "product description",
+  "custom_info": {},
+  "gateway_info": {
+    "issuer_id": "3151"
+  },
+  "payment_options": {
+    "notification_url": "http://10.1.10.111/testtool/client/json-test/notification?type=notification",
+    "redirect_url": "http://10.1.10.111/testtool/client/json-test/notification?type=redirect",
+    "cancel_url": "http://10.1.10.111/testtool/client/json-test/notification?type=cancel",
+    "close_window": true
+  }
 }

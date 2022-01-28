@@ -1,14 +1,14 @@
 {
-    "type": "direct",
-    "gateway": "WECHAT",
-    "order_id": "my-order-id-1",
-    "currency": "EUR",
-    "amount": 100,
-    "description": "product description",
-    "custom_info": {},
-    "payment_options": {
-        "notification_url": "http://10.1.10.111/testtool/client/json-live/notification?type=notification",
-        "redirect_url": "http://10.1.10.111/testtool/client/json-live/notification?type=redirect",
-        "cancel_url": "http://10.1.10.111/testtool/client/json-live/notification?type=cancel"
-    }
+  "type": "direct",
+  "gateway": "WECHAT",
+  "order_id": "my-order-id-1",
+  "currency": "EUR",
+  "amount": 100,
+  "description": "product description",
+  "custom_info": {},
+  "payment_options": {
+    "notification_url": "http://10.1.10.111/testtool/client/json-live/notification?type=notification",
+    "redirect_url": "http://10.1.10.111/testtool/client/json-live/notification?type=redirect",
+    "cancel_url": "http://10.1.10.111/testtool/client/json-live/notification?type=cancel"
+  }
 }

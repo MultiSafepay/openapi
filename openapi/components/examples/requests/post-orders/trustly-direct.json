@@ -1,20 +1,20 @@
 {
-    "type": "direct",
-    "gateway": "TRUSTLY",
-    "order_id": "my-order-id-1",
-    "currency": "EUR",
-    "amount": 1000,
-    "description": "product description",
-    "custom_info": {},
-    "payment_options": {
-        "notification_url": "http://10.1.10.111/testtool/client/json-test/notification?type=notification",
-        "redirect_url": "http://10.1.10.111/testtool/client/json-test/notification?type=redirect",
-        "cancel_url": "http://10.1.10.111/testtool/client/json-test/notification?type=cancel"
-    },
-    "customer": {
-        "first_name": "Testperson-nl",
-        "last_name": "Approved",
-        "country": "NL",
-        "email": "example@multisafepay.com"
-    }
+  "type": "direct",
+  "gateway": "TRUSTLY",
+  "order_id": "my-order-id-1",
+  "currency": "EUR",
+  "amount": 1000,
+  "description": "product description",
+  "custom_info": {},
+  "payment_options": {
+    "notification_url": "http://10.1.10.111/testtool/client/json-test/notification?type=notification",
+    "redirect_url": "http://10.1.10.111/testtool/client/json-test/notification?type=redirect",
+    "cancel_url": "http://10.1.10.111/testtool/client/json-test/notification?type=cancel"
+  },
+  "customer": {
+    "first_name": "Testperson-nl",
+    "last_name": "Approved",
+    "country": "NL",
+    "email": "example@multisafepay.com"
+  }
 }
