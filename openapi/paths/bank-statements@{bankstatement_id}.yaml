@@ -46,4 +46,4 @@ get:
       description: Bank statement not found
   summary: Get bank statement
   tags:
-    - Accounts
+    - Onboard affiliates

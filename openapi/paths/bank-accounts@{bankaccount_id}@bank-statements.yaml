@@ -48,7 +48,7 @@ get:
       description: Bank account not found
   summary: List bank statements
   tags:
-    - Accounts
+    - Onboard affiliates
 post:
   description: Upload a bank statement for a bank account.
   operationId: AddBankStatement
@@ -128,4 +128,4 @@ post:
       description: Validation errors
   summary: Add bank statement
   tags:
-    - Accounts
+    - Onboard affiliates

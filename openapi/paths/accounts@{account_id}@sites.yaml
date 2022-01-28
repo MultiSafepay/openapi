@@ -50,7 +50,7 @@ get:
       description: ''
   summary: List websites
   tags:
-    - Affiliate websites
+    - Onboard affiliates
 post:
   description: 'Add a new website to a merchant account.'
   operationId: 'Partner::CreateAccountSite'
@@ -140,4 +140,4 @@ post:
       description: Validation errors
   summary: Add website
   tags:
-    - Affiliate websites
+    - Onboard affiliates

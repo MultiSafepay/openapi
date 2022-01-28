@@ -38,4 +38,4 @@ post:
       description: Validation errors
   summary: Validate bank account
   tags:
-    - Accounts
+    - Onboard affiliates

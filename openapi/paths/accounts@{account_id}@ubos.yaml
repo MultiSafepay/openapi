@@ -92,7 +92,7 @@ get:
       description: ''
   summary: List UBOs
   tags:
-    - Affiliate UBOs
+    - Onboard affiliates
 post:
   description: "Add an ultimate beneficiary owner (UBO) profile to a merchant account."
   operationId: 'Partner::CreateAccountUbo'
@@ -272,4 +272,4 @@ post:
       description: Validation errors
   summary: Add UBO
   tags:
-    - Affiliate UBOs
+    - Onboard affiliates

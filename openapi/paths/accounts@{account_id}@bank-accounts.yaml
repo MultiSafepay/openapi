@@ -44,7 +44,7 @@ get:
       description: Merchant not found
   summary: List affiliate's bank accounts
   tags:
-    - Affiliate accounts
+    - Onboard affiliates
 post:
   description: 'Add a bank account to an affiliated account.'
   operationId: 'Partner::CreateAccountBankAccount'
@@ -116,4 +116,4 @@ post:
       description: Validation errors
   summary: Add bank account
   tags:
-    - Affiliate accounts
+    - Onboard affiliates
