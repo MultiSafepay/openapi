@@ -248,6 +248,10 @@ post:
             summary: FastCheckout
             value:
               $ref: '../components/examples/requests/post-orders/fastcheckout.json'
+          Payment Component:
+            summary: Payment Component
+            value:
+              $ref: '../components/examples/requests/post-orders/payment-component.json'
     required: true
   responses:
     '200':
