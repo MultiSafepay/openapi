@@ -36,4 +36,3 @@ get:
   summary: Get token
   tags:
     - Recurring payments
-    - Payments
