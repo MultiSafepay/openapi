@@ -1,5 +1,10 @@
 get:
-  description: Submit information about an authenticated user.
+  description: |
+    Get the following account details:
+
+    - Account ID
+    - Account type
+    - Website ID
   operationId: Me
   parameters: []
   responses:
@@ -24,6 +29,6 @@ get:
                 type: boolean
             type: object
       description: ''
-  summary: Identify authenticated user
+  summary: Get account details
   tags:
-    - Accounts
+    - My account

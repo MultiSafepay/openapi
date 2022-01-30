@@ -69,4 +69,4 @@ get:
       description: ''
   summary: List affiliated accounts
   tags:
-    - Onboard affiliates
+    - Manage affiliates

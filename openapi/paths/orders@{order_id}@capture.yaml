@@ -97,4 +97,4 @@ post:
       description: Error
   summary: Capture payment
   tags:
-    - Manual capture
+    - Manual capture payments
