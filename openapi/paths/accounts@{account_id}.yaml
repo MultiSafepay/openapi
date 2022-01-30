@@ -79,7 +79,7 @@ get:
       description: Account not found
   summary: Get affiliated account
   tags:
-    - Affiliate accounts
+    - Manage affiliates
 patch:
   description: 'Update information about an existing affiliated account.'
   operationId: 'Partner::UpdateAccount'
@@ -223,4 +223,4 @@ patch:
       description: Validation errors
   summary: Update affiliated account
   tags:
-    - Affiliate accounts
+    - Manage affiliates

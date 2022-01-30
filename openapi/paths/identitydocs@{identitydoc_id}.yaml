@@ -55,4 +55,4 @@ get:
       description: Identity doc not found
   summary: Get identity document
   tags:
-    - Affiliate UBOs
+    - Onboard affiliates

@@ -1,55 +1,3 @@
-get:
-  description: List passports and other identification documents uploaded for an ultimate beneficiary owner (UBO).
-  operationId: ListIdentityDocs
-  parameters:
-    - description: ''
-      in: path
-      name: ubo_id
-      required: true
-      schema:
-        type: string
-  responses:
-    '200':
-      content:
-        application/json:
-          schema:
-            properties:
-              data:
-                items:
-                  properties:
-                    document_type:
-                      enum:
-                        - id
-                        - passport
-                        - driverslicense
-                        - proof_of_address
-                      type: string
-                    encoded_content:
-                      format: base64-encoded-content
-                      type: string
-                    filename:
-                      maxLength: 250
-                      type: string
-                    mime_type:
-                      enum:
-                        - application/pdf
-                        - image/jpeg
-                        - image/png
-                      type: string
-                  required:
-                    - filename
-                    - mime_type
-                    - encoded_content
-                    - document_type
-                  type: object
-                type: array
-              success:
-                type: boolean
-            type: object
-      description: ''
-  summary: List identity documents
-  tags:
-    - Affiliate UBOs
 post:
   description: Upload a passport or other identification document for an ultimate beneficiary owner (UBO).
   operationId: CreateIdentityDoc
@@ -143,4 +91,56 @@ post:
       description: Validation errors
   summary: Add identity document
   tags:
-    - Affiliate UBOs
+    - Onboard affiliates
+get:
+  description: List passports and other identification documents uploaded for an ultimate beneficiary owner (UBO).
+  operationId: ListIdentityDocs
+  parameters:
+    - description: ''
+      in: path
+      name: ubo_id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            properties:
+              data:
+                items:
+                  properties:
+                    document_type:
+                      enum:
+                        - id
+                        - passport
+                        - driverslicense
+                        - proof_of_address
+                      type: string
+                    encoded_content:
+                      format: base64-encoded-content
+                      type: string
+                    filename:
+                      maxLength: 250
+                      type: string
+                    mime_type:
+                      enum:
+                        - application/pdf
+                        - image/jpeg
+                        - image/png
+                      type: string
+                  required:
+                    - filename
+                    - mime_type
+                    - encoded_content
+                    - document_type
+                  type: object
+                type: array
+              success:
+                type: boolean
+            type: object
+      description: ''
+  summary: List identity documents
+  tags:
+    - Onboard affiliates

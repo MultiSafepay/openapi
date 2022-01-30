@@ -68,4 +68,4 @@ get:
       description: ''
   summary: List affiliated account balances
   tags:
-    - Affiliate accounts
+    - Manage affiliates

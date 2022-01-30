@@ -139,4 +139,4 @@ post:
       description: Validation errors
   summary: Request customer credit score (BETA)
   tags:
-    - Pay after delivery (BETA)
+    - Pay After Delivery (BETA)

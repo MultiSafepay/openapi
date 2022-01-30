@@ -54,7 +54,7 @@ get:
       description: Site not found
   summary: Get website
   tags:
-    - Affiliate websites
+    - Onboard affiliates
 patch:
   description: Update information about a website.
   operationId: UpdateWebsite
@@ -148,4 +148,4 @@ patch:
       description: Validation errors
   summary: Update website
   tags:
-    - Affiliate websites
+    - Onboard affiliates

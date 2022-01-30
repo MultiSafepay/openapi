@@ -42,4 +42,4 @@ get:
       description: Bank account not found
   summary: Get bank account
   tags:
-    - Accounts
+    - Onboard affiliates

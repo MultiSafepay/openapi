@@ -55,4 +55,4 @@ patch:
       description: Error
   summary: Cancel authorized order
   tags:
-    - Manual capture
+    - Manual capture payments

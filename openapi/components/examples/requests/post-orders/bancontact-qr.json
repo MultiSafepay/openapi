@@ -1,7 +1,7 @@
 {
   "type": "redirect",
+  "gateway": "MISTERCASH",
   "order_id": "my-order-id-1",
-  "gateway": "PAYAFTER",
   "currency": "EUR",
   "amount": 1000,
   "description": "Test order description",
@@ -11,7 +11,10 @@
     "cancel_url": "https://www.example.com/client/notification?type=cancel",
     "close_window": true
   },
+  "gateway_info": {
+    "qr_enabled": 1
+  },
   "customer": {
-    "locale": "nl_NL"
+    "locale": "nl_BE"
   }
 }

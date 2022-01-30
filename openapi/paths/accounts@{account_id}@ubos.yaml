@@ -1,98 +1,3 @@
-get:
-  description: 'List all of the ultimate beneficiary owners (UBOs) for a merchant account.'
-  operationId: 'Partner::ListAccountUbos'
-  parameters:
-    - description: ''
-      in: path
-      name: account_id
-      required: true
-      schema:
-        type: string
-  responses:
-    '200':
-      content:
-        application/json:
-          schema:
-            properties:
-              data:
-                items:
-                  properties:
-                    address:
-                      maxLength: 100
-                      type: string
-                    address_apartment:
-                      maxLength: 15
-                      type: string
-                    birthday:
-                      format: yyyy-mm-dd
-                      type: string
-                    city:
-                      maxLength: 100
-                      type: string
-                    country:
-                      format: country-alpha2
-                      type: string
-                    country_of_birth:
-                      format: country-alpha2
-                      type: string
-                    email:
-                      format: email
-                      maxLength: 100
-                      type: string
-                    fax:
-                      maxLength: 15
-                      type: string
-                    job_title:
-                      maxLength: 100
-                      type: string
-                    mobile_phone:
-                      maxLength: 25
-                      type: string
-                    name:
-                      maxLength: 200
-                      type: string
-                    office_phone:
-                      maxLength: 25
-                      type: string
-                    percentage:
-                      type: integer
-                    state:
-                      maxLength: 100
-                      type: string
-                    title:
-                      enum:
-                        - mr
-                        - mrs
-                      type: string
-                    type:
-                      enum:
-                        - control_rights
-                        - other
-                        - shareholder
-                        - voting_rights
-                      type: string
-                    zipcode:
-                      maxLength: 20
-                      type: string
-                  required:
-                    - type
-                    - percentage
-                    - title
-                    - name
-                    - birthday
-                    - country_of_birth
-                    - job_title
-                    - email
-                    - country
-                  type: object
-                type: array
-              success:
-                type: boolean
-            type: object
-      description: ''
-  summary: List UBOs
-  tags:
-    - Affiliate UBOs
 post:
   description: "Add an ultimate beneficiary owner (UBO) profile to a merchant account."
   operationId: 'Partner::CreateAccountUbo'
@@ -272,4 +177,99 @@ post:
       description: Validation errors
   summary: Add UBO
   tags:
-    - Affiliate UBOs
+    - Onboard affiliates
+get:
+  description: 'List all of the ultimate beneficiary owners (UBOs) for a merchant account.'
+  operationId: 'Partner::ListAccountUbos'
+  parameters:
+    - description: ''
+      in: path
+      name: account_id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            properties:
+              data:
+                items:
+                  properties:
+                    address:
+                      maxLength: 100
+                      type: string
+                    address_apartment:
+                      maxLength: 15
+                      type: string
+                    birthday:
+                      format: yyyy-mm-dd
+                      type: string
+                    city:
+                      maxLength: 100
+                      type: string
+                    country:
+                      format: country-alpha2
+                      type: string
+                    country_of_birth:
+                      format: country-alpha2
+                      type: string
+                    email:
+                      format: email
+                      maxLength: 100
+                      type: string
+                    fax:
+                      maxLength: 15
+                      type: string
+                    job_title:
+                      maxLength: 100
+                      type: string
+                    mobile_phone:
+                      maxLength: 25
+                      type: string
+                    name:
+                      maxLength: 200
+                      type: string
+                    office_phone:
+                      maxLength: 25
+                      type: string
+                    percentage:
+                      type: integer
+                    state:
+                      maxLength: 100
+                      type: string
+                    title:
+                      enum:
+                        - mr
+                        - mrs
+                      type: string
+                    type:
+                      enum:
+                        - control_rights
+                        - other
+                        - shareholder
+                        - voting_rights
+                      type: string
+                    zipcode:
+                      maxLength: 20
+                      type: string
+                  required:
+                    - type
+                    - percentage
+                    - title
+                    - name
+                    - birthday
+                    - country_of_birth
+                    - job_title
+                    - email
+                    - country
+                  type: object
+                type: array
+              success:
+                type: boolean
+            type: object
+      description: ''
+  summary: List UBOs
+  tags:
+    - Onboard affiliates
