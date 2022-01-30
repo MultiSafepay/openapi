@@ -106,6 +106,12 @@ paths:
     $ref: 'paths/recurring@{your_customer_reference}@update@{your_token}.yaml'
   /transactions:
     $ref: paths/transactions.yaml
+  '/transactions/{transaction_id}':
+    $ref: 'paths/transactions@{transaction_id}.yaml'
+  '/ubos/{ubo_id}':
+    $ref: 'paths/ubos@{ubo_id}.yaml'
+  '/ubos/{ubo_id}/identitydocs':
+    $ref: 'paths/ubos@{ubo_id}@identitydocs.yaml'
 tags:
   - name: Payments
     description: "Create and manage payments."

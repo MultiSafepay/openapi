@@ -1,11 +1,16 @@
 type: object
+description: "A summary of the costs for the transaction."
 properties:
   transaction_id:
     $ref: 'TransactionId.yaml'
   amount:
-    $ref: 'Amount.yaml'
+    allOf:
+      - $ref: 'Amount.yaml'
+      - example: 60
   description:
-    $ref: 'Description.yaml'
+    type: string
+    description: "A description of the transaction."
+    example: "For VISA CreditCards Transactions"
   type:
     type: string
     enum: [SYSTEM, internal]

@@ -1,17 +1,40 @@
 properties:
   amount:
-    $ref: 'Amount.yaml'
+    allOf:
+      - $ref: 'Amount.yaml'
+      - example: 1000
   completed:
     format: datetime
     type: string
+    description: "The timestamp the transaction was completed."
   costs:
+    description: "A summary of the costs for the transaction."
     items:
-      $ref: 'Costs.yaml'
+      properties:
+        amount:
+          $ref: 'Costs.yaml#/properties/amount/'
+        description:
+          $ref: 'Costs.yaml#/properties/description/'
+      type: object
     type: array
   created:
     $ref: 'Created.yaml'
   currency:
     $ref: 'Currency.yaml'
+  customer:
+    type: object
+    description: "The customer's personal information."
+    properties:
+      email:
+        $ref: 'CustomerObject.yaml#/properties/email/'
+      first_name:
+        $ref: 'CustomerObject.yaml#/properties/first_name/'
+      iban:
+        type: string
+        description: "The international bank account number (IBAN) charged for the transaction."
+        example: ""
+      last_name:
+        $ref: 'CustomerObject.yaml#/properties/last_name/'
   debit_credit:
     enum:
       - D
@@ -21,25 +44,39 @@ properties:
     $ref: 'Description.yaml'
   financial_status:
     $ref: 'FinancialStatus.yaml'
+  net:
+    example: 940
+    type: integer
+    description: "The net value for the transaction, i.e. `amount` - `costs`."
   invoice_id:
     type: string
+    description: "Your invoice ID."
   order_id:
     $ref: 'OrderId.yaml'
   payment_method:
     example: VISA
     type: string
+    description: "The payment method."
   site_id:
     example: 123
     type: integer
+    description: |
+      The website identifier.
+
+      See [Site ID, API key, and secure code](https://multisafepay-docs.netlify.app/account/site-id-api-key-secure-code/).
+    format: 12345 
   status:
     $ref: 'Status.yaml'
   transaction_id:
     $ref: 'TransactionId.yaml'
   type:
     type: string
+    example: 'payment'
+    description: "The type of transaction."
   updated:
     format: datetime
     type: string
+    description: "The timestamp the transaction updated."
   var1:
     $ref: 'var12.yaml'
   var2:
