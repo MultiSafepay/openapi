@@ -252,6 +252,14 @@ post:
             summary: Payment Component
             value:
               $ref: '../components/examples/requests/post-orders/payment-component.json'
+          Recurring payments – Initial:
+            summary: Recurring payments – Initial
+            value:
+              $ref: '../components/examples/requests/post-orders/recurring-initial.json'
+          Recurring payments – Subsequent:
+            summary: Recurring payments – Subsequent
+            value:
+              $ref: '../components/examples/requests/post-orders/recurring-subsequent.json'
     required: true
   responses:
     '200':

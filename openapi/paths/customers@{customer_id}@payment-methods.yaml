@@ -1,64 +1,3 @@
-get:
-  description: 'List the payment methods available to a specific customer.'
-  operationId: ListCustomerPaymentMethods
-  parameters:
-    - description: ''
-      in: path
-      name: customer_id
-      required: true
-      schema:
-        type: string
-  responses:
-    '200':
-      content:
-        application/json:
-          schema:
-            properties:
-              data:
-                items:
-                  additionalProperties: false
-                  oneOf:
-                    - properties:
-                        type:
-                          enum:
-                            - direct_debit
-                      required:
-                        - direct_debit
-                  properties:
-                    direct_debit:
-                      additionalProperties: false
-                      properties:
-                        bic:
-                          type: string
-                        holder_name:
-                          type: string
-                        iban:
-                          type: string
-                      required:
-                        - holder_name
-                        - iban
-                        - bic
-                      type: object
-                    status:
-                      enum:
-                        - active
-                      type: string
-                    type:
-                      enum:
-                        - direct_debit
-                      type: string
-                  required:
-                    - type
-                    - status
-                  type: object
-                type: array
-              success:
-                type: boolean
-            type: object
-      description: ''
-  summary: List customer's payment methods
-  tags:
-    - Customers
 post:
   description: "Add payment details for a payment method to a customer's profile."
   operationId: CreateCustomerPaymentMethod
@@ -163,5 +102,66 @@ post:
             $ref: ../components/schemas/ValidationErrorResponse.yaml
       description: Validation errors
   summary: Create customer payment method
+  tags:
+    - Customers
+get:
+  description: 'List the payment methods available to a specific customer.'
+  operationId: ListCustomerPaymentMethods
+  parameters:
+    - description: ''
+      in: path
+      name: customer_id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            properties:
+              data:
+                items:
+                  additionalProperties: false
+                  oneOf:
+                    - properties:
+                        type:
+                          enum:
+                            - direct_debit
+                      required:
+                        - direct_debit
+                  properties:
+                    direct_debit:
+                      additionalProperties: false
+                      properties:
+                        bic:
+                          type: string
+                        holder_name:
+                          type: string
+                        iban:
+                          type: string
+                      required:
+                        - holder_name
+                        - iban
+                        - bic
+                      type: object
+                    status:
+                      enum:
+                        - active
+                      type: string
+                    type:
+                      enum:
+                        - direct_debit
+                      type: string
+                  required:
+                    - type
+                    - status
+                  type: object
+                type: array
+              success:
+                type: boolean
+            type: object
+      description: ''
+  summary: List customer's payment methods
   tags:
     - Customers
