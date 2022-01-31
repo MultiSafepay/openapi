@@ -1,5 +1,5 @@
 get:
-  description: Fetch information about a ultimate beneficiary owner (UBO).
+  description: Get information about a ultimate beneficiary owner (UBO).
   operationId: GetUbo
   parameters:
     - description: ''

@@ -163,7 +163,7 @@ post:
   tags:
     - Customers
 get:
-  description: "Fetch a customer's shipping address."
+  description: "Get a customer's shipping address."
   operationId: GetCustomerAddress
   parameters:
     - description: ''

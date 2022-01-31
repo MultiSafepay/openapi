@@ -1,5 +1,5 @@
 get:
-  description: 'Fetch information about an existing affiliated account.'
+  description: 'Get information about an existing affiliated account.'
   operationId: 'Partner::GetAccount'
   parameters:
     - description: ''

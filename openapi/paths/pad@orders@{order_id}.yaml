@@ -1,5 +1,5 @@
 get:
-  description: Fetch information about a Pay After Delivery order.
+  description: Get information about a Pay After Delivery order.
   operationId: 'PAD::OrderDetails'
   parameters:
     - description: ''
