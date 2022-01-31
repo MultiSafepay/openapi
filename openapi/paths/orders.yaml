@@ -248,8 +248,8 @@ post:
             summary: FastCheckout
             value:
               $ref: '../components/examples/requests/post-orders/fastcheckout.json'
-          Payment Component:
-            summary: Payment Component
+          Payment component:
+            summary: Payment component
             value:
               $ref: '../components/examples/requests/post-orders/payment-component.json'
           Recurring payments – Initial:
@@ -260,6 +260,10 @@ post:
             summary: Recurring payments – Subsequent
             value:
               $ref: '../components/examples/requests/post-orders/recurring-subsequent.json'
+          Server to server:
+            summary: Server to server
+            value:
+              $ref: '../components/examples/requests/post-orders/server-to-server.json'
     required: true
   responses:
     '200':
