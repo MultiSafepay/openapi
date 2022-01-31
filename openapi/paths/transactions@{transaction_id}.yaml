@@ -1,5 +1,5 @@
 get:
-  description: 'Fetch information about a transaction.'
+  description: 'Get information about a transaction.'
   operationId: GetTransactionDetails
   parameters:
     - name: transaction_id

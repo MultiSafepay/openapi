@@ -1,5 +1,5 @@
 get:
-  description: Fetch information about an order.
+  description: Get information about an order.
   operationId: GetOrderDetails
   parameters:
     - description: | 

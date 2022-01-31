@@ -1,5 +1,5 @@
 get:
-  description: 'Fetch the name of the payment method for a particular gateway identifier.'
+  description: 'Get the name of the payment method for a particular gateway identifier.'
   operationId: GetGateway
   parameters:
     - description: 'The unique identifier of the gateway. **Not** case sensitive.' 

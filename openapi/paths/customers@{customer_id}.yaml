@@ -1,5 +1,5 @@
 get:
-  description: Fetch information about a customer, using their customer ID.
+  description: Get information about a customer, using their customer ID.
   operationId: GetCustomerProfile
   parameters:
     - description: ''
