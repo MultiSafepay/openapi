@@ -6,7 +6,7 @@ properties:
   completed:
     format: datetime
     type: string
-    description: "The timestamp the transaction was completed."
+    description: "The timestamp for when the transaction was completed."
   costs:
     description: "A summary of the costs for the transaction."
     items:
@@ -76,7 +76,7 @@ properties:
   updated:
     format: datetime
     type: string
-    description: "The timestamp the transaction updated."
+    description: "The timestamp for when the transaction updated."
   var1:
     $ref: 'var12.yaml'
   var2:
