@@ -76,10 +76,10 @@ paths:
     $ref: 'paths/customers@{customer_id}.yaml'
   '/customers/{customer_id}/delivery-details':
     $ref: 'paths/customers@{customer_id}@delivery-details.yaml'
-  '/customers/{customer_id}/payment-methods':
-    $ref: 'paths/customers@{customer_id}@payment-methods.yaml'
   '/delivery-details/{delivery_details_id}':
     $ref: 'paths/delivery-details@{delivery_details_id}.yaml'
+  '/customers/{customer_id}/payment-methods':
+    $ref: 'paths/customers@{customer_id}@payment-methods.yaml'
   /gateways:
     $ref: paths/gateways.yaml
   '/gateways/{id}':
@@ -108,10 +108,6 @@ paths:
     $ref: paths/transactions.yaml
   '/transactions/{transaction_id}':
     $ref: 'paths/transactions@{transaction_id}.yaml'
-  '/ubos/{ubo_id}':
-    $ref: 'paths/ubos@{ubo_id}.yaml'
-  '/ubos/{ubo_id}/identitydocs':
-    $ref: 'paths/ubos@{ubo_id}@identitydocs.yaml'
 tags:
   - name: Payments
     description: "Create and manage payments."

@@ -19,6 +19,6 @@ get:
                   - description: The transaction details
               success:
                 $ref: '../components/schemas/Success.yaml'
-  summary: Fetch transaction details
+  summary: Get transaction details
   tags:
     - Reconciliation
