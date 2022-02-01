@@ -1,5 +1,8 @@
 type: object
-description: The customer’s personal information.
+description: | 
+  The customer’s personal information.
+
+  Required for most orders **except**: Apple Pay or Google Pay orders, or Belfius, iDEAL, and WeChat Pay – Direct orders.
 properties:
   locale:
     type: string
@@ -17,6 +20,8 @@ properties:
 
       Required for pay later methods and credit cards as part of our fraud check, optional but recommended for other payment methods.
       If empty or incorrect (e.g. your IP address instead of the customer’s) when required, the transaction status may be Uncleared, or even Declined.
+
+      When accepting credit card payments through a [Payment Component](https://docs.multisafepay.com/payment-components/), always supply the IP address to help us detect fraud. 
     type: string
     format: IP address
     example: "123.123.123.123"
