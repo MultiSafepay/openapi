@@ -34,17 +34,11 @@ post:
               maxLength: 128
               type: string
             var1:
-              example: custom variable 1
-              maxLength: 128
-              type: string
+              $ref: '../components/schemas/var12.yaml'
             var2:
-              example: custom variable 2
-              maxLength: 128
-              type: string
+              $ref: '../components/schemas/var12.yaml'
             var3:
-              example: custom variable 3
-              maxLength: 128
-              type: string
+              $ref: '../components/schemas/var3.yaml'
           required:
             - amount
             - currency
@@ -82,17 +76,11 @@ post:
                     maxLength: 128
                     type: string
                   var1:
-                    example: custom variable 1
-                    maxLength: 128
-                    type: string
+                    $ref: '../components/schemas/var12.yaml'
                   var2:
-                    example: custom variable 2
-                    maxLength: 128
-                    type: string
+                    $ref: '../components/schemas/var12.yaml'
                   var3:
-                    example: custom variable 3
-                    maxLength: 128
-                    type: string
+                    $ref: '../components/schemas/var3.yaml'
                 required:
                   - amount
                   - currency

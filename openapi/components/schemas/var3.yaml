@@ -1,3 +1,4 @@
 type: string
 description: |
     Variable for storing additional data, including [Split Payments](https://docs.multisafepay.com/features/split-payments/) metadata.
+maxLength: 500

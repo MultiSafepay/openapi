@@ -20,17 +20,11 @@ properties:
     maxLength: 128
     type: string
   var1:
-    example: custom variable 1
-    maxLength: 128
-    type: string
+    $ref: 'var12.yaml'
   var2:
-    example: custom variable 2
-    maxLength: 128
-    type: string
+    $ref: 'var12.yaml'
   var3:
-    example: custom variable 3
-    maxLength: 128
-    type: string
+    $ref: 'var3.yaml'
 required:
   - amount
   - currency
