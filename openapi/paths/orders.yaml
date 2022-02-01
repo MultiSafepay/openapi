@@ -10,12 +10,12 @@ post:
 
     You can also use this request to apply the following payment features:
     
-    - Credit card payments: See `gateway_info`.
-      - [3D Secure](https://docs.multisafepay.com/features/3d-secure/)
-      - [Manual Capture](https://docs.multisafepay.com/features/manual-capture/)
-      - [MOTO](https://docs.multisafepay.com/features/moto/)
-      - [Server to Server](https://docs.multisafepay.com/features/server-to-server/)
-      - [Zero Authorization](https://docs.multisafepay.com/features/zero-authorization/)
+    - Credit card payments: 
+      - [Flexible 3D](https://docs.multisafepay.com/features/3d-secure/flexible/): See `gateway_info`.
+      - [Manual Capture](https://docs.multisafepay.com/features/manual-capture/): See `capture`.
+      - [MOTO](https://docs.multisafepay.com/features/moto/): See `gateway_info`.
+      - [Server to Server](https://docs.multisafepay.com/features/server-to-server/): See `type` and `gateway_info`.
+      - [Zero Authorization](https://docs.multisafepay.com/features/zero-authorization/): Set `amount` to 0.
     - [Second Chance](https://docs.multisafepay.com/features/second-chance/): See `second_chance`.
     - Styling [MultiSafepay payment pages](https://docs.multisafepay.com/payment-pages/): See `payment_options`.
   operationId: 'CreateOrder'
@@ -31,6 +31,7 @@ post:
               - order_id
               - currency
               - amount
+              - description
         examples:
           AfterPay – Redirect:
             summary: AfterPay – Redirect
