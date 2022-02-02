@@ -1,4 +1,4 @@
-# This is a template for defining a component with schema type: object, that is OpenAPI compliant.
+# This is an OpenAPI template for a schema type: object component.
 # To use this file:
 #  1. Make a copy of it.
 #  2. Delete these comments.
@@ -8,8 +8,8 @@ type: object
 properties:
   example_parameter:
     description: "Add a description."
+    type: Specify the type
     example: Add an example
-    type: Choose a type
 required:
-  - List which parameters are required
+  - List which parameters are required.
 

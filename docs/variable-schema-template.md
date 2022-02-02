@@ -1,4 +1,4 @@
-# This is a template for defining a component with schema type: variable, that is OpenAPI compliant.
+# This is an OpenAPI template for a schema type: variable component.
 # To use this file:
 #  1. Make a copy of it.
 #  2. Delete these comments.

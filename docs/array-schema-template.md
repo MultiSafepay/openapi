@@ -1,4 +1,4 @@
-# This is a template for defining a component with schema type: array, that is OpenAPI compliant.
+# This is an OpenAPI template for a schema type: array component.
 # To use this file:
 #  1. Make a copy of it.
 #  2. Delete these comments.
@@ -10,7 +10,7 @@ items:
   properties:
     example_parameter:
       description: "Add a description."
-      example: Add an example
       type: Choose a type
+      example: Add an example
   required:
-  - List which parameters are required
+  - List which parameters are required.
