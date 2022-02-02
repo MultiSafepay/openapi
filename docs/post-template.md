@@ -1,4 +1,4 @@
-# This is a template for defining a POST API operation that is OpenAPI compliant.
+# This is an OpenAPI template for a POST operation.
 # To use this file:
 #  1. Make a copy of it.
 #  2. Delete these comments.
@@ -11,20 +11,20 @@ post:
     - description: | 
         Describe the parameter on multiple lines.
       in: path/query
-      name: Choose a name
+      name: Specify the name.
       required: true/false
       schema:
-        type: Choose a type
+        type: Specify the type.
   requestBody:
     content:
       application/json:
         schema:
           properties:
             example_property:
-              format: Choose a format
-              type: Choose a type
+              type: Specify the type.
+              format: Specify the format, if relevant.
           required:
-            - List which parameters are required
+            - List which parameters are required.
           type: object
     description: "If necessary, add a description of the request body."
     required: true/false
@@ -39,8 +39,8 @@ post:
               success:
                 type: boolean
               data: 
-                type: object
                 description: "Add a description."
+                type: object
                 properties:
                   example_property:
                     $ref: '../link-to-example_property-schema.yaml'
@@ -56,6 +56,6 @@ post:
           schema:
             $ref: '../components/schemas/GenericErrorResponse.yaml'
       description: Error
-  summary: Add a summary - this is used as a title
+  summary: Add a summary (appears in the side menu).
   tags:
-    - Add relevant tags
+    - Add relevant tags.

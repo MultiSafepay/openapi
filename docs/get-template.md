@@ -1,4 +1,4 @@
-# This is a template for defining a GET API operation that is OpenAPI compliant.
+# This is an OpenAPI template for a GET operation.
 # To use this file:
 #  1. Make a copy of it.
 #  2. Delete these comments.
@@ -11,10 +11,10 @@ get:
     - description: | 
         Describe the parameter on multiple lines.
       in: path/query
-      name: Choose a name
+      name: Specify the name.
       required: true/false
       schema:
-        type: Choose a type
+        type: Specify the type.
   responses:
     '200':
       content:
@@ -26,8 +26,8 @@ get:
               success:
                 type: boolean
               data: 
-                type: object
                 description: "Add a description."
+                type: object
                 properties:
                   example_property:
                     $ref: '../link-to-example_property-schema.yaml'
@@ -43,6 +43,6 @@ get:
           schema:
             $ref: '../components/schemas/GenericErrorResponse.yaml'
       description: Error
-  summary: Add a summary - this is used as a title
+  summary: Add a summary (appears in the side menu).
   tags:
-    - Add relevant tags
+    - Add relevant tags.
