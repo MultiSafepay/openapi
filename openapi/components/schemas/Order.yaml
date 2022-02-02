@@ -2,7 +2,7 @@ properties:
   type:
     description: |
       - `redirect`: Redirects the customer to a [MultiSafepay payment page](https://docs.multisafepay.com/payment-pages/), where they can select a payment method and complete payment. 
-      - `direct`: Redirects the customer to an authentication or success page, depending on the payment method. Use for [Server to Server](https://docs.multisafepay.com/features/server-to-server/) orders
+      - `direct`: Redirects the customer to an authentication or success page, depending on the payment method. 
       - `paymentlink`: Creates a [payment link](https://docs.multisafepay.com/payment-links/).
       - `checkout`: Creates a FastCheckout order.
       
@@ -24,23 +24,21 @@ properties:
     $ref: 'Amount.yaml'
   description:
     $ref: 'Description.yaml'
-  customer:
-    allOf:
-      - $ref: 'CustomerObject.yaml'
-      - required: 
-        - first_name
-        - last_name
   payment_options:
     description: | 
       Contains: 
       
       - URLs to your success page and cancel page
-      - Your webhook endpoint
-      - Templates for styling [MultiSafepay payment pages](https://docs.multisafepay.com/payment-pages/).
+      - Your [webhook endpoint](https://docs.multisafepay.com/developer/api/notification-url/)
+      - Templates for styling [MultiSafepay payment pages](https://docs.multisafepay.com/payment-pages/)
+      - Settings for displaying available [gift cards](https://docs.multisafepay.com/payment-methods/gift-cards/)
     type: object
     properties:
       notification_url: 
-        description: The webhook endpoint for MultiSafepay to send you status updates and other notifications.
+        description: |
+          The webhook endpoint for MultiSafepay to send you status updates and other notifications.
+
+          See [Notification URL](https://docs.multisafepay.com/developer/api/notification-url/).
         type: string
         example: https://www.example.com/payment-updates/
       notification_method:
@@ -55,11 +53,15 @@ properties:
         default: GET
         example: POST
       redirect_url:
-        description: The page customers are redirected to after **successful** payment.
+        description: |
+          The page customers are redirected to:
+          
+          - After **successful** payment, i.e. your success page, or thank you page
+          - If the transaction status is [Uncleared](https://docs.multisafepay.com/credit-cards-user-guide/uncleared-transactions/) 
         type: string
         example: https://www.example.com/test-order-0001/successful/
       cancel_url:
-        description: The page that customers are redirected to after **unsuccessful** payments.
+        description: The page customers are redirected to after **unsuccessful** payments.
         type: string
         example: https://www.example.com/test-order-0001/unsuccessful/
       close_window:
@@ -67,11 +69,12 @@ properties:
         type: boolean
         default: false
       settings:
-        description: Specify which gift cards the customer can pay with.
+        description: | 
+          For [gift card](https://docs.multisafepay.com/payment-methods/gift-cards/) payments.
         type: object
         properties:
           coupons: 
-            description: Contains settings for gift cards.
+            description: Contains optional settings for gift cards.
             properties:
               allow:
                 description: Specifies which gift cards the customer can pay with.
@@ -80,26 +83,32 @@ properties:
                 enum: [BABYCAD, BEAUTYWELL, BLOEMENCAD, BOEKENBON, DEGROTESPL, EDENCOM, EDENCO, EDENRES, EDENSPORTS, FASHIONCHQ, FASHIONGFT, FIETSENBON, GOOD4FUN, GEZONDHEID, NATNLBIOSC, NATNLETUIN, PARFUMCADE, SPORTENFIT, VRGIFTCARD, VVVGIFTCRD, WEBSHOPGFT, WIJNCADEAU, YOURGIFT]
       template_id: 
         description: |
-          Applies a [payment page styling template](https://docs.multisafepay.com/payment-pages/styling/) using its identifier.
+          For styling [MultiSafepay payment pages](https://docs.multisafepay.com/payment-pages/styling/): Applies a template using its identifier.
 
           If `payment_options.template` is also set, `payment_options.template` is used.
         type: string
       template: 
         description: |
-          A template object structure.
+          For [styling MultiSafepay payment pages](https://docs.multisafepay.com/payment-pages/styling/): Applies a template object structure.
           
           The template structure overrides the `payment_options.template_id`.
         properties:
           version: 
             description:
+  customer:
+    allOf:
+      - $ref: 'CustomerObject.yaml'
+      - required: 
+        - first_name
+        - last_name
   gateway_info:
     description: | 
       Information about the payment method (`gateway`). 
       
-      Use for:
+      **Required for:**
       
       - Credit and debit card orders
-      - Apple Pay, Google Pay, and SEPA Direct Debit – Direct orders
+      - Apple Pay, Google Pay, and SEPA Direct Debit direct orders
       - Bancontact QR and iDEAL QR orders
       - AfterPay, E-Invoicing, in3, Klarna, and Pay After Delivery orders for credit checks in the Netherlands and Belgium
       - MOTO orders
@@ -131,9 +140,6 @@ properties:
       flexible_3d: 
         description: |
           For Flexible 3D orders: Sets whether or not 3D Secure authentication is required.
-
-          **True**: Enables 3D Secure authentication  
-          **False**: Disables 3D Secure authentication
         type: boolean
       moto:
         description: |
@@ -141,7 +147,7 @@ properties:
         type: boolean
       term_url: 
         description: |
-          For Flexible 3D orders: URL that tells the card issuer where to redirect the authorisation query.
+          For Flexible 3D orders: The URL that tells the card issuer where to redirect the authorisation query.
         type: string
         format: URL
         example: https://example.com/?type=term&api_key=<api_key>
@@ -152,7 +158,7 @@ properties:
         example: '0021'
       payment_token:
         description: |
-          For Apple Pay – Direct orders: The JSON-encoded `payment.token` with the customer’s encrypted payment details, generated by the Apple Pay JS API.
+          For Apple Pay direct orders: The JSON-encoded `payment.token` with the customer’s encrypted payment details, generated by the Apple Pay JS API.
 
           
           See:
@@ -160,7 +166,7 @@ properties:
           - Apple Pay direct integration – [Create an order](https://docs.multisafepay.com/payments/methods/wallet/applepay/direct-integration/#client-side-integration-1) 
           - Apple Developer – [ApplePayPaymentToken](https://developer.apple.com/documentation/apple_pay_on_the_web/applepaypaymenttoken)
 
-          For Google Pay – Direct orders: The payment token returned from the client-side Google Pay API call.
+          For Google Pay direct orders: The payment token returned from the client-side Google Pay API call.
 
 
           Access the token at `PaymentData.PaymentMethodData.PaymentMethodTokenizationData.token`.
@@ -249,35 +255,11 @@ properties:
         description: |
           Required for pay later orders: The customer's email address to send payment instructions to.
         type: string
-  capture:
-    description: |
-      Creates a [Manual Capture](https://docs.multisafepay.com/features/manual-capture/) order.
-
-      Set to `manual`.
-    type: string
-  custom_info:
-    description: |
-      For Belfius and TrustPay – Redirect, and iDEAL – Direct orders: 
-      
-      Stores additional information about the order.
-    properties:
-      custom_1:
-        description: Information about the order. 
-        type: string
-      custom_2:
-        description: Information about the order.
-        type: string
-      custom_3:
-        description: Information about the order.
-        type: string
-  var1:
-    $ref: 'var12.yaml'
-  var2:
-    $ref: 'var12.yaml'
-  var3:
-    $ref: 'var3.yaml'
   delivery:
-    description: The customer's address details for shipping the order.
+    description: |
+      The customer's address details for shipping the order.
+
+      **Required for:** AfterPay and Pay After Delivery redirect and direct, and E-Invoicing, Klarna, and in3 direct orders.
     type: object
     properties:
       first_name:
@@ -310,29 +292,26 @@ properties:
         description: | 
           The customer’s country of residence.
 
-          **Format**: [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+          **Format**: ISO – [3166-1 alpha-2](https://www.iso.org/iso-3166-country-codes.html)
         type: string
         example: "NL"
-  second_chance:
-    description: |
-      Sends a reminder email to the customer containing a payment link to complete an abandoned payment.
-
-      See [Second Chance](https://docs.multisafepay.com/features/second-chance/).
-    type: object
-    properties:
-      send_mail:
-        description: |
-          Sets whether to send reminder emails if the customer doesn't complete payment.
-
-          - If `true`, sends reminder emails.
-          - If `false` or unset, doesn't send reminder emails.
-        type: boolean
+    required:
+    - address1
+    - city
+    - country
+    - first_name
+    - house_number
+    - last_name
+    - zip_code
   checkout_options:
-    description: The settings for payment processing.
+    description: |
+      **Required for:** AfterPay, E-Invoicing, in3, Klarna, Pay After Delivery orders.
     type: object 
     properties:
       validate_cart:
         description: |
+          Can be used for all payment methods, except [pay later methods](https://docs.multisafepay.com/payments/methods/pay-later/).
+          
           If set to `true`, the value of `amount` is compared to the calculated total value of the shopping cart (returned as `order_total`).
 
           If the values:
@@ -350,7 +329,7 @@ properties:
             type: object
             properties: 
               shipping_taxed: 
-                description: Whether or not the shipping costs are taxed.
+                description: Sets whether or not the shipping costs are taxed.
                 type: boolean
               rate:
                 description: |
@@ -366,10 +345,10 @@ properties:
               type: object
               properties:
                 name:
-                  description: The client-defined ID. Used to apply tax settings to items in the shopping cart through the `shopping_cart.items.tax_table_selector` attribute.
+                  description: The client-defined ID. Applies tax settings to items in the shopping cart through the `shopping_cart.items.tax_table_selector` attribute.
                   type: string
                 standalone:
-                  description: Whether or not the shipping costs are taxed.
+                  description: Sets whether or not the shipping costs are taxed.
                   type: boolean
                 rules: 
                   type: array
@@ -386,59 +365,80 @@ properties:
                         description: |
                           The country where the tax rate applies.
 
-                          See also [ISO 3166-1 alpha-2]()
+                          Format: ISO – [3166-1 alpha-2](https://www.iso.org/iso-3166-country-codes.html)
                         type: string
                         example: US
-                        format: ISO 3166-1 alpha-2
+    required:
+    - tax_tables
+  shopping_cart:
+    description: |
+      **Required for:** AfterPay, E-Invoicing, in3, Klarna, Pay After Delivery orders. 
+      
+      The array of items in the customer's shopping cart, including the tax class.
+
+      If you have a self-made integration, include the complete specification of the `shopping_cart`.
+    type: object
+    properties:
+      items:
+        description: |
+          The items in the customer's shopping cart. 
+        
+          Specify the relevant tax ruling per item.
+        type: array
+        items:
+          $ref: 'Item.yaml'
   items:
-    description: Displays the items in the customer’s order in a single line on your checkout page, instead of including a `shopping_cart` object.
+    description: Displays the items in the customer’s order in a single line on your checkout page, instead of including `shopping_cart`.
     type: string
     example: "<ol><li>Article 1: € 1,95</li><li>Article 2: € 2,95</li><li>Article 3: € 3,95</li></ol>"
-  days_active:
-    description: |
-      For `redirect` and `paymentlink` orders, he number of days the payment link is valid for.
-
-      If `seconds_active` is also set, `seconds_active` is used.
-    type: integer
-    minimum: 1
-    default: 30
-  seconds_active: 
-    description: |
-      For `redirect` and `paymentlink` orders, the number of seconds the payment link is valid for.
-
-      If `days_active` is also set, `seconds_active` is used.
-    type: integer
-    minimum: 1
-    default: 2592000
-  plugin:
-    description: Specifies information about your integration, which is useful for debugging.
+  payment_data:
+    description: | 
+      Creates a [Payment Component](https://docs.multisafepay.com/payment-components/) order. 
+    type: object
     properties:
-      shop:
-        description: The ecommerce platform that you use.
+      payload: 
+        description: | 
+          The response to the `getPaymentData()` Payment Component method.
+
+          See Payment Component integration manual – Step 3: Create an order:
+
+          - [Single payment method](https://docs.multisafepay.com/payment-components/single/step-3/)
+          - [Multiple payment methods](https://docs.multisafepay.com/payment-components/multiple/step-3/)
         type: string
-        example: "My custom-built ecommerce"
-      plugin_version:
-        description: The version of the plugin.
-        type: string
-        example: "1.0.0"
-      shop_version: 
-        description: The version of the ecommerce webshop you use.
-        type: string
-        example: ""
-      partner: 
-        description: The name of the third party that developed the ecommerce webshop.
-        type: string
-      shop_root_url:
-        description: The root/base URL of the ecommerce webshop.
-        type: string
-        example: "https://www.my-ecommerce.com"
+      gateway:
+        allOf:
+        - description: The unique gateway identifier for the payment method.
+        - type: string
+        - enum: [AMEX, BANKTRANS, DIREB, DIRECTBANK, IDEAL, MAESTRO, MASTERCARD, MISTERCASH, PAYPAL,  VISA]  
+  recurring_model:
+    description: |
+      **Required for:** Initial and subsequent [Recurring payments](https://docs.multisafepay.com/features/recurring-payments/) orders.
+      
+      
+      Sets the recurring model:
+
+      - Card on file (COF): The cardholder has authorized you to store their card details.
+      - Subscription: An agreement or services that are billed at the end of your billing cycle, e.g. weekly, monthly.
+      - Unscheduled: Event-triggered, e.g. mobile top-up when no credit left on the phone.
+    type: string
+    enum: [cardonfile, subscription, unscheduled]
+  recurring_id:
+    description: | 
+      **Required for:** Subsequent [Recurring payments](https://docs.multisafepay.com/features/recurring-payments/) orders: The unique identifier of the recurring payment.
+    type: string
+  capture:
+    description: |
+      Creates a [Manual Capture](https://docs.multisafepay.com/features/manual-capture/) order.
+
+      Set to `manual`.
+    type: string
   affiliate:
     description: Creates a [Split Payments](https://docs.multisafepay.com/features/split-payments/) order.
     type: object
     properties:
       split_payments:
         description: |
-          Split the amount of a transaction between partner or affiliated accounts by a percentage, a fixed amount, or both.
+          Split the amount of a transaction between partner/primary and affiliated accounts by a percentage, a fixed amount, or both.
 
           For every split payment rule, add an object to the array.
         type: array
@@ -461,38 +461,102 @@ properties:
             description: 
               description: A description of the split payment.
               type: string
-  shopping_cart:
+  second_chance:
     description: |
-      The array of items in the customer's shopping cart, including the tax class.
-
-      If you have a self-made integration, include the complete specification of the `shopping_cart`.
+      Sends a [Second Chance](https://docs.multisafepay.com/features/second-chance/) reminder email to the customer containing a payment link to complete an abandoned payment.
     type: object
     properties:
-      items:
+      send_mail:
         description: |
-          The items in the customer's shopping cart. 
-        
-          Specify the relevant tax ruling per item.
-        type: array
-        items:
-          $ref: 'Item.yaml'
-  payment_data:
-    description: | 
-      Creates a [Payment Component](https://docs.multisafepay.com/payment-components/) order. 
+          Sets whether to send reminder emails if the customer doesn't complete payment.
+
+          - If `true`, sends reminder emails.
+          - If `false` or unset, doesn't send reminder emails.
+
+
+          **Suppressing Second Chance emails after cancellation**
+
+
+          When a customer places an order, goes to your checkout, doesn’t complete payment, but later returns and tries to pay again, some webshops create a second order. 
+          
+          
+          If Second Chance emails are enabled, the customer still receives emails for the first order, even after they complete payment for the second order.
+
+          Cancelling the first order does **not** suppress Second Chance emails. To suppress emails, make an Update order details: CancelOrder request.
+        type: boolean
+  customer_verification:
+    description: |
+      For [credit card direct](https://docs.multisafepay.com/features/server-to-server/) orders.
     type: object
     properties:
-      payload: 
-        description: | 
-          The response to the `getPaymentData()` Payment Component method.
+      html:
+        description: |
+          If 3D Secure authentication is:
 
-          See Payment Component integration manual – Step 3: Create an order:
-
-          - [Single payment method](https://docs.multisafepay.com/payment-components/single/step-3/)
-          - [Multiple payment methods](https://docs.multisafepay.com/payment-components/multiple/step-3/)
+          - Required: An HTML form is returned. You can either render the form and redirect the customer to it to pass authentication, or redirect them to the `payment_url` (recommended).
+          - Not required: The [transaction status](https://docs.multisafepay.com/about-payments/multisafepay-statuses/) response is processed directly and no HTML form is returned.
         type: string
-      gateway:
-        allOf:
-        - description: The unique gateway identifier for the payment method.
-        - type: string
-        - enum: [AMEX, BANKTRANS, DIREB, DIRECTBANK, IDEAL, MAESTRO, MASTERCARD, MISTERCASH, PAYPAL,  VISA]  
+      type:
+        description: 
+        type: string
+        example: form  
+  custom_info:
+    description: |
+      For Belfius and TrustPay redirect, and iDEAL direct orders: 
+      
+      Stores additional information about the order.
+    properties:
+      custom_1:
+        description: Information about the order. 
+        type: string
+      custom_2:
+        description: Information about the order.
+        type: string
+      custom_3:
+        description: Information about the order.
+        type: string
+  days_active:
+    description: |
+      For `redirect` and `paymentlink` orders, the number of days the payment link is valid for.
+
+      If `seconds_active` is also set, `seconds_active` is used.
+    type: integer
+    minimum: 1
+    default: 30
+  seconds_active: 
+    description: |
+      For `redirect` and `paymentlink` orders, the number of seconds the payment link is valid for.
+
+      If `days_active` is also set, `seconds_active` is used.
+    type: integer
+    minimum: 1
+    default: 2592000
+  var1:
+    $ref: 'var12.yaml'
+  var2:
+    $ref: 'var12.yaml'
+  var3:
+    $ref: 'var3.yaml'
+  plugin:
+    description: Specifies information about your integration, which is useful for debugging.
+    properties:
+      shop:
+        description: The ecommerce platform that you use.
+        type: string
+        example: "My custom-built ecommerce"
+      plugin_version:
+        description: The version of the plugin.
+        type: string
+        example: "1.0.0"
+      shop_version: 
+        description: The version of the ecommerce webshop you use.
+        type: string
+        example: ""
+      partner: 
+        description: The name of the third party that developed the ecommerce webshop.
+        type: string
+      shop_root_url:
+        description: The root/base URL of the ecommerce webshop.
+        type: string
+        example: "https://www.my-ecommerce.com"
 type: object
