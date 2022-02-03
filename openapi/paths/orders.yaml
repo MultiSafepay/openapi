@@ -267,6 +267,10 @@ post:
             summary: Recurring payments – Subsequent
             value:
               $ref: '../components/examples/requests/post-orders/recurring-subsequent.json'
+          Dynamic template:
+            summary: Dynamic template
+            value:
+              $ref: '../components/examples/requests/post-orders/dynamic-template.json'
     required: true
   responses:
     '200':
