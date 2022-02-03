@@ -20,7 +20,7 @@ properties:
   redirect_url:
     description: |
       The page customers are redirected to:
-      
+          
       - After **successful** payment, i.e. your success page, or thank you page
       - If the transaction status is [Uncleared](https://docs.multisafepay.com/credit-cards-user-guide/uncleared-transactions/) 
     type: string
