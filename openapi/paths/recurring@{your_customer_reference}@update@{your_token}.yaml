@@ -59,4 +59,4 @@ patch:
       description: Error 
   summary: Update card expiry date
   tags:
-    - Recurring payments
+    - Tokens

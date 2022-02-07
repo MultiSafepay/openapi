@@ -35,4 +35,4 @@ get:
       description: Error 
   summary: Get token
   tags:
-    - Recurring payments
+    - Tokens
