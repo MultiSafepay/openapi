@@ -1,7 +1,7 @@
 description: |
   The currency of the transaction.
 
-  See also Wikipedia – [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217).
+  See Wikipedia – [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217).
 type: string
 format: ISO-4217 currency code
 example: EUR

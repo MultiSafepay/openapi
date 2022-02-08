@@ -1,3 +1,3 @@
 type: string
-description: 'Displays the items in the customer’s order in a single line on your checkout page instead of including a `shopping_cart` object.'
+description: 'Displays the items in the customer’s order in a single line on your checkout page instead of a `shopping_cart` object.'
 example: "<ol><li>Article 1: € 1,95</li><li>Article 2: € 2,95</li><li>Article 3: € 3,95</li></ol>"
