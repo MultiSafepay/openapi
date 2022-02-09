@@ -1,25 +1,32 @@
 properties:
   notification_url: 
-    description: Endpoint for MultiSafepay to send status updates and other notifications to you.
+    description: |
+      The webhook endpoint for MultiSafepay to send you status updates and other notifications.
+
+      See [Notification URL](https://docs.multisafepay.com/developer/api/notification-url/).
     type: string
     example: https://www.example.com/payment-updates/
   notification_method:
     description: |
       Sets the notification method.
       
-      We advice setting the notification method to `POST`, to reduce network load and increase security.
+      We recommend setting this to `POST` to reduce network load and increase security.
 
-      See also, [Notification URL](https://docs.multisafepay.com/developer/api/notification-url/).
+      See [Notification URL](https://docs.multisafepay.com/developer/api/notification-url/).
     type: string
     enum: [POST, GET]
     default: GET
     example: POST
   redirect_url:
-    description: Page that the customer is redirected to after **successful** payments.
+    description: |
+      The page customers are redirected to:
+          
+      - After **successful** payment, i.e. your success page, or thank you page
+      - If the transaction status is [Uncleared](https://docs.multisafepay.com/credit-cards-user-guide/uncleared-transactions/) 
     type: string
     example: https://www.example.com/test-order-0001/successful/
   cancel_url:
-    description: Page that the customer is redirected to after **unsuccessful** payments.
+    description: The page customers are redirected to after **unsuccessful** payments.
     type: string
     example: https://www.example.com/test-order-0001/unsuccessful/
   close_window:

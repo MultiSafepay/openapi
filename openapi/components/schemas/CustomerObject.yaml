@@ -1,28 +1,45 @@
 type: object
-description: The customer’s personal information.
+description: | 
+  The customer’s personal information.
+
+  **Required for**: All orders **except** Apple Pay or Google Pay orders, or Belfius, iDEAL, and WeChat Pay direct orders.
 properties:
   locale:
     type: string
     required: true
     description: |
-      Localizes the payment page with the customer’s language, region, and available payment methods.
-
-      For more information, see [Locale parameter](https://docs.multisafepay.com/developer/api/locale-parameter/).
+      - Localizes [MultiSafepay payment pages](https://docs.multisafepay.com/payment-pages/) for the customer’s language, region, available payment methods, and any UI preferences.
+      - Sends [email templates](https://docs.multisafepay.com/features/email-templates/) in the customer's preferred language. If set, `locale` overrides the language set in an email template.
+      - Displays local variants of payment methods, e.g. to display:
+        - [Cartes Bancaires](https://docs.multisafepay.com/payment-methods/cartes-bancaires), set to `fr_FR`.
+        - [Dankort](https://docs.multisafepay.com/payment-methods/dankort), set to `da_DK`.
+        - [Postepay](https://docs.multisafepay.com/payment-methods/postepay), set to `it_IT`.
     format: ab_CD with ISO 639 language codes and ISO 3166 country codes
+    enum: [ de_AT (German Austria), de_DE (German Germany), en_US (American English), fi_FI (Finnish), fr_BE (French Belgium), it_IT (Italian), nl_BE (Dutch Belgium), nl_NL (Dutch Netherlands), pl_PL (Polish), es_ES (Spanish), sv_SE (Swedish), zh_CN (Chinese)]
     example: nl_NL
     default: 'en_US (American English)'
   ip_address: 
     description: |
       The customer’s IP address.
 
-      Required for pay later methods and credit cards as part of our fraud check, optional but recommended for other payment methods.
-      If empty or incorrect (e.g. your IP address instead of the customer’s) when required, the transaction status may be Uncleared, or even Declined.
+      **Required for:** Pay later, credit card, and Payment Component orders for our fraud check. If empty or incorrect (e.g. your IP address instead of the customer’s), the transaction status may be **Uncleared**, or even **Declined**.
+
+
+      **Recommended** but not required for other payment methods.
+
+      To retrieve the customer's IP address if there is:
+      - A proxy, use `forwarded_ip`.
+      - No proxy, use `ip_address`.
     type: string
     format: IP address
     example: "123.123.123.123"
   forwarded_ip:
-    description:
+    description: |
       The [X-Forwarded-For](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For) header of the customer object when using a proxy.
+
+      To retrieve the customer's IP address if there is:
+      - A proxy, use `forwarded_ip`.
+      - No proxy, use `ip_address`.
     type: string
     format: IP address
   first_name:
@@ -34,10 +51,7 @@ properties:
     minLength: 2
     example: Simon
   last_name:
-    description: |
-      The customer’s last name.
-
-      We recommend always requiring the customer to provide their full name, instead of initials or abbreviations.
+    description: The customer’s last name.
     type: string
     minLength: 2
     example: Smit
@@ -74,7 +88,7 @@ properties:
     description: |
       The customer’s country of residence.
       
-      See also, [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+      See Wikipedia – [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
     type: string
     example: NL
     format: ISO 3166-1 alpha-2
@@ -86,7 +100,7 @@ properties:
     description: |
       The customer’s email address.
 
-      Used to send [Second Chance](https://docs.multisafepay.com/features/second-chance/) emails and to conduct fraud checks.
+      Used for [Second Chance](https://docs.multisafepay.com/features/second-chance/) emails and fraud checks.
     type: string
     example: customer@emailprovider.com
   user_agent:
@@ -94,12 +108,31 @@ properties:
     type: string
     example: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36
   referrer: 
-    description: The unique identifier of where the customer/browser originates from.
+    description: The unique identifier for where the customer/browser originates from.
     type: string
   reference:
     description: |
       A unique client-defined identifier for your customer.
 
-      Required for [Recurring payments orders](https://docs.multisafepay.com/api/#recurring-payments-orders), both initial and subsequent payments.
+      **Required for:** [Recurring payments](https://docs.multisafepay.com/api/#recurring-payments-orders) orders, both initial and subsequent payments.
     type: string
     example: customer-0001
+required:
+- address1
+- address2
+- birthday
+- city
+- country
+- email
+- first_name
+- forwarded_ip
+- gender
+- house_number
+- ip_address
+- last_name
+- locale
+- phone
+- reference
+- referrer
+- user_agent
+- zip_code

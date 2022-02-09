@@ -4,4 +4,4 @@
 #  2. Delete these comments.
 #  3. Rename the file extension to *.yaml.
 description: "Add a description."
-type: integer/string/boolean
+type: integer/number/string/boolean

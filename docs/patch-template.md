@@ -10,7 +10,7 @@ patch:
   parameters:
     - description: | 
         Describe the parameter on multiple lines.
-      in: path/query
+      in: path/query/cookie/header
       name: Specify the name.
       required: true/false
       schema:
@@ -22,6 +22,7 @@ patch:
           properties:
             example_property:
               type: Specify the type.
+              description: Describe the property.
               format: Specify the format, if relevant.
           required:
             - List which parameters are required.
@@ -58,4 +59,4 @@ patch:
       description: Error
   summary: Add a summary (appears in the side menu).
   tags:
-    - Add relevant tags.
+    - Add relevant tags (used to group requests in the side menu).

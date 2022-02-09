@@ -2,7 +2,7 @@ properties:
   type:
     description: |
       - `redirect`: Redirects the customer to a [MultiSafepay payment page](https://docs.multisafepay.com/payment-pages/), where they can select a payment method and complete payment. 
-      - `direct`: Redirects the customer to an authentication or success page, depending on the payment method.
+      - `direct`: Redirects the customer to an authentication or success page, depending on the payment method. 
       - `paymentlink`: Creates a [payment link](https://docs.multisafepay.com/payment-links/).
       - `checkout`: Creates a FastCheckout order.
       
@@ -29,12 +29,16 @@ properties:
       Contains: 
       
       - URLs to your success page and cancel page
-      - Your webhook endpoint
-      - Templates for styling [MultiSafepay payment pages](https://docs.multisafepay.com/payment-pages/).
+      - Your [webhook endpoint](https://docs.multisafepay.com/developer/api/notification-url/)
+      - Templates for styling [MultiSafepay payment pages](https://docs.multisafepay.com/payment-pages/)
+      - Settings for displaying available [gift cards](https://docs.multisafepay.com/payment-methods/gift-cards/)
     type: object
     properties:
       notification_url: 
-        description: The webhook endpoint for MultiSafepay to send you status updates and other notifications.
+        description: |
+          The webhook endpoint for MultiSafepay to send you status updates and other notifications.
+
+          See [Notification URL](https://docs.multisafepay.com/developer/api/notification-url/).
         type: string
         example: https://www.example.com/payment-updates/
       notification_method:
@@ -43,17 +47,21 @@ properties:
           
           We recommend setting this to `POST` to reduce network load and increase security.
 
-          See also [Notification URL](https://docs.multisafepay.com/developer/api/notification-url/).
+          See [Notification URL](https://docs.multisafepay.com/developer/api/notification-url/).
         type: string
         enum: [POST, GET]
         default: GET
         example: POST
       redirect_url:
-        description: The page customers are redirected to after **successful** payment.
+        description: |
+          The page customers are redirected to:
+          
+          - After **successful** payment, i.e. your success page, or thank you page
+          - If the transaction status is [Uncleared](https://docs.multisafepay.com/credit-cards-user-guide/uncleared-transactions/) 
         type: string
         example: https://www.example.com/test-order-0001/successful/
       cancel_url:
-        description: The page that customers are redirected to after **unsuccessful** payments.
+        description: The page customers are redirected to after **unsuccessful** payments.
         type: string
         example: https://www.example.com/test-order-0001/unsuccessful/
       close_window:
@@ -61,57 +69,431 @@ properties:
         type: boolean
         default: false
       settings:
-        description: Contains gateway-specific settings.
+        description: | 
+          For [gift card](https://docs.multisafepay.com/payment-methods/gift-cards/) payments.
         type: object
         properties:
           coupons: 
-            description: Contains settings for gift cards.
+            description: Contains optional settings for gift cards.
             properties:
               allow:
-                description: Specifies what gift cards the customer can pay with.
+                description: Specifies which gift cards the customer can pay with.
                 type: array
                 example: EDENCO
                 enum: [BABYCAD, BEAUTYWELL, BLOEMENCAD, BOEKENBON, DEGROTESPL, EDENCOM, EDENCO, EDENRES, EDENSPORTS, FASHIONCHQ, FASHIONGFT, FIETSENBON, GOOD4FUN, GEZONDHEID, NATNLBIOSC, NATNLETUIN, PARFUMCADE, SPORTENFIT, VRGIFTCARD, VVVGIFTCRD, WEBSHOPGFT, WIJNCADEAU, YOURGIFT]
       template_id: 
         description: |
-          Applies a [payment page styling template](https://docs.multisafepay.com/payment-pages/styling/) using its identifier.
+          For styling [MultiSafepay payment pages](https://docs.multisafepay.com/payment-pages/styling/): Applies a template using its identifier.
 
           If `payment_options.template` is also set, `payment_options.template` is used.
         type: string
       template: 
         description: |
-          A template object structure.
+          For [styling MultiSafepay payment pages](https://docs.multisafepay.com/payment-pages/styling/): Applies a template object structure.
           
-          The template structure overrides the `payment_options.template_id`.
+          Overrides the `payment_options.template_id`.
         properties:
           version: 
             description:
-  var1:
-    $ref: 'var12.yaml'
-  var2:
-    $ref: 'var12.yaml'
-  var3:
-    $ref: 'var3.yaml'
-  custom_info:
-    description: Stores custom information about the order.
-    properties:
-      custom_1:
-        description: The first string to store. 
-        type: string
-      custom_2:
-        description:
-        type: string
-      custom_3:
-        description:
-        type: string
+            type: string
+          settings:
+            description: Sets whether to display or hide email elements, e.g. buttons, logos. 
+            type: object
+            properties:
+              hide_logo:
+                description: Hides the email header logo. 
+                type: boolean
+              iframe_mode:
+                description: Hides iframe elements.
+                type: boolean
+              hide_flags:
+                description: Hides the flags container. 
+                type: boolean
+              hide_powered:
+                description: Hides the powered link.
+                type: boolean
+              hide_cart:
+                description: Hides the cart container. 
+                type: boolean
+              hide_btn_cancel:
+                description: |
+                  Hides the **Cancel** button.
+                type: boolean
+              hide_cc_logos:
+                description: Hides credit card logos. 
+                type: boolean
+              hide_btn_all_methods:
+                description: |
+                  Hides the **All methods** button.
+                type: boolean
+          header:
+            description: Settings for the header logo, cover image, background, and font. 
+            type: array
+            items:
+              type: object
+              properties:
+                logo:
+                  description: Displays your logo in the email header. 
+                  type: object
+                  properties:
+                    image:
+                      description: The filename of the logo to display. 
+                      type: string
+                cover:
+                  description: Resize the background image to cover the entire header container.
+                  type: object
+                  properties:
+                    image:
+                      description: The cover image.
+                      type: string
+                background:
+                  description: The header background.
+                  type: string
+                text:
+                  description: The header font color. 
+                  type: string 
+          body:
+            description: Settings for the email body. 
+            type: array
+            items:
+              type: object
+              properties:
+                text:
+                  description: The body font color.
+                  type: string
+                background:
+                  description: The body background color. 
+                  type: string
+                link: 
+                  description: Settings for links in the email body.
+                  type: object
+                  properties:
+                    text:
+                      description: The link text color in the email body.
+                      type: string
+                    hover:
+                      description: Settings for hovering over links in the email body.
+                      type: object
+                      properties:
+                        text:
+                          description: The link text color on hover in the body.
+                          type: string
+                        border:
+                          description: The link border color on hover in the body.
+                          type: string
+          container:
+            description: Settings for the container element. 
+            type: array
+            items:
+              type: object
+              properties:
+                text:
+                  description: The color of text in the container.
+                  type: string
+                background:
+                  description: The color of the container background. 
+                  type: string
+                link:
+                  description: Settings for links in the container. 
+                  type: object
+                  properties:
+                    text:
+                      description: The link text color in the container.
+                      type: string
+          cart:
+            description: Settings for the cart element.
+            type: object
+            properties:
+              text:
+                description: The text color in the cart.
+                type: string
+              label: 
+                description: The color of labels in the cart. 
+                type: string
+              background:
+                description: The background color of the cart. 
+                type: string
+              border:
+                description: The border color of the cart. 
+                type: string
+          payment_form:
+            description: Settings for the payment form in the email.
+            type: array
+            items:
+              type: object
+              properties:
+                text:
+                  description: The text color in the payment form.
+                  type: string
+                background: 
+                  description: The background color of the payment form.
+                  type: string
+                border:
+                  description: The border color of the payment form.
+                  type: string
+                inputs:
+                  description: Settings for the payment form button.
+                  type: object
+                  properties:
+                    border: 
+                      description: The color of the payment form button border.
+                      type: string
+                    label:
+                      description: The call to action in the payment form button.
+                      type: string
+          buttons:
+            description: Settings for buttons in the email.
+            type: array
+            items:
+              type: object
+              properties:
+                payment_method:
+                  description: Settings for the payment method button.
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      background:
+                        description: The payment method button background color.
+                        type: string
+                      text:
+                        description: The payment method button text color.
+                        type: string
+                      border:
+                        description: The payment method button border color.
+                        type: string
+                      hover:
+                        description: Settings when hovering over the payment method button.
+                        type: object
+                        properties:
+                          background:
+                            description: The payment method button background color on hover.
+                            type: string
+                          text:
+                            description: The payment method button text color on hover.
+                            type: string
+                          border:
+                            description: The payment method button border color on hover. 
+                            type: string
+                      active:
+                        description: Settings for when the payment method button is active. 
+                        type: object
+                        properties:
+                          background:
+                            description: The payment method button background color when active.
+                            type: string
+                          text:
+                            description: The payment method button text color when active.
+                            type: string
+                          border:
+                            description: The payment method button border color when active. 
+                            type: string
+                secondary:
+                  description: Settings for the secondary button.
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      background:
+                        description: The secondary button background color.
+                        type: string
+                      text:
+                        description: The secondary button text color.
+                        type: string
+                      hover: 
+                        description: Settings for the secondary button on hover.
+                        type: object
+                        properties:
+                          background:
+                            description: The secondary button background color on hover.
+                            type: string
+                          text:
+                            description: The secondary button text color on hover.
+                            type: string  
+                primary:
+                  description: Settings for the primary button.
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      background:
+                        description: The primary button background color.
+                        type: string
+                      text:
+                        description: The primary button text color.
+                        type: string
+                      hover:
+                        description: Settings for the primary button on hover.
+                        type: object
+                        properties:
+                          background:
+                            description: The primary button background color on hover.
+                            type: string
+                          text:
+                            description: The primary button text color on hover.
+                            type: string
   customer:
     allOf:
       - $ref: 'CustomerObject.yaml'
-      - required: 
-        - first_name
-        - last_name
+  gateway_info:
+    description: | 
+      Information about the payment method (`gateway`). 
+      
+      **Required for:**
+      
+      - Credit and debit card orders
+      - Apple Pay, Google Pay, and SEPA Direct Debit direct orders
+      - Bancontact QR and iDEAL QR orders
+      - AfterPay, E-Invoicing, in3, Klarna, and Pay After Delivery orders for credit checks in the Netherlands and Belgium
+      - MOTO orders
+    type: object
+    properties:
+      card_number:
+        description: |
+          For credit and debit card orders: The customer's credit card number.
+        type: string
+        example: "4111111111111111"
+      card_holder_name:
+        description: |
+          For credit and debit card orders: The cardholder's name.
+        type: name
+        example: John Doe
+      card_expiry_date:
+        description: |
+          For credit and debit card orders: The credit card's expiry date.
+        type: string
+        format: yyMM
+        example: "2412"
+      card_cvc:
+        description: |
+          For credit card orders:  The card verification code (CVC) – a 3 or 4 digit number used as an additional security feature for card-not-present transactions.  
+          
+          Not required for [Recurring payments](https://docs.multisafepay.com/features/recurring-payments/).
+        type: string
+        example: "123"
+      flexible_3d: 
+        description: |
+          For Flexible 3D orders: Sets whether or not 3D Secure authentication is required.
+        type: boolean
+      moto:
+        description: |
+          Creates a [MOTO](https://docs.multisafepay.com/features/moto/) order.
+        type: boolean
+      term_url: 
+        description: |
+          For Flexible 3D orders: The URL that tells the card issuer where to redirect the authorisation query.
+        type: string
+        format: URL
+        example: https://example.com/?type=term&api_key=<api_key>
+      issuer_id:
+        description: |
+          For direct orders: The unique identifier of the gateway issuer.
+        type: string
+        example: '0021'
+      payment_token:
+        description: |
+          For Apple Pay direct orders: The JSON-encoded `payment.token` with the customer’s encrypted payment details, generated by the Apple Pay JS API.
+
+          
+          See:
+          
+          - Apple Pay direct integration – [Create an order](https://docs.multisafepay.com/payments/methods/wallet/applepay/direct-integration/#client-side-integration-1) 
+          - Apple Developer – [ApplePayPaymentToken](https://developer.apple.com/documentation/apple_pay_on_the_web/applepaypaymenttoken)
+
+          For Google Pay direct orders: The payment token returned from the client-side Google Pay API call.
+
+
+          Access the token at `PaymentData.PaymentMethodData.PaymentMethodTokenizationData.token`.
+
+
+          See [Google Pay direct integration](https://docs.multisafepay.com/payments/methods/wallet/googlepay/direct-integration/).
+        type: string
+      qr_enabled:
+        description: |
+          Creates a [Bancontact QR](https://docs.multisafepay.com/payment-methods/bancontact/) order.
+        type: boolean
+      qr_size:
+        description: |
+          For iDEAL QR orders: Sets the width and height of the QR image in pixels. 
+
+
+          Sizes are between 100 and 2000 pixels. If the value does not meet this rule, the default is used.
+
+
+          Default: 250 (250 by 250 pixels).
+        type: integer
+      allow_multiple:
+        description: |
+          For iDEAL QR orders: Sets whether the QR code can be used more than once.
+        type: boolean
+      allow_change_amount:
+        description: |
+          For iDEAL QR orders: Sets whether the customer can change the amount to pay. You must then also set `min_amount` and `max_amount`.
+        type: boolean
+      min_amount:
+        description: |
+          For iDEAL QR orders: Sets a minimum amount that the customer must pay.
+
+          
+          The `min_amount` must be lower than the `amount`.
+          
+          
+          If `min_amount` is not set, but `max_amount` is set, then the `amount` value is used as the `min_amount`.
+
+
+          Required if `allow_change_amount` is set to true.
+        type: string  
+      max_amount:
+        description: |
+          For iDEAL QR orders: Sets a maximum amount that the customer can pay.
+
+          
+          The `max_amount` must be higher than the `amount`.
+          
+          
+          If `max_amount` is not set, but `min_amount` is set, then the `amount` value is used as the `max_amount`.
+
+
+          Required if `allow_change_amount` is set to true.
+        type: string
+      account_id:
+        description: |
+          Required for SEPA Direct Debit - Direct orders: The international bank account number (IBAN) to be charged for the transaction.
+        type: string
+      account_holder_name:
+        description: |
+          Required for SEPA Direct Debit - Direct orders: The name of the account holder to be charged for the transaction.
+        type: string
+      account_holder_iban:
+        description: |
+          Required for SEPA Direct Debit - Direct orders: The international bank account number (IBAN) to be charged for the transaction.
+        type: string
+      emandate:
+        description: |
+          Required for SEPA Direct Debit - Direct orders: The unique emandate identifier (for your own adminstration).
+        type: string
+      birthday:
+        description: |
+          Required for pay later orders: The customer’s date of birth.
+        type: string
+        format: yyyy-mm-dd
+      bank_account:
+        description: |
+          Required for pay later orders: The customer’s international bank account number (IBAN).
+        type: string
+      phone:
+        description: |
+          Required for pay later orders: The customer's phone number.
+        type: string
+      email:
+        description: |
+          Required for pay later orders: The customer's email address to send payment instructions to.
+        type: string
   delivery:
-    description: The customer's address details for shipping the order.
+    description: |
+      The customer's address details for shipping the order.
+
+      **Required for:** AfterPay and Pay After Delivery redirect and direct, and E-Invoicing, Klarna, and in3 direct orders.
     type: object
     properties:
       first_name:
@@ -144,71 +526,26 @@ properties:
         description: | 
           The customer’s country of residence.
 
-          **Format**: [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+          **Format**: ISO – [3166-1 alpha-2](https://www.iso.org/iso-3166-country-codes.html)
         type: string
         example: "NL"
-  gateway_info:
-    description: Information specific to the payment method (`gateway`).
-    type: object
-    properties:
-      flexible_3d: 
-        description: |
-          Sets whether or not 3D Secure authentication is required.
-
-          **True**: Enables 3D Secure authentication  
-          **False**: Disables 3D Secure authentication
-        type: boolean
-      card_number:
-        description: "The customer's credit card number."
-        type: string
-        example: "4111111111111111"
-      card_holder_name:
-        description: "The cardholder's name."
-        type: name
-        example: John Doe
-      card_expiry_date:
-        description: "The credit card's expiry date."
-        type: string
-        format: yyMM
-        example: "2412"
-      card_cvc:
-        description: |
-          The card verification code (CVC) – a 3 or 4 digit number used as an additional security feature for card-not-present transactions.  
-          
-          `card_cvc` is not required for:
-          - Debit cards, e.g. `MAESTRO`
-          - Recurring payments
-        type: string
-        example: "123"
-      term_url: 
-        description: URL that tells the card issuer where to redirect the authorisation query.
-        type: string
-        format: URL
-        example: https://example.com/?type=term&api_key=<api_key>
-      issuer_id:
-        description: The unique identifier of the gateway issuer.
-        type: string
-        example: '0021'
-  second_chance:
-    description: |
-      Sends a reminder email to the customer containing a payment link to complete an abandoned payment.
-
-      See also [Second Chance](https://docs.multisafepay.com/features/second-chance/).
-    type: object
-    properties:
-      send_mail:
-        description: |
-          Sets whether to send reminder emails if the customer doesn't complete payment.
-
-          - If `true`, sends reminder emails.
-          - If `false` or unset, doesn't send reminder emails.
-        type: boolean
+    required:
+    - address1
+    - city
+    - country
+    - first_name
+    - house_number
+    - last_name
+    - zip_code
   checkout_options:
-    description: The settings for payment processing.
+    description: |
+      **Required for:** AfterPay, E-Invoicing, in3, Klarna, Pay After Delivery orders.
     type: object 
     properties:
       validate_cart:
         description: |
+          Can be used for all payment methods, except [pay later methods](https://docs.multisafepay.com/payments/methods/pay-later/).
+          
           If set to `true`, the value of `amount` is compared to the calculated total value of the shopping cart (returned as `order_total`).
 
           If the values:
@@ -226,7 +563,7 @@ properties:
             type: object
             properties: 
               shipping_taxed: 
-                description: Whether or not the shipping costs are taxed.
+                description: Sets whether or not the shipping costs are taxed.
                 type: boolean
               rate:
                 description: |
@@ -242,10 +579,10 @@ properties:
               type: object
               properties:
                 name:
-                  description: The client-defined ID. Used to apply tax settings to items in the shopping cart through the `shopping_cart.items.tax_table_selector` attribute.
+                  description: The client-defined ID. Applies tax settings to items in the shopping cart through the `shopping_cart.items.tax_table_selector` attribute.
                   type: string
                 standalone:
-                  description: Whether or not the shipping costs are taxed.
+                  description: Sets whether or not the shipping costs are taxed.
                   type: boolean
                 rules: 
                   type: array
@@ -262,59 +599,80 @@ properties:
                         description: |
                           The country where the tax rate applies.
 
-                          See also [ISO 3166-1 alpha-2]()
+                          Format: ISO – [3166-1 alpha-2](https://www.iso.org/iso-3166-country-codes.html)
                         type: string
                         example: US
-                        format: ISO 3166-1 alpha-2
+    required:
+    - tax_tables
+  shopping_cart:
+    description: |
+      **Required for:** AfterPay, E-Invoicing, in3, Klarna, Pay After Delivery orders. 
+      
+      The array of items in the customer's shopping cart, including the tax class.
+
+      If you have a self-made integration, include the complete specification of the `shopping_cart`.
+    type: object
+    properties:
+      items:
+        description: |
+          The items in the customer's shopping cart. 
+        
+          Specify the relevant tax ruling per item.
+        type: array
+        items:
+          $ref: 'Item.yaml'
   items:
-    description: Displays the items in the customer’s order in a single line on your checkout page, instead of including a `shopping_cart` object.
+    description: Displays the items in the customer’s order in a single line on your checkout page, instead of including `shopping_cart`.
     type: string
     example: "<ol><li>Article 1: € 1,95</li><li>Article 2: € 2,95</li><li>Article 3: € 3,95</li></ol>"
-  days_active:
-    description: |
-      For `redirect` and `paymentlink` orders, he number of days the payment link is valid for.
-
-      If `seconds_active` is also set, `seconds_active` is used.
-    type: integer
-    minimum: 1
-    default: 30
-  seconds_active: 
-    description: |
-      For `redirect` and `paymentlink` orders, the number of seconds the payment link is valid for.
-
-      If `days_active` is also set, `seconds_active` is used.
-    type: integer
-    minimum: 1
-    default: 2592000
-  plugin:
-    description: Specifies information about your integration, which is useful for debugging.
+  payment_data:
+    description: | 
+      Creates a [Payment Component](https://docs.multisafepay.com/payment-components/) order. 
+    type: object
     properties:
-      shop:
-        description: The ecommerce platform that you use.
+      payload: 
+        description: | 
+          The response to the `getPaymentData()` Payment Component method.
+
+          See Payment Component integration manual – Step 3: Create an order:
+
+          - [Single payment method](https://docs.multisafepay.com/payment-components/single/step-3/)
+          - [Multiple payment methods](https://docs.multisafepay.com/payment-components/multiple/step-3/)
         type: string
-        example: "My custom-built ecommerce"
-      plugin_version:
-        description: The version of the plugin.
-        type: string
-        example: "1.0.0"
-      shop_version: 
-        description: The version of the ecommerce webshop you use.
-        type: string
-        example: ""
-      partner: 
-        description: The name of the third party that developed the ecommerce webshop.
-        type: string
-      shop_root_url:
-        description: The root/base URL of the ecommerce webshop.
-        type: string
-        example: "https://www.my-ecommerce.com"
+      gateway:
+        allOf:
+        - description: The unique gateway identifier for the payment method.
+        - type: string
+        - enum: [AMEX, BANKTRANS, DIREB, DIRECTBANK, IDEAL, MAESTRO, MASTERCARD, MISTERCASH, PAYPAL,  VISA]  
+  recurring_model:
+    description: |
+      **Required for:** Initial and subsequent [Recurring payments](https://docs.multisafepay.com/features/recurring-payments/) orders.
+      
+      
+      Sets the recurring model:
+
+      - Card on file (COF): The cardholder has authorized you to store their card details.
+      - Subscription: An agreement or services that are billed at the end of your billing cycle, e.g. weekly, monthly.
+      - Unscheduled: Event-triggered, e.g. mobile top-up when no credit left on the phone.
+    type: string
+    enum: [cardonfile, subscription, unscheduled]
+  recurring_id:
+    description: | 
+      **Required for:** Subsequent [Recurring payments](https://docs.multisafepay.com/features/recurring-payments/) orders: The unique identifier of the recurring payment.
+    type: string
+  capture:
+    description: |
+      Creates a [Manual Capture](https://docs.multisafepay.com/features/manual-capture/) order.
+
+      Set to `manual`.
+    type: string
   affiliate:
-    description: Settings for affiliated MultiSafepay accounts.
+    description: Creates a [Split Payments](https://docs.multisafepay.com/features/split-payments/) order.
     type: object
     properties:
       split_payments:
         description: |
-          Split the amount of a transaction between partner or affiliated accounts by a percentage, a fixed amount, or both.
+          Split the amount of a transaction between partner/primary and affiliated accounts by a percentage, a fixed amount, or both.
 
           For every split payment rule, add an object to the array.
         type: array
@@ -337,19 +695,106 @@ properties:
             description: 
               description: A description of the split payment.
               type: string
-  shopping_cart:
+  second_chance:
     description: |
-      The array of items in the customer's shopping cart, including the tax class.
-
-      If you have a self-made integration, include the complete specification of the `shopping_cart`.
+      Sends a [Second Chance](https://docs.multisafepay.com/features/second-chance/) reminder email to the customer containing a payment link to complete an abandoned payment.
     type: object
     properties:
-      items:
+      send_mail:
         description: |
-          The items in the customer's shopping cart. 
-        
-          Specify the relevant tax ruling per item.
-        type: array
-        items:
-          $ref: 'Item.yaml'
+          Sets whether to send reminder emails if the customer doesn't complete payment.
+
+          - If `true`, sends reminder emails.
+          - If `false` or unset, doesn't send reminder emails.
+
+
+          **Suppressing Second Chance emails after cancellation**
+
+
+          When a customer places an order, goes to your checkout, doesn’t complete payment, but later returns and tries to pay again, some webshops create a second order. 
+          
+          
+          If Second Chance emails are enabled, the customer still receives emails for the first order, even after they complete payment for the second order.
+
+          Cancelling the first order does **not** suppress Second Chance emails. To suppress emails, make an Update order details: CancelOrder request.
+        type: boolean
+  customer_verification:
+    description: |
+      For [credit card direct](https://docs.multisafepay.com/features/server-to-server/) orders.
+    type: object
+    properties:
+      html:
+        description: |
+          If 3D Secure authentication is:
+
+          - Required: An HTML form is returned. You can either render the form and redirect the customer to it to pass authentication, or redirect them to the `payment_url` (recommended).
+          - Not required: The [transaction status](https://docs.multisafepay.com/about-payments/multisafepay-statuses/) response is processed directly and no HTML form is returned.
+        type: string
+      type:
+        description: 
+        type: string
+        example: form  
+  custom_info:
+    description: |
+      For Belfius and TrustPay redirect, and iDEAL direct orders: 
+      
+      Stores additional information about the order.
+    properties:
+      custom_1:
+        description: Information about the order. 
+        type: string
+      custom_2:
+        description: Information about the order.
+        type: string
+      custom_3:
+        description: Information about the order.
+        type: string
+  days_active:
+    description: |
+      For `redirect` and `paymentlink` orders, sets the number of days the link to the MultiSafepay payment page is valid.
+
+      The link lifetime begins when the order is created, or the link is generated. A `session_id` is returned in the payment page URL.
+
+      If you have [Second Chance](https://docs.multisafepay.com/features/second-chance/) enabled, we recommend a minimum lifetime of **48 hours**. Second Chance emails the customer 2 payment reminders: 1 hour and 24 hours after the order is created. If the lifetime is less than 24 hours, the link in the second email is no longer active when the customer receives it. 
+      
+      See `seconds_active` below. If `seconds_active` is also set, `seconds_active` is used. If neither is set, the default is used.
+    type: integer
+    minimum: 1
+    default: 30
+  seconds_active: 
+    description: |
+      For `redirect` and `paymentlink` orders, sets the number of seconds the link to the MultiSafepay payment page is valid.
+
+      See `days_active` above. If `days_active` is also set, `seconds_active` is used. If neither is set, the default is used.
+    type: integer
+    minimum: 1
+    default: 2592000
+  var1:
+    $ref: 'var12.yaml'
+  var2:
+    $ref: 'var12.yaml'
+  var3:
+    $ref: 'var3.yaml'
+  plugin:
+    description: Specifies information about your integration, which is useful for debugging.
+    properties:
+      shop:
+        description: The ecommerce platform that you use.
+        type: string
+        example: "My custom-built ecommerce"
+      plugin_version:
+        description: The version of the plugin.
+        type: string
+        example: "1.0.0"
+      shop_version: 
+        description: The version of the ecommerce webshop you use.
+        type: string
+        example: ""
+      partner: 
+        description: The name of the third party that developed the ecommerce webshop.
+        type: string
+      shop_root_url:
+        description: The root/base URL of the ecommerce webshop.
+        type: string
+        example: "https://www.my-ecommerce.com"
 type: object

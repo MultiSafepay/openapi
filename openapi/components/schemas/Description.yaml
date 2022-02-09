@@ -3,6 +3,6 @@ description: |
       - In your MultiSafepay dashboard 
       - On MultiSafepay payment pages (for `type`:`redirect`)
       - On the customer’s bank statement (if supported by their bank)
-example: Test order description
 type: string
 maxLength: 200
+example: Test order description
