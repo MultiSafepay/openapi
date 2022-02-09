@@ -1,9 +1,8 @@
 description: |
-  The order description that appears:
-  
-  - In your merchant dashboard 
-  - On the MultiSafepay payment page (for `type`:`redirect`)
-  - On the customer’s bank statement (if supported by their bank)
+      The order description that appears:
+      - In your MultiSafepay dashboard 
+      - On MultiSafepay payment pages (for `type`:`redirect`)
+      - On the customer’s bank statement (if supported by their bank)
 type: string
 maxLength: 200
 example: Test order description

@@ -42,4 +42,4 @@ delete:
       description: Error 
   summary: Delete a token
   tags:
-    - Recurring payments
+    - Tokens
