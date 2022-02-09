@@ -10,7 +10,7 @@ patch:
   parameters:
     - description: | 
         Describe the parameter on multiple lines.
-      in: path/query
+      in: path/query/cookie/header
       name: Specify the name.
       required: true/false
       schema:
