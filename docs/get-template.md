@@ -45,4 +45,4 @@ get:
       description: Error
   summary: Add a summary (appears in the side menu).
   tags:
-    - Add relevant tags.
+    - Add relevant tags (used to group requests in the side menu).
