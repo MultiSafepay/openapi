@@ -113,7 +113,7 @@ tags:
     description: "Create and manage payments."
   - name: Manual capture payments
     description: "Manually capture credit card payments."
-  - name: Recurring payments
+  - name: Tokens
     description: "Manage tokens."
   - name: Pay After Delivery (BETA)
     description: "Request customer credit scores, and track collecting statuses."
