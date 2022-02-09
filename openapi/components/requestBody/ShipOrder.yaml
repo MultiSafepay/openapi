@@ -5,50 +5,42 @@ properties:
       The [order status](https://docs.multisafepay.com/payments/multisafepay-statuses/).
       
       To communicate that you have shipped the order, set to `shipped`.
+    type: string
     example: shipped
-    type: string
   tracktrace_code:
-    description: | 
-      The track and trace code provided by the shipping company. 
+    description: The track and trace code provided by the shipping company. 
+    type: string
     example: 3SMSP0123456789
-    type: string
   tracktrace_url:
-    description: | 
-      The track and trace URL provided by the shipping company.
+    description: The track and trace URL provided by the shipping company.
+    type: string
     example: https://tracktrace-url.com/
-    type: string
   carrier:
-    description: | 
-      The name of the shipping company.
+    description: The name of the shipping company.
+    type: string
     example: MSP Logistics
-    type: string
   ship_date:
-    description: | 
-      The date the order was shipped.
+    description: The date you shipped the order.
+    type: string
     example: 01-01-1911
-    type: string
   reason:
-    description: | 
-      The reason for updating the order. 
-    example: Fulfilled by warehouse
+    description: The reason for updating the order. 
     type: string
+    example: Fulfilled by warehouse
   invoice_id:
     description: | 
-      Add your invoice ID to the order. 
-
-      The invoice ID appears on [reports](https://docs.multisafepay.com/business/accounting/reports/) generated from your MultiSafepay dashboard.
-    example: AB12345
+      Adds your invoice ID to the order, which appears on [MultiSafepay reports](https://docs.multisafepay.com/business/accounting/reports/).
     type: string
+    example: AB12345
   invoice_url:
     description: | 
-      The invoice URL linking to the `invoice_id`. 
+      The invoice URL to the `invoice_id`. 
+    type: string
     example: https://mspinvoice-AB12345.com
-    type: string
   po_number:
-    description: | 
-      The shipping company's purchase order number. 
-    example: XY123456789
+    description: The shipping company's purchase order number. 
     type: string
+    example: XY123456789
 required:
   - status
 summary: Ship an order

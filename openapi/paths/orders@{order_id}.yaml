@@ -1,6 +1,6 @@
 get:
   description: Get information about an order.
-  operationId: GetOrderDetails
+  operationId: getOrderDetails
   parameters:
     - description: | 
         The unique identifier of the order. 
@@ -83,14 +83,14 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../components/schemas/GenericErrorResponse.yaml'
+            $ref: '../components/errors/Error1006.yaml'
       description: Error
-  summary: Get order details
+  summary: Get order
   tags:
     - Payments
 patch:
   description: Update details about an order. Use this request to change the status of pay later orders to shipped, or to cancel orders.
-  operationId: UpdateOrder
+  operationId: updateOrder
   parameters:
     - description: | 
         The unique identifier of the order. 
@@ -127,8 +127,12 @@ patch:
           schema:
             properties:
               success:
+                description: |
+                  `true`
                 type: boolean
-              data: []
+              data: 
+                description: No data returned.
+                type: string                
             type: object
       description: ''
     '404':
@@ -137,6 +141,6 @@ patch:
           schema:
             $ref: '../components/schemas/GenericErrorResponse.yaml'
       description: Error
-  summary: Update order details
+  summary: Update order
   tags:
     - Payments

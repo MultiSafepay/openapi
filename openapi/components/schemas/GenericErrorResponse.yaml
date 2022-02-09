@@ -1,8 +1,14 @@
 properties:
-  message:
-    example: Not found
-    type: string
   success:
-    example: false
     type: boolean
+    example: "false"
+  data:
+    type: object
+    example: []
+  error_code:
+    type: integer
+    example: 1000
+  error_info:
+    type: string
+    example:
 type: object
