@@ -22,6 +22,7 @@ patch:
           properties:
             example_property:
               type: Specify the type.
+              description: Describe the property.
               format: Specify the format, if relevant.
           required:
             - List which parameters are required.
