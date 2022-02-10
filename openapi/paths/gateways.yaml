@@ -1,6 +1,6 @@
 get:
-  description: 'List the gateway identifiers for all payment methods activated for a specific website.'
-  operationId: ListGateways
+  description: List the gateway identifiers for all payment methods activated for your website.
+  operationId: listGateways
   parameters:
     - description: | 
         By default, only one activated gift card is included in the response. 
@@ -16,8 +16,15 @@ get:
     '200':
       content:
         application/json:
-          example:
-            $ref: '../components/examples/responses/listGateways.json'
+          examples:
+            List gateways:
+              summary: List gateways
+              value:
+                $ref: '../components/examples/responses/listGateways.json'
+            List gateways with coupons:
+              summary: List gateways with coupons
+              value:
+                $ref: '../components/examples/responses/listGatewaysWithCoupons.json'
           schema:
             properties:
               success:
@@ -26,11 +33,14 @@ get:
                 type: object
                 properties: 
                   id:
+                    description: The unique identifier of the gateway.
                     type: string
-                    description: 'The unique identifier of the gateway.' 
                   description: 
+                    description: The name of the payment method.  
                     type: string
-                    description: 'The name of the payment method.'  
+                  type:
+                    description: Whether the payment method is a gift card (`coupon`).
+                    type: string
             type: object
       description: ''
     '404':
