@@ -1,5 +1,5 @@
 get:
-  description: 'Get the name of the payment method for a particular gateway identifier.'
+  description: Get the name of the payment method for a particular gateway identifier.
   operationId: getGateway
   parameters:
     - description: The unique identifier of the gateway. **Not** case sensitive.
@@ -32,11 +32,17 @@ get:
             type: object
       description: ''
     '404':
+      description: Error 
       content:
         application/json:
           schema:
-            $ref: '../components/schemas/GenericErrorResponse.yaml'
-      description: Error 
+            $ref: '../components/errors/Error1023.yaml'
+    '401':
+      description: Error
+      content:
+        application/json:
+          schema:
+            $ref: '../components/errors/Error1032.yaml'
   summary: Get gateway
   tags:
     - Payments
