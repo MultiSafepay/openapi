@@ -1,8 +1,8 @@
 get:
   description: Get information about a website.
-  operationId: GetWebsite
+  operationId: getWebsite
   parameters:
-    - description: ''
+    - description: The unique identifier of the website.
       in: path
       name: site_id
       required: true
@@ -16,28 +16,47 @@ get:
             properties:
               data:
                 properties:
-                  name:
-                    maxLength: 120
+                  account_id:
+                    description: The identifier for the account the website is under.
+                    type: integer
+                    example: 12345678
+                  api_key:
+                    description: The website API key.
                     type: string
+                    example: c2693951893e065830ad99e3540c3e417dcb1937
+                  id:
+                    description: The website identifier.
+                    type: integer
+                    example: 12345
+                  name:
+                    description: The website name.
+                    type: string
+                    maxLength: 120
                   notification_url:
+                    description: The webhook endpoint for sending notifications for the website.
+                    type: string
                     format: url
                     maxLength: 150
-                    type: string
                   price_from:
+                    description: The minimum transaction amount for the website.
                     type: integer
                   price_till:
+                    description: The maximum transaction amount for the website.
                     type: integer
                   support_email:
+                    description: The customer support email address for the website.
+                    type: string
                     format: email
                     maxLength: 100
-                    type: string
                   support_phone:
-                    maxLength: 100
+                    description: The customer support phone number for the website.
                     type: string
+                    maxLength: 100
                   url:
+                    description: The URL of the website. 
+                    type: string
                     format: url
                     maxLength: 150
-                    type: string
                 required:
                   - name
                   - url
@@ -50,16 +69,20 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/GenericErrorResponse.yaml
+            properties:
+              message:
+                description: The site was not found.
+                type: string
+                example: Not found
       description: Site not found
   summary: Get website
   tags:
     - Onboard affiliates
 patch:
   description: Update information about a website.
-  operationId: UpdateWebsite
+  operationId: updateWebsite
   parameters:
-    - description: ''
+    - description: The website identifier.
       in: path
       name: site_id
       required: true
@@ -71,27 +94,34 @@ patch:
         schema:
           properties:
             name:
-              maxLength: 120
+              description: The website name.
               type: string
+              maxLength: 120
             notification_url:
+              description: The webhook endpoint for sending notifications for the website.
+              type: string
               format: url
               maxLength: 150
-              type: string
             price_from:
+              description: The minimum transaction amount for the website.
               type: integer
             price_till:
+              description: The maximum transaction amount for the website.
               type: integer
             support_email:
+              description: The customer support email address for the website.
+              type: string
               format: email
               maxLength: 100
-              type: string
             support_phone:
-              maxLength: 100
+              description: The customer support phone number for the website.
               type: string
+              maxLength: 100
             url:
+              description: The URL of the website.
+              type: string
               format: url
               maxLength: 150
-              type: string
           required: []
           type: object
     description: ''
@@ -105,27 +135,34 @@ patch:
               data:
                 properties:
                   name:
-                    maxLength: 120
+                    description: The website name.
                     type: string
+                    maxLength: 120
                   notification_url:
+                    description: The webhook endpoint for sending notifications for the website.
+                    type: string
                     format: url
                     maxLength: 150
-                    type: string
                   price_from:
+                    description: The minimum transaction amount for the website.
                     type: integer
                   price_till:
+                    description: The maximum transaction amount for the website.
                     type: integer
                   support_email:
+                    description: The customer support email address for the website.
+                    type: string
                     format: email
                     maxLength: 100
-                    type: string
                   support_phone:
-                    maxLength: 100
                     type: string
+                    description: The customer support phone number for the website.
+                    maxLength: 100
                   url:
+                    description: The website URL.
+                    type: string
                     format: url
                     maxLength: 150
-                    type: string
                 required:
                   - name
                   - url
@@ -138,7 +175,11 @@ patch:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/GenericErrorResponse.yaml
+            properties:
+              message:
+                description: The site was not found.
+                type: string
+                example: Not found
       description: Site not found
     '422':
       content:
