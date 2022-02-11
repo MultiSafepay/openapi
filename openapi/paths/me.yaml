@@ -1,9 +1,9 @@
 get:
   description: |
-    Get the following account details:
+    Get the following details about an account:
 
     - Account ID
-    - Account type
+    - User profile
     - Website ID
   operationId: Me
   parameters: []
@@ -15,20 +15,25 @@ get:
             properties:
               data:
                 properties:
-                  merchant_id:
+                  account_id:
+                    description: The unique identifier for the account.
                     type: integer
+                    example: 12345678
                   role:
+                    description: The type of account.
                     type: string
+                    example: merchant
                   site_id:
                     type: integer
+                    example: 12345
                 required:
-                  - merchant_id
+                  - account_id
                   - site_id
                 type: object
               success:
                 type: boolean
             type: object
       description: ''
-  summary: Get account details
+  summary: Get account 
   tags:
     - My account
