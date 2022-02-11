@@ -1,11 +1,11 @@
 get:
-  description: List the gateway identifiers for all payment methods activated for your website.
+  description: List the gateway identifiers for all payment methods activated for a website.
   operationId: listGateways
   parameters:
     - description: | 
-        By default, only one activated gift card is included in the response. 
+        By default, only one activated [gift card](https://docs.multisafepay.com/payment-methods/gift-cards) is included in the response. 
 
-        To include **all** activated [gift cards](https://docs.multisafepay.com/payment-methods/gift-cards) in the response, set to `coupons`.
+        To include **all** activated gift cards in the response, set to `coupons`.
       in: query
       name: include
       required: false
@@ -43,11 +43,11 @@ get:
                     type: string
             type: object
       description: ''
-    '404':
+    '401':
       content:
         application/json:
           schema:
-            $ref: '../components/schemas/GenericErrorResponse.yaml'
+            $ref: '../components/errors/Error1032.yaml'
       description: Error 
   summary: List gateways
   tags:
