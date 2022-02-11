@@ -1,10 +1,12 @@
 properties:
   success:
+    description: "False"
     type: boolean
     example: false
   data:
-    description: "Empty"
+    description: Empty
     type: object
+    example: []
   error_code:
     description: 1032
     type: integer
