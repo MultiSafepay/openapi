@@ -3,7 +3,7 @@ properties:
     type: boolean
     example: "false"
   data:
-    description: "No data returned."
+    description: "Empty"
     type: object
   error_code:
     type: integer
