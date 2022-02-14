@@ -3,7 +3,7 @@ get:
     Get the following details about an account:
 
     - Account ID
-    - User profile
+    - Account type
     - Website ID
   operationId: Me
   parameters: []
