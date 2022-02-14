@@ -1,7 +1,0 @@
-description: |
-  The customer’s country of residence.
-  
-  See Wikipedia – [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
-type: string
-example: NL
-format: ISO 3166-1 alpha-2
