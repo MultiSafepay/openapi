@@ -1,4 +1,4 @@
 description: The [X-Forwarded-For](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For) header of the customer object when using a proxy.
 type: string
 format: IPv4
-example: "789,789,789,789"
+example: "789.789.789.789"
