@@ -1,18 +1,16 @@
 delete:
-  description: |
-    Delete a token related to a single customer reference.
-
-  operationId: DeleteToken
+  description: Delete a token linked to a customer reference.
+  operationId: deleteToken
   parameters:
     - name: your_customer_reference
       in: path
-      description: 'The customer reference.'
+      description: The customer reference.
       required: true
       schema:
         type: string
     - name: your_token
       in: path
-      description: 'The unique token linked to the customer reference.'
+      description: The unique token linked to the customer reference.
       required: true
       schema:
         type: string
@@ -29,17 +27,32 @@ delete:
                 description: ''
                 properties:
                   removed:
+                    description: Whether the token was successfully deleted.
                     type: boolean
-                    example: true
-                    description: 'Whether the token was successfully deleted.'
+                    example: "true"
             type: object
       description: ''
-    '404':
+    '410':
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/GenericErrorResponse.yaml
+            properties:
+              success:
+                type: boolean
+                example: "false"
+              data:
+                description: Empty
+                type: object
+                example: []
+              error_code: 
+                description: 1000
+                type: integer
+                example: 1000
+              error_info:
+                description: Token not found. The  token was not removed.
+                type: string
+                example: "Token not found"
       description: Error 
-  summary: Delete a token
+  summary: Delete token
   tags:
     - Tokens
