@@ -39,7 +39,7 @@ get:
                       description: The minimum and maximum amounts allowed for the payment method.
                       properties:
                         max:
-                          description: The maximum amount allowed for the payment method.
+                          description: The maximum amount (in EUR cents) allowed for the payment method.
                           type: integer
                           example: 1000000
                         min:
