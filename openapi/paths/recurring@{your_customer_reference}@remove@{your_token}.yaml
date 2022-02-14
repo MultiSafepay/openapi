@@ -22,7 +22,7 @@ delete:
             properties:
               success:
                 type: boolean
-                example: "true"
+                example: true
               data:
                 description: ''
                 properties:
