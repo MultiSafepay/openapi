@@ -1,5 +1,5 @@
+description: The fees for the transaction.
 type: object
-description: "A summary of the costs for the transaction."
 properties:
   transaction_id:
     $ref: 'TransactionId.yaml'
@@ -9,8 +9,8 @@ properties:
       - example: 60
   description:
     type: string
-    description: "A description of the transaction."
-    example: "For VISA CreditCards Transactions"
+    description: The description of the transaction.
+    example: "For VISA credit card transactions"
   type:
     type: string
     enum: [SYSTEM, internal]
