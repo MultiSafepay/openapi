@@ -1,26 +1,26 @@
 get:
-  description: ''
-  operationId: ListPaymentMethods
+  description: List activated payment methods, optionally filtered by query parameters.
+  operationId: getPaymentMethod
   parameters:
-    - description: ''
+    - description: The currencies supported by the payment method.
       in: query
       name: currency
       required: false
       schema:
         type: string
-    - description: ''
+    - description: The maximum and minimum amount allowed for the payment method.
       in: query
       name: amount
       required: false
       schema:
         type: string
-    - description: ''
+    - description: The countries supported by the payment method. 
       in: query
       name: country
       required: false
       schema:
         type: string
-    - description: ''
+    - description: The locales supported by the payment method. 
       in: query
       name: locale
       required: false
@@ -36,21 +36,26 @@ get:
                 items:
                   properties:
                     allowed_amount:
+                      description: The minimum and maximum amounts allowed for the payment method.
                       properties:
                         max:
+                          description: The maximum amount (in EUR cents) allowed for the payment method.
+                          type: integer
                           example: 1000000
-                          type: integer
                         min:
-                          example: 0
+                          description: The minimum amount (in EUR cents) allowed for the payment method.
                           type: integer
+                          example: 0
                       type: object
                     allowed_apps:
+                      description: Apps supported by the payment method.
+                      type: array
                       example:
                         - APIFCO
                       items:
                         type: string
-                      type: array
                     allowed_currencies:
+                      description: The currencies supported by the payment method.
                       example:
                         - EUR
                         - USD
@@ -59,74 +64,96 @@ get:
                         type: string
                       type: array
                     brands:
+                      description: Information about any co-branded versions of the payment method.
                       items:
                         properties:
                           icon_urls:
+                            description: URLs to different versions of the co-branded payment method logo.
                             properties:
                               large:
+                                description: URL to a large-sized version of the co-branded payment method logo.
+                                type: string
                                 example: >-
                                   https://media.multisafepay.com/img/methods/3x/postepay.png
-                                type: string
                               medium:
+                                description: URL to a medium-sized version of the co-branded payment method logo.
+                                type: string
                                 example: >-
                                   https://media.multisafepay.com/img/methods/2x/postepay.png
-                                type: string
                               vector:
+                                description: URL to a vector version of the co-branded payment method logo.
+                                type: string
                                 example: >-
                                   https://media.multisafepay.com/img/methods/svg/postepay.svg
-                                type: string
                             type: object
                           id:
+                            description: The unique identifier for the co-branded payment method.
+                            type: string
                             example: POSTEPAY
-                            type: string
                           name:
-                            example: PostePay
+                            description: The name of the co-branded payment method.
                             type: string
+                            example: PostePay
                         type: object
                       type: array
                     checkout_data_required:
+                      description: Whether checkout information is required for payments.
+                      type: boolean
                       example: false
-                      type: boolean
                     component_available:
+                      description: Whether the payment method supports [Payment Components](https://docs.multisafepay.com/payment-components/).
                       type: boolean
+                      example: true
                     country_preferred:
+                      description: The merchant's preferred country for using this payment method. 
                       example:
                         - NL
                       items:
                         type: string
                       type: array
                     direct_available:
+                      description: |
+                        Whether the payment method supports `type`: `direct` orders.
                       type: boolean
                     direct_preferred:
+                      description: |
+                        Whether the merchant prefers `type`:`direct` orders for this payment method.
                       type: boolean
                     extras:
+                      description: Additional information about issuers for the payment method.
+                      type: object
                       example:
                         issuers:
                           - bic: ABNANL2A
                             code: '0031'
                             name: ABN Amro Bank
-                      type: object
                     icon_urls:
+                      description: URLs to versions of the payment method logo.
                       properties:
                         large:
+                          description: URL to a large-sized version of the payment method logo.
+                          type: string
                           example: >-
                             https://media.multisafepay.com/img/methods/3x/visa.png
-                          type: string
                         medium:
+                          description: URL to a medium-sized version of the payment method logo.
+                          type: string
                           example: >-
                             https://media.multisafepay.com/img/methods/2x/visa.png
-                          type: string
                         vector:
+                          description: URL to a vector version of the payment method logo.
+                          type: string
                           example: >-
                             https://media.multisafepay.com/img/methods/svg/visa.svg
-                          type: string
                       type: object
                     id:
+                      description: The identifier of the payment method.
+                      type: string
                       example: VISA
-                      type: string
                     name:
-                      example: Visa
+                      description: The name of the payment method.
                       type: string
+                      example: Visa
                     required_fields:
                       example: []
                       items:

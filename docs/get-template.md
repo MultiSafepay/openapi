@@ -8,10 +8,10 @@ get:
   description: "Add a description for the operation."
   operationId: Set a unique operationId in camel case.
   parameters:
-    - description: | 
+    - name: Specify the name.
+      description: | 
         Describe the parameter on multiple lines.
       in: path/query
-      name: Specify the name.
       required: true/false
       schema:
         type: Specify the type.

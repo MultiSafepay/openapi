@@ -1,11 +1,12 @@
 properties:
   success:
     type: boolean
-    example: "false"
+    example: false
   data:
-    description: "No data returned."
+    description: "Empty"
     type: object
   error_code:
+    description: 1006
     type: integer
     example: 1006
   error_info:

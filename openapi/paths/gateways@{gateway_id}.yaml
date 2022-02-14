@@ -1,8 +1,8 @@
 get:
-  description: 'Get the name of the payment method for a particular gateway identifier.'
-  operationId: GetGateway
+  description: Get the name of the payment method for a particular gateway identifier.
+  operationId: getGateway
   parameters:
-    - description: 'The unique identifier of the gateway. **Not** case sensitive.' 
+    - description: The unique identifier of the gateway. **Not** case sensitive.
       in: path
       name: gateway_id
       required: true
@@ -22,21 +22,27 @@ get:
                 type: object
                 properties: 
                   id:
+                    description: The unique identifier of the gateway. 
                     type: string
-                    description: 'The unique identifier of the gateway.' 
                     example: "MISTERCASH" 
                   description: 
+                    description: The name of the payment method.
                     type: string
-                    description: 'The name of the payment method.'  
                     example: "Bancontact"
             type: object
       description: ''
     '404':
+      description: Error 
       content:
         application/json:
           schema:
-            $ref: '../components/schemas/GenericErrorResponse.yaml'
-      description: Error 
+            $ref: '../components/errors/Error1023.yaml'
+    '401':
+      description: Error
+      content:
+        application/json:
+          schema:
+            $ref: '../components/errors/Error1032.yaml'
   summary: Get gateway
   tags:
     - Payments
