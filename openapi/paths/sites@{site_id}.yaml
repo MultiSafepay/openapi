@@ -1,15 +1,16 @@
 get:
-  description: Get information about a website.
+  description: Get information about your own or an affiliate's website.
   operationId: getWebsite
   parameters:
-    - description: The unique identifier of the website.
+    - name: site_id
+      description: The unique identifier of the website.
       in: path
-      name: site_id
       required: true
       schema:
         type: string
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           schema:
@@ -33,30 +34,17 @@ get:
                     type: string
                     maxLength: 120
                   notification_url:
-                    description: The webhook endpoint for sending notifications for the website.
-                    type: string
-                    format: url
-                    maxLength: 150
+                    $ref: '../components/schemas/Webhook.yaml'
                   price_from:
-                    description: The minimum transaction amount for the website.
-                    type: integer
+                    $ref: '../components/schemas/PriceFrom.yaml'
                   price_till:
-                    description: The maximum transaction amount for the website.
-                    type: integer
+                    $ref: '../components/schemas/PriceTill.yaml'
                   support_email:
-                    description: The customer support email address for the website.
-                    type: string
-                    format: email
-                    maxLength: 100
+                    $ref: '../components/schemas/SupportEmail.yaml'
                   support_phone:
-                    description: The customer support phone number for the website.
-                    type: string
-                    maxLength: 100
+                    $ref: '../components/schemas/SupportPhone.yaml'
                   url:
-                    description: The URL of the website. 
-                    type: string
-                    format: url
-                    maxLength: 150
+                    $ref: '../components/schemas/URL.yaml'
                 required:
                   - name
                   - url
@@ -64,8 +52,8 @@ get:
               success:
                 type: boolean
             type: object
-      description: ''
     '404':
+      description: Site not found
       content:
         application/json:
           schema:
@@ -74,17 +62,16 @@ get:
                 description: The site was not found.
                 type: string
                 example: Not found
-      description: Site not found
   summary: Get website
   tags:
-    - Onboard affiliates
+    - My account
 patch:
-  description: Update information about a website.
+  description: Update information about your own or an affiliate's a website.
   operationId: updateWebsite
   parameters:
-    - description: The website identifier.
+    - name: site_id
+      description: The website identifier.
       in: path
-      name: site_id
       required: true
       schema:
         type: string
@@ -98,36 +85,24 @@ patch:
               type: string
               maxLength: 120
             notification_url:
-              description: The webhook endpoint for sending notifications for the website.
-              type: string
-              format: url
-              maxLength: 150
+              $ref: '../components/schemas/Webhook.yaml'
             price_from:
-              description: The minimum transaction amount for the website.
-              type: integer
+              $ref: '../components/schemas/PriceFrom.yaml'
             price_till:
-              description: The maximum transaction amount for the website.
-              type: integer
+              $ref: '../components/schemas/PriceTill.yaml'
             support_email:
-              description: The customer support email address for the website.
-              type: string
-              format: email
-              maxLength: 100
+              $ref: '../components/schemas/SupportEmail.yaml'
             support_phone:
-              description: The customer support phone number for the website.
-              type: string
-              maxLength: 100
+              $ref: '../components/schemas/SupportPhone.yaml'
             url:
-              description: The URL of the website.
-              type: string
-              format: url
-              maxLength: 150
+              $ref: '../components/schemas/URL.yaml'
           required: []
           type: object
     description: ''
     required: true
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           schema:
@@ -139,30 +114,17 @@ patch:
                     type: string
                     maxLength: 120
                   notification_url:
-                    description: The webhook endpoint for sending notifications for the website.
-                    type: string
-                    format: url
-                    maxLength: 150
+                    $ref: '../components/schemas/Webhook.yaml'
                   price_from:
-                    description: The minimum transaction amount for the website.
-                    type: integer
+                    $ref: '../components/schemas/PriceFrom.yaml'
                   price_till:
-                    description: The maximum transaction amount for the website.
-                    type: integer
+                    $ref: '../components/schemas/PriceTill.yaml'
                   support_email:
-                    description: The customer support email address for the website.
-                    type: string
-                    format: email
-                    maxLength: 100
+                    $ref: '../components/schemas/SupportEmail.yaml'
                   support_phone:
-                    type: string
-                    description: The customer support phone number for the website.
-                    maxLength: 100
+                    $ref: '../components/schemas/SupportPhone.yaml'
                   url:
-                    description: The website URL.
-                    type: string
-                    format: url
-                    maxLength: 150
+                    $ref: '../components/schemas/URL.yaml'
                 required:
                   - name
                   - url
@@ -170,8 +132,8 @@ patch:
               success:
                 type: boolean
             type: object
-      description: ''
     '404':
+      description: Site not found
       content:
         application/json:
           schema:
@@ -180,13 +142,12 @@ patch:
                 description: The site was not found.
                 type: string
                 example: Not found
-      description: Site not found
     '422':
+      description: Validation errors
       content:
         application/json:
           schema:
             $ref: ../components/schemas/ValidationErrorResponse.yaml
-      description: Validation errors
   summary: Update website
   tags:
-    - Onboard affiliates
+    - My account
