@@ -64,7 +64,7 @@ get:
                         type: string
                       type: array
                     brands:
-                      description: Information about any co-branded payment methods.
+                      description: Information about any co-branded versions of the payment method.
                       items:
                         properties:
                           icon_urls:
