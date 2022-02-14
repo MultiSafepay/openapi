@@ -1,0 +1,8 @@
+description: |
+  The [X-Forwarded-For](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For) header of the customer object when using a proxy.
+
+  To retrieve the customer's IP address if there is:
+  - A proxy, use `forwarded_ip`.
+  - No proxy, use `ip_address`.
+type: string
+format: IP address

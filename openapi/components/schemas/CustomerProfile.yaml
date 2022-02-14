@@ -1,0 +1,93 @@
+type: object
+properties:
+  address1:
+    description: The first line of the customer's address.
+    type: string
+    example: Main ave.
+    maxLength: 64
+  address2:
+    description: The second line of the customer's address.
+    type: string
+    maxLength: 64
+  address3:
+    maxLength: 64
+    type: string
+  birthday:
+    format: date
+    type: string
+  brand:
+    maxLength: 10
+    type: string
+  city:
+    example: Amsterdam
+    maxLength: 50
+    type: string
+  country:
+    example: NL
+    format: country-alpha2
+    type: string
+  email:
+    format: email
+    type: string
+  first_name:
+    example: John
+    maxLength: 25
+    type: string
+  forwarded_ip:
+    $ref: 'ForwardedIP.yaml'
+  gender:
+    example: M
+    maxLength: 1
+    type: string
+  house_number:
+    example: '1'
+    maxLength: 10
+    type: string
+  ip_address:
+    $ref: 'IPAddress.yaml'
+  last_name:
+    example: Doe
+    maxLength: 25
+    type: string
+  locale:
+    description: The customer's country code.
+    type: string
+    maxLength: 2
+    format: ISO 3166 country codes
+    example: NL
+  mobile_phone:
+    maxLength: 24
+    type: string
+  nickname:
+    example: johnny
+    maxLength: 30
+    type: string
+  phone:
+    maxLength: 24
+    type: string
+  prefix:
+    maxLength: 10
+    type: string
+  state:
+    maxLength: 6
+    type: string
+  title:
+    example: Mr
+    maxLength: 10
+    type: string
+  zip_code:
+    example: AB1234
+    maxLength: 10
+    type: string
+required:
+  - address1
+  - brand
+  - city
+  - country
+  - email
+  - first_name
+  - house_number
+  - last_name
+  - locale
+  - zip_code
+

@@ -1,0 +1,13 @@
+description: |
+  - Localizes [MultiSafepay payment pages](https://docs.multisafepay.com/payment-pages/) for the customer’s language, region, available payment methods, and any UI preferences.
+  - Sends [email templates](https://docs.multisafepay.com/features/email-templates/) in the customer's preferred language. If set, `locale` overrides the language set in an email template.
+  - Displays local variants of payment methods, e.g. to display:
+    - [Cartes Bancaires](https://docs.multisafepay.com/payment-methods/cartes-bancaires), set to `fr_FR`.
+    - [Dankort](https://docs.multisafepay.com/payment-methods/dankort), set to `da_DK`.
+    - [Postepay](https://docs.multisafepay.com/payment-methods/postepay), set to `it_IT`.
+type: string
+required: true
+format: ab_CD with ISO 639 language codes and ISO 3166 country codes
+enum: [ de_AT (German Austria), de_DE (German Germany), en_US (American English), fi_FI (Finnish), fr_BE (French Belgium), it_IT (Italian), nl_BE (Dutch Belgium), nl_NL (Dutch Netherlands), pl_PL (Polish), es_ES (Spanish), sv_SE (Swedish), zh_CN (Chinese)]
+example: nl_NL
+default: 'en_US (American English)'

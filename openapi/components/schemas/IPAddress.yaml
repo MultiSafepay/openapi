@@ -1,0 +1,9 @@
+description: |
+  The customer’s IP address.
+
+  To retrieve the customer's IP address if there is:
+  - A proxy, use `forwarded_ip`.
+  - No proxy, use `ip_address`.
+type: string
+format: ipv4
+example: "123.123.123.123"
