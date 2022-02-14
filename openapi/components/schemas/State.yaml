@@ -1,0 +1,4 @@
+description: The state where the customer lives.
+type: string
+maxLength: 6
+example: ""

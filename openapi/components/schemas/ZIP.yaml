@@ -1,0 +1,4 @@
+description: The customer’s ZIP/postal code.
+type: string
+maxLength: 10
+example: 1033SC
