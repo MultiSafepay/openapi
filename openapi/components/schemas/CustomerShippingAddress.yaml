@@ -1,0 +1,40 @@
+properties:
+  address1:
+    $ref: 'Address1.yaml'
+  address2:
+    $ref: 'Address2.yaml'
+  address3:
+    $ref: 'Address3.yaml'
+  city:
+    $ref: 'City.yaml'
+  company_name:
+    description: For business customers, the company name. 
+    type: string
+  company_registration_number:
+    description: For business customers, the company's chamber of commerce number.
+    type: string
+  country:
+    $ref: 'Country.yaml'
+  email:
+    $ref: 'Email.yaml'
+  favorite:
+    description: Whether this is the customer's preferred delivery address.
+    type: boolean
+  first_name:
+    $ref: 'FirstName.yaml'
+  house_number:
+    $ref: 'HouseNumber.yaml'
+  last_name:
+    $ref: 'LastName.yaml'
+  mobile_phone:
+    $ref: 'MobilePhone.yaml'
+  phone:
+    $ref: 'Phone.yaml'
+  status:
+    description: Whether the delivery address is still used.
+    type: string
+    enum: [active, disabled]
+  title:
+    $ref: 'Title.yaml'
+  zip_code:
+    $ref: 'ZIP.yaml'
