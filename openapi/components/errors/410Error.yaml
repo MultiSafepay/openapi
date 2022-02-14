@@ -1,3 +1,4 @@
+type: object
 properties:
   success:
     description: |
@@ -15,4 +16,3 @@ properties:
     description: Not found. Check you provided the correct customer reference.
     type: string
     example: "Not found"
-type: object

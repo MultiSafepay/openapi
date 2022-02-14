@@ -1,0 +1,14 @@
+type: object
+properties:
+  errors:
+    description: Describes the validation errors.
+    type: object
+  message:
+    description: Validation failure
+    type: string
+    example: "Validation failure"
+  success:
+    description: |
+      `false`
+    type: boolean
+    example: "false"

@@ -1,0 +1,6 @@
+description: The customer's country. Used to apply country-related settings for the customer.
+type: string
+maxLength: 2
+minLength: 2
+format: ISO 3166 country codes
+example: NL

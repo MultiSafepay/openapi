@@ -1,0 +1,5 @@
+description: The customer’s email address.
+type: string
+format: email
+example: user@example.com
+    
