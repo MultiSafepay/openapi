@@ -1,5 +1,5 @@
 get:
-  description: Get information about a payment method.
+  description: List activated payment methods, optionally filtered by query parameters.
   operationId: getPaymentMethod
   parameters:
     - description: The currencies supported by the payment method.
