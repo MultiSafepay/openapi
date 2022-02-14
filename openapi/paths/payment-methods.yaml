@@ -165,6 +165,6 @@ get:
                 type: boolean
             type: object
       description: ''
-  summary: Get payment method
+  summary: List payment methods
   tags:
     - Payments
