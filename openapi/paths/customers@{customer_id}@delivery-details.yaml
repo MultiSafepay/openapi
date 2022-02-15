@@ -45,7 +45,7 @@ post:
     - Customers
 get:
   description: Get a customer's shipping address.
-  operationId: getShippingAddress
+  operationId: getCustomerShippingAddress
   parameters:
     - name: customer_id
       description: The unique identifier for the customer.
@@ -77,6 +77,6 @@ get:
         application/json:
           schema:
             $ref: '../components/errors/403Error.yaml'  
-  summary: Get shipping address
+  summary: Get customer shipping address
   tags:
     - Customers
