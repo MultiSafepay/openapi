@@ -219,7 +219,7 @@ patch:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/ValidationErrorResponse.yaml
+            $ref: ../components/errors/422Error.yaml
       description: Validation errors
   summary: Update affiliated account
   tags:
