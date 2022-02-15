@@ -1,21 +1,21 @@
 get:
-  description: "Get a customer's shipping address using a delivery details ID."
-  operationId: GetAdressDetails
+  description: Get a shipping address using a delivery details ID.
+  operationId: getShippingAddress
   parameters:
-    - description: ''
+    - name: delivery_details_id
+      description: The unique identifier for the shipping address.
       in: path
-      name: delivery_details_id
       required: true
       schema:
         type: string
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           schema:
             properties:
               data:
-                additionalProperties: false
                 properties:
                   address1:
                     maxLength: 64
@@ -80,25 +80,25 @@ get:
                   - zip_code
                 type: object
               success:
+                description: "True"
                 type: boolean
             type: object
-      description: ''
     '404':
+      description: Delivery details not found
       content:
         application/json:
           schema:
             $ref: ../components/schemas/GenericErrorResponse.yaml
-      description: Delivery details not found
-  summary: Get address details
+  summary: Get shipping address
   tags:
     - Customers
 patch:
-  description: "Update a customer's address details using the delivery details ID."
-  operationId: UpdateAddressDetails
+  description: Update a shipping address using the delivery details ID.
+  operationId: updateShippingAddress
   parameters:
-    - description: ''
+    - name: delivery_details_id
+      description: The unique identifier for the shipping address. 
       in: path
-      name: delivery_details_id
       required: true
       schema:
         type: string
@@ -106,7 +106,6 @@ patch:
     content:
       application/json:
         schema:
-          additionalProperties: false
           properties:
             address1:
               maxLength: 64
@@ -166,12 +165,12 @@ patch:
     required: true
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           schema:
             properties:
               data:
-                additionalProperties: false
                 properties:
                   address1:
                     maxLength: 64
@@ -238,13 +237,12 @@ patch:
               success:
                 type: boolean
             type: object
-      description: ''
     '422':
+      description: Validation failure
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/ValidationErrorResponse.yaml
-      description: Validation errors
-  summary: Update address details
+            $ref: ../components/errors/422Error.yaml
+  summary: Update shipping address
   tags:
     - Customers
