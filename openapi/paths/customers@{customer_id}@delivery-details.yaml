@@ -1,6 +1,6 @@
 post:
   description: Add a shipping address to a customer's profile.
-  operationId: addShippingAddress
+  operationId: addCustomerShippingAddress
   parameters:
     - name: customer_id
       description: The unique identifier for the customer.
