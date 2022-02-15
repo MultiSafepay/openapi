@@ -77,7 +77,7 @@ get:
                 type: boolean
                 example: true
     '403':
-      description: Error
+      description: Invalid API key
       content:
         application/json:
           schema:
