@@ -11,8 +11,7 @@ properties:
           example: email
         details:
           description: Specifies the invalid values.
-          example:
-            - user@example.com
+          example: user@example.com
           items:
             type: string
           type: array
