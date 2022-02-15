@@ -6,7 +6,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../components/requestBody/CustomerProfile.yaml'
+          $ref: '../components/requestBody/CreateCustomerProfile.yaml'
     description: ''
     required: true
   responses:
@@ -65,9 +65,7 @@ get:
             type: object
             properties:
               data:
-                items:
-                  $ref: '../components/schemas/CustomerProfile.yaml'
-                type: array
+                $ref: '../components/schemas/CustomerProfile.yaml'
               page:
                 description: The number of pages returned.
                 type: object

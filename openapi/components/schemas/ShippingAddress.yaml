@@ -1,3 +1,5 @@
+description: The customer's shipping address.
+type: object
 properties:
   address1:
     $ref: 'Address1.yaml'

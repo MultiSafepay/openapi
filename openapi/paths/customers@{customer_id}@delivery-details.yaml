@@ -1,6 +1,6 @@
 post:
-  description: Add a customer's shipping address to their profile.
-  operationId: addCustomerAddress
+  description: Add a shipping address to a customer's profile.
+  operationId: addShippingAddress
   parameters:
     - name: customer_id
       description: The unique identifier for the customer.
@@ -12,7 +12,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../components/requestBody/CustomerShippingAddress.yaml'
+          $ref: '../components/requestBody/AddShippingAddress.yaml'
     description: ''
     required: true
   responses:
@@ -24,9 +24,7 @@ post:
             type: object
             properties:
               data:
-                description: The address details added to the customer's profile.
-                type: object
-                $ref: '../components/schemas/CustomerShippingAddress.yaml'
+                $ref: '../components/schemas/ShippingAddress.yaml'
               success:
                 description: "True"
                 type: boolean
@@ -36,12 +34,18 @@ post:
         application/json:
           schema:
             $ref: ../components/errors/422Error.yaml
-  summary: Add customer address
+    '403':
+      description: Invalid API key
+      content:
+        application/json:
+          schema:
+            $ref: '../components/errors/403Error.yaml'
+  summary: Add shipping address
   tags:
     - Customers
 get:
   description: Get a customer's shipping address.
-  operationId: getCustomerAddress
+  operationId: getShippingAddress
   parameters:
     - name: customer_id
       description: The unique identifier for the customer.
@@ -51,80 +55,28 @@ get:
         type: string
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           schema:
+            type: object
             properties:
               data:
-                items:
-                  properties:
-                    address1:
-                      maxLength: 64
-                      type: string
-                    address2:
-                      maxLength: 64
-                      type: string
-                    address3:
-                      maxLength: 64
-                      type: string
-                    city:
-                      maxLength: 50
-                      type: string
-                    company_name:
-                      maxLength: 50
-                      type: string
-                    company_registration_number:
-                      maxLength: 25
-                      type: string
-                    country:
-                      format: country-alpha2
-                      type: string
-                    email:
-                      format: email
-                      type: string
-                    favorite:
-                      type: boolean
-                    first_name:
-                      maxLength: 25
-                      type: string
-                    house_number:
-                      maxLength: 10
-                      type: string
-                    last_name:
-                      maxLength: 25
-                      type: string
-                    mobile_phone:
-                      maxLength: 25
-                      type: string
-                    phone:
-                      maxLength: 25
-                      type: string
-                    status:
-                      enum:
-                        - active
-                        - disabled
-                      type: string
-                    title:
-                      maxLength: 15
-                      type: string
-                    zip_code:
-                      maxLength: 10
-                      type: string
-                  required:
-                    - address1
-                    - city
-                    - country
-                    - first_name
-                    - house_number
-                    - last_name
-                    - status
-                    - zip_code
-                  type: object
-                type: array
+                $ref: '../components/schemas/ShippingAddress.yaml'
               success:
                 type: boolean
-            type: object
-      description: ''
-  summary: Get customer address
+    '422':
+      description: Validation failure
+      content:
+        application/json:
+          schema:
+            $ref: '../components/errors/422Error.yaml'
+    '403':
+      description: Invalid API key
+      content:
+        application/json:
+          schema:
+            $ref: '../components/errors/403Error.yaml'  
+  summary: Get shipping address
   tags:
     - Customers
