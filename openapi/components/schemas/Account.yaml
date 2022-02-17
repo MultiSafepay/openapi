@@ -1,66 +1,66 @@
 type: object
 properties:
   address1:
-    description: The first line of the affiliate's address. 
+    description: The first line of the account holder's address. 
     type: string
     maxLength: 64
     example: "Jodenbreestraat 4"
   address2:
-    description: The second line of the affiliate's address. 
+    description: The second line of the account holder's address. 
     type: string
     maxLength: 64
   address3:
-    description: The third line of the affiliate's address. 
+    description: The third line of the account holder's address. 
     type: string
     maxLength: 64
   apartment:
-    description: The apartment number of the affiliate's address. 
+    description: The apartment number of the account holder's address. 
     type: string
     maxLength: 9
     example: "2"
   city:
-    description: The city of the affiliate's address. 
+    description: The city of the account holder's address. 
     type: string
     maxLength: 50
     example: "Amsterdam"
   coc_number:
-    description: The affiliate's chamber of commerce number. 
+    description: The company's chamber of commerce number. 
     type: string
     maxLength: 50
     example: "12345678"
   company_name:
-    description: The affiliate's company name. 
+    description: The account holder's company name. 
     type: string
     maxLength: 200
     example: "My company name"
   country:
-    description: The country of the affiliate's address.
+    description: The country of the account holder's address.
     type: string
     format: country-alpha2
     example: "NL"
   email:
-    description: The affiliate's company email address.
+    description: The company email address.
     type: string
     format: email
     maxLength: 100
     example: "merchant@example.com"
   fax:
-    description: The affiliate's company fax number.
+    description: The company fax number.
     type: string
     maxLength: 15
     example: 
   phone:
-    description: The affiliate's company phone number.
+    description: The company phone number.
     type: string
     maxLength: 15
     example: "+3120123456"
   vat_number:
-    description: The affiliate's company VAT number.
+    description: The company VAT number.
     type: string
     maxLength: 50
     example: "NL123456789B01"
   zipcode:
-    description: The ZIP code of the affiliate's address. 
+    description: The ZIP code of the account holder's address. 
     type: string
     maxLength: 30
     example: "1011 NK"
