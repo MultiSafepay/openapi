@@ -1,52 +1,66 @@
+type: object
 properties:
   address1:
-    example: Jodenbreestraat 4
-    maxLength: 64
+    description: The first line of the account holder's address. 
     type: string
+    maxLength: 64
+    example: "Jodenbreestraat 4"
   address2:
-    maxLength: 64
+    description: The second line of the account holder's address. 
     type: string
+    maxLength: 64
   address3:
+    description: The third line of the account holder's address. 
+    type: string
     maxLength: 64
-    type: string
   apartment:
-    example: '2'
+    description: The apartment number of the account holder's address. 
+    type: string
     maxLength: 9
-    type: string
+    example: "2"
   city:
-    example: Amsterdam
-    maxLength: 50
+    description: The city of the account holder's address. 
     type: string
+    maxLength: 50
+    example: "Amsterdam"
   coc_number:
+    description: The company's chamber of commerce number. 
+    type: string
     maxLength: 50
-    type: string
+    example: "12345678"
   company_name:
+    description: The account holder's company name. 
+    type: string
     maxLength: 200
-    type: string
+    example: "My company name"
   country:
-    example: NL
-    format: country-alpha2
+    description: The country of the account holder's address.
     type: string
+    format: country-alpha2
+    example: "NL"
   email:
-    example: merchant@example.com
+    description: The company email address.
+    type: string
     format: email
     maxLength: 100
-    type: string
+    example: "merchant@example.com"
   fax:
-    maxLength: 15
+    description: The company fax number.
     type: string
+    maxLength: 15
+    example: 
   phone:
+    description: The company phone number.
+    type: string
     maxLength: 15
-    type: string
+    example: "+3120123456"
   vat_number:
+    description: The company VAT number.
+    type: string
     maxLength: 50
-    type: string
+    example: "NL123456789B01"
   zipcode:
-    example: 1011 NK
-    maxLength: 30
+    description: The ZIP code of the account holder's address. 
     type: string
-required:
-  - company_name
-  - email
-  - country
-type: object
+    maxLength: 30
+    example: "1011 NK"
