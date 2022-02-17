@@ -25,9 +25,9 @@ properties:
     example: "Amsterdam"
   coc_number:
     description: The affiliate's chamber of commerce number. 
-     type: string
-     maxLength: 50
-     example: "12345678"
+    type: string
+    maxLength: 50
+    example: "12345678"
   company_name:
     description: The affiliate's company name. 
     type: string
