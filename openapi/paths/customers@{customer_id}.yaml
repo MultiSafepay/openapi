@@ -49,7 +49,7 @@ patch:
     content:
       application/json:
         schema:
-          $ref: '../components/requestBody/CustomerProfile.yaml'
+          $ref: '../components/requestBody/CreateCustomerProfile.yaml'
     description: ''
     required: true
   responses:
