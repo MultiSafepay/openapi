@@ -21,9 +21,6 @@ properties:
     format: email
     maxLength: 100
     type: string
-  fax:
-    maxLength: 15
-    type: string
   job_title:
     maxLength: 100
     type: string

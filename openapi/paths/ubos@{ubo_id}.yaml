@@ -38,9 +38,6 @@ get:
                     format: email
                     maxLength: 100
                     type: string
-                  fax:
-                    maxLength: 15
-                    type: string
                   job_title:
                     maxLength: 100
                     type: string
@@ -134,9 +131,6 @@ patch:
               format: email
               maxLength: 100
               type: string
-            fax:
-              maxLength: 15
-              type: string
             job_title:
               maxLength: 100
               type: string
@@ -202,9 +196,6 @@ patch:
                   email:
                     format: email
                     maxLength: 100
-                    type: string
-                  fax:
-                    maxLength: 15
                     type: string
                   job_title:
                     maxLength: 100
