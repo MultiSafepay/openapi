@@ -64,7 +64,10 @@ post:
                       $ref: '../components/schemas/Account.yaml'
                     currencies:
                       description: The currencies supported in the account.
-                      type: string
+                      type: array
+                      items:
+                        type: string
+                        format: ISO 4217
                       example: EUR
                     user:
                       description: The affiliate's user information for their MultiSafepay account. 
