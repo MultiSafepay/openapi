@@ -1,0 +1,2 @@
+description: The minimum transaction amount (in EUR cents) for the website.
+type: integer

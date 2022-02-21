@@ -3,24 +3,17 @@ properties:
     maxLength: 120
     type: string
   notification_url:
-    format: url
-    maxLength: 150
-    type: string
+    $ref: 'Webhook.yaml'
   price_from:
-    type: integer
+    $ref: 'PriceFrom.yaml'
   price_till:
-    type: integer
+    $ref: 'PriceTill.yaml'
   support_email:
-    format: email
-    maxLength: 100
-    type: string
+    $ref: 'SupportEmail.yaml'
   support_phone:
-    maxLength: 100
-    type: string
+    $ref: 'SupportPhone.yaml'
   url:
-    format: url
-    maxLength: 150
-    type: string
+    $ref: 'URL.yaml'
 required:
   - name
   - url
