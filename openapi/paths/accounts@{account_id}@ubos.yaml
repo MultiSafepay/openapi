@@ -1,10 +1,10 @@
 post:
-  description: "Add an ultimate beneficiary owner (UBO) profile to a merchant account."
-  operationId: 'Partner::CreateAccountUbo'
+  description: Add an ultimate beneficiary owner (UBO) profile to an affiliated account.
+  operationId: Partner::CreateAccountUbo
   parameters:
-    - description: ''
+    - name: account_id
+      description: The unique identifier for the account.
       in: path
-      name: account_id
       required: true
       schema:
         type: string
@@ -12,255 +12,64 @@ post:
     content:
       application/json:
         schema:
-          properties:
-            address:
-              maxLength: 100
-              type: string
-            address_apartment:
-              maxLength: 15
-              type: string
-            birthday:
-              format: yyyy-mm-dd
-              type: string
-            city:
-              maxLength: 100
-              type: string
-            country:
-              format: country-alpha2
-              type: string
-            country_of_birth:
-              format: country-alpha2
-              type: string
-            email:
-              format: email
-              maxLength: 100
-              type: string
-            job_title:
-              maxLength: 100
-              type: string
-            mobile_phone:
-              maxLength: 25
-              type: string
-            name:
-              maxLength: 200
-              type: string
-            office_phone:
-              maxLength: 25
-              type: string
-            percentage:
-              type: integer
-            state:
-              maxLength: 100
-              type: string
-            title:
-              enum:
-                - mr
-                - mrs
-              type: string
-            type:
-              enum:
-                - control_rights
-                - other
-                - shareholder
-                - voting_rights
-              type: string
-            zipcode:
-              maxLength: 20
-              type: string
-          required:
-            - type
-            - percentage
-            - title
-            - name
-            - birthday
-            - country_of_birth
-            - job_title
-            - email
-            - country
-          type: object
+          $ref: '../components/requestBody/AddUbo.yaml'
     description: ''
     required: true
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           schema:
-            properties:
-              data:
-                properties:
-                  address:
-                    maxLength: 100
-                    type: string
-                  address_apartment:
-                    maxLength: 15
-                    type: string
-                  birthday:
-                    format: yyyy-mm-dd
-                    type: string
-                  city:
-                    maxLength: 100
-                    type: string
-                  country:
-                    format: country-alpha2
-                    type: string
-                  country_of_birth:
-                    format: country-alpha2
-                    type: string
-                  email:
-                    format: email
-                    maxLength: 100
-                    type: string
-                  job_title:
-                    maxLength: 100
-                    type: string
-                  mobile_phone:
-                    maxLength: 25
-                    type: string
-                  name:
-                    maxLength: 200
-                    type: string
-                  office_phone:
-                    maxLength: 25
-                    type: string
-                  percentage:
-                    type: integer
-                  state:
-                    maxLength: 100
-                    type: string
-                  title:
-                    enum:
-                      - mr
-                      - mrs
-                    type: string
-                  type:
-                    enum:
-                      - control_rights
-                      - other
-                      - shareholder
-                      - voting_rights
-                    type: string
-                  zipcode:
-                    maxLength: 20
-                    type: string
-                required:
-                  - type
-                  - percentage
-                  - title
-                  - name
-                  - birthday
-                  - country_of_birth
-                  - job_title
-                  - email
-                  - country
-                type: object
-              success:
-                type: boolean
             type: object
-      description: ''
+            properties:
+              success:
+                $ref: '../components/schemas/Success.yaml'
+              data:
+                $ref: '../components/schemas/Ubo.yaml'
     '404':
+      description: Account not found
       content:
         application/json:
           schema:
             $ref: ../components/schemas/GenericErrorResponse.yaml
-      description: Account not found
     '422':
+      description: Validation errors
       content:
         application/json:
           schema:
             $ref: ../components/errors/422Error.yaml
-      description: Validation errors
   summary: Add UBO
   tags:
     - Onboard affiliates
 get:
-  description: 'List all of the ultimate beneficiary owners (UBOs) for a merchant account.'
-  operationId: 'Partner::ListAccountUbos'
+  description: List all of the ultimate beneficiary owners (UBOs) for an affiliated account.
+  operationId: Partner::ListAccountUbos
   parameters:
-    - description: ''
+    - name: account_id
+      description: The unique identifier of the account.
       in: path
-      name: account_id
       required: true
       schema:
         type: string
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           schema:
-            properties:
-              data:
-                items:
-                  properties:
-                    address:
-                      maxLength: 100
-                      type: string
-                    address_apartment:
-                      maxLength: 15
-                      type: string
-                    birthday:
-                      format: yyyy-mm-dd
-                      type: string
-                    city:
-                      maxLength: 100
-                      type: string
-                    country:
-                      format: country-alpha2
-                      type: string
-                    country_of_birth:
-                      format: country-alpha2
-                      type: string
-                    email:
-                      format: email
-                      maxLength: 100
-                      type: string
-                    job_title:
-                      maxLength: 100
-                      type: string
-                    mobile_phone:
-                      maxLength: 25
-                      type: string
-                    name:
-                      maxLength: 200
-                      type: string
-                    office_phone:
-                      maxLength: 25
-                      type: string
-                    percentage:
-                      type: integer
-                    state:
-                      maxLength: 100
-                      type: string
-                    title:
-                      enum:
-                        - mr
-                        - mrs
-                      type: string
-                    type:
-                      enum:
-                        - control_rights
-                        - other
-                        - shareholder
-                        - voting_rights
-                      type: string
-                    zipcode:
-                      maxLength: 20
-                      type: string
-                  required:
-                    - type
-                    - percentage
-                    - title
-                    - name
-                    - birthday
-                    - country_of_birth
-                    - job_title
-                    - email
-                    - country
-                  type: object
-                type: array
-              success:
-                type: boolean
             type: object
-      description: ''
+            properties:
+              success:
+                $ref: '../components/schemas/Success.yaml'
+              data:
+                $ref: '../components/schemas/Ubo.yaml'
+    '422':
+      description: Validation errors
+      content:
+        application/json:
+          schema:
+            $ref: ../components/errors/422Error.yaml
   summary: List UBOs
   tags:
     - Onboard affiliates
