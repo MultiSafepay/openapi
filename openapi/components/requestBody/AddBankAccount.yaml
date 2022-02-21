@@ -15,3 +15,7 @@ properties:
     type: string
     format: iban
     example: NL02ABNA0123456789
+required:
+  - currency
+  - holder_name
+  - iban
