@@ -738,12 +738,15 @@ properties:
       custom_1:
         description: Information about the order. 
         type: string
+        maxLength: 500
       custom_2:
         description: Information about the order.
         type: string
+        maxLength: 500
       custom_3:
         description: Information about the order.
         type: string
+        maxLength: 500
   days_active:
     description: |
       For `redirect` and `paymentlink` orders, sets the number of days the link to the MultiSafepay payment page is valid.
