@@ -1,45 +1,31 @@
 get:
   description: Get information about a bank account.
-  operationId: GetBankAccount
+  operationId: getBankAccount
   parameters:
-    - description: ''
+    - name: bankaccount_id
+      description: The unique identifier of the bank account.
       in: path
-      name: bankaccount_id
       required: true
       schema:
         type: string
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           schema:
-            properties:
-              data:
-                properties:
-                  currency:
-                    maxLength: 3
-                    type: string
-                  holder_name:
-                    maxLength: 40
-                    type: string
-                  iban:
-                    format: iban
-                    type: string
-                required:
-                  - holder_name
-                  - iban
-                  - currency
-                type: object
-              success:
-                type: boolean
             type: object
-      description: ''
+            properties:
+              success:
+                $ref: '../components/schemas/Success.yaml'
+              data:
+                $ref: '../components/schemas/BankAccount.yaml'
     '404':
+      description: Bank account not found
       content:
         application/json:
           schema:
             $ref: ../components/schemas/GenericErrorResponse.yaml
-      description: Bank account not found
   summary: Get bank account
   tags:
     - Onboard affiliates
