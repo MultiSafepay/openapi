@@ -1,170 +1,43 @@
 get:
   description: List activated payment methods, optionally filtered by query parameters.
-  operationId: getPaymentMethod
+  operationId: listPaymentMethods
   parameters:
-    - description: The currencies supported by the payment method.
+    - name: currency
+      description: The currencies supported by the payment method.
       in: query
-      name: currency
       required: false
       schema:
         type: string
-    - description: The maximum and minimum amount allowed for the payment method.
+    - name: amount
+      description: The maximum and minimum amount allowed for the payment method.
       in: query
-      name: amount
       required: false
       schema:
         type: string
-    - description: The countries supported by the payment method. 
+    - name: country
+      description: The countries supported by the payment method. 
       in: query
-      name: country
       required: false
       schema:
         type: string
-    - description: The locales supported by the payment method. 
+    - name: locale
+      description: The locales supported by the payment method. 
       in: query
-      name: locale
       required: false
       schema:
         type: string
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           schema:
-            properties:
-              data:
-                items:
-                  properties:
-                    allowed_amount:
-                      description: The minimum and maximum amounts allowed for the payment method.
-                      properties:
-                        max:
-                          description: The maximum amount (in EUR cents) allowed for the payment method.
-                          type: integer
-                          example: 1000000
-                        min:
-                          description: The minimum amount (in EUR cents) allowed for the payment method.
-                          type: integer
-                          example: 0
-                      type: object
-                    allowed_apps:
-                      description: Apps supported by the payment method.
-                      type: array
-                      example:
-                        - APIFCO
-                      items:
-                        type: string
-                    allowed_currencies:
-                      description: The currencies supported by the payment method.
-                      example:
-                        - EUR
-                        - USD
-                        - GBP
-                      items:
-                        type: string
-                      type: array
-                    brands:
-                      description: Information about any co-branded versions of the payment method.
-                      items:
-                        properties:
-                          icon_urls:
-                            description: URLs to different versions of the co-branded payment method logo.
-                            properties:
-                              large:
-                                description: URL to a large-sized version of the co-branded payment method logo.
-                                type: string
-                                example: >-
-                                  https://media.multisafepay.com/img/methods/3x/postepay.png
-                              medium:
-                                description: URL to a medium-sized version of the co-branded payment method logo.
-                                type: string
-                                example: >-
-                                  https://media.multisafepay.com/img/methods/2x/postepay.png
-                              vector:
-                                description: URL to a vector version of the co-branded payment method logo.
-                                type: string
-                                example: >-
-                                  https://media.multisafepay.com/img/methods/svg/postepay.svg
-                            type: object
-                          id:
-                            description: The unique identifier for the co-branded payment method.
-                            type: string
-                            example: POSTEPAY
-                          name:
-                            description: The name of the co-branded payment method.
-                            type: string
-                            example: PostePay
-                        type: object
-                      type: array
-                    checkout_data_required:
-                      description: Whether checkout information is required for payments.
-                      type: boolean
-                      example: false
-                    component_available:
-                      description: Whether the payment method supports [Payment Components](https://docs.multisafepay.com/payment-components/).
-                      type: boolean
-                      example: true
-                    country_preferred:
-                      description: The merchant's preferred country for using this payment method. 
-                      example:
-                        - NL
-                      items:
-                        type: string
-                      type: array
-                    direct_available:
-                      description: |
-                        Whether the payment method supports `type`: `direct` orders.
-                      type: boolean
-                    direct_preferred:
-                      description: |
-                        Whether the merchant prefers `type`:`direct` orders for this payment method.
-                      type: boolean
-                    extras:
-                      description: Additional information about issuers for the payment method.
-                      type: object
-                      example:
-                        issuers:
-                          - bic: ABNANL2A
-                            code: '0031'
-                            name: ABN Amro Bank
-                    icon_urls:
-                      description: URLs to versions of the payment method logo.
-                      properties:
-                        large:
-                          description: URL to a large-sized version of the payment method logo.
-                          type: string
-                          example: >-
-                            https://media.multisafepay.com/img/methods/3x/visa.png
-                        medium:
-                          description: URL to a medium-sized version of the payment method logo.
-                          type: string
-                          example: >-
-                            https://media.multisafepay.com/img/methods/2x/visa.png
-                        vector:
-                          description: URL to a vector version of the payment method logo.
-                          type: string
-                          example: >-
-                            https://media.multisafepay.com/img/methods/svg/visa.svg
-                      type: object
-                    id:
-                      description: The identifier of the payment method.
-                      type: string
-                      example: VISA
-                    name:
-                      description: The name of the payment method.
-                      type: string
-                      example: Visa
-                    required_fields:
-                      example: []
-                      items:
-                        type: string
-                      type: array
-                  type: object
-                type: array
-              success:
-                type: boolean
             type: object
-      description: ''
+            properties:
+              success:
+                $ref: '../components/schemas/Success.yaml'
+              data:
+                $ref: '../components/schemas/PaymentMethod.yaml'
   summary: List payment methods
   tags:
     - Payments
