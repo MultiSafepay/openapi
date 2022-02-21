@@ -36,7 +36,7 @@ post:
                         payment_link: 
                           description: The payment link URL.
                           type: string
-                          example: https://testpayv2.multisafepay.com/connect/82puRMNONU53a3i3nRv5CQnUNRTYThaBGct/?lang=nl_NL
+                          example: https://testpayv2.multisafepay.com/connect/123456789/?lang=nl_NL
     '404':
       description: Bank account not found
       content:
