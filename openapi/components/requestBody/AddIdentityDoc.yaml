@@ -20,3 +20,8 @@ properties:
     type: string
     enum: [application/pdf, image/jpeg, image/png]
     example: application/pdf
+required:
+  - filename
+  - mime_type
+  - encoded_content
+  - document_type
