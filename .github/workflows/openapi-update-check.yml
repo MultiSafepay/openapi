@@ -20,4 +20,5 @@ jobs:
         mode: addition
         tolerance: same
         output: out.txt
-    - run: cat out.txt
+    - name: Share output
+      run: cat out.txt
