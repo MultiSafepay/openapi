@@ -59,6 +59,7 @@ patch:
                 $ref: '../components/schemas/Account.yaml'
               success:
                 description: "True"
+                example: true
                 type: boolean
     '404':
       description: Account not found
