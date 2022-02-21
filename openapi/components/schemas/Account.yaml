@@ -1,3 +1,4 @@
+description: Information about the account.
 type: object
 properties:
   address1:
