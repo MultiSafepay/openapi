@@ -9,14 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Download latest API spec
-      run: curl https://api.multisafepay.com/v1/json/openapi.json -o downloaded-openapi.json
+      run: curl https://api.multisafepay.com/v1/json/openapi.json -o /github/workspace/downloaded-openapi.json
     - name: Check out main branch
       uses: actions/checkout@v2
     - name: Compare API specs
       uses: LouisBrunner/diff-action@v0.1.0
       with:
         old: openapi.json
-        new: downloaded-openapi.json
+        new: /github/workspace/downloaded-openapi.json
         mode: addition
         tolerance: same
         output: out.txt
