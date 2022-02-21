@@ -1,7 +1,7 @@
 type: object
 properties:
   amount:
-    description: The amount to charge the affiliate.
+    description: The amount (in the currency's smallest unit e.g. eurocents) to charge the affiliate.
     type: integer
     minimum: 0
     example: 1000
