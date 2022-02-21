@@ -34,6 +34,6 @@ post:
         application/json:
           schema:
             $ref: ../components/errors/422Error.yaml
-  summary: Charge affiliated account
+  summary: Charge affiliate
   tags:
     - Manage affiliates
