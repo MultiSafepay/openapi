@@ -86,7 +86,6 @@ post:
                           description: The affiliate's password.
                           type: string
                           example: Mypassword123
-                        - email
                         - name
                         - password
     '422':
