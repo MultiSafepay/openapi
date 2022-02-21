@@ -1,10 +1,10 @@
 post:
   description: Upload a bank statement for a bank account.
-  operationId: AddBankStatement
+  operationId: addBankStatement
   parameters:
-    - description: ''
+    - name: bankaccount_id
+      description: The unique identifier of the bank account.
       in: path
-      name: bankaccount_id
       required: true
       schema:
         type: string
@@ -12,69 +12,33 @@ post:
     content:
       application/json:
         schema:
-          properties:
-            encoded_content:
-              format: base64-encoded-content
-              type: string
-            filename:
-              example: bank-statement.pdf
-              maxLength: 250
-              type: string
-            mime_type:
-              enum:
-                - application/pdf
-                - image/jpeg
-                - image/png
-              type: string
-          required:
-            - filename
-            - mime_type
-            - encoded_content
-          type: object
+          $ref: '../components/requestBody/AddBankStatement.yaml'
     description: ''
     required: true
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           schema:
-            properties:
-              data:
-                properties:
-                  encoded_content:
-                    format: base64-encoded-content
-                    type: string
-                  filename:
-                    example: bank-statement.pdf
-                    maxLength: 250
-                    type: string
-                  mime_type:
-                    enum:
-                      - application/pdf
-                      - image/jpeg
-                      - image/png
-                    type: string
-                required:
-                  - filename
-                  - mime_type
-                  - encoded_content
-                type: object
-              success:
-                type: boolean
             type: object
-      description: ''
+            properties:
+              success:
+                $ref: '../components/schemas/Success.yaml'
+              data:
+                $ref: '../components/schemas/BankStatement.yaml'
     '404':
+      description: Bank account not found
       content:
         application/json:
           schema:
             $ref: ../components/schemas/GenericErrorResponse.yaml
-      description: Bank account not found
     '422':
+      description: Validation errors
       content:
         application/json:
           schema:
             $ref: ../components/errors/422Error.yaml
-      description: Validation errors
   summary: Add bank statement
   tags:
     - Onboard affiliates
@@ -82,50 +46,30 @@ get:
   description: List all bank statements for a bank account.
   operationId: ListBankStatements
   parameters:
-    - description: ''
+    - name: bankaccount_id
+      description: The unique identifier of the bank account.
       in: path
-      name: bankaccount_id
       required: true
       schema:
         type: string
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           schema:
-            properties:
-              data:
-                items:
-                  properties:
-                    encoded_content:
-                      format: base64-encoded-content
-                      type: string
-                    filename:
-                      example: bank-statement.pdf
-                      maxLength: 250
-                      type: string
-                    mime_type:
-                      enum:
-                        - application/pdf
-                        - image/jpeg
-                        - image/png
-                      type: string
-                  required:
-                    - filename
-                    - mime_type
-                    - encoded_content
-                  type: object
-                type: array
-              success:
-                type: boolean
             type: object
-      description: ''
+            properties:
+              success:
+                $ref: '../components/schemas/Success.yaml'
+              data:
+                $ref: '../components/schemas/BankStatement.yaml'
     '404':
+      description: Bank account not found
       content:
         application/json:
           schema:
             $ref: ../components/schemas/GenericErrorResponse.yaml
-      description: Bank account not found
   summary: List bank statements
   tags:
     - Onboard affiliates
