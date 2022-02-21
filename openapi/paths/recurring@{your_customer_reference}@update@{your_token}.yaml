@@ -1,18 +1,16 @@
 patch:
-  description: |
-    Update the credit card expiry date for a token when it expires.
-
-  operationId: UpdateCardExpiryDate
+  description: Update the card expiry date in a customer's token.
+  operationId: updateCardExpiryDate
   parameters:
     - name: your_customer_reference
+      description: The customer reference.
       in: path
-      description: 'The customer reference.'
       required: true
       schema:
         type: string
     - name: your_token
+      description: The unique token linked to the customer reference.
       in: path
-      description: 'The unique token linked to the customer reference.'
       required: true
       schema:
         type: string
@@ -35,6 +33,7 @@ patch:
     required: true
   responses:
     '200':
+      description: Token updated successfully
       content:
         application/json:
           schema:
@@ -43,20 +42,34 @@ patch:
                 type: boolean
                 example: true
               data:
-                description: ''
+                description: Information about the update.
                 properties:
                   updated:
+                    description: Whether the card expiry date was successfully updated.
                     type: boolean
                     example: true
-                    description: 'Whether the card expiry date was successfully updated.'
             type: object
-      description: ''
-    '404':
+    '410':
+      description: Token update failed
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/GenericErrorResponse.yaml
-      description: Error 
+            properties:
+              success:
+                type: boolean
+                example: false
+              data:
+                description: Empty
+                type: object
+                example: []
+              error_code:
+                description: 1000
+                type: integer
+                example: 1000
+              error_info:
+                description: Token not updated.
+                type: string
+                example: "Token not updated" 
   summary: Update card expiry date
   tags:
     - Tokens

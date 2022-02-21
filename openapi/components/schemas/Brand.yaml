@@ -1,0 +1,4 @@
+description: The merchant brand associated with this profile.
+maxLength: 10
+type: string
+example: "my-brand-1"

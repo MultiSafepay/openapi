@@ -1,4 +1,4 @@
-type: string
-enum: ["initialized", "uncleared", "completed", "declined", "cancelled", "void", "expired"]
 description: |
   The [transaction status](https://docs.multisafepay.com/payments/multisafepay-statuses/).
+type: string
+enum: ["cancelled", "completed", "declined", "expired", "initialized", "uncleared", "void"]

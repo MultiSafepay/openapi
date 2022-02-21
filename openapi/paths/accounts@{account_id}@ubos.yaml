@@ -35,9 +35,6 @@ post:
               format: email
               maxLength: 100
               type: string
-            fax:
-              maxLength: 15
-              type: string
             job_title:
               maxLength: 100
               type: string
@@ -113,9 +110,6 @@ post:
                     format: email
                     maxLength: 100
                     type: string
-                  fax:
-                    maxLength: 15
-                    type: string
                   job_title:
                     maxLength: 100
                     type: string
@@ -173,7 +167,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/ValidationErrorResponse.yaml
+            $ref: ../components/errors/422Error.yaml
       description: Validation errors
   summary: Add UBO
   tags:
@@ -218,9 +212,6 @@ get:
                     email:
                       format: email
                       maxLength: 100
-                      type: string
-                    fax:
-                      maxLength: 15
                       type: string
                     job_title:
                       maxLength: 100

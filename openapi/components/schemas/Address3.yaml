@@ -1,0 +1,4 @@
+description: The third line of the customer's address.
+type: string
+maxLength: 64
+example: ""
