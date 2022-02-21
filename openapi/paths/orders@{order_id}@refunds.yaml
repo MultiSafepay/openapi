@@ -42,7 +42,7 @@ post:
           schema:
             properties:
               success:
-                type: boolean
+                $ref: '../components/schemas/Success.yaml'
               data: 
                 type: object
                 properties:

@@ -20,7 +20,7 @@ get:
           schema:
             properties:
               success:
-                type: boolean
+                $ref: '../components/schemas/Success.yaml'
               data: 
                 type: object
                 description: The structure of the response may differ depending on the order type and payment method.
@@ -127,9 +127,7 @@ patch:
           schema:
             properties:
               success:
-                description: |
-                  `true`
-                type: boolean
+                $ref: '../components/schemas/Success.yaml'
               data: 
                 description: No data returned.
                 type: string                

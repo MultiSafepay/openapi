@@ -14,6 +14,8 @@ get:
         application/json:
           schema:
             properties:
+              success:
+                $ref: '../components/schemas/Success.yaml'
               data:
                 properties:
                   currency:
@@ -30,8 +32,6 @@ get:
                   - iban
                   - currency
                 type: object
-              success:
-                type: boolean
             type: object
       description: ''
     '404':

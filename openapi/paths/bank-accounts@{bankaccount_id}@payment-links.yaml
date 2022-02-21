@@ -16,12 +16,12 @@ post:
         application/json:
           schema:
             properties:
+              success:
+                $ref: '../components/schemas/Success.yaml'
               data:
                 paymentlink:
                   bankaccount_id: string
                   payment_link: string
-              success:
-                type: boolean
             type: object
       description: ''
     '404':

@@ -128,7 +128,7 @@ post:
           schema:
             properties:
               success:
-                type: boolean
+                $ref: '../components/schemas/Success.yaml'
             type: object
       description: ''
     '422':

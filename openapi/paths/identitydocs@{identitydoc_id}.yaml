@@ -16,6 +16,8 @@ get:
         application/json:
           schema:
             properties:
+              success:
+                $ref: '../components/schemas/Success.yaml'
               data:
                 properties:
                   document_type:
@@ -43,8 +45,6 @@ get:
                   - encoded_content
                   - document_type
                 type: object
-              success:
-                type: boolean
             type: object
       description: ''
     '404':

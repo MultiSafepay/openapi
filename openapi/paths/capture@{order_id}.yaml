@@ -41,7 +41,7 @@ patch:
           schema:
             properties:
               success:
-                type: boolean
+                $ref: '../components/schemas/Success.yaml'
               data: 
                 description: Empty.
                 type: object

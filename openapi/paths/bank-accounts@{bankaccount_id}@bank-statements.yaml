@@ -39,6 +39,8 @@ post:
         application/json:
           schema:
             properties:
+              success:
+                $ref: '../components/schemas/Success.yaml'
               data:
                 properties:
                   encoded_content:
@@ -59,8 +61,6 @@ post:
                   - mime_type
                   - encoded_content
                 type: object
-              success:
-                type: boolean
             type: object
       description: ''
     '404':
@@ -94,6 +94,8 @@ get:
         application/json:
           schema:
             properties:
+              success:
+                $ref: '../components/schemas/Success.yaml'
               data:
                 items:
                   properties:
@@ -116,8 +118,6 @@ get:
                     - encoded_content
                   type: object
                 type: array
-              success:
-                type: boolean
             type: object
       description: ''
     '404':
