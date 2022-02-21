@@ -23,7 +23,7 @@ properties:
     minLength: 2
     example: Monthly commission
   order_id:
-    description: The unique identifier for the charge order.
+    description: The unique client-defined identifier for the charge order.
     type: string
     maxLength: 128
     example: charge-0001
