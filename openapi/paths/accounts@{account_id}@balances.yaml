@@ -1,71 +1,96 @@
 get:
-  description: 'List the balances of affiliated accounts.'
-  operationId: 'Partner::ListAccountBalances'
+  description: List the balances of affiliated accounts.
+  operationId: listAccountBalances
   parameters:
-    - description: ''
+    - name: account_id
+      description: The unique identifier of the account.
       in: path
-      name: account_id
       required: true
       schema:
         type: string
-    - description: Return results starting from offset position
+    - name: offset
+      description: Return results starting from the offset position.
       in: query
-      name: offset
       required: false
       schema:
-        description: Return results starting from offset position
-        example: 5
-        minimum: 0
+        description: Return results starting from the offset position
         type: integer
-    - description: Limit number of returned results
+        minimum: 0
+        example: 5
+    - name: limit
+      description: Limit the number of results returned.
       in: query
-      name: limit
       required: false
       schema:
-        description: Limit number of returned results
-        example: 5
+        description: Limit the number of results returned.
+        type: integer
         maximum: 1000
         minimum: 1
-        type: integer
+        example: 5
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           schema:
+            type: object
             properties:
               data:
+                description: The account balance information.
+                type: array
                 items:
+                  type: object
                   properties:
                     account_id:
+                      description: The unique identifier of the account.
                       type: integer
+                      example: 12345678
                     amount_available:
+                      description: The amount of funds available in the account's MultiSafepay balance.
                       type: integer
+                      example: 500000
                     amount_reserved:
+                      description: The amount the MultiSafepay balance is not allowed to go below.
                       type: integer
+                      example: 1000
                     currency:
-                      example: EUR
+                      description: The currency of the account's MultiSafepay balance.
+                      type: string
                       maxLength: 3
                       minLength: 3
-                      type: string
+                      example: EUR
                     id:
-                      example: Jodenbreestraat 4
+                      description: The identifier of the MultiSafepay balance.
+                      type: string
                       maxLength: 64
-                      type: string
+                      example: AB12345678
                     modified:
-                      format: date
+                      description: The timestamp for when the balance was last modified.
                       type: string
-                  type: object
-                type: array
+                      format: date
               page:
-                additionalProperties: false
+                description: The pages of results.
+                type: object
                 properties:
                   total:
+                    description: The total number of pages of results. 
                     type: integer
-                type: object
+                    example: 1
               success:
+                description: "True"
                 type: boolean
-            type: object
-      description: ''
-  summary: List affiliated account balances
+    '404':
+      description: Account not found
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/GenericErrorResponse.yaml
+    '422':
+      description: Validation errors
+      content:
+        application/json:
+          schema:
+            $ref: ../components/errors/422Error.yaml
+  summary: List account balances
   tags:
     - Manage affiliates

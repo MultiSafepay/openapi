@@ -35,12 +35,7 @@ properties:
     type: object
     properties:
       notification_url: 
-        description: |
-          The webhook endpoint for MultiSafepay to send you status updates and other notifications.
-
-          See [Notification URL](https://docs.multisafepay.com/developer/api/notification-url/).
-        type: string
-        example: https://www.example.com/payment-updates/
+        $ref: 'Webhook.yaml'
       notification_method:
         description: |
           Sets the notification method.
@@ -743,12 +738,15 @@ properties:
       custom_1:
         description: Information about the order. 
         type: string
+        maxLength: 500
       custom_2:
         description: Information about the order.
         type: string
+        maxLength: 500
       custom_3:
         description: Information about the order.
         type: string
+        maxLength: 500
   days_active:
     description: |
       For `redirect` and `paymentlink` orders, sets the number of days the link to the MultiSafepay payment page is valid.
