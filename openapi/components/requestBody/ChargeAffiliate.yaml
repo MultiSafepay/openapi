@@ -1,0 +1,39 @@
+type: object
+properties:
+  amount:
+    description: The amount to charge the affiliate.
+    type: integer
+    minimum: 0
+    example: 1000
+  checkoutdata:
+    description: 
+    type: object
+    format: checkout-data
+  currency:
+    description: The currency of the charge.
+    type: string
+    maxLength: 3
+    minLength: 3
+    example: EUR
+  description:
+    description: A description of the charge.
+    type: string
+    maxLength: 512
+    minLength: 2
+    example: Monthly commission
+  order_id:
+    description: The unique identifier for the charge order.
+    type: string
+    maxLength: 128
+    example: fa423fabc31915acd97dew89
+  var1:
+    $ref: '../schemas/var12.yaml'
+  var2:
+    $ref: '../schemas/var12.yaml'
+  var3:
+    $ref: '../schemas/var3.yaml'
+required:
+  - amount
+  - currency
+  - description
+  - order_id
