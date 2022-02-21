@@ -26,7 +26,7 @@ properties:
     description: The unique client-defined identifier for the charge order.
     type: string
     maxLength: 128
-    example: fa423fabc31915acd97dew89
+    example: charge-0001
   var1:
     $ref: '../schemas/var12.yaml'
   var2:
