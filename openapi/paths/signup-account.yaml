@@ -22,7 +22,7 @@ post:
               type: object
               properties:
                 email:
-                  description: The affiliate's email address.
+                  description: The affiliate's email address used to sign in to the MultiSafepay account.
                   type: string
                   format: email
                   example: user@example.com
