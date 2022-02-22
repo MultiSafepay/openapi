@@ -2,43 +2,21 @@ description: Information about the account.
 type: object
 properties:
   address1:
-    description: The first line of the account holder's address. 
-    type: string
-    maxLength: 64
-    example: "Jodenbreestraat 4"
+    $ref: '../schemas/Address1.yaml'
   address2:
-    description: The second line of the account holder's address. 
-    type: string
-    maxLength: 64
+    $ref: '../schemas/Address2.yaml'
   address3:
-    description: The third line of the account holder's address. 
-    type: string
-    maxLength: 64
+    $ref: '../schemas/Address3.yaml'
   apartment:
-    description: The apartment number of the account holder's address. 
-    type: string
-    maxLength: 9
-    example: "2"
+    $ref: '../schemas/Apartment.yaml'
   city:
-    description: The city of the account holder's address. 
-    type: string
-    maxLength: 50
-    example: "Amsterdam"
+    $ref: '../schemas/City.yaml'
   coc_number:
-    description: The company's chamber of commerce number. 
-    type: string
-    maxLength: 50
-    example: "12345678"
+    $ref: '../schemas/CoCNumber.yaml'
   company_name:
-    description: The account holder's company name. 
-    type: string
-    maxLength: 200
-    example: "My company name"
+    $ref: '../schemas/CompanyName.yaml'
   country:
-    description: The country of the account holder's address.
-    type: string
-    format: country-alpha2
-    example: "NL"
+    $ref: '../schemas/Country.yaml'
   email:
     description: The company email address.
     type: string
@@ -46,26 +24,14 @@ properties:
     maxLength: 100
     example: "merchant@example.com"
   fax:
-    description: The company fax number.
-    type: string
-    maxLength: 15
-    example: 
+    $ref: '../schemas/Fax.yaml' 
   phone:
-    description: The company phone number.
-    type: string
-    maxLength: 15
-    example: "+3120123456"
+    $ref: '../schemas/Phone.yaml'
   vat_number:
-    description: The company VAT number.
-    type: string
-    maxLength: 50
-    example: "NL123456789B01"
+    $ref: '../schemas/VAT.yaml'
   zipcode:
-    description: The ZIP code of the account holder's address. 
-    type: string
-    maxLength: 30
-    example: "1011 NK"
+    $ref: '../schemas/ZIP.yaml'
 required:
   - company_name
-  - email
   - country
+  - email
