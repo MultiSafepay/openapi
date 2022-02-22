@@ -26,6 +26,8 @@ paths:
     $ref: 'paths/orders@{order_id}.yaml'
   '/orders/{order_id}/capture':
     $ref: 'paths/orders@{order_id}@capture.yaml'
+  '/capture/{order_id}':
+    $ref: 'paths/capture@{order_id}.yaml'
   '/orders/{capture_order_id}':
     $ref: 'paths/orders@{capture_order_id}.yaml'
   '/orders/{order_id}/refunds':
@@ -94,8 +96,6 @@ paths:
     $ref: 'paths/payment-methods.yaml'
   '/payment-methods/{payment_method_id}':
     $ref: 'paths/payment-methods@{payment_method_id}.yaml'
-  '/capture/{order_id}':
-    $ref: 'paths/capture@{order_id}.yaml'
   '/recurring/{your_customer_reference}':
     $ref: 'paths/recurring@{your_customer_reference}.yaml'
   '/recurring/{your_customer_reference}/token/{your_token}':
