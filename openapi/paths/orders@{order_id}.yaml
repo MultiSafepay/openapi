@@ -79,7 +79,7 @@ patch:
               data: 
                 description: Empty
                 type: object
-                example: []                
+                example: ''              
     '404':
       description: Error
       content:
