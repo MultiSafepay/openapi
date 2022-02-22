@@ -1,6 +1,5 @@
 properties:
   checkout_data:
-    type: object
     description: |
       Contains:
       
@@ -8,6 +7,7 @@ properties:
       - Duplicate `item` objects of the items to be refunded (with negative quantity)
 
       To retrieve the original order's array of `item` objects, make a `GET /orders/{order_id}` request.
+    type: object
     properties:
       items:
         type: array
