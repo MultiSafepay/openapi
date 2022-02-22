@@ -1,6 +1,6 @@
 post:
   description: | 
-    Process a [full or partial refund](https://docs.multisafepay.com/refunds/) for an order.
+    Process a [full or partial refund](https://docs.multisafepay.com/refunds/full-partial/) for an order.
 
     Refunding creates a new order with its own order ID linked to the original order. 
     
