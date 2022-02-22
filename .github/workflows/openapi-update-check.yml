@@ -2,7 +2,7 @@ name: Check for updates to API spec
 
 on: 
   schedule:
-  - cron: "*/15 * * * *"
+  - cron: "0 3 * * *"
 
 jobs:
   download-api-ref:
