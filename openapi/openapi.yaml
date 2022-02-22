@@ -26,10 +26,10 @@ paths:
     $ref: 'paths/orders@{order_id}.yaml'
   '/orders/{order_id}/capture':
     $ref: 'paths/orders@{order_id}@capture.yaml'
-  '/capture/{order_id}':
-    $ref: 'paths/capture@{order_id}.yaml'
   '/orders/{capture_order_id}':
     $ref: 'paths/orders@{capture_order_id}.yaml'
+  '/capture/{order_id}':
+    $ref: 'paths/capture@{order_id}.yaml'
   '/orders/{order_id}/refunds':
     $ref: 'paths/orders@{order_id}@refunds.yaml'
   '/orders/{order_id}/files':
@@ -111,8 +111,6 @@ paths:
 tags:
   - name: Payments
     description: Create and manage payments.
-  - name: Manual capture payments
-    description: Manually capture credit card payments.
   - name: Tokens
     description: Manage tokens.
   - name: Pay After Delivery (BETA)
