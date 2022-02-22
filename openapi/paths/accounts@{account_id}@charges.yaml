@@ -1,10 +1,10 @@
 post:
-  description: 'Charge a fee to an affiliated account.'
-  operationId: 'Partner::CreateChargeForSubaccount'
+  description: Charge a fee to an affiliated account.
+  operationId: Partner::CreateChargeForSubaccount
   parameters:
-    - description: ''
+    - name: account_id
+      description: The unique identifier of the account.
       in: path
-      name: account_id
       required: true
       schema:
         type: string
@@ -12,91 +12,28 @@ post:
     content:
       application/json:
         schema:
-          properties:
-            amount:
-              minimum: 0
-              type: integer
-            checkoutdata:
-              format: checkout-data
-              type: object
-            currency:
-              example: EUR
-              maxLength: 3
-              minLength: 3
-              type: string
-            description:
-              example: monthly commission
-              maxLength: 512
-              minLength: 2
-              type: string
-            order_id:
-              example: fa423fabc31915acd97dew89
-              maxLength: 128
-              type: string
-            var1:
-              $ref: '../components/schemas/var12.yaml'
-            var2:
-              $ref: '../components/schemas/var12.yaml'
-            var3:
-              $ref: '../components/schemas/var3.yaml'
-          required:
-            - amount
-            - currency
-            - description
-            - order_id
-          type: object
+          $ref: '../components/requestBody/ChargeAffiliate.yaml'
     description: ''
     required: true
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           schema:
             properties:
               data:
-                properties:
-                  amount:
-                    minimum: 0
-                    type: integer
-                  checkoutdata:
-                    format: checkout-data
-                    type: object
-                  currency:
-                    example: EUR
-                    maxLength: 3
-                    minLength: 3
-                    type: string
-                  description:
-                    example: monthly commission
-                    maxLength: 512
-                    minLength: 2
-                    type: string
-                  order_id:
-                    example: fa423fabc31915acd97dew89
-                    maxLength: 128
-                    type: string
-                  var1:
-                    $ref: '../components/schemas/var12.yaml'
-                  var2:
-                    $ref: '../components/schemas/var12.yaml'
-                  var3:
-                    $ref: '../components/schemas/var3.yaml'
-                required:
-                  - amount
-                  - currency
-                  - description
-                  - order_id
-                type: object
+                $ref: '../components/schemas/Charge.yaml'
               success:
+                description: "True"
                 type: boolean
             type: object
-      description: ''
     '422':
+      description: Validation errors
       content:
         application/json:
           schema:
             $ref: ../components/errors/422Error.yaml
-      description: Validation errors
-  summary: Charge affiliated account
+  summary: Charge affiliate
   tags:
     - Manage affiliates

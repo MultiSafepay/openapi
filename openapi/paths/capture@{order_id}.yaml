@@ -1,13 +1,13 @@
 patch:
   description: Cancel an authorized credit or debit card payment.
-  operationId: CancelAuthorizedOrder
+  operationId: cancelAuthorizedOrder
   parameters:
-    - description: | 
+    - name: order_id
+      description: | 
         The unique identifier of the order. 
       
         Max length: 50 characters.
       in: path
-      name: order_id
       required: true
       schema:
         type: string
@@ -36,23 +36,23 @@ patch:
     required: true
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           schema:
+            type: object
             properties:
               success:
                 $ref: '../components/schemas/Success.yaml'
               data: 
                 description: Empty.
                 type: object
-            type: object
-      description: ''
     '404':
+      description: Error
       content:
         application/json:
           schema:
-            $ref: '../components/schemas/GenericErrorResponse.yaml'
-      description: Error
-  summary: Cancel authorized order
+            $ref: '../components/errors/404Error.yaml'
+  summary: Cancel authorized payment
   tags:
-    - Manual capture payments
+    - Payments

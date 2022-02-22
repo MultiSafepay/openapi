@@ -1,94 +1,36 @@
 get:
-  description: | 
-    Set the [order status](https://docs.multisafepay.com/payments/multisafepay-statuses/) of a captured order. 
-  operationId: SetStatusCapturedOrder
+  description: Set the [order status](https://docs.multisafepay.com/payments/multisafepay-statuses/) of a captured order. 
+  operationId: setStatusCapturedOrder
   parameters:
-    - description: | 
-        The unique identifier of the order. 
+    - name: capture_order_id
+      description: | 
+        The unique identifier of the capture order. 
       
         Max length: 50 characters.
       in: path
-      name: order_id
       required: true
       schema:
         type: string
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           example:
               $ref: '../components/examples/responses/setOrderStatusCapturedTransaction.json'
           schema:
+            type: object
             properties:
               success:
                 $ref: '../components/schemas/Success.yaml'
               data: 
-                properties:
-                  transaction_ID:
-                    $ref: '../components/schemas/TransactionID.yaml'
-                  order_ID:
-                    $ref: '../components/schemas/OrderID.yaml'
-                  created:
-                    $ref: '../components/schemas/Created.yaml'
-                  currency:
-                    $ref: '../components/schemas/Currency.yaml'
-                  amount:
-                    $ref: '../components/schemas/Amount.yaml'
-                  description:
-                    $ref: '../components/schemas/Description.yaml'
-                  items:
-                    $ref: '../components/schemas/Items.yaml'
-                  amount_refunded:
-                    $ref: '../components/schemas/AmountRefunded.yaml'
-                  status:
-                    $ref: '../components/schemas/Status.yaml'
-                  financial_status:
-                    $ref: '../components/schemas/FinancialStatus.yaml'
-                  reason:
-                    description: The reason for any updates to the order.
-                    type: string
-                  reason_code:
-                    description: The code for the reason for any updates to the order.
-                    type: string
-                  fastcheckout:
-                    $ref: '../components/schemas/FastCheckout.yaml'
-                  modified:
-                    $ref: '../components/schemas/Modified.yaml'
-                  customer:
-                    $ref: '../components/schemas/CustomerObject.yaml'
-                  payment_details:
-                    $ref: '../components/schemas/PaymentDetails.yaml'
-                  costs:
-                    $ref: '../components/schemas/Costs.yaml'
-                  related_transactions:
-                    $ref: '../components/schemas/RelatedTransactions.yaml'
-                  payment_methods:
-                    $ref: '../components/schemas/PaymentMethods.yaml'
-                  var1:
-                    $ref: '../components/schemas/var12.yaml'
-                  var2:
-                    $ref: '../components/schemas/var12.yaml'
-                  var3:
-                    $ref: '../components/schemas/var3.yaml'
-                required:
-                  - address1
-                  - brand
-                  - city
-                  - country
-                  - email
-                  - first_name
-                  - house_number
-                  - last_name
-                  - locale
-                  - zip_code
-            type: object
-      description: ''
+                $ref: '../components/schemas/OrderDetails.yaml'
     '404':
+      description: Error
       content:
         application/json:
           schema:
-            $ref: '../components/schemas/GenericErrorResponse.yaml'
-      description: Error
-  summary: Set captured order status
+            $ref: '../components/errors/404Error.yaml'
+  summary: Set capture status
   tags:
-    - Manual capture payments
+    - Payments

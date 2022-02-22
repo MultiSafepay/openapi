@@ -14,3 +14,7 @@ properties:
     description: The MIME type of the bank statement file. 
     type: string
     enum: [application/pdf, image/jpeg, image/png]
+required:
+  - encoded_content
+  - filename
+  - mime_type

@@ -1,49 +1,31 @@
 get:
   description: Get information about an uploaded bank statement.
-  operationId: GetBankStatement
+  operationId: getBankStatement
   parameters:
-    - description: ''
+    - name: bankstatement_id
+      description: The unique identifier of the bank statement.
       in: path
-      name: bankstatement_id
       required: true
       schema:
         type: string
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           schema:
+            type: object
             properties:
               success:
                 $ref: '../components/schemas/Success.yaml'
               data:
-                properties:
-                  encoded_content:
-                    format: base64-encoded-content
-                    type: string
-                  filename:
-                    example: bank-statement.pdf
-                    maxLength: 250
-                    type: string
-                  mime_type:
-                    enum:
-                      - application/pdf
-                      - image/jpeg
-                      - image/png
-                    type: string
-                required:
-                  - filename
-                  - mime_type
-                  - encoded_content
-                type: object
-            type: object
-      description: ''
+                $ref: '../components/schemas/BankStatement.yaml'
     '404':
+      description: Bank statement not found
       content:
         application/json:
           schema:
             $ref: ../components/schemas/GenericErrorResponse.yaml
-      description: Bank statement not found
   summary: Get bank statement
   tags:
     - Onboard affiliates

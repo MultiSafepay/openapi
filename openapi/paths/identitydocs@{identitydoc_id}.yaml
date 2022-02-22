@@ -1,58 +1,32 @@
 get:
-  description: >-
-    Get information about a passport or other identification document uploaded for an ultimate
+  description: Get information about a passport or other identification document uploaded for an ultimate
     beneficiary owner (UBO).
-  operationId: GetIdentityDoc
+  operationId: getIdentityDoc
   parameters:
-    - description: ''
+    - name: identitydoc_id
+      description: The unique identifier for the identity document.
       in: path
-      name: identitydoc_id
       required: true
       schema:
         type: string
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           schema:
+            type: object
             properties:
               success:
                 $ref: '../components/schemas/Success.yaml'
               data:
-                properties:
-                  document_type:
-                    enum:
-                      - id
-                      - passport
-                      - driverslicense
-                      - proof_of_address
-                    type: string
-                  encoded_content:
-                    format: base64-encoded-content
-                    type: string
-                  filename:
-                    maxLength: 250
-                    type: string
-                  mime_type:
-                    enum:
-                      - application/pdf
-                      - image/jpeg
-                      - image/png
-                    type: string
-                required:
-                  - filename
-                  - mime_type
-                  - encoded_content
-                  - document_type
-                type: object
-            type: object
-      description: ''
+                $ref: '../components/schemas/IdentityDoc.yaml'
     '404':
+      description: Document not found
       content:
         application/json:
           schema:
             $ref: ../components/schemas/GenericErrorResponse.yaml
-      description: Identity doc not found
   summary: Get identity document
   tags:
     - Onboard affiliates

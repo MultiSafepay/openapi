@@ -1,13 +1,13 @@
 post:
-  description: Manually capture the full or a partial amount for a credit or debit card payment.
-  operationId: CapturePayment
+  description: Capture the full or a partial amount for a credit or debit card payment.
+  operationId: capturePayment
   parameters:
-    - description: | 
+    - name: order_id
+      description: | 
         The unique identifier of the order. 
       
         Max length: 50 characters.
       in: path
-      name: order_id
       required: true
       schema:
         type: string
@@ -27,9 +27,8 @@ post:
           type: object
           properties:
             amount:
-              type: integer
               description: |
-                The amount the customer needs to pay in the currency's smallest unit:
+                The payment amount in the currency's smallest unit:
 
                 - Decimal currencies: Value for 10 EUR = 1000 (1000 cents)
                 - Zero-decimal currencies: Value for 10 YEN = 10 
@@ -37,6 +36,7 @@ post:
                 **Full captures:** You can omit this parameter, or specify the original amount.
 
                 **Partial captures:** Specify the amount to capture. 
+              type: integer
               example: 10000
             new_order_id:
               description: Your unique identifier for the capture order. 
@@ -44,13 +44,12 @@ post:
               maxLength: 50
               example: my-order-id-01
             new_order_status:
-              description: The [status](https://docs.multisafepay.com/payments/multisafepay-statuses/) of the capture order.
+              description: The [order status](https://docs.multisafepay.com/payments/multisafepay-statuses/) of the capture order.
               type: string
-              enum: [initialized, cancelled, completed, refunded, declined, expired, reserved, shipped, uncleared, void]
+              enum: [cancelled, completed, declined, expired, initialized, refunded, reserved, shipped, uncleared, void]
               example: completed
             invoice_id:
-              description: | 
-                Your unique identifier for the invoice, which appears in [reports](https://docs.multisafepay.com/business/accounting/reports/).
+              description: Your unique identifier for the invoice, which appears in [reports](https://docs.multisafepay.com/business/accounting/reports/).
               type: string
               maxLength: 50  
               example: AB123456
@@ -74,27 +73,28 @@ post:
     required: true
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           schema:
+            type: object
             properties:
               success:
                 $ref: '../components/schemas/Success.yaml'
               data: 
+                description: Information about the capture order.
                 type: object
                 properties:
                   transaction_id:
                     $ref: '../components/schemas/TransactionId.yaml'
                   order_id:
                     $ref: '../components/schemas/OrderId.yaml'
-            type: object
-      description: ''
     '404':
+      description: Error
       content:
         application/json:
           schema:
-            $ref: '../components/schemas/GenericErrorResponse.yaml'
-      description: Error
+            $ref: '../components/errors/404Error.yaml'
   summary: Capture payment
   tags:
-    - Manual capture payments
+    - Payments

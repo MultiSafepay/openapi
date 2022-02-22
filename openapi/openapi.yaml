@@ -20,22 +20,24 @@ info:
     email: integration@multisafepay.com
 openapi: 3.0.0
 paths:
-  /orders:
-    $ref: paths/orders.yaml
+  '/orders':
+    $ref: 'paths/orders.yaml'
   '/orders/{order_id}':
     $ref: 'paths/orders@{order_id}.yaml'
   '/orders/{order_id}/capture':
     $ref: 'paths/orders@{order_id}@capture.yaml'
   '/orders/{capture_order_id}':
     $ref: 'paths/orders@{capture_order_id}.yaml'
+  '/capture/{order_id}':
+    $ref: 'paths/capture@{order_id}.yaml'
   '/orders/{order_id}/refunds':
     $ref: 'paths/orders@{order_id}@refunds.yaml'
   '/orders/{order_id}/files':
     $ref: 'paths/orders@{order_id}@files.yaml'
-  /signup-account:
-    $ref: paths/signup-account.yaml
-  /accounts:
-    $ref: paths/accounts.yaml
+  '/signup-account':
+    $ref: 'paths/signup-account.yaml'
+  '/accounts':
+    $ref: 'paths/accounts.yaml'
   '/accounts/{account_id}':
     $ref: 'paths/accounts@{account_id}.yaml'
   '/accounts/{account_id}/balances':
@@ -66,12 +68,10 @@ paths:
     $ref: 'paths/bank-accounts@{bankaccount_id}@bank-statements.yaml'
   '/bank-statements/{bankstatement_id}':
     $ref: 'paths/bank-statements@{bankstatement_id}.yaml'
-  /categories:
+  '/categories':
     $ref: 'paths/categories.yaml'
-  /capture/{order_id}:
-    $ref: paths/capture@{order_id}.yaml
-  /customers:
-    $ref: paths/customers.yaml
+  '/customers':
+    $ref: 'paths/customers.yaml'
   '/customers/{customer_id}':
     $ref: 'paths/customers@{customer_id}.yaml'
   '/customers/{customer_id}/delivery-details':
@@ -80,23 +80,23 @@ paths:
     $ref: 'paths/delivery-details@{delivery_details_id}.yaml'
   '/customers/{customer_id}/payment-methods':
     $ref: 'paths/customers@{customer_id}@payment-methods.yaml'
-  /gateways:
-    $ref: paths/gateways.yaml
+  '/gateways':
+    $ref: 'paths/gateways.yaml'
   '/gateways/{id}':
-    $ref: paths/gateways@{gateway_id}.yaml
+    $ref: 'paths/gateways@{gateway_id}.yaml'
   '/issuers/{gateway}':
-    $ref: paths/issuers@{gateway}.yaml
-  /me:
-    $ref: paths/me.yaml
-  /pad/ccs:
-    $ref: paths/pad@ccs.yaml
+    $ref: 'paths/issuers@{gateway}.yaml'
+  '/me':
+    $ref: 'paths/me.yaml'
+  '/pad/ccs':
+    $ref: 'paths/pad@ccs.yaml'
   '/pad/orders/{order_id}':
     $ref: 'paths/pad@orders@{order_id}.yaml'
-  /payment-methods:
-    $ref: paths/payment-methods.yaml
+  '/payment-methods':
+    $ref: 'paths/payment-methods.yaml'
   '/payment-methods/{payment_method_id}':
     $ref: 'paths/payment-methods@{payment_method_id}.yaml'
-  /recurring/{your_customer_reference}:
+  '/recurring/{your_customer_reference}':
     $ref: 'paths/recurring@{your_customer_reference}.yaml'
   '/recurring/{your_customer_reference}/token/{your_token}':
     $ref: 'paths/recurring@{your_customer_reference}@token@{your_token}.yaml'
@@ -104,31 +104,29 @@ paths:
     $ref: 'paths/recurring@{your_customer_reference}@remove@{your_token}.yaml'
   '/recurring/{your_customer_reference}/update/{your_token}':
     $ref: 'paths/recurring@{your_customer_reference}@update@{your_token}.yaml'
-  /transactions:
-    $ref: paths/transactions.yaml
+  '/transactions':
+    $ref: 'paths/transactions.yaml'
   '/transactions/{transaction_id}':
     $ref: 'paths/transactions@{transaction_id}.yaml'
 tags:
   - name: Payments
-    description: "Create and manage payments."
-  - name: Manual capture payments
-    description: "Manually capture credit card payments."
+    description: Create and manage payments.
   - name: Tokens
-    description: "Manage tokens."
+    description: Manage tokens.
   - name: Pay After Delivery (BETA)
-    description: "Request customer credit scores, and track collecting statuses."
+    description: Request customer credit scores, and track collecting statuses.
   - name: Refunds and chargebacks
-    description: "Process refunds and challenge chargebacks."
+    description: Process refunds and challenge chargebacks.
   - name: My account
-    description: "Create and manage affiliated accounts."
+    description: Create and manage affiliated accounts.
   - name: Onboard affiliates
-    description: "Onboard affiliated merchant accounts."
+    description: Onboard affiliated merchant accounts.
   - name: Manage affiliates
-    description: "Manage the accounts of affiliated merchants."
+    description: Manage the accounts of affiliated merchants.
   - name: Customers
-    description: "Create and manage customer profiles."
+    description: Create and manage customer profiles.
   - name: Reconciliation
-    description: "List transactions for your reconciliation processes."
+    description: List transactions for your reconciliation processes.
 security:
   - ApiKeyQuery: ['c2e8507e3bb11df070f6c45d36ea2a366eaecea2']
 servers:
