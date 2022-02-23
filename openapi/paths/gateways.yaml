@@ -2,18 +2,19 @@ get:
   description: List the gateway identifiers for all payment methods activated for a website.
   operationId: listGateways
   parameters:
-    - description: | 
+    - name: include
+      description: | 
         By default, only one activated [gift card](https://docs.multisafepay.com/payment-methods/gift-cards) is included in the response. 
 
         To include **all** activated gift cards in the response, set to `coupons`.
       in: query
-      name: include
       required: false
       schema:
         type: string
         enum: ['coupons']
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           examples:
@@ -26,9 +27,10 @@ get:
               value:
                 $ref: '../components/examples/responses/listGatewaysWithCoupons.json'
           schema:
+            type: object
             properties:
               success:
-                type: boolean
+                $ref: '../components/schemas/Success.yaml'
               data:
                 type: object
                 properties: 
@@ -41,14 +43,12 @@ get:
                   type:
                     description: Whether the payment method is a gift card (`coupon`).
                     type: string
-            type: object
-      description: ''
     '401':
+      description: Error
       content:
         application/json:
           schema:
-            $ref: '../components/errors/Error1032.yaml'
-      description: Error 
+            $ref: '../components/errors/Error1032.yaml' 
   summary: List gateways
   tags:
     - Payments
