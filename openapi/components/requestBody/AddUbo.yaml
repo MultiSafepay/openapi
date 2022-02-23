@@ -7,41 +7,27 @@ properties:
     maxLength: 100
     example: Kraanspoor 39
   address_apartment:
-    description: The UBO's apartment number.
-    type: string
-    maxLength: 15
+    $ref: '../schemas/Apartment.yaml'
   birthday:
-    description: The UBO's date of birth.
-    type: string
-    format: yyyy-mm-dd
-    example: 1975-04-21
+    $ref: '../schemas/Birthday.yaml'
   city:
-    description: The city of the UBO's address.
-    type: string
-    maxLength: 100
-    example: Amsterdam
+    $ref: '../schemas/City.yaml'
   country:
-    description: The country of the UBO's address.
-    type: string
-    format: country-alpha2
-    example: NL
+    $ref: '../schemas/Country.yaml'
   country_of_birth:
-    description: The country where the UBO was born.
-    type: string
-    format: country-alpha2
+    $ref: '../schemas/BirthCountry.yaml'
   email:
     description: The UBO's email address.
     type: string
     format: email
     maxLength: 100
+    example: ubo@example.com
   job_title:
     description: The UBO's job title.
     type: string
     maxLength: 100
   mobile_phone:
-    description: The UBO's mobile phone number.
-    type: string
-    maxLength: 25
+    $ref: '../schemas/MobilePhone.yaml'
   name:
     description: The UBO's name.
     type: string
@@ -69,10 +55,7 @@ properties:
     type: string
     enum: [control_rights, other, shareholder, voting_rights]
   zipcode:
-    description: The ZIP code of the UBO's address.
-    type: string
-    maxLength: 20
-    example: 1033 SC
+    $ref: '../schemas/ZIP.yaml'
 required:
   - birthday
   - country
