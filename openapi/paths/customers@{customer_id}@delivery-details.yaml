@@ -23,11 +23,10 @@ post:
           schema:
             type: object
             properties:
+              success:
+                $ref: '../components/schemas/Success.yaml'
               data:
                 $ref: '../components/schemas/ShippingAddress.yaml'
-              success:
-                description: "True"
-                type: boolean
     '422':
       description: Validation errors
       content:
@@ -61,10 +60,10 @@ get:
           schema:
             type: object
             properties:
+              success:
+                $ref: '../components/schemas/Success.yaml'
               data:
                 $ref: '../components/schemas/ShippingAddress.yaml'
-              success:
-                type: boolean
     '422':
       description: Validation failure
       content:

@@ -14,6 +14,8 @@ get:
         application/json:
           schema:
             properties:
+              success:
+                $ref: '../components/schemas/Success.yaml'
               data:
                 additionalProperties: false
                 oneOf:
@@ -50,8 +52,6 @@ get:
                   - type
                   - status
                 type: object
-              success:
-                type: boolean
             type: object
       description: ''
     '404':

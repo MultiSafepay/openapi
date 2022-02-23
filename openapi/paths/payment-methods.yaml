@@ -32,6 +32,8 @@ get:
         application/json:
           schema:
             properties:
+              success:
+                $ref: '../components/schemas/Success.yaml'
               data:
                 items:
                   properties:
@@ -161,8 +163,6 @@ get:
                       type: array
                   type: object
                 type: array
-              success:
-                type: boolean
             type: object
       description: ''
   summary: List payment methods
