@@ -1757,18 +1757,6 @@
             }
           },
           {
-            "description": "Return results starting from offset position",
-            "in": "query",
-            "name": "offset",
-            "required": false,
-            "schema": {
-              "description": "Return results starting from offset position",
-              "example": 5,
-              "minimum": 0,
-              "type": "integer"
-            }
-          },
-          {
             "description": "Limit number of returned results",
             "in": "query",
             "name": "limit",
@@ -1778,6 +1766,18 @@
               "example": 5,
               "maximum": 1000,
               "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Return results starting from offset position",
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "description": "Return results starting from offset position",
+              "example": 5,
+              "minimum": 0,
               "type": "integer"
             }
           }
@@ -3419,18 +3419,6 @@
         "operationId": "ListCustomers",
         "parameters": [
           {
-            "description": "Return results starting from offset position",
-            "in": "query",
-            "name": "offset",
-            "required": false,
-            "schema": {
-              "description": "Return results starting from offset position",
-              "example": 5,
-              "minimum": 0,
-              "type": "integer"
-            }
-          },
-          {
             "description": "Limit number of returned results",
             "in": "query",
             "name": "limit",
@@ -3440,6 +3428,18 @@
               "example": 5,
               "maximum": 1000,
               "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Return results starting from offset position",
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "description": "Return results starting from offset position",
+              "example": 5,
+              "minimum": 0,
               "type": "integer"
             }
           }
@@ -5675,25 +5675,7 @@
           {
             "description": "",
             "in": "query",
-            "name": "country",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "",
-            "in": "query",
             "name": "locale",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "",
-            "in": "query",
-            "name": "amount",
             "required": false,
             "schema": {
               "type": "string"
@@ -5712,6 +5694,24 @@
             "description": "",
             "in": "query",
             "name": "currency",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "",
+            "in": "query",
+            "name": "country",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "",
+            "in": "query",
+            "name": "amount",
             "required": false,
             "schema": {
               "type": "string"
@@ -5991,6 +5991,18 @@
             }
           },
           {
+            "description": "Return results starting from offset position",
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "description": "Return results starting from offset position",
+              "example": 5,
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
             "description": "Limit number of returned results",
             "in": "query",
             "name": "limit",
@@ -6000,18 +6012,6 @@
               "example": 5,
               "maximum": 1000,
               "minimum": 1,
-              "type": "integer"
-            }
-          },
-          {
-            "description": "Return results starting from offset position",
-            "in": "query",
-            "name": "offset",
-            "required": false,
-            "schema": {
-              "description": "Return results starting from offset position",
-              "example": 5,
-              "minimum": 0,
               "type": "integer"
             }
           }
@@ -8434,6 +8434,15 @@
           {
             "description": "",
             "in": "query",
+            "name": "payment_method",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "",
+            "in": "query",
             "name": "completed_from",
             "required": false,
             "schema": {
@@ -8444,15 +8453,6 @@
             "description": "",
             "in": "query",
             "name": "type",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "",
-            "in": "query",
-            "name": "site_id",
             "required": false,
             "schema": {
               "type": "string"
@@ -8479,25 +8479,7 @@
           {
             "description": "",
             "in": "query",
-            "name": "created_until",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "",
-            "in": "query",
-            "name": "debit_credit",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "",
-            "in": "query",
-            "name": "payment_method",
+            "name": "status",
             "required": false,
             "schema": {
               "type": "string"
@@ -8515,19 +8497,27 @@
           {
             "description": "",
             "in": "query",
-            "name": "status",
+            "name": "site_id",
             "required": false,
             "schema": {
               "type": "string"
             }
           },
           {
-            "description": "Next results after the cursor",
+            "description": "",
             "in": "query",
-            "name": "after",
+            "name": "debit_credit",
             "required": false,
             "schema": {
-              "description": "Next results after the cursor",
+              "type": "string"
+            }
+          },
+          {
+            "description": "",
+            "in": "query",
+            "name": "created_until",
+            "required": false,
+            "schema": {
               "type": "string"
             }
           },
@@ -8538,6 +8528,16 @@
             "required": false,
             "schema": {
               "description": "Next results before the cursor",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Next results after the cursor",
+            "in": "query",
+            "name": "after",
+            "required": false,
+            "schema": {
+              "description": "Next results after the cursor",
               "type": "string"
             }
           },
