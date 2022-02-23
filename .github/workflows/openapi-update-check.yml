@@ -2,14 +2,14 @@ name: Check for updates to API spec
 
 on: 
   schedule:
-  - cron: "*/15 * * * *"
+  - cron: "0 3 * * *"
 
 jobs:
   download-api-ref:
     runs-on: ubuntu-latest
     steps:
     - name: Download latest API spec
-      run: curl https://api.multisafepay.com/v1/json/openapi.json -o ${{ github.workspace }}/downloaded-openapi.json
+      run: curl https://api.multisafepay.com/v1/json/openapi.json | jq '.' &> ${{ github.workspace }}/downloaded-openapi.json
     - name: Store latest API spec
       uses: actions/upload-artifact@v2
       with:
