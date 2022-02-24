@@ -50,7 +50,9 @@ get:
                   - url
                 type: object
               success:
+                description: "True"
                 type: boolean
+                example: true
             type: object
     '404':
       description: Site not found
@@ -108,29 +110,9 @@ patch:
           schema:
             properties:
               data:
-                properties:
-                  name:
-                    description: The website name.
-                    type: string
-                    maxLength: 120
-                  notification_url:
-                    $ref: '../components/schemas/Webhook.yaml'
-                  price_from:
-                    $ref: '../components/schemas/PriceFrom.yaml'
-                  price_till:
-                    $ref: '../components/schemas/PriceTill.yaml'
-                  support_email:
-                    $ref: '../components/schemas/SupportEmail.yaml'
-                  support_phone:
-                    $ref: '../components/schemas/SupportPhone.yaml'
-                  url:
-                    $ref: '../components/schemas/URL.yaml'
-                required:
-                  - name
-                  - url
-                type: object
+                $ref: '../components/schemas/Site.yaml'
               success:
-                type: boolean
+                $ref: '../components/schemas/Success.yaml'
             type: object
     '404':
       description: Site not found

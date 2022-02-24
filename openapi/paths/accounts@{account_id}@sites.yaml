@@ -1,10 +1,10 @@
 post:
-  description: 'Add a new website to a merchant account.'
-  operationId: 'Partner::CreateAccountSite'
+  description: Add a website to an affiliated account.
+  operationId: Partner::CreateAccountSite
   parameters:
-    - description: ''
+    - name: account_id
+      description: The unique identifier of the account.
       in: path
-      name: account_id
       required: true
       schema:
         type: string
@@ -12,111 +12,58 @@ post:
     content:
       application/json:
         schema:
-          properties:
-            name:
-              maxLength: 120
-              type: string
-            notification_url:
-              $ref: '../components/schemas/Webhook.yaml'
-            price_from:
-              $ref: '../components/schemas/PriceFrom.yaml'
-            price_till:
-              $ref: '../components/schemas/PriceTill.yaml'
-            support_email:
-              $ref: '../components/schemas/SupportEmail.yaml'
-            support_phone:
-              $ref: '../components/schemas/SupportPhone.yaml'
-            url:
-              $ref: '../components/schemas/URL.yaml'
-          required:
-            - name
-            - url
-          type: object
+          $ref: '../components/requestBody/AddSite.yaml'
     description: ''
     required: true
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           schema:
             properties:
-              data:
-                properties:
-                  name:
-                    maxLength: 120
-                    type: string
-                  notification_url:
-                    $ref: '../components/schemas/Webhook.yaml'
-                  price_from:
-                    $ref: '../components/schemas/PriceFrom.yaml'
-                  price_till:
-                    $ref: '../components/schemas/PriceTill.yaml'
-                  support_email:
-                    $ref: '../components/schemas/SupportEmail.yaml'
-                  support_phone:
-                    $ref: '../components/schemas/SupportPhone.yaml'
-                  url:
-                    $ref: '../components/schemas/URL.yaml'
-                required:
-                  - name
-                  - url
-                type: object
               success:
-                type: boolean
+                $ref: '../components/schemas/Success.yaml'
+              data:
+                $ref: '../components/schemas/Site.yaml'
             type: object
-      description: ''
     '422':
+      description: Validation errors
       content:
         application/json:
           schema:
             $ref: ../components/errors/422Error.yaml
-      description: Validation errors
   summary: Add website
   tags:
     - Onboard affiliates
 get:
-  description: 'List all websites under a merchant account.'
-  operationId: 'Partner::ListAccountSites'
+  description: List all websites under an affiliated account.
+  operationId: Partner::ListAccountSites
   parameters:
-    - description: ''
+    - name: account_id
+      description: The unique identifier of the account.
       in: path
-      name: account_id
       required: true
       schema:
         type: string
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           schema:
             properties:
-              data:
-                items:
-                  properties:
-                    name:
-                      maxLength: 120
-                      type: string
-                    notification_url:
-                      $ref: '../components/schemas/Webhook.yaml'
-                    price_from:
-                      $ref: '../components/schemas/PriceFrom.yaml'
-                    price_till:
-                      $ref: '../components/schemas/PriceTill.yaml'
-                    support_email:
-                      $ref: '../components/schemas/SupportEmail.yaml'
-                    support_phone:
-                      $ref: '../components/schemas/SupportPhone.yaml'
-                    url:
-                      $ref: '../components/schemas/URL.yaml'
-                  required:
-                    - name
-                    - url
-                  type: object
-                type: array
               success:
-                type: boolean
+                $ref: '../components/schemas/Success.yaml'
+              data:
+                $ref: '../components/schemas/Site.yaml'
             type: object
-      description: ''
+    '422':
+      description: Validation errors
+      content:
+        application/json:
+          schema:
+            $ref: ../components/errors/422Error.yaml
   summary: List websites
   tags:
     - Onboard affiliates

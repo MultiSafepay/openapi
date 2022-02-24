@@ -18,8 +18,7 @@ get:
               data:
                 $ref: '../components/schemas/Account.yaml'
               success:
-                description: "True"
-                type: boolean
+                $ref: '../components/schemas/Success.yaml'
             type: object
     '404':
       description: Account not found
@@ -55,12 +54,10 @@ patch:
           schema:
             type: object
             properties:
+              success:
+                $ref: '../components/schemas/Success.yaml'
               data:
                 $ref: '../components/schemas/Account.yaml'
-              success:
-                description: "True"
-                example: true
-                type: boolean
     '404':
       description: Account not found
       content:

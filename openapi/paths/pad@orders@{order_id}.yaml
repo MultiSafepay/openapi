@@ -15,7 +15,7 @@ get:
           schema:
             properties:
               success:
-                type: boolean
+                $ref: '../components/schemas/Success.yaml'
             type: object
       description: ''
   summary: Get PAD order details

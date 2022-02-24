@@ -1,0 +1,4 @@
+description: The company fax number.
+type: string
+maxLength: 15
+example: "+3120123456"

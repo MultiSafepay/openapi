@@ -7,15 +7,15 @@ properties:
     maxLength: 100
     example: Kraanspoor 39
   address_apartment:
-    $ref: 'Apartment.yaml'
+    $ref: '../schemas/Apartment.yaml'
   birthday:
-    $ref: 'Birthday.yaml'
+    $ref: '../schemas/Birthday.yaml'
   city:
-    $ref: 'City.yaml'
+    $ref: '../schemas/City.yaml'
   country:
-    $ref: 'Country.yaml'
+    $ref: '../schemas/Country.yaml'
   country_of_birth:
-    $ref: 'BirthCountry.yaml'
+    $ref: '../schemas/BirthCountry.yaml'
   email:
     description: The UBO's email address.
     type: string
@@ -27,7 +27,7 @@ properties:
     type: string
     maxLength: 100
   mobile_phone:
-    $ref: 'MobilePhone.yaml'
+    $ref: '../schemas/MobilePhone.yaml'
   name:
     description: The UBO's name.
     type: string
@@ -55,4 +55,14 @@ properties:
     type: string
     enum: [control_rights, other, shareholder, voting_rights]
   zipcode:
-    $ref: 'ZIP.yaml'
+    $ref: '../schemas/ZIP.yaml'
+required:
+  - birthday
+  - country
+  - country_of_birth
+  - email
+  - job_title
+  - name
+  - percentage
+  - title
+  - type

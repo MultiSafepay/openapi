@@ -17,11 +17,10 @@ post:
           schema:
             type: object
             properties:
+              success:
+                $ref: '../components/schemas/Success.yaml'
               data:
                 $ref: '../components/schemas/CustomerProfile.yaml'
-              success:
-                description: "True"
-                type: boolean
     '422':
       description: Validation failure
       content:
@@ -64,6 +63,8 @@ get:
           schema:
             type: object
             properties:
+              success:
+                $ref: '../components/schemas/Success.yaml'
               data:
                 $ref: '../components/schemas/CustomerProfile.yaml'
               page:
@@ -73,9 +74,6 @@ get:
                   total:
                     description: The total number of pages returned.
                     type: integer
-              success:
-                type: boolean
-                example: true
     '403':
       description: Invalid API key
       content:
