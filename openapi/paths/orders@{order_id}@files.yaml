@@ -24,22 +24,18 @@ post:
               description: The file type.
               type: string
               enum: [PDF,JPEG,PNG]
-              required: true
               example: PDF
             base64:
               description: The base64 encoded file.
               type: string
-              required: true
               example: VGhpcyBpcyBkdW1teSBmaWxlIGNvbnRlbnQgdGhhdCdzIGJhc2U2NCBlbmNvZGVkLg==
             description:
               description: A description of or comments on the file.
               type: string
-              required: true
               example: Email chain of discussions with customer.
             name:
               description: The filename of the file.
               type: string
-              required: true
               example: EmailsWithCustomerX.pdf
           required:
             - base64

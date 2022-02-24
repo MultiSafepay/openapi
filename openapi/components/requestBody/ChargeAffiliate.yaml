@@ -6,7 +6,7 @@ properties:
     minimum: 0
     example: 1000
   checkoutdata:
-    description: 
+    description: ''
     type: object
     format: checkout-data
   currency:

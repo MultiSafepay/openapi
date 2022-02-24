@@ -6,7 +6,6 @@ description: |
 properties:
   locale:
     type: string
-    required: true
     description: |
       - Localizes [MultiSafepay payment pages](https://docs.multisafepay.com/payment-pages/) for the customer’s language, region, available payment methods, and any UI preferences.
       - Sends [email templates](https://docs.multisafepay.com/features/email-templates/) in the customer's preferred language. If set, `locale` overrides the language set in an email template.
