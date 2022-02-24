@@ -7,7 +7,7 @@ properties:
     maxLength: 120
     example: My website
   notification_url:
-    $ref: '../schemas/Webhook.yaml'
+    $ref: '../schemas/NotificationUrl.yaml'
   price_from:
     $ref: '../schemas/PriceFrom.yaml'
   price_till:
