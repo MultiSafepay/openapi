@@ -41,7 +41,6 @@ get:
                  type: array
                  items: 
                    $ref: '../components/schemas/PaymentMethod.yaml'
-                $ref: '../components/schemas/PaymentMethod.yaml'
   summary: List payment methods
   tags:
     - Payments
