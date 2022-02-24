@@ -8,7 +8,7 @@ items:
       type: object
       properties:
         min:
-          description: The minimum amount (in EUR cents) allowed for the payment method.
+          description: The minimum amount (in eurocents) allowed for the payment method.
           type: integer
           example: 0
         max:
