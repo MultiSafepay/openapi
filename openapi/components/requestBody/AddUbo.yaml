@@ -73,13 +73,3 @@ properties:
     type: string
     maxLength: 20
     example: 1033 SC
-required:
-  - birthday
-  - country
-  - country_of_birth
-  - email
-  - job_title
-  - name
-  - percentage
-  - title
-  - type
