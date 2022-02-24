@@ -17,10 +17,10 @@ get:
           schema:
             type: object
             properties:
-              data:
-                $ref: '../components/schemas/IdentityDoc.yaml'
               success:
                 $ref: '../components/schemas/Success.yaml'
+              data:
+                $ref: '../components/schemas/IdentityDoc.yaml'
     '404':
       description: Document not found
       content:

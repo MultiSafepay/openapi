@@ -35,6 +35,8 @@ get:
           schema:
             type: object
             properties:
+              success:
+                $ref: '../components/schemas/Success.yaml'
               data:
                 description: The account balance information.
                 type: array
@@ -76,9 +78,6 @@ get:
                     description: The total number of pages of results. 
                     type: integer
                     example: 1
-              success:
-                description: "True"
-                type: boolean
     '404':
       description: Account not found
       content:

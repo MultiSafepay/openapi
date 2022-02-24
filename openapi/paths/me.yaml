@@ -13,6 +13,8 @@ get:
         application/json:
           schema:
             properties:
+              success:
+                $ref: '../components/schemas/Success.yaml'
               data:
                 properties:
                   account_id:
@@ -30,8 +32,6 @@ get:
                   - account_id
                   - site_id
                 type: object
-              success:
-                type: boolean
             type: object
       description: ''
   summary: Get account 

@@ -1,4 +1,4 @@
-description: The first line of the customer’s address.
+description: The first line of the address.
 type: string
 maxLength: 64
 example: Kraanspoor

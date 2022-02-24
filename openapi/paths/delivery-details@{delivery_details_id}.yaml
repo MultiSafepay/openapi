@@ -15,11 +15,10 @@ get:
         application/json:
           schema:
             properties:
+              success:
+                $ref: '../components/schemas/Success.yaml'
               data:
                 $ref: '../components/schemas/ShippingAddress.yaml'
-              success:
-                description: "True"
-                type: boolean
             type: object
     '404':
       description: Delivery details not found
@@ -54,10 +53,10 @@ patch:
         application/json:
           schema:
             properties:
+              success:
+                $ref: '../components/schemas/Success.yaml'
               data:
                 $ref: '../components/schemas/ShippingAddress.yaml'
-              success:
-                type: boolean
             type: object
     '422':
       description: Validation failure

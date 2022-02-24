@@ -10,11 +10,10 @@ get:
           schema:
             type: object
             properties:
+              success:
+                $ref: '../components/schemas/Success.yaml'
               data:
                 $ref: '../components/schemas/Account.yaml'
-              success:
-                description: "True"
-                type: boolean
     '403':
       description: No affiliates for this API key
       content:
