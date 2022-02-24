@@ -73,9 +73,11 @@ properties:
             properties:
               allow:
                 description: Specifies which gift cards the customer can pay with.
-                type: array
                 example: EDENCO
-                enum: [BABYCAD, BEAUTYWELL, BLOEMENCAD, BOEKENBON, DEGROTESPL, EDENCOM, EDENCO, EDENRES, EDENSPORTS, FASHIONCHQ, FASHIONGFT, FIETSENBON, GOOD4FUN, GEZONDHEID, NATNLBIOSC, NATNLETUIN, PARFUMCADE, SPORTENFIT, VRGIFTCARD, VVVGIFTCRD, WEBSHOPGFT, WIJNCADEAU, YOURGIFT]
+                items:
+                  type: string
+                  enum: [BABYCAD, BEAUTYWELL, BLOEMENCAD, BOEKENBON, DEGROTESPL, EDENCOM, EDENCO, EDENRES, EDENSPORTS, FASHIONCHQ, FASHIONGFT, FIETSENBON, GOOD4FUN, GEZONDHEID, NATNLBIOSC, NATNLETUIN, PARFUMCADE, SPORTENFIT, VRGIFTCARD, VVVGIFTCRD, WEBSHOPGFT, WIJNCADEAU, YOURGIFT]
+                type: array
       template_id: 
         description: |
           For styling [MultiSafepay payment pages](https://docs.multisafepay.com/payment-pages/styling/): Applies a template using its identifier.
@@ -89,7 +91,7 @@ properties:
           Overrides the `payment_options.template_id`.
         properties:
           version: 
-            description:
+            description: ''
             type: string
           settings:
             description: Sets whether to display or hide email elements, e.g. buttons, logos. 
@@ -351,7 +353,7 @@ properties:
       card_holder_name:
         description: |
           For credit and debit card orders: The cardholder's name.
-        type: name
+        type: string
         example: John Doe
       card_expiry_date:
         description: |
@@ -707,7 +709,7 @@ properties:
           - Not required: The [transaction status](https://docs.multisafepay.com/about-payments/multisafepay-statuses/) response is processed directly and no HTML form is returned.
         type: string
       type:
-        description: 
+        description: ''
         type: string
         example: form  
   custom_info:

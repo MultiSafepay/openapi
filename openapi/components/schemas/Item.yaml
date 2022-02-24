@@ -29,7 +29,6 @@ properties:
       If this item specifies the shipping costs, set to `msp-shipping`.
     type: string
     example: "12345678"
-    maxLength: 
   tax_table_selector:
     description: Your client-defined identifier for a tax table, specified as `checkout_options.tax_tables.alternate.name`.
     type: string

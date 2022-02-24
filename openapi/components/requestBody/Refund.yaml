@@ -20,7 +20,6 @@ properties:
   refund_order_id:
     description: Set a unique identifier for the refund.
     type: string
-    required: false
     maxLength: 50
     example: refund-order-id-1234
   var1:

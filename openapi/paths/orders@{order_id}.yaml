@@ -58,11 +58,9 @@ patch:
               title: Cancel an order
         examples:
           Ship an order: 
-            summary: Ship an order
             value:
               $ref: '../components/examples/requests/patch-orders/shipOrder.json'
           Cancel an order:
-            summary: Cancel an order
             value:
               $ref: '../components/examples/requests/patch-orders/cancelOrder.json'
     required: true

@@ -19,6 +19,7 @@ get:
                   - description: Details about the transaction.
               success:
                 $ref: '../components/schemas/Success.yaml'
+      description: ''
     '404':
       content:
         application/json:
@@ -28,6 +29,7 @@ get:
                 description: The transaction was not found.
                 type: string
                 example: Not found
+      description: ''
   summary: Get transaction
   tags:
     - Reconciliation

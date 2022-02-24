@@ -82,7 +82,7 @@ paths:
     $ref: 'paths/customers@{customer_id}@payment-methods.yaml'
   '/gateways':
     $ref: 'paths/gateways.yaml'
-  '/gateways/{id}':
+  '/gateways/{gateway_id}':
     $ref: 'paths/gateways@{gateway_id}.yaml'
   '/issuers/{gateway}':
     $ref: 'paths/issuers@{gateway}.yaml'

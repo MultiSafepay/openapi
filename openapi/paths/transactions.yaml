@@ -138,6 +138,7 @@ get:
                 $ref: '../components/schemas/Success.yaml'
       description: ''
     '403':
+      description: ''
       content:
         application/json:
           schema:

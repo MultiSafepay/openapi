@@ -8,7 +8,7 @@ properties:
     type: object
     example: []
   error_code:
-    description: 1032
+    description: "1032"
     type: integer
     example: 1032
   error_info:

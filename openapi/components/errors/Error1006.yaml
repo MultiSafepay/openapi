@@ -6,7 +6,7 @@ properties:
     description: "Empty"
     type: object
   error_code:
-    description: 1006
+    description: "1006"
     type: integer
     example: 1006
   error_info:
