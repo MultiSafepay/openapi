@@ -34,7 +34,7 @@ get:
                     type: string
                     maxLength: 120
                   notification_url:
-                    $ref: '../components/schemas/Webhook.yaml'
+                    $ref: '../components/schemas/NotificationUrl.yaml'
                   price_from:
                     $ref: '../components/schemas/PriceFrom.yaml'
                   price_till:
@@ -87,7 +87,7 @@ patch:
               type: string
               maxLength: 120
             notification_url:
-              $ref: '../components/schemas/Webhook.yaml'
+              $ref: '../components/schemas/NotificationUrl.yaml'
             price_from:
               $ref: '../components/schemas/PriceFrom.yaml'
             price_till:
