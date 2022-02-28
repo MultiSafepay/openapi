@@ -1,6 +1,6 @@
 post:
-  description: Add direct debit bank details to a customer's profile.
-  operationId: addDirectDebit
+  description: Add payment details for a payment method to a customer's profile.
+  operationId: addPaymentMethod
   parameters:
     - name: customer_id
       description: The unique identifier for the customer.
@@ -12,7 +12,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../components/requestBody/AddDirectDebit.yaml'
+          $ref: '../components/requestBody/AddPaymentMethod.yaml'
     description: ''
     required: true
   responses:
@@ -26,26 +26,26 @@ post:
               success:
                 $ref: '../components/schemas/Success.yaml'
               data:
-                description: Information about the customer and the direct debit.
+                description: Information about the payment method.
                 type: object
                 properties:
                   customer_id:
                     description: The unique identifier for the customer.
                     type: string
                     example: snyvhryxwuwbg
-                  direct_debit:
-                    $ref: '../components/schemas/DirectDebit.yaml'
+                  payment_method:
+                    $ref: '../components/schemas/PaymentMethod.yaml'
     '422':
       description: Validation errors
       content:
         application/json:
           schema:
             $ref: ../components/errors/422Error.yaml
-  summary: Add direct debit details
+  summary: Add payment method
   tags:
     - Customers
 get:
-  description: List a customer's saved direct debit details.
+  description: List a customer's saved payment details.
   operationId: listPaymentDetails
   parameters:
     - name: customer_id
@@ -65,7 +65,7 @@ get:
               success:
                 $ref: '../components/schemas/Success.yaml'
               data:
-                $ref: '../components/schemas/DirectDebit.yaml'
+                $ref: '../components/schemas/PaymentMethod.yaml'
     '422':
       description: Validation failure
       content:
@@ -78,6 +78,6 @@ get:
         application/json:
           schema:
             $ref: ../components/errors/403Error.yaml
-  summary: List direct debit details
+  summary: List payment methods
   tags:
     - Customers
