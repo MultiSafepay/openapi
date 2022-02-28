@@ -1,0 +1,14 @@
+description: | 
+      The array of items in the customer's shopping cart, including the tax class as defined in `checkout_options`.
+
+      If you have a self-made integration, include the complete specification of the `shopping_cart`.
+type: object
+properties:
+  items:
+    description: |
+      The items in the customer's shopping cart. 
+    
+      Specify the relevant tax ruling per item.
+    type: array
+    items:
+      $ref: 'Item.yaml'

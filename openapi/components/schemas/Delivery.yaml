@@ -1,0 +1,37 @@
+description: |
+      The customer's address details for shipping the order.
+type: object
+properties:
+  first_name:
+    description: The customer’s first name.
+    type: string
+    minLength: 2
+    example: "John"
+  last_name:
+    description: The customer's last name.
+    type: string
+    minLength: 2
+    example: "Doe"
+  address1:
+    description: The first line of the customer’s address.
+    type: string
+    example: "Kraanspoor"
+  house_number:
+    description: The customer’s house number.
+    type: string
+    example: "39C"
+  zip_code:
+    description: The customer’s ZIP/postal code.
+    type: string
+    example: "1033 SC"
+  city:
+    description: The customer’s city of residence.
+    type: string
+    example: "Amsterdam"
+  country:
+    description: | 
+      The customer’s country of residence.
+
+      **Format**: ISO – [3166-1 alpha-2](https://www.iso.org/iso-3166-country-codes.html)
+    type: string
+    example: "NL"

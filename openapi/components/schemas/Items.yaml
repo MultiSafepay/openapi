@@ -1,3 +1,3 @@
-description: Displays the items in the customer’s order in a single line on your checkout page, instead of including `shopping_cart`.
+description: An HTML string to display the purchased items on the MultiSafepay payment page, instead of including `shopping_cart`.
 type: string
 example: "<ol><li>Article 1: € 1,95</li><li>Article 2: € 2,95</li><li>Article 3: € 3,95</li></ol>"

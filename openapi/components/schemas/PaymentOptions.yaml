@@ -1,35 +1,25 @@
+description: | 
+  Contains: 
+  
+  - URLs to your success page and cancel page
+  - Your [webhook endpoint](https://docs.multisafepay.com/developer/api/notification-url/)
+  - Templates for styling [MultiSafepay payment pages](https://docs.multisafepay.com/payment-pages/)
+  - Settings for displaying available [gift cards](https://docs.multisafepay.com/payment-methods/gift-cards/)
+type: object
 properties:
   notification_url: 
-    description: |
-      The webhook endpoint for MultiSafepay to send you status updates and other notifications.
-
-      See [Notification URL](https://docs.multisafepay.com/developer/api/notification-url/).
-    type: string
-    example: https://www.example.com/payment-updates/
+    $ref: 'NotificationUrl.yaml'
   notification_method:
-    description: |
-      Sets the notification method.
-      
-      We recommend setting this to `POST` to reduce network load and increase security.
-
-      See [Notification URL](https://docs.multisafepay.com/developer/api/notification-url/).
-    type: string
-    enum: [POST, GET]
-    default: GET
-    example: POST
+    $ref: 'NotificationMethod.yaml'
   redirect_url:
-    description: |
-      The page customers are redirected to:
-          
-      - After **successful** payment, i.e. your success page, or thank you page
-      - If the transaction status is [Uncleared](https://docs.multisafepay.com/credit-cards-user-guide/uncleared-transactions/) 
-    type: string
-    example: https://www.example.com/test-order-0001/successful/
+    $ref: 'RedirectUrl.yaml'
   cancel_url:
-    description: The page customers are redirected to after **unsuccessful** payments.
-    type: string
-    example: https://www.example.com/test-order-0001/unsuccessful/
+    $ref: 'CancelUrl.yaml'
   close_window:
-    description: To display the MultiSafepay payment page in a new window that automatically closes after the customer completes payment, set to `true`.
-    type: boolean
-    default: false
+    $ref: 'CloseWindow.yaml'
+  settings:
+    $ref: 'Settings.yaml'
+  template_id: 
+    $ref: 'TemplateId.yaml'
+  template: 
+    $ref: 'Template.yaml'

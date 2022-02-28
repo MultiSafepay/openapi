@@ -1,0 +1,6 @@
+description: |
+      The webhook endpoint for MultiSafepay to send you status updates and other notifications.
+
+      See [Notification URL](https://docs.multisafepay.com/developer/api/notification-url/).
+type: string
+example: https://www.example.com/payment-updates/

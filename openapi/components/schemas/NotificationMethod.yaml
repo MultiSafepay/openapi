@@ -1,0 +1,10 @@
+description: |
+  Sets the notification method.
+  
+  We recommend setting this to `POST` to reduce network load and increase security.
+
+  See [Notification URL](https://docs.multisafepay.com/developer/api/notification-url/).
+type: string
+enum: [POST, GET]
+default: GET
+example: POST

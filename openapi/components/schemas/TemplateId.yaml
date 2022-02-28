@@ -1,0 +1,5 @@
+description: |
+      For styling [MultiSafepay payment pages](https://docs.multisafepay.com/payment-pages/styling/): Applies a template using its identifier.
+
+      If `payment_options.template` is also set, `payment_options.template` is used.
+type: string

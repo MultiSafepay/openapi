@@ -1,0 +1,25 @@
+description: | 
+  Information specific to the payment method (`gateway`). 
+  
+  **Required for:**
+  
+  - AfterPay, E-Invoicing, in3, Klarna, and Pay After Delivery orders for credit checks in the Netherlands and Belgium
+type: object
+properties:
+  birthday:
+    description: |
+      The customer’s date of birth.
+    type: string
+    format: yyyy-mm-dd
+  bank_account:
+    description: |
+      The customer’s international bank account number (IBAN).
+    type: string
+  phone:
+    description: |
+      The customer's phone number.
+    type: string
+  email:
+    description: |
+      The customer's email address to send payment instructions to.
+    type: string
