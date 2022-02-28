@@ -12,7 +12,9 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../components/requestBody/AddUbo.yaml'
+          allOf:
+            - $ref: '../components/schemas/Ubo.yaml'
+            - required: [birthday, country, country_of_birth, email, job_title, name, percentage, title, type]
     description: ''
     required: true
   responses:

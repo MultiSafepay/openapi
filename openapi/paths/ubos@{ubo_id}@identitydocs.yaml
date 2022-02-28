@@ -12,7 +12,9 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../components/requestBody/AddIdentityDoc.yaml'
+          allOf:
+            - $ref: '../components/schemas/IdentityDoc.yaml'
+            - required: [filename, mime_type, encoded_content, document_type]
     description: ''
     required: true
   responses:

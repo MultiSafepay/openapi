@@ -13,77 +13,7 @@ get:
       content:
         application/json:
           schema:
-            properties:
-              data:
-                properties:
-                  address:
-                    maxLength: 100
-                    type: string
-                  address_apartment:
-                    maxLength: 15
-                    type: string
-                  birthday:
-                    format: yyyy-mm-dd
-                    type: string
-                  city:
-                    maxLength: 100
-                    type: string
-                  country:
-                    format: country-alpha2
-                    type: string
-                  country_of_birth:
-                    format: country-alpha2
-                    type: string
-                  email:
-                    format: email
-                    maxLength: 100
-                    type: string
-                  job_title:
-                    maxLength: 100
-                    type: string
-                  mobile_phone:
-                    maxLength: 25
-                    type: string
-                  name:
-                    maxLength: 200
-                    type: string
-                  office_phone:
-                    maxLength: 25
-                    type: string
-                  percentage:
-                    type: integer
-                  state:
-                    maxLength: 100
-                    type: string
-                  title:
-                    enum:
-                      - mr
-                      - mrs
-                    type: string
-                  type:
-                    enum:
-                      - control_rights
-                      - other
-                      - shareholder
-                      - voting_rights
-                    type: string
-                  zipcode:
-                    maxLength: 20
-                    type: string
-                required:
-                  - type
-                  - percentage
-                  - title
-                  - name
-                  - birthday
-                  - country_of_birth
-                  - job_title
-                  - email
-                  - country
-                type: object
-              success:
-                type: boolean
-            type: object
+            $ref: '../components/schemas/Ubo.yaml'
       description: ''
     '404':
       content:
@@ -91,7 +21,7 @@ get:
           schema:
             $ref: ../components/schemas/GenericErrorResponse.yaml
       description: UBO not found
-  summary: Get UBO details
+  summary: Get UBO
   tags:
     - Onboard affiliates
 patch:
@@ -108,63 +38,7 @@ patch:
     content:
       application/json:
         schema:
-          properties:
-            address:
-              maxLength: 100
-              type: string
-            address_apartment:
-              maxLength: 15
-              type: string
-            birthday:
-              format: yyyy-mm-dd
-              type: string
-            city:
-              maxLength: 100
-              type: string
-            country:
-              format: country-alpha2
-              type: string
-            country_of_birth:
-              format: country-alpha2
-              type: string
-            email:
-              format: email
-              maxLength: 100
-              type: string
-            job_title:
-              maxLength: 100
-              type: string
-            mobile_phone:
-              maxLength: 25
-              type: string
-            name:
-              maxLength: 200
-              type: string
-            office_phone:
-              maxLength: 25
-              type: string
-            percentage:
-              type: integer
-            state:
-              maxLength: 100
-              type: string
-            title:
-              enum:
-                - mr
-                - mrs
-              type: string
-            type:
-              enum:
-                - control_rights
-                - other
-                - shareholder
-                - voting_rights
-              type: string
-            zipcode:
-              maxLength: 20
-              type: string
-          required: []
-          type: object
+          $ref: '../components/schemas/Ubo.yaml'
     description: ''
     required: true
   responses:
@@ -174,71 +48,7 @@ patch:
           schema:
             properties:
               data:
-                properties:
-                  address:
-                    maxLength: 100
-                    type: string
-                  address_apartment:
-                    maxLength: 15
-                    type: string
-                  birthday:
-                    format: yyyy-mm-dd
-                    type: string
-                  city:
-                    maxLength: 100
-                    type: string
-                  country:
-                    format: country-alpha2
-                    type: string
-                  country_of_birth:
-                    format: country-alpha2
-                    type: string
-                  email:
-                    format: email
-                    maxLength: 100
-                    type: string
-                  job_title:
-                    maxLength: 100
-                    type: string
-                  mobile_phone:
-                    maxLength: 25
-                    type: string
-                  name:
-                    maxLength: 200
-                    type: string
-                  office_phone:
-                    maxLength: 25
-                    type: string
-                  percentage:
-                    type: integer
-                  state:
-                    maxLength: 100
-                    type: string
-                  title:
-                    enum:
-                      - mr
-                      - mrs
-                    type: string
-                  type:
-                    enum:
-                      - control_rights
-                      - other
-                      - shareholder
-                      - voting_rights
-                    type: string
-                  zipcode:
-                    maxLength: 20
-                    type: string
-                required:
-                  - type
-                  - percentage
-                  - title
-                  - name
-                  - birthday
-                  - country_of_birth
-                  - job_title
-                  - email
-                  - country
+                $ref: '../components/schemas/Ubo.yaml'
                 type: object
               success:
                 type: boolean
@@ -256,6 +66,6 @@ patch:
           schema:
             $ref: ../components/errors/422Error.yaml
       description: Validation errors
-  summary: Update UBO details
+  summary: Update UBO
   tags:
     - Onboard affiliates
