@@ -1,23 +1,61 @@
 get:
   description: Get information about a Pay After Delivery order.
-  operationId: 'PAD::OrderDetails'
+  operationId: PAD::OrderDetails
   parameters:
-    - description: ''
+    - name: order_id
+      description: The unique identifier of the order. 
       in: path
-      name: order_id
       required: true
       schema:
         type: string
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           schema:
+            type: object
             properties:
               success:
                 $ref: '../components/schemas/Success.yaml'
-            type: object
-      description: ''
-  summary: Get PAD order details
+              data:
+                description: Information about the Pay After Delivery order.
+                type: object
+                properties:
+                  amount:
+                    $ref: '../components/schemas/Amount.yaml'
+                  amount_outstanding:
+                    description: The amount the customer has yet to pay.
+                    type: integer
+                    example: 10000
+                  amount_paid:
+                    description: The amount the customer has already paid.
+                    type: integer
+                    exampe: 5000
+                  created:
+                    $ref: '../components/schemas/Created.yaml'
+                  history:
+                    description: The history of this order with the customer.
+                    type: object
+                    example: ''
+                  id:
+                    $ref: '../components/schemas/OrderId.yaml'
+                  status:
+                    $ref: '../components/schemas/Created.yaml'
+                  transaction_id:
+                    $ref: '../components/schemas/TransactionId.yaml'
+    '404':
+      description: Order not found
+      content:
+        application/json:
+          schema:
+            $ref: '../components/errors/404Error.yaml'
+    '403':
+      description: No PAD orders for this API key
+      content:
+        application/json:
+          schema:
+            $ref: '../components/errors/403Error.yaml'
+  summary: Get PAD order
   tags:
     - Pay After Delivery (BETA)
