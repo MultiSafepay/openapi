@@ -1,11 +1,4 @@
-additionalProperties: false
-oneOf:
-  - properties:
-      type:
-        enum:
-          - direct_debit
-    required:
-      - direct_debit
+type: object
 properties:
   direct_debit:
     additionalProperties: false
@@ -30,6 +23,6 @@ properties:
       - direct_debit
     type: string
 required:
+  - direct_debit
   - type
   - status
-type: object

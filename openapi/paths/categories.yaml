@@ -10,8 +10,7 @@ get:
           schema:
             properties:
               success:
-                description: Indicates whether the request was successful.
-                type: boolean
+                $ref: '../components/schemas/Success.yaml'
               data:
                 description: Array of website categories.
                 type: array

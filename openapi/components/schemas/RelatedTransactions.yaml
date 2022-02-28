@@ -1,3 +1,4 @@
+description: Information about related transactions.
 type: object
 properties:
   amount:

@@ -1,6 +1,6 @@
 properties:
   notification_url: 
-    $ref: 'Webhook.yaml'
+    $ref: 'NotificationUrl.yaml'
   notification_method:
     description: |
       Sets the notification method.

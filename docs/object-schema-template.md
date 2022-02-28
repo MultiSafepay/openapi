@@ -3,11 +3,11 @@
 #  1. Make a copy of it.
 #  2. Delete these comments.
 #  3. Rename the file extension to *.yaml.
-description: "Add a description."
+description: Add a description.
 type: object
 properties:
   example_parameter:
-    description: "Add a description."
+    description: Add a description.
     type: Specify the type
     example: Add an example
 required:

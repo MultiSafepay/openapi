@@ -1,6 +1,6 @@
 post:
-  description: Add direct debit bank details to a customer's profile.
-  operationId: addDirectDebit
+  description: Add payment details for a payment method to a customer's profile.
+  operationId: addCustomerPaymentDetails
   parameters:
     - name: customer_id
       description: The unique identifier for the customer.
@@ -12,36 +12,7 @@ post:
     content:
       application/json:
         schema:
-          properties:
-            direct_debit:
-              description: The direct debit payment details.
-              properties:
-                bic:
-                  description: The bank identification code (BIC).
-                  type: string
-                holder_name:
-                  description: The name of the account holder.
-                  type: string
-                iban:
-                  description: The international bank account number (IBAN).
-                  type: string
-              required:
-                - holder_name
-                - iban
-                - bic
-              type: object
-            status:
-              description: Sets whether the payment details are active. If inactive, leave empty.
-              type: string
-              enum: [active]
-            type:
-              description: The payment method.
-              type: string
-              enum: [direct_debit]
-          required:
-            - type
-            - status
-          type: object
+          $ref: '../components/schemas/CustomerPaymentDetails.yaml'
     description: ''
     required: true
   responses:
@@ -50,58 +21,24 @@ post:
       content:
         application/json:
           schema:
-            properties:
-              data:
-                type: object
-                properties:
-                  customer_id:
-                    description: The unique identifier for the customer.
-                    type: string
-                    example: snyvhryxwuwbg
-                  direct_debit:
-                    description: The direct debit details.
-                    properties:
-                      bic:
-                        description: The bank identification code (BIC).
-                        type: string
-                        example: 12345678
-                      holder_name:
-                        description: The name of the account holder.
-                        type: string
-                        example: Simon Smit
-                      iban:
-                        description: The international bank account number (IBAN).
-                        type: string
-                        example: GB94BARC10201530093459
-                    type: object
-                  id:
-                    description: The unique identifier for these direct debit details.
-                    type: string
-                    example: CTa-f2BkDTE
-                  status:
-                    description: Whether the payment details are active. 
-                    type: string
-                    enum: [active]
-                  type:
-                    description: The payment method.
-                    type: string
-                    enum: [direct_debit]
-              success:
-                description: "True"
-                type: boolean
             type: object
+            properties:
+              success:
+                $ref: '../components/schemas/Success.yaml'
+              data:
+                $ref: '../components/schemas/CustomerPaymentDetails.yaml'
     '422':
       description: Validation errors
       content:
         application/json:
           schema:
             $ref: ../components/errors/422Error.yaml
-  summary: Add direct debit details
+  summary: Add customer payment details
   tags:
     - Customers
 get:
   description: List a customer's saved payment details.
-  operationId: listPaymentDetails
+  operationId: listCustomerPaymentDetails
   parameters:
     - name: customer_id
       description: The unique identifier for the customer.
@@ -117,38 +54,10 @@ get:
           schema:
             type: object
             properties:
-              data:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    direct_debit:
-                      description: The direct debit details.
-                      properties:
-                        bic:
-                          description: The bank identification code (BIC).
-                          type: string
-                          example: 12345678
-                        holder_name:
-                          description: The name of the account holder.
-                          type: string
-                          example: Simon Smit
-                        iban:
-                          description: The international bank account number (IBAN).
-                          type: string
-                          example: GB94BARC10201530093459
-                      type: object
-                    status:
-                      description: Whether the payment details are active.
-                      type: string
-                      enum: [active]
-                    type:
-                      description: The payment method.
-                      type: string
-                      enum: [direct_debit]
               success:
-                description: "True"
-                type: boolean
+                $ref: '../components/schemas/Success.yaml'
+              data:
+                $ref: '../components/schemas/CustomerPaymentDetails.yaml'
     '422':
       description: Validation failure
       content:
@@ -161,6 +70,6 @@ get:
         application/json:
           schema:
             $ref: ../components/errors/403Error.yaml
-  summary: List payment details
+  summary: List customer payment details
   tags:
     - Customers

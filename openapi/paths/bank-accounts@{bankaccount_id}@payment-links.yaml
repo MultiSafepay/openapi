@@ -20,6 +20,14 @@ post:
               success:
                 $ref: '../components/schemas/Success.yaml'
               data:
+                properties:
+                  paymentlink:
+                    type: object
+                    properties:
+                      bankaccount_id:
+                        type: string
+                      payment_link: 
+                        type: string
                 description: Information about the payment link.
                 type: array
                 items: 

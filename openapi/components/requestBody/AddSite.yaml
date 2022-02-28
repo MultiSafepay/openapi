@@ -7,14 +7,17 @@ properties:
     maxLength: 120
     example: My website
   notification_url:
-    $ref: 'NotificationUrl.yaml'
+    $ref: '../schemas/NotificationUrl.yaml'
   price_from:
-    $ref: 'PriceFrom.yaml'
+    $ref: '../schemas/PriceFrom.yaml'
   price_till:
-    $ref: 'PriceTill.yaml'
+    $ref: '../schemas/PriceTill.yaml'
   support_email:
-    $ref: 'SupportEmail.yaml'
+    $ref: '../schemas/SupportEmail.yaml'
   support_phone:
-    $ref: 'SupportPhone.yaml'
+    $ref: '../schemas/SupportPhone.yaml'
   url:
-    $ref: 'URL.yaml'
+    $ref: '../schemas/URL.yaml'
+required:
+  - name
+  - url

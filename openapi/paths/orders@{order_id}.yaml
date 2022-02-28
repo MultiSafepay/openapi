@@ -1,103 +1,49 @@
 get:
   description: Get information about an order.
-  operationId: getOrderDetails
+  operationId: getOrder
   parameters:
-    - description: | 
+    - name: order_id
+      description: | 
         The unique identifier of the order. 
       
         Max length: 50 characters.
       in: path
-      name: order_id
       required: true
       schema:
         type: string
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           example:
-            $ref: '../components/examples/responses/getOrderDetails.json'
+            $ref: '../components/examples/responses/getOrder.json'
           schema:
+            type: object
             properties:
               success:
-                type: boolean
+                $ref: '../components/schemas/Success.yaml'
               data: 
-                type: object
-                description: The structure of the response may differ depending on the order type and payment method.
-                properties:
-                  transaction_id:
-                    $ref: '../components/schemas/TransactionId.yaml'
-                  order_id:
-                    $ref: '../components/schemas/OrderId.yaml'
-                  created:
-                    $ref: '../components/schemas/Created.yaml'
-                  currency:
-                    $ref: '../components/schemas/Currency.yaml'
-                  amount:
-                    $ref: '../components/schemas/Amount.yaml'
-                  description:
-                    $ref: '../components/schemas/Description.yaml'
-                  items:
-                    $ref: '../components/schemas/Items.yaml'
-                  amount_refunded:
-                    $ref: '../components/schemas/AmountRefunded.yaml'
-                  status:
-                    $ref: '../components/schemas/Status.yaml'
-                  financial_status:
-                    $ref: '../components/schemas/FinancialStatus.yaml'
-                  reason:
-                    description: The reason for any updates to the order.
-                    type: string
-                  reason_code:
-                    description: The code for the reason for any updates to the order.
-                    type: string
-                  fastcheckout:
-                    $ref: '../components/schemas/FastCheckout.yaml'
-                  modified:
-                    $ref: '../components/schemas/Modified.yaml'
-                  customer:
-                    $ref: '../components/schemas/CustomerObject.yaml'
-                  payment_details:
-                    $ref: '../components/schemas/PaymentDetails.yaml'
-                  costs:
-                    type: array
-                    items:
-                      $ref: '../components/schemas/Costs.yaml'
-                  related_transactions:
-                    type: array
-                    items:
-                      $ref: '../components/schemas/RelatedTransactions.yaml'
-                  payment_methods:
-                    type: array
-                    items:
-                      $ref: '../components/schemas/PaymentMethods.yaml'
-                  var1:
-                    $ref: '../components/schemas/var12.yaml'
-                  var2:
-                    $ref: '../components/schemas/var12.yaml'
-                  var3:
-                    $ref: '../components/schemas/var3.yaml'
-            type: object
-      description: ''
+                $ref: '../components/schemas/OrderDetails.yaml'
     '404':
+      description: Error
       content:
         application/json:
           schema:
             $ref: '../components/errors/Error1006.yaml'
-      description: Error
   summary: Get order
   tags:
     - Payments
 patch:
-  description: Update details about an order. Use this request to change the status of pay later orders to shipped, or to cancel orders.
+  description: Update information about an order. Use this request to change the status of pay later orders to shipped, or to cancel orders.
   operationId: updateOrder
   parameters:
-    - description: | 
+    - name: order_id
+      description: | 
         The unique identifier of the order. 
       
         Max length: 50 characters.
       in: path
-      name: order_id
       required: true
       schema:
         type: string
@@ -112,35 +58,32 @@ patch:
               title: Cancel an order
         examples:
           Ship an order: 
-            summary: Ship an order
             value:
               $ref: '../components/examples/requests/patch-orders/shipOrder.json'
           Cancel an order:
-            summary: Cancel an order
             value:
               $ref: '../components/examples/requests/patch-orders/cancelOrder.json'
     required: true
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           schema:
+            type: object
             properties:
               success:
-                description: |
-                  `true`
-                type: boolean
+                $ref: '../components/schemas/Success.yaml'
               data: 
-                description: No data returned.
-                type: string                
-            type: object
-      description: ''
+                description: Empty
+                type: object
+                example: ''              
     '404':
+      description: Error
       content:
         application/json:
           schema:
-            $ref: '../components/schemas/GenericErrorResponse.yaml'
-      description: Error
+            $ref: '../components/errors/404Error.yaml'
   summary: Update order
   tags:
     - Payments

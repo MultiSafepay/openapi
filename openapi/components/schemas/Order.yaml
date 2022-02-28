@@ -35,7 +35,7 @@ properties:
     type: object
     properties:
       notification_url: 
-        $ref: 'Webhook.yaml'
+        $ref: 'NotificationUrl.yaml'
       notification_method:
         description: |
           Sets the notification method.
@@ -73,9 +73,11 @@ properties:
             properties:
               allow:
                 description: Specifies which gift cards the customer can pay with.
-                type: array
                 example: EDENCO
-                enum: [BABYCAD, BEAUTYWELL, BLOEMENCAD, BOEKENBON, DEGROTESPL, EDENCOM, EDENCO, EDENRES, EDENSPORTS, FASHIONCHQ, FASHIONGFT, FIETSENBON, GOOD4FUN, GEZONDHEID, NATNLBIOSC, NATNLETUIN, PARFUMCADE, SPORTENFIT, VRGIFTCARD, VVVGIFTCRD, WEBSHOPGFT, WIJNCADEAU, YOURGIFT]
+                items:
+                  type: string
+                  enum: [BABYCAD, BEAUTYWELL, BLOEMENCAD, BOEKENBON, DEGROTESPL, EDENCOM, EDENCO, EDENRES, EDENSPORTS, FASHIONCHQ, FASHIONGFT, FIETSENBON, GOOD4FUN, GEZONDHEID, NATNLBIOSC, NATNLETUIN, PARFUMCADE, SPORTENFIT, VRGIFTCARD, VVVGIFTCRD, WEBSHOPGFT, WIJNCADEAU, YOURGIFT]
+                type: array
       template_id: 
         description: |
           For styling [MultiSafepay payment pages](https://docs.multisafepay.com/payment-pages/styling/): Applies a template using its identifier.
@@ -89,7 +91,7 @@ properties:
           Overrides the `payment_options.template_id`.
         properties:
           version: 
-            description:
+            description: ''
             type: string
           settings:
             description: Sets whether to display or hide email elements, e.g. buttons, logos. 
@@ -351,7 +353,7 @@ properties:
       card_holder_name:
         description: |
           For credit and debit card orders: The cardholder's name.
-        type: name
+        type: string
         example: John Doe
       card_expiry_date:
         description: |
@@ -492,38 +494,19 @@ properties:
     type: object
     properties:
       first_name:
-        description: The customer’s first name.
-        type: string
-        minLength: 2
-        example: "John"
+        $ref: 'FirstName.yaml'
       last_name:
-        description: The customer's last name.
-        type: string
-        minLength: 2
-        example: "Doe"
+        $ref: 'LastName.yaml'
       address1:
-        description: The first line of the customer’s address.
-        type: string
-        example: "Kraanspoor"
+        $ref: 'Address1.yaml'
       house_number:
-        description: The customer’s house number.
-        type: string
-        example: "39C"
+        $ref: 'HouseNumber.yaml'
       zip_code:
-        description: The customer’s ZIP/postal code.
-        type: string
-        example: "1033 SC"
+        $ref: 'ZIP.yaml'
       city:
-        description: The customer’s city of residence.
-        type: string
-        example: "Amsterdam"
+        $ref: 'City.yaml'
       country:
-        description: | 
-          The customer’s country of residence.
-
-          **Format**: ISO – [3166-1 alpha-2](https://www.iso.org/iso-3166-country-codes.html)
-        type: string
-        example: "NL"
+        $ref: 'Country.yaml'
     required:
     - address1
     - city
@@ -726,7 +709,7 @@ properties:
           - Not required: The [transaction status](https://docs.multisafepay.com/about-payments/multisafepay-statuses/) response is processed directly and no HTML form is returned.
         type: string
       type:
-        description: 
+        description: ''
         type: string
         example: form  
   custom_info:

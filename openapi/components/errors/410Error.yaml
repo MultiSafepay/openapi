@@ -9,7 +9,7 @@ properties:
     description: "Empty"
     type: object
   error_code:
-    description: 1000
+    description: "1000"
     type: integer
     example: 1000
   error_info:

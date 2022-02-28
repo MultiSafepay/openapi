@@ -1,4 +1,4 @@
-description: The customer's title, e.g. Mr, Mrs, Miss.
+description: The personal title, e.g. Mr, Mrs, Miss.
 type: string
 maxLength: 10
 example: Mr

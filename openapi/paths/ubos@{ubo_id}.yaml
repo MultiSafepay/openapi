@@ -1,36 +1,41 @@
 get:
   description: Get information about a ultimate beneficiary owner (UBO).
-  operationId: GetUbo
+  operationId: getUbo
   parameters:
-    - description: ''
+    - name: ubo_id
+      description: The unique identifier of the UBO.
       in: path
-      name: ubo_id
       required: true
       schema:
         type: string
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           schema:
-            $ref: '../components/schemas/Ubo.yaml'
-      description: ''
+            type: object
+            properties:
+              success:
+                $ref: '../components/schemas/Success.yaml'
+              data:
+                $ref: '../components/schemas/Ubo.yaml'
     '404':
+      description: UBO not found
       content:
         application/json:
           schema:
             $ref: ../components/schemas/GenericErrorResponse.yaml
-      description: UBO not found
   summary: Get UBO
   tags:
     - Onboard affiliates
 patch:
   description: Update information about a ultimate beneficiary owner (UBO).
-  operationId: UpdateUbo
+  operationId: updateUbo
   parameters:
-    - description: ''
+    - name: ubo_id
+      description: The unique identifier of the UBO.
       in: path
-      name: ubo_id
       required: true
       schema:
         type: string
@@ -43,29 +48,28 @@ patch:
     required: true
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           schema:
+            type: object
             properties:
+              success:
+                $ref: '../components/schemas/Success.yaml'
               data:
                 $ref: '../components/schemas/Ubo.yaml'
-                type: object
-              success:
-                type: boolean
-            type: object
-      description: ''
     '404':
+      description: UBO not found
       content:
         application/json:
           schema:
             $ref: ../components/schemas/GenericErrorResponse.yaml
-      description: UBO not found
     '422':
+      description: Validation errors
       content:
         application/json:
           schema:
             $ref: ../components/errors/422Error.yaml
-      description: Validation errors
   summary: Update UBO
   tags:
     - Onboard affiliates
