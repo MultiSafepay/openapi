@@ -1,9 +1,9 @@
 get:
-  description: Get a customer's direct debit details.
-  operationId: getCustomerPaymentMethod
+  description: Get information about a payment method.
+  operationId: getPaymentMethod
   parameters:
     - name: payment_method_id
-      description: The unique identifier of the direct debit details.
+      description: The unique identifier of the payment method.
       in: path
       required: true
       schema:
@@ -19,13 +19,13 @@ get:
               success:
                 $ref: '../components/schemas/Success.yaml'
               data:
-                $ref: '../components/schemas/DirectDebit.yaml'
+                $ref: '../components/schemas/PaymentMethod.yaml'
     '404':
       description: Payment method not found
       content:
         application/json:
           schema:
             $ref: ../components/schemas/GenericErrorResponse.yaml
-  summary: Get direct debit details
+  summary: Get payment method
   tags:
-    - Customers
+    - Payments
