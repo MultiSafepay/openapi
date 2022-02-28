@@ -44,8 +44,7 @@ patch:
       application/json:
         schema:
           allOf:
-            - $ref: '../components/requestBody/AddUbo.yaml'
-            - required: [birthday, country, country_of_birth, email, job_title, name, percentage, title, type]
+            - $ref: '../components/schemas/Ubo.yaml'
     description: ''
     required: true
   responses:
