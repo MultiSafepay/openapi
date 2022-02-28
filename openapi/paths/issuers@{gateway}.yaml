@@ -1,27 +1,26 @@
 get:
-  description: | 
-    List the available issuers for a payment method – supports iDEAL only.
-
-    **Note:** The list of issuers may differ when requested via the test environment.
-  operationId: ListGatewayIssuers
+  description: List the available iDEAL issuers (may differ in the test environment).
+  operationId: listGatewayIssuers
   parameters:
-    - description: "The unique identifier of the payment method you want to retrieve a list of issuers for."
+    - name: gateway
+      description: The unique identifier for iDEAL.
       in: path
-      name: gateway
       required: true
       schema:
         type: string
         enum: ["IDEAL"]
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           example:
-            $ref: '../components/examples/responses/gatewayIssuers.json'
+            $ref: '../components/examples/responses/idealIssuers.json'
           schema:
+            type: object
             properties:
               success:
-                type: boolean
+                $ref: '../components/schemas/Success.yaml'
               data:
                 type: array
                 description: |
@@ -43,26 +42,18 @@ get:
                   type: object
                   properties: 
                     code:
+                      description: The unique identifier of the issuer (see table above).
                       type: string
-                      description: | 
-                        The unique identifier of the issuer.  
-                        
-                        For the values, see the table above.
                     description: 
+                      description: The name of the issuer (see table above).
                       type: string
-                      description: |
-                        The name of the issuer.  
-
-                        For the values, see the table above. 
-            type: object
-      description: ''
     '404':
+      description: Error
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/GenericErrorResponse.yaml
-      description: Error 
-  summary: List gateway issuers
+            $ref: ../components/errors/404Error.yaml 
+  summary: List iDEAL issuers
   tags:
     - Payments
 

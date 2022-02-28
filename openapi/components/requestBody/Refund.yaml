@@ -5,21 +5,21 @@ properties:
     format: ISO-4217 currency code
     example: EUR
   amount:
-    type: integer
-    example: 500
-    minimum: 0
     description: |
-      The amount to be refunded in the currency's smallest unit.
+      The refund amount in the currency's smallest unit.
 
       - Decimal currencies: Value for 10 EUR = 1000 (1000 cents) 
       - Zero-decimal currencies: Value for 10 YEN = 10
 
       **Note:** A `0` amount triggers a full refund. Use if you don't know the current balance of the transaction.
+    type: integer
+    minimum: 0
+    example: 500
   description:
     $ref: '../schemas/Description.yaml'
   refund_order_id:
+    description: Set a unique identifier for the refund.
     type: string
-    description: "Set a unique identifier for the refund."
     required: false
     maxLength: 50
     example: refund-order-id-1234

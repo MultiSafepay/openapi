@@ -1,56 +1,46 @@
+description: Information about the shipping address.
+type: object
 properties:
   address1:
-    maxLength: 64
-    type: string
+    $ref: 'Address1.yaml'
   address2:
-    maxLength: 64
-    type: string
+    $ref: 'Address2.yaml'
   address3:
-    maxLength: 64
-    type: string
+    $ref: 'Address3.yaml'
   city:
-    maxLength: 50
-    type: string
+    $ref: 'City.yaml'
   company_name:
-    maxLength: 50
-    type: string
+    $ref: 'CompanyName.yaml'
   company_registration_number:
     maxLength: 25
     type: string
   country:
-    format: country-alpha2
-    type: string
+    $ref: 'Country.yaml'
   email:
+    description: The email address.
     format: email
     type: string
+    example: customer@example.com
   favorite:
     type: boolean
   first_name:
-    maxLength: 25
-    type: string
+    $ref: 'FirstName.yaml'
   house_number:
-    maxLength: 10
-    type: string
+    $ref: 'HouseNumber.yaml'
   last_name:
-    maxLength: 25
-    type: string
+    $ref: 'LastName.yaml'
   mobile_phone:
-    maxLength: 25
-    type: string
+    $ref: 'MobilePhone.yaml'
   phone:
-    maxLength: 25
-    type: string
+    $ref: 'Phone.yaml'
   status:
-    enum:
-      - active
-      - disabled
+    description: Whether this address is still used.
     type: string
+    enum: [active, disabled]
   title:
-    maxLength: 15
-    type: string
+    $ref: 'Title.yaml'
   zip_code:
-    maxLength: 10
-    type: string
+    $ref: 'ZIP.yaml'
 required:
   - address1
   - city
@@ -60,4 +50,3 @@ required:
   - last_name
   - status
   - zip_code
-type: object

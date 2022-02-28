@@ -16,10 +16,10 @@ get:
           schema:
             type: object
             properties:
+              success:
+                $ref: '../components/schemas/Success.yaml'
               data:
                 $ref: '../components/schemas/CustomerProfile.yaml'
-              success:
-                type: boolean
     '422':
       description: Invalid customer_id
       content:
@@ -59,10 +59,10 @@ patch:
         application/json:
           schema:
             properties:
+              success:
+                $ref: '../components/schemas/Success.yaml'
               data:
                 $ref: '../components/schemas/CustomerProfile.yaml'
-              success:
-                type: boolean
             type: object
     '422':
       description: Validation errors

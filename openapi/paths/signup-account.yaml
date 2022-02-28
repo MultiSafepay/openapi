@@ -1,180 +1,97 @@
 post:
   description: Create a new affiliated account.
-  operationId: 'Partner::SignupAccount'
+  operationId: Partner::SignupAccount
   parameters: []
   requestBody:
     content:
       application/json:
         schema:
+          type: object
           properties:
             account:
-              properties:
-                address1:
-                  example: Jodenbreestraat 4
-                  maxLength: 64
-                  type: string
-                address2:
-                  maxLength: 64
-                  type: string
-                address3:
-                  maxLength: 64
-                  type: string
-                apartment:
-                  example: '2'
-                  maxLength: 9
-                  type: string
-                city:
-                  example: Amsterdam
-                  maxLength: 50
-                  type: string
-                coc_number:
-                  maxLength: 50
-                  type: string
-                company_name:
-                  maxLength: 200
-                  type: string
-                country:
-                  example: NL
-                  format: country-alpha2
-                  type: string
-                email:
-                  example: merchant@example.com
-                  format: email
-                  maxLength: 100
-                  type: string
-                fax:
-                  maxLength: 15
-                  type: string
-                phone:
-                  maxLength: 15
-                  type: string
-                vat_number:
-                  maxLength: 50
-                  type: string
-                zipcode:
-                  example: 1011 NK
-                  maxLength: 30
-                  type: string
-              required:
-                - company_name
-                - email
-                - country
-              type: object
+              $ref: '../components/requestBody/UpdateAccount.yaml'
             currencies:
-              example:
-                - EUR
+              description: The currencies supported in the account.
+              type: array
               items:
                 type: string
-              type: array
+                format: ISO 4217
+              example: EUR
             user:
+              description: The affiliate's user information for their MultiSafepay account. 
+              type: object
               properties:
                 email:
+                  description: The affiliate's email address used to sign in to the MultiSafepay account.
+                  type: string
                   format: email
-                  type: string
+                  example: user@example.com
                 name:
+                  description: The affiliate's username. 
                   type: string
+                  example: Simon Smit
                 password:
+                  description: The affiliate's password.
                   type: string
+                  example: Mypassword123
               required:
-                - name
                 - email
+                - name
                 - password
-              type: object
           required:
             - account
-            - user
             - currencies
-          type: object
+            - user
     description: ''
     required: true
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           schema:
-            properties:
-              data:
-                account:
-                  properties:
-                    address1:
-                      example: Jodenbreestraat 4
-                      maxLength: 64
-                      type: string
-                    address2:
-                      maxLength: 64
-                      type: string
-                    address3:
-                      maxLength: 64
-                      type: string
-                    apartment:
-                      example: '2'
-                      maxLength: 9
-                      type: string
-                    city:
-                      example: Amsterdam
-                      maxLength: 50
-                      type: string
-                    coc_number:
-                      maxLength: 50
-                      type: string
-                    company_name:
-                      maxLength: 200
-                      type: string
-                    country:
-                      example: NL
-                      format: country-alpha2
-                      type: string
-                    email:
-                      example: merchant@example.com
-                      format: email
-                      maxLength: 100
-                      type: string
-                    fax:
-                      maxLength: 15
-                      type: string
-                    phone:
-                      maxLength: 15
-                      type: string
-                    vat_number:
-                      maxLength: 50
-                      type: string
-                    zipcode:
-                      example: 1011 NK
-                      maxLength: 30
-                      type: string
-                  required:
-                    - company_name
-                    - email
-                    - country
-                  type: object
-                currencies:
-                  items:
-                    type: string
-                  type: array
-                user:
-                  properties:
-                    email:
-                      format: email
-                      type: string
-                    name:
-                      type: string
-                    password:
-                      type: string
-                  required:
-                    - name
-                    - email
-                    - password
-                  type: object
-              success:
-                type: boolean
             type: object
-      description: ''
+            properties:
+              success:
+                $ref: '../components/schemas/Success.yaml'
+              data:
+                description: Information about the account.
+                type: array
+                items:
+                  type: object
+                  properties:
+                    account:
+                      $ref: '../components/schemas/Account.yaml'
+                    currencies:
+                      description: The currencies supported in the account.
+                      type: array
+                      items:
+                        type: string
+                        format: ISO 4217
+                      example: EUR
+                    user:
+                      description: The affiliate's user information for their MultiSafepay account. 
+                      type: object
+                      properties:
+                        email:
+                          description: The affiliate's email address.
+                          type: string
+                          format: email
+                          example: user@example.com
+                        name:
+                          description: The affiliate's username. 
+                          type: string
+                          example: Simon Smit
+                        password:
+                          description: The affiliate's password.
+                          type: string
+                          example: Mypassword123
     '422':
+      description: Validation errors
       content:
         application/json:
           schema:
             $ref: ../components/errors/422Error.yaml
-      description: Validation errors
   summary: Create affiliated account
   tags:
     - Onboard affiliates

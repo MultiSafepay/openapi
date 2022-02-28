@@ -37,7 +37,10 @@ get:
               success:
                 $ref: '../components/schemas/Success.yaml'
               data:
-                $ref: '../components/schemas/PaymentMethod.yaml'
+                 description: Array of payment methods
+                 type: array
+                 items: 
+                   $ref: '../components/schemas/PaymentMethod.yaml'
   summary: List payment methods
   tags:
     - Payments
