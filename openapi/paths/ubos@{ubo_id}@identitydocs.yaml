@@ -1,6 +1,6 @@
 post:
   description: Upload a passport or other identity document for an ultimate beneficiary owner (UBO).
-  operationId: createIdentityDoc
+  operationId: addIdentityDoc
   parameters:
     - name: ubo_id
       description: The unique identifier of the UBO.
