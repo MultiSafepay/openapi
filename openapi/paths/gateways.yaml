@@ -1,44 +1,61 @@
 get:
-  description: 'List the gateway identifiers for all payment methods activated for a specific website.'
-  operationId: ListGateways
+  description: List the gateway identifiers for all payment methods activated for a website.
+  operationId: listGateways
   parameters:
-    - description: | 
-        By default, only one activated gift card is included in the response. 
+    - name: include
+      description: | 
+        By default, only one activated [gift card](https://docs.multisafepay.com/payment-methods/gift-cards) is included in the response. 
 
-        To include **all** activated [gift cards](https://docs.multisafepay.com/payment-methods/gift-cards) in the response, set to `coupons`.
+        To include **all** activated gift cards in the response, set to `coupons`.
       in: query
-      name: include
       required: false
       schema:
         type: string
         enum: ['coupons']
+    - name: country
+      description: Filter the returned payment methods by availability per country.
+      in: query
+      required: false
+      schema: 
+        type: string
+        format: ISO 3166-1 alpha-2
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
-          example:
-            $ref: '../components/examples/responses/listGateways.json'
+          examples:
+            List gateways:
+              summary: List gateways
+              value:
+                $ref: '../components/examples/responses/listGateways.json'
+            List gateways with coupons:
+              summary: List gateways with coupons
+              value:
+                $ref: '../components/examples/responses/listGatewaysWithCoupons.json'
           schema:
+            type: object
             properties:
               success:
-                type: boolean
+                $ref: '../components/schemas/Success.yaml'
               data:
                 type: object
                 properties: 
                   id:
+                    description: The unique identifier of the gateway.
                     type: string
-                    description: 'The unique identifier of the gateway.' 
                   description: 
+                    description: The name of the payment method.  
                     type: string
-                    description: 'The name of the payment method.'  
-            type: object
-      description: ''
-    '404':
+                  type:
+                    description: Whether the payment method is a gift card (`coupon`).
+                    type: string
+    '401':
+      description: Error
       content:
         application/json:
           schema:
-            $ref: '../components/schemas/GenericErrorResponse.yaml'
-      description: Error 
+            $ref: '../components/errors/Error1032.yaml' 
   summary: List gateways
   tags:
     - Payments

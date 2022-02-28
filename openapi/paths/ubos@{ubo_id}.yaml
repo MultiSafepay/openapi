@@ -38,9 +38,6 @@ get:
                     format: email
                     maxLength: 100
                     type: string
-                  fax:
-                    maxLength: 15
-                    type: string
                   job_title:
                     maxLength: 100
                     type: string
@@ -134,9 +131,6 @@ patch:
               format: email
               maxLength: 100
               type: string
-            fax:
-              maxLength: 15
-              type: string
             job_title:
               maxLength: 100
               type: string
@@ -203,9 +197,6 @@ patch:
                     format: email
                     maxLength: 100
                     type: string
-                  fax:
-                    maxLength: 15
-                    type: string
                   job_title:
                     maxLength: 100
                     type: string
@@ -263,7 +254,7 @@ patch:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/ValidationErrorResponse.yaml
+            $ref: ../components/errors/422Error.yaml
       description: Validation errors
   summary: Update UBO details
   tags:

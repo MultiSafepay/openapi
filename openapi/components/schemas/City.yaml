@@ -1,0 +1,4 @@
+description: The city of the address.
+type: string
+maxLength: 50
+example: Amsterdam

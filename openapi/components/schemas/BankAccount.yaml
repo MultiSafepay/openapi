@@ -1,15 +1,18 @@
+description: Information about the bank account.
+type: object
 properties:
   currency:
+    description: The currency of the bank account.
+    type: string
     maxLength: 3
-    type: string
+    example: EUR
   holder_name:
+    description: The name of the account holder.
+    type: string
     maxLength: 40
-    type: string
+    example: My company name
   iban:
-    format: iban
+    description: The international bank account number (IBAN).
     type: string
-required:
-  - holder_name
-  - iban
-  - currency
-type: object
+    format: iban
+    example: NL02ABNA0123456789

@@ -1,52 +1,36 @@
+description: Information about the account.
+type: object
 properties:
   address1:
-    example: Jodenbreestraat 4
-    maxLength: 64
-    type: string
+    $ref: 'Address1.yaml'
   address2:
-    maxLength: 64
-    type: string
+    $ref: 'Address2.yaml'
   address3:
-    maxLength: 64
-    type: string
+    $ref: 'Address2.yaml'
   apartment:
-    example: '2'
-    maxLength: 9
-    type: string
+    $ref: 'Apartment.yaml'
   city:
-    example: Amsterdam
-    maxLength: 50
-    type: string
+    $ref: 'City.yaml'
   coc_number:
-    maxLength: 50
-    type: string
+    $ref: 'CoCNumber.yaml'
   company_name:
-    maxLength: 200
-    type: string
+    $ref: 'CompanyName.yaml'
   country:
-    example: NL
-    format: country-alpha2
-    type: string
+    $ref: 'Country.yaml'
   email:
-    example: merchant@example.com
+    description: The company email address.
+    type: string
     format: email
     maxLength: 100
-    type: string
+    example: "merchant@example.com"
   fax:
-    maxLength: 15
-    type: string
+    $ref: 'Fax.yaml'
   phone:
+    description: The company phone number.
+    type: string
     maxLength: 15
-    type: string
+    example: "+3120123456"
   vat_number:
-    maxLength: 50
-    type: string
+    $ref: 'VAT.yaml'
   zipcode:
-    example: 1011 NK
-    maxLength: 30
-    type: string
-required:
-  - company_name
-  - email
-  - country
-type: object
+    $ref: 'ZIP.yaml'

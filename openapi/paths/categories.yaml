@@ -1,6 +1,6 @@
 get:
-  description: 'List the names of all website categories.'
-  operationId: ListWebsiteCategories
+  description: List the names of all website categories.
+  operationId: listWebsiteCategories
   responses:
     '200':
       content:
@@ -10,20 +10,19 @@ get:
           schema:
             properties:
               success:
-                type: boolean
-                description: 'Indicates whether the request was successful.'
+                $ref: '../components/schemas/Success.yaml'
               data:
+                description: Array of website categories.
                 type: array
-                description: 'Array of website categories.'
                 items: 
                   type: object
                   properties: 
                     code:
+                      description: The unique identifier of the website category. 
                       type: string
-                      description: 'The unique identifier of the website category.' 
                     description: 
+                      description: The website category name.
                       type: string
-                      description: 'The website category name.'  
             type: object
       description: ''
     '404':

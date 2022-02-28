@@ -1,0 +1,46 @@
+type: object
+properties:
+  address1:
+    $ref: '../schemas/Address1.yaml'
+  address2:
+    $ref: '../schemas/Address2.yaml'
+  address3:
+    $ref: '../schemas/Address3.yaml'
+  birthday:
+    $ref: '../schemas/Birthday.yaml'
+  brand:
+    $ref: '../schemas/Brand.yaml'
+  city:
+    $ref: '../schemas/City.yaml'
+  country:
+    $ref: '../schemas/Country.yaml'
+  email:
+    $ref: '../schemas/Email.yaml'
+  first_name:
+    $ref: '../schemas/FirstName.yaml'
+  forwarded_ip:
+    $ref: '../schemas/ForwardedIP.yaml'
+  gender:
+    $ref: '../schemas/Gender.yaml'
+  house_number:
+    $ref: '../schemas/HouseNumber.yaml'
+  ip_address:
+    $ref: '../schemas/IPAddress.yaml'
+  last_name:
+    $ref: '../schemas/LastName.yaml'
+  locale:
+    $ref: '../schemas/Locale.yaml'
+  mobile_phone:
+    $ref: '../schemas/MobilePhone.yaml'
+  nickname:
+    $ref: '../schemas/Nickname.yaml'
+  phone:
+    $ref: '../schemas/Phone.yaml'
+  prefix:
+    $ref: '../schemas/Prefix.yaml'
+  state:
+    $ref: '../schemas/State.yaml'
+  title:
+    $ref: '../schemas/Title.yaml'
+  zip_code:
+    $ref: '../schemas/ZIP.yaml'

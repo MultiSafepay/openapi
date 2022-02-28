@@ -1,10 +1,10 @@
 post:
-  description: 'Add a new website to a merchant account.'
-  operationId: 'Partner::CreateAccountSite'
+  description: Add a website to an affiliated account.
+  operationId: Partner::CreateAccountSite
   parameters:
-    - description: ''
+    - name: account_id
+      description: The unique identifier of the account.
       in: path
-      name: account_id
       required: true
       schema:
         type: string
@@ -12,132 +12,58 @@ post:
     content:
       application/json:
         schema:
-          properties:
-            name:
-              maxLength: 120
-              type: string
-            notification_url:
-              format: url
-              maxLength: 150
-              type: string
-            price_from:
-              type: integer
-            price_till:
-              type: integer
-            support_email:
-              format: email
-              maxLength: 100
-              type: string
-            support_phone:
-              maxLength: 100
-              type: string
-            url:
-              format: url
-              maxLength: 150
-              type: string
-          required:
-            - name
-            - url
-          type: object
+          $ref: '../components/requestBody/AddSite.yaml'
     description: ''
     required: true
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           schema:
             properties:
-              data:
-                properties:
-                  name:
-                    maxLength: 120
-                    type: string
-                  notification_url:
-                    format: url
-                    maxLength: 150
-                    type: string
-                  price_from:
-                    type: integer
-                  price_till:
-                    type: integer
-                  support_email:
-                    format: email
-                    maxLength: 100
-                    type: string
-                  support_phone:
-                    maxLength: 100
-                    type: string
-                  url:
-                    format: url
-                    maxLength: 150
-                    type: string
-                required:
-                  - name
-                  - url
-                type: object
               success:
-                type: boolean
+                $ref: '../components/schemas/Success.yaml'
+              data:
+                $ref: '../components/schemas/Site.yaml'
             type: object
-      description: ''
     '422':
+      description: Validation errors
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/ValidationErrorResponse.yaml
-      description: Validation errors
+            $ref: ../components/errors/422Error.yaml
   summary: Add website
   tags:
     - Onboard affiliates
 get:
-  description: 'List all websites under a merchant account.'
-  operationId: 'Partner::ListAccountSites'
+  description: List all websites under an affiliated account.
+  operationId: Partner::ListAccountSites
   parameters:
-    - description: ''
+    - name: account_id
+      description: The unique identifier of the account.
       in: path
-      name: account_id
       required: true
       schema:
         type: string
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           schema:
             properties:
-              data:
-                items:
-                  properties:
-                    name:
-                      maxLength: 120
-                      type: string
-                    notification_url:
-                      format: url
-                      maxLength: 150
-                      type: string
-                    price_from:
-                      type: integer
-                    price_till:
-                      type: integer
-                    support_email:
-                      format: email
-                      maxLength: 100
-                      type: string
-                    support_phone:
-                      maxLength: 100
-                      type: string
-                    url:
-                      format: url
-                      maxLength: 150
-                      type: string
-                  required:
-                    - name
-                    - url
-                  type: object
-                type: array
               success:
-                type: boolean
+                $ref: '../components/schemas/Success.yaml'
+              data:
+                $ref: '../components/schemas/Site.yaml'
             type: object
-      description: ''
+    '422':
+      description: Validation errors
+      content:
+        application/json:
+          schema:
+            $ref: ../components/errors/422Error.yaml
   summary: List websites
   tags:
     - Onboard affiliates

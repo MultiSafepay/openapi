@@ -1,92 +1,41 @@
 get:
-  description: 'Get information about an existing affiliated account.'
-  operationId: 'Partner::GetAccount'
+  description: Get information about an affiliated account.
+  operationId: getAffiliatedAccount
   parameters:
-    - description: ''
+    - name: account_id
+      description: The unique identifier of the affiliated account.
       in: path
-      name: account_id
       required: true
       schema:
         type: string
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           schema:
             properties:
               data:
-                properties:
-                  address1:
-                    example: Jodenbreestraat 4
-                    maxLength: 64
-                    type: string
-                  address2:
-                    maxLength: 64
-                    type: string
-                  address3:
-                    maxLength: 64
-                    type: string
-                  apartment:
-                    example: '2'
-                    maxLength: 9
-                    type: string
-                  city:
-                    example: Amsterdam
-                    maxLength: 50
-                    type: string
-                  coc_number:
-                    maxLength: 50
-                    type: string
-                  company_name:
-                    maxLength: 200
-                    type: string
-                  country:
-                    example: NL
-                    format: country-alpha2
-                    type: string
-                  email:
-                    example: merchant@example.com
-                    format: email
-                    maxLength: 100
-                    type: string
-                  fax:
-                    maxLength: 15
-                    type: string
-                  phone:
-                    maxLength: 15
-                    type: string
-                  vat_number:
-                    maxLength: 50
-                    type: string
-                  zipcode:
-                    example: 1011 NK
-                    maxLength: 30
-                    type: string
-                required:
-                  - company_name
-                  - email
-                  - country
-                type: object
+                $ref: '../components/schemas/Account.yaml'
               success:
-                type: boolean
+                $ref: '../components/schemas/Success.yaml'
             type: object
-      description: ''
     '404':
+      description: Account not found
       content:
         application/json:
           schema:
             $ref: ../components/schemas/GenericErrorResponse.yaml
-      description: Account not found
   summary: Get affiliated account
   tags:
     - Manage affiliates
 patch:
-  description: 'Update information about an existing affiliated account.'
-  operationId: 'Partner::UpdateAccount'
+  description: Update information about an affiliated account.
+  operationId: updateAffiliatedAccount
   parameters:
-    - description: ''
+    - name: account_id
+      description: The unique identifier of the affiliated account.
       in: path
-      name: account_id
       required: true
       schema:
         type: string
@@ -94,133 +43,33 @@ patch:
     content:
       application/json:
         schema:
-          properties:
-            address1:
-              example: Jodenbreestraat 4
-              description: The customer's first address line.
-              maxLength: 64
-              type: string
-            address2:
-              maxLength: 64
-              type: string
-            address3:
-              maxLength: 64
-              type: string
-            apartment:
-              example: '2'
-              maxLength: 9
-              type: string
-            city:
-              example: Amsterdam
-              maxLength: 50
-              type: string
-            coc_number:
-              maxLength: 50
-              type: string
-            company_name:
-              maxLength: 200
-              type: string
-            country:
-              example: NL
-              format: country-alpha2
-              type: string
-            email:
-              example: merchant@example.com
-              format: email
-              maxLength: 100
-              type: string
-            fax:
-              maxLength: 15
-              type: string
-            phone:
-              maxLength: 15
-              type: string
-            vat_number:
-              maxLength: 50
-              type: string
-            zipcode:
-              example: 1011 NK
-              maxLength: 30
-              type: string
-          required: []
-          type: object
+          $ref: '../components/requestBody/UpdateAccount.yaml'
     description: ''
     required: true
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           schema:
-            properties:
-              data:
-                properties:
-                  address1:
-                    example: Jodenbreestraat 4
-                    maxLength: 64
-                    type: string
-                  address2:
-                    maxLength: 64
-                    type: string
-                  address3:
-                    maxLength: 64
-                    type: string
-                  apartment:
-                    example: '2'
-                    maxLength: 9
-                    type: string
-                  city:
-                    example: Amsterdam
-                    maxLength: 50
-                    type: string
-                  coc_number:
-                    maxLength: 50
-                    type: string
-                  company_name:
-                    maxLength: 200
-                    type: string
-                  country:
-                    example: NL
-                    format: country-alpha2
-                    type: string
-                  email:
-                    example: merchant@example.com
-                    format: email
-                    maxLength: 100
-                    type: string
-                  fax:
-                    maxLength: 15
-                    type: string
-                  phone:
-                    maxLength: 15
-                    type: string
-                  vat_number:
-                    maxLength: 50
-                    type: string
-                  zipcode:
-                    example: 1011 NK
-                    maxLength: 30
-                    type: string
-                required:
-                  - company_name
-                  - email
-                  - country
-                type: object
-              success:
-                type: boolean
             type: object
-      description: ''
+            properties:
+              success:
+                $ref: '../components/schemas/Success.yaml'
+              data:
+                $ref: '../components/schemas/Account.yaml'
     '404':
+      description: Account not found
       content:
         application/json:
           schema:
             $ref: ../components/schemas/GenericErrorResponse.yaml
-      description: Account not found
     '422':
+      description: Validation errors
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/ValidationErrorResponse.yaml
-      description: Validation errors
+            $ref: ../components/errors/422Error.yaml
   summary: Update affiliated account
   tags:
     - Manage affiliates

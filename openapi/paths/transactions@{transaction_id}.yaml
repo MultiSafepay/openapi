@@ -1,6 +1,6 @@
 get:
-  description: 'Get information about a transaction.'
-  operationId: GetTransactionDetails
+  description: Get information about a transaction.
+  operationId: getTransaction
   parameters:
     - name: transaction_id
       in: path
@@ -16,9 +16,20 @@ get:
               data:
                 allOf:
                   - $ref: '../components/schemas/Transaction.yaml'
-                  - description: The transaction details
+                  - description: Details about the transaction.
               success:
                 $ref: '../components/schemas/Success.yaml'
-  summary: Get transaction details
+      description: ''
+    '404':
+      content:
+        application/json:
+          schema:
+            properties:
+              message:
+                description: The transaction was not found.
+                type: string
+                example: Not found
+      description: ''
+  summary: Get transaction
   tags:
     - Reconciliation

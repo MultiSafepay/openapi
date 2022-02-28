@@ -1,0 +1,58 @@
+description: | 
+  Information about the order. 
+  
+  The structure of the response may differ depending on the order type and payment method.
+type: object
+properties:
+  transaction_id:
+    $ref: 'TransactionId.yaml'
+  order_id:
+    $ref: 'OrderId.yaml'
+  created:
+    $ref: 'Created.yaml'
+  currency:
+    $ref: 'Currency.yaml'
+  amount:
+    $ref: 'Amount.yaml'
+  description:
+    $ref: 'Description.yaml'
+  items:
+    $ref: 'Items.yaml'
+  amount_refunded:
+    $ref: 'AmountRefunded.yaml'
+  status:
+    $ref: 'Status.yaml'
+  financial_status:
+    $ref: 'FinancialStatus.yaml'
+  reason:
+    description: The reason for any updates to the order.
+    type: string
+  reason_code:
+    description: The code for the reason for any updates to the order.
+    type: string
+  fastcheckout:
+    $ref: 'FastCheckout.yaml'
+  modified:
+    $ref: 'Modified.yaml'
+  customer:
+    $ref: 'CustomerObject.yaml'
+  payment_details:
+    $ref: 'PaymentDetails.yaml'
+  costs:
+    type: array
+    items:
+      $ref: 'Costs.yaml'
+  related_transactions:
+    type: array
+    items:
+      $ref: 'RelatedTransactions.yaml'
+  payment_methods:
+    type: array
+    items:
+      $ref: 'PaymentMethods.yaml'
+  var1:
+    $ref: 'var12.yaml'
+  var2:
+    $ref: 'var12.yaml'
+  var3:
+    $ref: 'var3.yaml'

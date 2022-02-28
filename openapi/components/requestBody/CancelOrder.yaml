@@ -17,4 +17,3 @@ properties:
     example: true
 required:
   - status
-summary: Cancel an order

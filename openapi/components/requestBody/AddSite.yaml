@@ -1,0 +1,23 @@
+description: Information about the website.
+type: object
+properties:
+  name:
+    description: The name of the website.
+    type: string
+    maxLength: 120
+    example: My website
+  notification_url:
+    $ref: '../schemas/NotificationUrl.yaml'
+  price_from:
+    $ref: '../schemas/PriceFrom.yaml'
+  price_till:
+    $ref: '../schemas/PriceTill.yaml'
+  support_email:
+    $ref: '../schemas/SupportEmail.yaml'
+  support_phone:
+    $ref: '../schemas/SupportPhone.yaml'
+  url:
+    $ref: '../schemas/URL.yaml'
+required:
+  - name
+  - url

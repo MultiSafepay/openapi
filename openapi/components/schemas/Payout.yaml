@@ -1,0 +1,36 @@
+description: Information about the payout.
+type: object
+properties:
+  amount:
+    description: The amount (in the currency's smallest unit e.g. eurocents) to pay out to the affiliate.
+    type: integer
+    minimum: 0
+    example: 1000
+  checkoutdata:
+    description: ''
+    type: object
+    format: checkout-data
+  currency:
+    description: The currency of the payout.
+    type: string
+    maxLength: 3
+    minLength: 3
+    format: ISO 4217
+    example: EUR
+  description:
+    description: A description of the payout.
+    type: string
+    maxLength: 512
+    minLength: 2
+    example: Monthly commission
+  order_id:
+    description: The unique client-defined identifier for the payout order.
+    type: string
+    maxLength: 128
+    example: charge-0001
+  var1:
+    $ref: '../schemas/var12.yaml'
+  var2:
+    $ref: '../schemas/var12.yaml'
+  var3:
+    $ref: '../schemas/var3.yaml'

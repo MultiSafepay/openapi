@@ -3,14 +3,14 @@ post:
     MultiSafepay can challenge [chargebacks](https://docs.multisafepay.com/payments/chargebacks/) on your behalf. To do so, we need documented proof of the order. 
 
     Use this request to upload relevant files.  
-  operationId: 'ChallengeChargeback'
+  operationId: challengeChargeback
   parameters:
-    - description: | 
+    - name: order_id
+      description: | 
         The unique identifier of the order. 
       
         Max length: 50 characters.
       in: path
-      name: order_id
       required: true
       schema:
         type: string
@@ -21,25 +21,21 @@ post:
           type: object
           properties:
             type:
-              description: The file type of the file you're uploading.
+              description: The file type.
               type: string
               enum: [PDF,JPEG,PNG]
-              required: true
               example: PDF
             base64:
               description: The base64 encoded file.
               type: string
-              required: true
-              example: "VGhpcyBpcyBkdW1teSBmaWxlIGNvbnRlbnQgdGhhdCdzIGJhc2U2NCBlbmNvZGVkLg=="
+              example: VGhpcyBpcyBkdW1teSBmaWxlIGNvbnRlbnQgdGhhdCdzIGJhc2U2NCBlbmNvZGVkLg==
             description:
-              description: A description of or comments on the file you're uploading.
+              description: A description of or comments on the file.
               type: string
-              required: true
-              example: "Email chain of discussions with customer."
+              example: Email chain of discussions with customer.
             name:
-              description: The filename of the file you're uploading.
+              description: The filename of the file.
               type: string
-              required: true
               example: EmailsWithCustomerX.pdf
           required:
             - base64
@@ -56,7 +52,15 @@ post:
               success:
                 $ref: '../components/schemas/Success.yaml'
               data: 
+                description: Empty
                 type: object
-  summary: Challenge a chargeback
+                example: ''
+    '404':
+      description: Error
+      content:
+        application/json:
+          schema:
+            $ref: '../components/errors/404Error.yaml'
+  summary: Challenge chargebacks
   tags:
     - Refunds and chargebacks

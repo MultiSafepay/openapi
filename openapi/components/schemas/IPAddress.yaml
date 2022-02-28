@@ -1,0 +1,4 @@
+description: The customer’s IP address.
+type: string
+format: IPv4
+example: "123.123.123.123"

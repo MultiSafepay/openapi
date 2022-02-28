@@ -6,7 +6,6 @@ description: |
 properties:
   locale:
     type: string
-    required: true
     description: |
       - Localizes [MultiSafepay payment pages](https://docs.multisafepay.com/payment-pages/) for the customer’s language, region, available payment methods, and any UI preferences.
       - Sends [email templates](https://docs.multisafepay.com/features/email-templates/) in the customer's preferred language. If set, `locale` overrides the language set in an email template.
@@ -57,61 +56,31 @@ properties:
       - A proxy, use `forwarded_ip`.
       - No proxy, use `ip_address`.
     type: string
-    format: IP address
+    format: IPv4
   first_name:
-    description: |
-      The customer’s first name.
-
-      We recommend always requiring the customer to provide their full name, instead of initials or abbreviations.
-    type: string
-    minLength: 2
-    example: Simon
+    $ref: 'FirstName.yaml'
   last_name:
-    description: The customer’s last name.
-    type: string
-    minLength: 2
-    example: Smit
+    $ref: 'LastName.yaml'
   gender:
     description: The customer's title.
     type: string
     example: Mr.
   birthday:
-    description: The customer's birthday.
-    type: string
-    format: yyyy-MM-dd
-    example: "1980-12-31"
+    $ref: 'Birthday.yaml'
   address1:
-    description: The first line of the customer’s address.
-    type: string
-    example: Kraanspoor
+    $ref: 'Address1.yaml'
   address2:
-    description: The second line of the customer’s address.
-    type: string
-    example: ""
+    $ref: 'Address2.yaml'
   house_number:
-    description: The customer’s house number.
-    type: string
-    example: 39C
+    $ref: 'HouseNumber.yaml'
   zip_code:
-    description: The customer’s ZIP/postal code.
-    type: string
-    example: 1033SC
+    $ref: 'ZIP.yaml'
   city: 
-    description: The customer’s city of residence.
-    type: string
-    example: Amsterdam
+    $ref: 'City.yaml'
   country: 
-    description: |
-      The customer’s country of residence.
-      
-      See Wikipedia – [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
-    type: string
-    example: NL
-    format: ISO 3166-1 alpha-2
+    $ref: 'Country.yaml'
   phone: 
-    description: The customer’s phone number.
-    type: string
-    example: "0208500500"
+    $ref: 'Phone.yaml'
   email:
     description: |
       The customer’s email address.

@@ -1,10 +1,10 @@
 post:
-  description: 'Add a bank account to an affiliated account.'
-  operationId: 'Partner::CreateAccountBankAccount'
+  description: Add a bank account to an affiliated account.
+  operationId: Partner::CreateAccountBankAccount
   parameters:
-    - description: ''
+    - name: account_id
+      description: The unique identifier for the account.
       in: path
-      name: account_id
       required: true
       schema:
         type: string
@@ -12,108 +12,67 @@ post:
     content:
       application/json:
         schema:
-          properties:
-            currency:
-              maxLength: 3
-              type: string
-            holder_name:
-              maxLength: 40
-              type: string
-            iban:
-              format: iban
-              type: string
-          required:
-            - holder_name
-            - iban
-            - currency
-          type: object
+          $ref: '../components/requestBody/AddBankAccount.yaml'
     description: ''
     required: true
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           schema:
             properties:
               data:
-                properties:
-                  currency:
-                    maxLength: 3
-                    type: string
-                  holder_name:
-                    maxLength: 40
-                    type: string
-                  iban:
-                    format: iban
-                    type: string
-                required:
-                  - holder_name
-                  - iban
-                  - currency
-                type: object
+                $ref: '../components/schemas/BankAccount.yaml'
               success:
+                description: "True"
                 type: boolean
             type: object
-      description: ''
     '404':
-      content:
-        application/json:
-          schema:
-            $ref: ../components/schemas/GenericErrorResponse.yaml
       description: Account not found
-    '422':
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/ValidationErrorResponse.yaml
+            $ref: ../components/errors/404Error.yaml
+    '422':
       description: Validation errors
+      content:
+        application/json:
+          schema:
+            $ref: ../components/errors/422Error.yaml
   summary: Add bank account
   tags:
     - Onboard affiliates
 get:
-  description: 'List all bank accounts linked to an affiliated account.'
+  description: List all bank accounts linked to an affiliated account.
   operationId: 'Partner::ListAccountBankAccounts'
   parameters:
-    - description: ''
+    - name: account_id
+      description: The unique identifier for the account.
       in: path
-      name: account_id
       required: true
       schema:
         type: string
   responses:
     '200':
+      description: Response successful
       content:
         application/json:
           schema:
             properties:
               data:
-                items:
-                  properties:
-                    currency:
-                      maxLength: 3
-                      type: string
-                    holder_name:
-                      maxLength: 40
-                      type: string
-                    iban:
-                      format: iban
-                      type: string
-                  required:
-                    - holder_name
-                    - iban
-                    - currency
-                  type: object
-                type: array
+                $ref: '../components/schemas/BankAccount.yaml'
               success:
+                description: "True"
                 type: boolean
+                example: True
             type: object
-      description: ''
     '404':
+      description: Account not found
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/GenericErrorResponse.yaml
-      description: Merchant not found
-  summary: List affiliate's bank accounts
+            $ref: ../components/errors/404Error.yaml
+  summary: List bank accounts
   tags:
     - Onboard affiliates

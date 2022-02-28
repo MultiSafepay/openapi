@@ -3,5 +3,5 @@
 #  1. Make a copy of it.
 #  2. Delete these comments.
 #  3. Rename the file extension to *.yaml.
-description: "Add a description."
+description: Add a description.
 type: integer/number/string/boolean

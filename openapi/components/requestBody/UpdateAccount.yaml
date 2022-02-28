@@ -1,0 +1,37 @@
+description: Information about the account.
+type: object
+properties:
+  address1:
+    $ref: '../schemas/Address1.yaml'
+  address2:
+    $ref: '../schemas/Address2.yaml'
+  address3:
+    $ref: '../schemas/Address3.yaml'
+  apartment:
+    $ref: '../schemas/Apartment.yaml'
+  city:
+    $ref: '../schemas/City.yaml'
+  coc_number:
+    $ref: '../schemas/CoCNumber.yaml'
+  company_name:
+    $ref: '../schemas/CompanyName.yaml'
+  country:
+    $ref: '../schemas/Country.yaml'
+  email:
+    description: The company email address.
+    type: string
+    format: email
+    maxLength: 100
+    example: "merchant@example.com"
+  fax:
+    $ref: '../schemas/Fax.yaml' 
+  phone:
+    $ref: '../schemas/Phone.yaml'
+  vat_number:
+    $ref: '../schemas/VAT.yaml'
+  zipcode:
+    $ref: '../schemas/ZIP.yaml'
+required:
+  - company_name
+  - country
+  - email

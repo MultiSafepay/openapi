@@ -1,26 +1,22 @@
+description: Information about the identity document.
+type: object
 properties:
   document_type:
-    enum:
-      - id
-      - passport
-      - driverslicense
-      - proof_of_address
+    description: The type of identity document.
     type: string
+    enum: [id, passport, driverslicense, proof_of_address]
+    example: Passport
   encoded_content:
+    description: The encoded format of the document. 
+    type: string
     format: base64-encoded-content
-    type: string
   filename:
+    description: The filename of the identity document. 
+    type: string
     maxLength: 250
-    type: string
+    example: UBOpassport.pdf
   mime_type:
-    enum:
-      - application/pdf
-      - image/jpeg
-      - image/png
+    description: The MIME type of the file. 
     type: string
-required:
-  - filename
-  - mime_type
-  - encoded_content
-  - document_type
-type: object
+    enum: [application/pdf, image/jpeg, image/png]
+    example: application/pdf

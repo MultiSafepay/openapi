@@ -1,0 +1,4 @@
+description: The country of the address.
+type: string
+format: country alpha-2
+example: NL
