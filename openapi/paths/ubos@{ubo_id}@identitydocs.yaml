@@ -1,10 +1,10 @@
 post:
-  description: Upload a passport or other identification document for an ultimate beneficiary owner (UBO).
-  operationId: CreateIdentityDoc
+  description: Upload a passport or other identity document for an ultimate beneficiary owner (UBO).
+  operationId: addIdentityDoc
   parameters:
-    - description: ''
+    - name: ubo_id
+      description: The unique identifier of the UBO.
       in: path
-      name: ubo_id
       required: true
       schema:
         type: string
@@ -12,135 +12,72 @@ post:
     content:
       application/json:
         schema:
-          properties:
-            document_type:
-              enum:
-                - id
-                - passport
-                - driverslicense
-                - proof_of_address
-              type: string
-            encoded_content:
-              format: base64-encoded-content
-              type: string
-            filename:
-              maxLength: 250
-              type: string
-            mime_type:
-              enum:
-                - application/pdf
-                - image/jpeg
-                - image/png
-              type: string
-          required:
-            - filename
-            - mime_type
-            - encoded_content
-            - document_type
-          type: object
+          allOf:
+            - $ref: '../components/schemas/IdentityDoc.yaml'
+            - required: [filename, mime_type, encoded_content, document_type]
     description: ''
     required: true
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           schema:
-            properties:
-              data:
-                properties:
-                  document_type:
-                    enum:
-                      - id
-                      - passport
-                      - driverslicense
-                      - proof_of_address
-                    type: string
-                  encoded_content:
-                    format: base64-encoded-content
-                    type: string
-                  filename:
-                    maxLength: 250
-                    type: string
-                  mime_type:
-                    enum:
-                      - application/pdf
-                      - image/jpeg
-                      - image/png
-                    type: string
-                required:
-                  - filename
-                  - mime_type
-                  - encoded_content
-                  - document_type
-                type: object
-              success:
-                type: boolean
             type: object
-      description: ''
+            properties:
+              success:
+                $ref: '../components/schemas/Success.yaml'
+              data:
+                $ref: '../components/schemas/IdentityDoc.yaml'
     '404':
+      description: UBO not found
       content:
         application/json:
           schema:
             $ref: ../components/schemas/GenericErrorResponse.yaml
-      description: UBO not found
     '422':
+      description: Validation errors
       content:
         application/json:
           schema:
             $ref: ../components/errors/422Error.yaml
-      description: Validation errors
   summary: Add identity document
   tags:
     - Onboard affiliates
 get:
-  description: List passports and other identification documents uploaded for an ultimate beneficiary owner (UBO).
-  operationId: ListIdentityDocs
+  description: List identity documents uploaded for an ultimate beneficiary owner (UBO).
+  operationId: listIdentityDocs
   parameters:
-    - description: ''
+    - name: ubo_id
+      description: The unique identifier of the UBO. 
       in: path
-      name: ubo_id
       required: true
       schema:
         type: string
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           schema:
-            properties:
-              data:
-                items:
-                  properties:
-                    document_type:
-                      enum:
-                        - id
-                        - passport
-                        - driverslicense
-                        - proof_of_address
-                      type: string
-                    encoded_content:
-                      format: base64-encoded-content
-                      type: string
-                    filename:
-                      maxLength: 250
-                      type: string
-                    mime_type:
-                      enum:
-                        - application/pdf
-                        - image/jpeg
-                        - image/png
-                      type: string
-                  required:
-                    - filename
-                    - mime_type
-                    - encoded_content
-                    - document_type
-                  type: object
-                type: array
-              success:
-                type: boolean
             type: object
-      description: ''
+            properties:
+              success:
+                $ref: '../components/schemas/Success.yaml'
+              data:
+                $ref: '../components/schemas/IdentityDoc.yaml'
+    '404':
+      description: UBO not found
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/GenericErrorResponse.yaml
+    '422':
+      description: Validation errors
+      content:
+        application/json:
+          schema:
+            $ref: ../components/errors/422Error.yaml
   summary: List identity documents
   tags:
     - Onboard affiliates

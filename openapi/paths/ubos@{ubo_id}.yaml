@@ -43,8 +43,7 @@ patch:
     content:
       application/json:
         schema:
-          allOf:
-            - $ref: '../components/schemas/Ubo.yaml'
+          $ref: '../components/schemas/Ubo.yaml'
     description: ''
     required: true
   responses:
