@@ -92,11 +92,9 @@ paths:
     $ref: 'paths/pad@ccs.yaml'
   '/pad/orders/{order_id}':
     $ref: 'paths/pad@orders@{order_id}.yaml'
-  '/payment-methods':
-    $ref: 'paths/payment-methods.yaml'
-  '/payment-methods/{payment_method_id}':
-    $ref: 'paths/payment-methods@{payment_method_id}.yaml'
-  '/recurring/{your_customer_reference}':
+  /payment-methods:
+    $ref: paths/payment-methods.yaml
+  /recurring/{your_customer_reference}:
     $ref: 'paths/recurring@{your_customer_reference}.yaml'
   '/recurring/{your_customer_reference}/token/{your_token}':
     $ref: 'paths/recurring@{your_customer_reference}@token@{your_token}.yaml'

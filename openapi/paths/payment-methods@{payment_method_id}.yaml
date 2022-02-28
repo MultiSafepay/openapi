@@ -1,65 +1,31 @@
 get:
-  description: ''
-  operationId: GetCustomerPaymentMethod
+  description: Get information about a payment method.
+  operationId: getPaymentMethod
   parameters:
-    - description: ''
+    - name: payment_method_id
+      description: The unique identifier of the payment method.
       in: path
-      name: payment_method_id
       required: true
       schema:
         type: string
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           schema:
+            type: object
             properties:
               success:
                 $ref: '../components/schemas/Success.yaml'
               data:
-                additionalProperties: false
-                oneOf:
-                  - properties:
-                      type:
-                        enum:
-                          - direct_debit
-                    required:
-                      - direct_debit
-                properties:
-                  direct_debit:
-                    additionalProperties: false
-                    properties:
-                      bic:
-                        type: string
-                      holder_name:
-                        type: string
-                      iban:
-                        type: string
-                    required:
-                      - holder_name
-                      - iban
-                      - bic
-                    type: object
-                  status:
-                    enum:
-                      - active
-                    type: string
-                  type:
-                    enum:
-                      - direct_debit
-                    type: string
-                required:
-                  - type
-                  - status
-                type: object
-            type: object
-      description: ''
+                $ref: '../components/schemas/PaymentMethod.yaml'
     '404':
+      description: Payment method not found
       content:
         application/json:
           schema:
             $ref: ../components/schemas/GenericErrorResponse.yaml
-      description: Payment method not found
   summary: Get payment method
   tags:
     - Payments
