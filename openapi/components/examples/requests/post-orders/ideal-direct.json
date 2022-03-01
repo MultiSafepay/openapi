@@ -10,9 +10,9 @@
     "issuer_id": "3151"
   },
   "payment_options": {
-    "notification_url": "http://10.1.10.111/testtool/client/json-test/notification?type=notification",
-    "redirect_url": "http://10.1.10.111/testtool/client/json-test/notification?type=redirect",
-    "cancel_url": "http://10.1.10.111/testtool/client/json-test/notification?type=cancel",
+    "notification_url": "https://www.example.com/webhooks/payment",
+    "redirect_url": "https://www.example.com/order/success",
+    "cancel_url": "https://www.example.com/order/failed",
     "close_window": true
   }
 }
