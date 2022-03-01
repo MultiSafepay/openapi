@@ -7,13 +7,17 @@ get:
       description: Request successful
       content:
         application/json:
+          example:
+            $ref: '../components/examples/responses/listAffiliatedAccounts.json'
           schema:
             type: object
             properties:
               success:
                 $ref: '../components/schemas/Success.yaml'
               data:
-                $ref: '../components/schemas/Account.yaml'
+                description: Information about each account.
+                items:
+                  $ref: '../components/schemas/Account.yaml'
     '403':
       description: No affiliates for this API key
       content:
