@@ -23,8 +23,7 @@ properties:
             description: Sets whether or not the shipping costs are taxed.
             type: boolean
           rate:
-            description: |
-              The tax rate percentage as a fraction, e.g. 15% is expressed as `0.15`.
+            description: The tax rate percentage as a fraction, e.g. 15% is expressed as `0.15`.
             type: number
             format: float
             minimum: 0
