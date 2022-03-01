@@ -75,6 +75,6 @@ properties:
         type: object
         properties:
           enabled:
-            description: Whether ???
+            description: Whether to send the customer an invoice.
             type: boolean
             example: true
