@@ -1,4 +1,4 @@
-description: Settings for the shopping cart including taxes and validation
+description: Settings for the shopping cart, including taxes and validation.
 type: object 
 properties:
   tax_tables:
