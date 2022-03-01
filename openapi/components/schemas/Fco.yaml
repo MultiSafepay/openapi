@@ -71,7 +71,7 @@ properties:
             type: boolean
             example: true
       invoice:
-        description: Settings
+        description: Settings for sending the customer an invoice.
         type: object
         properties:
           enabled:
