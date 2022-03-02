@@ -46,10 +46,6 @@
             "maxLength": 100,
             "type": "string"
           },
-          "fax": {
-            "maxLength": 15,
-            "type": "string"
-          },
           "phone": {
             "maxLength": 15,
             "type": "string"
@@ -1206,10 +1202,6 @@
             "maxLength": 100,
             "type": "string"
           },
-          "fax": {
-            "maxLength": 15,
-            "type": "string"
-          },
           "job_title": {
             "maxLength": 100,
             "type": "string"
@@ -1380,10 +1372,6 @@
                             "maxLength": 100,
                             "type": "string"
                           },
-                          "fax": {
-                            "maxLength": 15,
-                            "type": "string"
-                          },
                           "phone": {
                             "maxLength": 15,
                             "type": "string"
@@ -1488,10 +1476,6 @@
                           "example": "merchant@example.com",
                           "format": "email",
                           "maxLength": 100,
-                          "type": "string"
-                        },
-                        "fax": {
-                          "maxLength": 15,
                           "type": "string"
                         },
                         "phone": {
@@ -1603,10 +1587,6 @@
                     "maxLength": 100,
                     "type": "string"
                   },
-                  "fax": {
-                    "maxLength": 15,
-                    "type": "string"
-                  },
                   "phone": {
                     "maxLength": 15,
                     "type": "string"
@@ -1678,10 +1658,6 @@
                           "example": "merchant@example.com",
                           "format": "email",
                           "maxLength": 100,
-                          "type": "string"
-                        },
-                        "fax": {
-                          "maxLength": 15,
                           "type": "string"
                         },
                         "phone": {
@@ -1757,6 +1733,18 @@
             }
           },
           {
+            "description": "Return results starting from offset position",
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "description": "Return results starting from offset position",
+              "example": 5,
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
             "description": "Limit number of returned results",
             "in": "query",
             "name": "limit",
@@ -1766,18 +1754,6 @@
               "example": 5,
               "maximum": 1000,
               "minimum": 1,
-              "type": "integer"
-            }
-          },
-          {
-            "description": "Return results starting from offset position",
-            "in": "query",
-            "name": "offset",
-            "required": false,
-            "schema": {
-              "description": "Return results starting from offset position",
-              "example": 5,
-              "minimum": 0,
               "type": "integer"
             }
           }
@@ -2616,10 +2592,6 @@
                             "maxLength": 100,
                             "type": "string"
                           },
-                          "fax": {
-                            "maxLength": 15,
-                            "type": "string"
-                          },
                           "job_title": {
                             "maxLength": 100,
                             "type": "string"
@@ -2744,10 +2716,6 @@
                     "maxLength": 100,
                     "type": "string"
                   },
-                  "fax": {
-                    "maxLength": 15,
-                    "type": "string"
-                  },
                   "job_title": {
                     "maxLength": 100,
                     "type": "string"
@@ -2846,10 +2814,6 @@
                         "email": {
                           "format": "email",
                           "maxLength": 100,
-                          "type": "string"
-                        },
-                        "fax": {
-                          "maxLength": 15,
                           "type": "string"
                         },
                         "job_title": {
@@ -3419,6 +3383,18 @@
         "operationId": "ListCustomers",
         "parameters": [
           {
+            "description": "Return results starting from offset position",
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "description": "Return results starting from offset position",
+              "example": 5,
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
             "description": "Limit number of returned results",
             "in": "query",
             "name": "limit",
@@ -3428,18 +3404,6 @@
               "example": 5,
               "maximum": 1000,
               "minimum": 1,
-              "type": "integer"
-            }
-          },
-          {
-            "description": "Return results starting from offset position",
-            "in": "query",
-            "name": "offset",
-            "required": false,
-            "schema": {
-              "description": "Return results starting from offset position",
-              "example": 5,
-              "minimum": 0,
               "type": "integer"
             }
           }
@@ -5675,7 +5639,16 @@
           {
             "description": "",
             "in": "query",
-            "name": "locale",
+            "name": "currency",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "",
+            "in": "query",
+            "name": "amount",
             "required": false,
             "schema": {
               "type": "string"
@@ -5693,7 +5666,7 @@
           {
             "description": "",
             "in": "query",
-            "name": "currency",
+            "name": "locale",
             "required": false,
             "schema": {
               "type": "string"
@@ -5703,15 +5676,6 @@
             "description": "",
             "in": "query",
             "name": "country",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "",
-            "in": "query",
-            "name": "amount",
             "required": false,
             "schema": {
               "type": "string"
@@ -5991,18 +5955,6 @@
             }
           },
           {
-            "description": "Return results starting from offset position",
-            "in": "query",
-            "name": "offset",
-            "required": false,
-            "schema": {
-              "description": "Return results starting from offset position",
-              "example": 5,
-              "minimum": 0,
-              "type": "integer"
-            }
-          },
-          {
             "description": "Limit number of returned results",
             "in": "query",
             "name": "limit",
@@ -6012,6 +5964,18 @@
               "example": 5,
               "maximum": 1000,
               "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Return results starting from offset position",
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "description": "Return results starting from offset position",
+              "example": 5,
+              "minimum": 0,
               "type": "integer"
             }
           }
@@ -6585,10 +6549,6 @@
                         "maxLength": 100,
                         "type": "string"
                       },
-                      "fax": {
-                        "maxLength": 15,
-                        "type": "string"
-                      },
                       "phone": {
                         "maxLength": 15,
                         "type": "string"
@@ -6702,10 +6662,6 @@
                             "example": "merchant@example.com",
                             "format": "email",
                             "maxLength": 100,
-                            "type": "string"
-                          },
-                          "fax": {
-                            "maxLength": 15,
                             "type": "string"
                           },
                           "phone": {
@@ -8434,6 +8390,15 @@
           {
             "description": "",
             "in": "query",
+            "name": "created_from",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "",
+            "in": "query",
             "name": "payment_method",
             "required": false,
             "schema": {
@@ -8443,7 +8408,43 @@
           {
             "description": "",
             "in": "query",
+            "name": "site_id",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "",
+            "in": "query",
+            "name": "created_until",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "",
+            "in": "query",
+            "name": "debit_credit",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "",
+            "in": "query",
             "name": "completed_from",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "",
+            "in": "query",
+            "name": "status",
             "required": false,
             "schema": {
               "type": "string"
@@ -8470,52 +8471,7 @@
           {
             "description": "",
             "in": "query",
-            "name": "created_from",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "",
-            "in": "query",
-            "name": "status",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "",
-            "in": "query",
             "name": "completed_until",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "",
-            "in": "query",
-            "name": "site_id",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "",
-            "in": "query",
-            "name": "debit_credit",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "",
-            "in": "query",
-            "name": "created_until",
             "required": false,
             "schema": {
               "type": "string"
@@ -8905,10 +8861,6 @@
                           "maxLength": 100,
                           "type": "string"
                         },
-                        "fax": {
-                          "maxLength": 15,
-                          "type": "string"
-                        },
                         "job_title": {
                           "maxLength": 100,
                           "type": "string"
@@ -9041,10 +8993,6 @@
                     "maxLength": 100,
                     "type": "string"
                   },
-                  "fax": {
-                    "maxLength": 15,
-                    "type": "string"
-                  },
                   "job_title": {
                     "maxLength": 100,
                     "type": "string"
@@ -9133,10 +9081,6 @@
                         "email": {
                           "format": "email",
                           "maxLength": 100,
-                          "type": "string"
-                        },
-                        "fax": {
-                          "maxLength": 15,
                           "type": "string"
                         },
                         "job_title": {
