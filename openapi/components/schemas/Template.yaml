@@ -4,7 +4,7 @@ description: |
       Overrides the `payment_options.template_id`.
 properties:
   version: 
-    description:
+    description: The version of the template.
     type: string
   settings:
     description: Sets whether to display or hide email elements, e.g. buttons, logos. 
