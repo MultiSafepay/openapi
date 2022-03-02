@@ -9,7 +9,7 @@ properties:
     type: string
     example: "1.0.0"
   shop_version: 
-    description: The version of the ecommerce webshop you use.
+    description: The version of your application.
     type: string
     example: ""
   partner: 
