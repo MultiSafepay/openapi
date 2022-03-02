@@ -1,13 +1,9 @@
-description: |
-      Sends a [Second Chance](https://docs.multisafepay.com/features/second-chance/) reminder email to the customer containing a payment link to complete an abandoned payment.
+description: Sends a [Second Chance](https://docs.multisafepay.com/features/second-chance/) reminder email to the customer containing a payment link to complete an abandoned payment.
 type: object
 properties:
   send_mail:
     description: |
-      Sets whether to send reminder emails if the customer doesn't complete payment.
-
-      - If `true`, sends reminder emails.
-      - If `false` or unset, doesn't send reminder emails.
+     Whether to send reminder emails if the customer doesn't complete payment.
 
 
       **Suppressing Second Chance emails after cancellation**

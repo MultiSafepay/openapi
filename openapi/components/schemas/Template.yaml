@@ -1,5 +1,5 @@
 description: |
-      For [styling MultiSafepay payment pages](https://docs.multisafepay.com/payment-pages/styling/): Applies a template object structure.
+      For [styling MultiSafepay payment pages](https://docs.multisafepay.com/payment-pages/styling/), applies a template object structure.
       
       Overrides the `payment_options.template_id`.
 properties:
@@ -11,30 +11,28 @@ properties:
     type: object
     properties:
       hide_logo:
-        description: Hides the email header logo. 
+        description: Whether to hide the email header logo. 
         type: boolean
       iframe_mode:
-        description: Hides iframe elements.
+        description: Whether to hide iframe elements.
         type: boolean
       hide_flags:
-        description: Hides the flags container. 
+        description: Whether to hide the flags container. 
         type: boolean
       hide_powered:
-        description: Hides the powered link.
+        description: Whether to hide the powered link.
         type: boolean
       hide_cart:
-        description: Hides the cart container. 
+        description: Whether to hide the shopping cart container. 
         type: boolean
       hide_btn_cancel:
-        description: |
-          Hides the **Cancel** button.
+        description: Whether to hide the **Cancel** button.
         type: boolean
       hide_cc_logos:
-        description: Hides credit card logos. 
+        description: Whether to hide credit card logos. 
         type: boolean
       hide_btn_all_methods:
-        description: |
-          Hides the **All methods** button.
+        description: Whether to hide the **All methods** button.
         type: boolean
   header:
     description: Settings for the header logo, cover image, background, and font. 
@@ -43,7 +41,7 @@ properties:
       type: object
       properties:
         logo:
-          description: Displays your logo in the email header. 
+          description: Your logo to display in the email header. 
           type: object
           properties:
             image:

@@ -7,12 +7,12 @@ properties:
       - `paymentlink`: Creates a [payment link](https://docs.multisafepay.com/payment-links/), which is useful when manually managing the order through the merchant dashboard.
       
     type: string
-    enum: [redirect, paymentlink]
+    enum: [paymentlink, redirect]
     example: redirect
   gateway:
     allOf:
       - description: |
-          The unique gateway identifier for the payment method.
+          The unique identifier for the payment method (gateway).
           
           If unset a MultiSafepay payment page with all available payment methods is returned.
       - type: string

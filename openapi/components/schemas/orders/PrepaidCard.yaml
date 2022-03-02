@@ -14,7 +14,7 @@ properties:
   gateway:
     allOf:
       - description: |
-          The unique gateway identifier for the payment method.
+          The unique identifier for the payment method (gateway).
          
           If unset, and `type` is set to `redirect`, a MultiSafepay payment page with all available payment methods is returned.
 

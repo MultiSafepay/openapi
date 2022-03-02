@@ -5,10 +5,7 @@ description: |
 type: object
 properties:
   items:
-    description: |
-      The items in the customer's shopping cart. 
-    
-      Specify the relevant tax ruling per item.
+    description: The items in the customer's shopping cart. Specify the relevant tax ruling per item.
     type: array
     items:
       $ref: 'Item.yaml'

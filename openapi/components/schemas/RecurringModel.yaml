@@ -1,5 +1,5 @@
 description: |
-      **Required for:** Initial and subsequent [Recurring payments](https://docs.multisafepay.com/features/recurring-payments/) orders.
+      For initial and subsequent [Recurring payments](https://docs.multisafepay.com/features/recurring-payments/) orders, sets the recurring model:
       
       
       Sets the recurring model:

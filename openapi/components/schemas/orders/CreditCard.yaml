@@ -1,10 +1,10 @@
-title: Credit card order
-description: Credit card order
+title: Credit or debit card order
+description: Credit or debit card order
 properties:
   type:
     description: |
       - `redirect`: Customers are redirected to a [MultiSafepay payment page](https://docs.multisafepay.com/payment-pages/) where they enter their cardholder data. 
-      - `direct`: The API request contains the cardholder data, customers are redirected to a 3D Secure or success page.
+      - `direct`: The API request contains the cardholder data, so customers are redirected to an authentication or success page.
 
       For more information, see [Direct vs redirect API requests](https://docs.multisafepay.com/developer/direct-vs-redirect).
       
@@ -15,9 +15,9 @@ properties:
   gateway:
     allOf:
       - description: |
-          The unique gateway identifier for the payment method.
+          The unique identifier for the payment method (gateway).
 
-          If `type` is set to redirect and `gateway` is set to `CREDITCARD`, a payment page is returned that automatically detects the customer's credit card scheme based on the cardholder data.
+         For `redirect` requests using the generic `CREDITCARD` gateway, a payment page is returned that automatically detects the card scheme.
       - type: string
       - example: CREDITCARD
       - $ref: '../GatewayIdentifiersCreditCard.yaml'

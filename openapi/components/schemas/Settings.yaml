@@ -1,5 +1,4 @@
-description: | 
-      For [gift card](https://docs.multisafepay.com/payment-methods/gift-cards/) payments.
+description: For [gift card](https://docs.multisafepay.com/payment-methods/gift-cards/) payments.
 type: object
 properties:
   fco:
