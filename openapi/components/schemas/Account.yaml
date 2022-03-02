@@ -6,7 +6,7 @@ properties:
   address2:
     $ref: 'Address2.yaml'
   address3:
-    $ref: 'Address2.yaml'
+    $ref: 'Address3.yaml'
   apartment:
     $ref: 'Apartment.yaml'
   city:
