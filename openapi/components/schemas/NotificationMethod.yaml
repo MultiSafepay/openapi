@@ -3,7 +3,7 @@ description: |
   
   We recommend setting this to `POST` to reduce network load and increase security.
 
-  See [Notification URL](https://docs.multisafepay.com/developer/api/notification-url/).
+  See [Webhook](https://docs.multisafepay.com/developer/webhooks/).
 type: string
 enum: [POST, GET]
 default: GET

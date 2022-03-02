@@ -2,7 +2,7 @@ description: |
   Contains: 
   
   - URLs to your success page and cancel page
-  - Your [webhook endpoint](https://docs.multisafepay.com/developer/api/notification-url/)
+  - Your [webhook endpoint](https://docs.multisafepay.com/developer/webhooks/)
   - Templates for styling [MultiSafepay payment pages](https://docs.multisafepay.com/payment-pages/)
   - Settings for displaying available [gift cards](https://docs.multisafepay.com/payment-methods/gift-cards/)
 type: object

@@ -3,23 +3,20 @@ description: |
   
   **Required for:**
   
-  - Direct credit and debit card orders
+  - `Direct` credit and debit card orders
   - MOTO orders
 type: object
 properties:
   card_number:
-    description: |
-      The customer's credit card number.
+    description: The credit or debit card number.
     type: string
     example: "4111111111111111"
   card_holder_name:
-    description: |
-      The cardholder's name.
+    description: The cardholder's name.
     type: name
     example: John Doe
   card_expiry_date:
-    description: |
-      The credit card's expiry date.
+    description: The expiry date of the credit or debit card.
     type: string
     format: yyMM
     example: "2412"
@@ -31,16 +28,13 @@ properties:
     type: string
     example: "123"
   flexible_3d: 
-    description: |
-      For Flexible 3D orders: Sets whether or not 3D Secure authentication is required.
+    description: For Flexible 3D orders, sets whether or not 3D Secure authentication is required.
     type: boolean
   moto:
-    description: |
-      Creates a [MOTO](https://docs.multisafepay.com/features/moto/) order.
+    description: Creates a [MOTO order](https://docs.multisafepay.com/features/moto/).
     type: boolean
   term_url: 
-    description: |
-      For Flexible 3D orders: The URL that tells the card issuer where to redirect the authorisation query.
+    description: For Flexible 3D orders, the URL that tells the card issuer where to redirect the authentication query.
     type: string
     format: URL
     example: https://example.com/?type=term&api_key=<api_key>

@@ -1,69 +1,72 @@
-description: Settings for FastCheckout
+description: Settings for FastCheckout.
 type: object
 properties:
   version:
-    description: The FastCheckout version to use
+    description: The FastCheckout version to use.
     type: string
     example: "1.0"
   redirect_mode:
     description: |
       Specifies how the customer is redirected to an authentication page, if relevant e.g. for iDEAL payments or 3D Secure.
 
-      `redirect`: Opens the authentication page in the current browser tab
-      `iframe`: Opens the authentication page as an iframe within the current page
-      `modal`: Opens the authentication page as a modal window over the current page
+      Open the authentication page:
+      
+      
+      `redirect`: In the current browser tab
+      `iframe`: As an iframe within the current page
+      `modal`: As a modal window over the current page
     type: string
-    enum: [redirect, iframe, modal]
+    enum: [iframe, modal, redirect]
   checkout: 
-    description: Settings 
+    description: Settings for the checkout.
     type: object
     properties:
       user_login:
-        description: Settings
+        description: The customer's login settings. 
         type: object
         properties:
           enabled:
-            description: Whether the customer can log in to an existing FastCheckout account.
+            description: Whether the customer can sign in to an existing FastCheckout account.
             type: boolean
             example: true
           force:
-            description: Whether the customer is forced to log in to an existing FastCheckout account.
+            description: Whether to require the customer to sign in to an existing FastCheckout account.
             type: boolean
             example: false
       flow:
         description: |
-          Specifies the layout of the FastCheckout page.
+          Specifies the layout of the FastCheckout page, i.e. whether to collect the billing, shipping, and payment details in:
 
-          `primary`: Billing, shipping and payment details are collected in 3 columns on a single page.
-          `secondary`: Billing, shipping and payment details are collected in 3 steps.
+          `primary`: 3 columns on a single page
+          `secondary`: 3 steps on separate pages
         type: string
         enum: [primary, secondary]
   qr:
-    description: Settings
+    description: Settings for QR code payments.
     type: object
     properties: 
       enabled:
-        description: Whether a QR is displayed on the FastCheckout page.
+        description: Whether to display a QR code on the FastCheckout page.
         type: boolean
         example: true
   cart:
-    description: Settings
+    description: Settings for the shopping cart. 
     type: object
     properties:
       disabled:
-        description: Whether the cart is displayed on the FastCheckout page.
+        description: Whether to display the shopping cart items on the FastCheckout page.
         type: boolean
         example: false
       edit:
-        description: Whether the cart can be edited on the FastCheckout page.
+        description: Whether the customer can edit their shopping cart on the FastCheckout page.
         type: boolean
         example: false
   shipping:
-    description: Settings
+    description: Settings for the customer's shipping address.
     type: object
     properties:
       address:
-        description: Settings
+        description: Settings for the customer's shipping address.
         type: object
         properties:
           required:

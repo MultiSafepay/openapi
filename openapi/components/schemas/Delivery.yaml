@@ -10,17 +10,8 @@ properties:
   house_number:
     $ref: 'Apartment.yaml'
   zip_code:
-    description: The customer’s ZIP/postal code.
-    type: string
-    example: "1033 SC"
+    $ref: 'ZIP.yaml'
   city:
-    description: The customer’s city of residence.
-    type: string
-    example: "Amsterdam"
+   $ref: 'City.yaml'
   country:
-    description: | 
-      The customer’s country of residence.
-
-      **Format**: ISO – [3166-1 alpha-2](https://www.iso.org/iso-3166-country-codes.html)
-    type: string
-    example: "NL"
+    $ref: 'Country.yaml'
