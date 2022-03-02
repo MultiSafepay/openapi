@@ -46,24 +46,26 @@ patch:
       schema:
         type: string
   requestBody:
+    description: ''
+    required: true
     content:
       application/json:
         schema:
-          $ref: '../components/requestBody/CreateCustomerProfile.yaml'
-    description: ''
-    required: true
+          allOf:
+            - $ref: '../components/schemas/CustomerProfile.yaml'
+            - required: [address1, brand, city, country, email, first_name, house_number, last_name, locale, zip_code]
   responses:
     '200':
-      description: Profile successfully updated
+      description: Request successful
       content:
         application/json:
           schema:
+            type: object
             properties:
               success:
                 $ref: '../components/schemas/Success.yaml'
               data:
                 $ref: '../components/schemas/CustomerProfile.yaml'
-            type: object
     '422':
       description: Validation errors
       content:

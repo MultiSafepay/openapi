@@ -9,12 +9,14 @@ post:
       schema:
         type: string
   requestBody:
+    description: ''
+    required: true
     content:
       application/json:
         schema:
-          $ref: '../components/requestBody/PayOutAffiliate.yaml'
-    description: ''
-    required: true
+          allOf:
+            - $ref: '../components/schemas/AffiliateTransaction.yaml'
+            - required: [amount, currency, description, order_id]
   responses:
     '200':
       description: Request successful
@@ -26,7 +28,7 @@ post:
               success:
                 $ref: '../components/schemas/Success.yaml'
               data:
-                $ref: '../components/schemas/Payout.yaml'
+                $ref: '../components/schemas/AffiliateTransaction.yaml'
     '422':
       description: Validation errors
       content:

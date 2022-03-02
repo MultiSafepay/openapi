@@ -25,7 +25,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/GenericErrorResponse.yaml
+            $ref: ../components/errors/404Error.yaml
   summary: Get affiliated account
   tags:
     - Manage affiliates
@@ -40,12 +40,14 @@ patch:
       schema:
         type: string
   requestBody:
+    description: ''
+    required: true
     content:
       application/json:
         schema:
-          $ref: '../components/requestBody/UpdateAccount.yaml'
-    description: ''
-    required: true
+          allOf:
+            - $ref: '../components/schemas/Account.yaml'
+            - required: [company_name, country, email]
   responses:
     '200':
       description: Request successful
