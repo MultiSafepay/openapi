@@ -1,25 +1,14 @@
-description: |
-      The customer's address details for shipping the order.
+description: The customer's shipping address.
 type: object
 properties:
   first_name:
-    description: The customer’s first name.
-    type: string
-    minLength: 2
-    example: "John"
+    $ref: 'FirstName.yaml'
   last_name:
-    description: The customer's last name.
-    type: string
-    minLength: 2
-    example: "Doe"
+    $ref: 'LastName.yaml'
   address1:
-    description: The first line of the customer’s address.
-    type: string
-    example: "Kraanspoor"
+    $ref: 'Address1.yaml'
   house_number:
-    description: The customer’s house number.
-    type: string
-    example: "39C"
+    $ref: 'Apartment.yaml'
   zip_code:
     description: The customer’s ZIP/postal code.
     type: string

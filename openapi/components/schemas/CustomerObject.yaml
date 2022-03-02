@@ -14,7 +14,7 @@ properties:
         - [Dankort](https://docs.multisafepay.com/payment-methods/dankort), set to `da_DK`.
         - [Postepay](https://docs.multisafepay.com/payment-methods/postepay), set to `it_IT`.
       
-      |`locale`|Language|
+      |Locale|Language|
       |--------|--------|
       |`de_AT`|German Austria|
       |`de_DE`|German Germany|

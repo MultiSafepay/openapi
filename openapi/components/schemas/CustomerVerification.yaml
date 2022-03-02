@@ -1,5 +1,4 @@
-description: |
-      For [credit card direct](https://docs.multisafepay.com/features/handling-cardholder-data/) orders.
+description: For [credit card direct](https://docs.multisafepay.com/features/handling-cardholder-data/) orders.
 type: object
 properties:
   html:
