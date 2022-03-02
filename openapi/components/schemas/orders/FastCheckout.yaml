@@ -41,7 +41,11 @@ properties:
       close_window:
         $ref: '../CloseWindow.yaml'
       settings:
-        
+        description: Settings for FastCheckout
+        type: object
+        properties:
+          fco:
+            $ref: '../Fco.yaml'
       template_id:
         $ref: '../TemplateId.yaml'
       template:

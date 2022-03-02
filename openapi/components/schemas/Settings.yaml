@@ -1,8 +1,6 @@
 description: For [gift card](https://docs.multisafepay.com/payment-methods/gift-cards/) payments.
 type: object
 properties:
-  fco:
-    $ref: 'Fco.yaml'
   coupons: 
     description: Contains optional settings for gift cards.
     properties:
