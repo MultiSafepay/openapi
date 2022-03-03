@@ -9,12 +9,14 @@ post:
       schema:
         type: string
   requestBody:
+    description: ''
+    required: true
     content:
       application/json:
         schema:
-          $ref: '../components/requestBody/AddShippingAddress.yaml'
-    description: ''
-    required: true
+          allOf:
+            - $ref: '../components/schemas/ShippingAddress.yaml'
+            - required: [address1, city, country, first_name, house_number, last_name, status, zip_code]
   responses:
     '200':
       description: Address added successfully

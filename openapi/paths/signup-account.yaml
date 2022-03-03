@@ -9,7 +9,9 @@ post:
           type: object
           properties:
             account:
-              $ref: '../components/requestBody/UpdateAccount.yaml'
+              allOf:
+                - $ref: '../components/schemas/Account.yaml'
+                - required: [company_name, country, email]
             currencies:
               description: The currencies supported in the account.
               type: array

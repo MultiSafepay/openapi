@@ -9,24 +9,26 @@ post:
       schema:
         type: string
   requestBody:
+    description: ''
+    required: true
     content:
       application/json:
         schema:
-          $ref: '../components/requestBody/AddSite.yaml'
-    description: ''
-    required: true
+          allOf:
+            - $ref: '../components/schemas/Site.yaml'
+            - required: [name, url]
   responses:
     '200':
       description: Request successful
       content:
         application/json:
           schema:
+            type: object
             properties:
               success:
                 $ref: '../components/schemas/Success.yaml'
               data:
                 $ref: '../components/schemas/Site.yaml'
-            type: object
     '422':
       description: Validation errors
       content:
@@ -52,12 +54,12 @@ get:
       content:
         application/json:
           schema:
+            type: object
             properties:
               success:
                 $ref: '../components/schemas/Success.yaml'
               data:
                 $ref: '../components/schemas/Site.yaml'
-            type: object
     '422':
       description: Validation errors
       content:

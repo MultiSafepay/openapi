@@ -9,25 +9,26 @@ post:
       schema:
         type: string
   requestBody:
+    description: ''
+    required: true
     content:
       application/json:
         schema:
-          $ref: '../components/requestBody/ChargeAffiliate.yaml'
-    description: ''
-    required: true
+          allOf:
+            - $ref: '../components/schemas/AffiliateTransaction.yaml'
+            - required: [amount, currency, description, order_id]
   responses:
     '200':
       description: Request successful
       content:
         application/json:
           schema:
-            properties:
-              data:
-                $ref: '../components/schemas/Charge.yaml'
-              success:
-                description: "True"
-                type: boolean
             type: object
+            properties:
+              success:
+                $ref: '../components/schemas/Success.yaml'
+              data:
+                $ref: '../components/schemas/AffiliateTransaction.yaml'
     '422':
       description: Validation errors
       content:

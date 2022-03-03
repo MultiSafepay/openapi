@@ -1,3 +1,4 @@
+description: Information about the customer. 
 type: object
 properties:
   address1:

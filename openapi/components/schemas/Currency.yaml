@@ -3,6 +3,7 @@ description: |
 
   See Wikipedia – [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217).
 type: string
+maxLength: 3
+minLength: 3
 format: ISO-4217 currency code
 example: EUR
-

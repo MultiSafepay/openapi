@@ -9,12 +9,14 @@ post:
       schema:
         type: string
   requestBody:
+    description: ''
+    required: true
     content:
       application/json:
         schema:
-          $ref: '../components/requestBody/AddBankStatement.yaml'
-    description: ''
-    required: true
+          allOf:
+            - $ref: '../components/schemas/BankStatement.yaml'
+            - required: [encoded_content, filename, mime_type]
   responses:
     '200':
       description: Request successful

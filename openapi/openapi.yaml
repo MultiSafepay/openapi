@@ -46,6 +46,10 @@ paths:
     $ref: 'paths/bank-accounts@{bankaccount_id}.yaml'
   '/bank-accounts/{bankaccount_id}/payment-links':
     $ref: 'paths/bank-accounts@{bankaccount_id}@payment-links.yaml'
+  '/bank-accounts/{bankaccount_id}/bank-statements':
+    $ref: 'paths/bank-accounts@{bankaccount_id}@bank-statements.yaml'
+  '/bank-statements/{bankstatement_id}':
+    $ref: 'paths/bank-statements@{bankstatement_id}.yaml'
   '/accounts/{account_id}/charges':
     $ref: 'paths/accounts@{account_id}@charges.yaml'
   '/accounts/{account_id}/payouts':
@@ -62,10 +66,6 @@ paths:
     $ref: 'paths/ubos@{ubo_id}@identitydocs.yaml'
   '/identitydocs/{identitydoc_id}':
     $ref: 'paths/identitydocs@{identitydoc_id}.yaml'
-  '/bank-accounts/{bankaccount_id}/bank-statements':
-    $ref: 'paths/bank-accounts@{bankaccount_id}@bank-statements.yaml'
-  '/bank-statements/{bankstatement_id}':
-    $ref: 'paths/bank-statements@{bankstatement_id}.yaml'
   '/categories':
     $ref: 'paths/categories.yaml'
   '/customers':
@@ -90,9 +90,9 @@ paths:
     $ref: 'paths/pad@ccs.yaml'
   '/pad/orders/{order_id}':
     $ref: 'paths/pad@orders@{order_id}.yaml'
-  /payment-methods:
+  '/payment-methods':
     $ref: paths/payment-methods.yaml
-  /recurring/{your_customer_reference}:
+  '/recurring/{your_customer_reference}':
     $ref: 'paths/recurring@{your_customer_reference}.yaml'
   '/recurring/{your_customer_reference}/token/{your_token}':
     $ref: 'paths/recurring@{your_customer_reference}@token@{your_token}.yaml'
