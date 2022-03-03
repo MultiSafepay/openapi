@@ -7,16 +7,11 @@ properties:
     enum: [id, passport, driverslicense, proof_of_address]
     example: Passport
   encoded_content:
-    description: The encoded format of the document. 
-    type: string
-    format: base64-encoded-content
+    $ref: 'EncodedContent.yaml'
   filename:
     description: The filename of the identity document. 
     type: string
     maxLength: 250
     example: UBOpassport.pdf
   mime_type:
-    description: The MIME type of the file. 
-    type: string
-    enum: [application/pdf, image/jpeg, image/png]
-    example: application/pdf
+    $ref: 'MimeType.yaml'

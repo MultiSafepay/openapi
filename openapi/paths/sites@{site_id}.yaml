@@ -18,9 +18,7 @@ get:
               data:
                 properties:
                   account_id:
-                    description: The identifier for the account the website is under.
-                    type: integer
-                    example: 12345678
+                    $ref: '../components/schemas/AccountID.yaml'
                   api_key:
                     description: The website API key.
                     type: string

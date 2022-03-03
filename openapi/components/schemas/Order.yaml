@@ -12,7 +12,7 @@ properties:
     example: redirect
   gateway:
     allOf:
-      - description: "The unique gateway identifier for the payment method.<br><br>If unset, and `type` is set to `redirect`, a MultiSafepay payment page with all available payment methods is returned."
+      - description: "The unique gateway identifier for the payment method.<br><br>If unset, and `type` is set to `redirect`, If unset, the payment page displays **all** available payment methods."
       - type: string
       - example: IDEAL
       - $ref: 'GatewayIdentifiers.yaml'
@@ -28,7 +28,7 @@ properties:
     $ref: 'PaymentOptions.yaml'
   customer:
     allOf:
-      - $ref: 'CustomerObject.yaml'
+      - $ref: 'Customer.yaml'
   gateway_info:
     $ref: 'GatewayInfo.yaml'
   delivery:

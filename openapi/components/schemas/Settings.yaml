@@ -2,7 +2,7 @@ description: For [gift card](https://docs.multisafepay.com/payment-methods/gift-
 type: object
 properties:
   coupons: 
-    description: Contains optional settings for gift cards.
+    description: Optional settings for gift cards.
     properties:
       allow:
         description: Specifies which gift cards the customer can pay with.

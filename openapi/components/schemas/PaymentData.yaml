@@ -1,4 +1,4 @@
-description: Contains data for [Payment Component](https://docs.multisafepay.com/payment-components/) orders. 
+description: Data for [Payment Component](https://docs.multisafepay.com/payment-components/) orders. 
 type: object
 properties:
   payload: 

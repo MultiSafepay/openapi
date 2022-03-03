@@ -20,7 +20,7 @@ properties:
   email:
     $ref: 'Email.yaml'
   favorite:
-    description: Whether this is the customer's preferred delivery address.
+    description: Whether this is the customer's preferred shipping address.
     type: boolean
   first_name:
     $ref: 'FirstName.yaml'
@@ -33,7 +33,7 @@ properties:
   phone:
     $ref: 'Phone.yaml'
   status:
-    description: Whether the delivery address is still used.
+    description: Whether the shipping address is still used.
     type: string
     enum: [active, disabled]
   title:

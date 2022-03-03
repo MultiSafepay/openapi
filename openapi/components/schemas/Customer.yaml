@@ -2,7 +2,7 @@ type: object
 description: | 
   The customer’s personal information.
 
-  **Required for**: All orders **except** Apple Pay or Google Pay orders, or Belfius, iDEAL, and WeChat Pay direct orders.
+  **Required for**: All orders **except** Apple Pay and Google Pay, and Belfius, iDEAL, and WeChat Pay `direct` orders.
 properties:
   locale:
     type: string
@@ -14,7 +14,9 @@ properties:
         - [Dankort](https://docs.multisafepay.com/payment-methods/dankort), set to `da_DK`.
         - [Postepay](https://docs.multisafepay.com/payment-methods/postepay), set to `it_IT`.
       
-      |Locale|Language|
+      **Required for:** Bancontact
+      
+      |Locale|Language & country|
       |--------|--------|
       |`de_AT`|German Austria|
       |`de_DE`|German Germany|
@@ -62,9 +64,7 @@ properties:
   last_name:
     $ref: 'LastName.yaml'
   gender:
-    description: The customer's title.
-    type: string
-    example: Mr.
+    $ref: 'Gender.yaml'
   birthday:
     $ref: 'Birthday.yaml'
   address1:
@@ -77,8 +77,16 @@ properties:
     $ref: 'ZIP.yaml'
   city: 
     $ref: 'City.yaml'
+  state:
+    $ref: 'State.yaml'
   country: 
-    $ref: 'Country.yaml'
+    description: |
+      The country of the address.
+
+      **Required for:** Bank Transfer and PayPal Seller Protection
+    type: string
+    format: country alpha-2
+    example: NL
   phone: 
     $ref: 'Phone.yaml'
   email:
@@ -86,10 +94,12 @@ properties:
       The customer’s email address.
 
       Used for [Second Chance](https://docs.multisafepay.com/features/second-chance/) emails and fraud checks.
+
+      **Required for:** Bank Transfer
     type: string
     example: customer@emailprovider.com
   user_agent:
-    description: A characteristic string that identifies a browser.
+    description: The characteristic string that identifies the customer's browser.
     type: string
     example: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36
   referrer: 
@@ -97,7 +107,7 @@ properties:
     type: string
   reference:
     description: |
-      A unique client-defined identifier for your customer.
+      Your unique client-defined identifier for your customer.
 
       **Required for:** [Recurring payments](https://docs.multisafepay.com/api/#recurring-payments-orders) orders, both initial and subsequent payments.
     type: string

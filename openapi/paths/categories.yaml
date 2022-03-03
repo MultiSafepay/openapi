@@ -29,7 +29,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../components/schemas/GenericErrorResponse.yaml'
+            $ref: '../components/errors/404Error.yaml'
       description: Error 
   summary: List website categories
   tags:

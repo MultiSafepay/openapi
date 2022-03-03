@@ -18,16 +18,11 @@ get:
               data:
                 properties:
                   account_id:
-                    description: The unique identifier for the account.
-                    type: integer
-                    example: 12345678
+                    $ref: '../components/schemas/AccountID.yaml'
                   role:
-                    description: The type of account.
-                    type: string
-                    example: merchant
+                    $ref: '../components/schemas/Role.yaml'
                   site_id:
-                    type: integer
-                    example: 12345
+                    $ref: '../components/schemas/SiteID.yaml'
                 required:
                   - account_id
                   - site_id

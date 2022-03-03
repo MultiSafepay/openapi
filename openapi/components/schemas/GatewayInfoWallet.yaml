@@ -1,7 +1,7 @@
 description: | 
-  Information specific to the payment method (`gateway`). 
+  Information specific to the payment method (gateway). 
   
-  Required for Apple Pay and Google Pay.
+  **Required for:** Apple Pay and Google Pay
 type: object
 properties:
   payment_token:

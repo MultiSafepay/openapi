@@ -9,6 +9,6 @@ properties:
       - Not required: The [transaction status](https://docs.multisafepay.com/about-payments/multisafepay-statuses/) response is processed directly and no HTML form is returned.
     type: string
   type:
-    description: 
+    description: The type of response returned, i.e. a form.
     type: string
     example: form  

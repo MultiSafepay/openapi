@@ -2,13 +2,13 @@ title: FastCheckout order
 description: FastCheckout order
 properties:
   type:
-    description: Specifies the order type.  
+    description: Creates a FastCheckout order.  
     type: string
     enum: [checkout]
     example: checkout
   gateway:
     allOf:
-      - description: "The unique identifier for the payment method (gateway).<br><br>If unset, a FastCheckout page with all available payment methods is returned."
+      - description: "The unique identifier for the payment method (gateway).<br><br>If unset, the FastCheckout page displays **all** available payment methods."
       - type: string
       - example: IDEAL
       - $ref: '../GatewayIdentifiers.yaml'
@@ -52,7 +52,8 @@ properties:
         $ref: '../Template.yaml'
   customer:
     allOf:
-      - $ref: '../CustomerObject.yaml'
+      - $ref: '../Customer.yaml'
+      
   gateway_info:
     $ref: '../GatewayInfo.yaml'
   delivery:

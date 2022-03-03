@@ -1,27 +1,24 @@
 type: object
 properties:
   direct_debit:
-    additionalProperties: false
+    type: object
     properties:
       bic:
-        type: string
+        $ref: 'Bic.yaml'
       holder_name:
         type: string
       iban:
-        type: string
+        $ref: 'Iban.yaml'
     required:
       - holder_name
       - iban
       - bic
-    type: object
   status:
-    enum:
-      - active
     type: string
+    enum: [active]
   type:
-    enum:
-      - direct_debit
     type: string
+    enum: [direct_debit]
 required:
   - direct_debit
   - type

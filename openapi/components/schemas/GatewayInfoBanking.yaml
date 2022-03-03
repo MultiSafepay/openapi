@@ -1,12 +1,11 @@
 description: | 
-  Information specific to the payment method (`gateway`). 
+  Information specific to the payment method (gateway). 
   
   **Required for:**
   
   - iDEAL `direct` orders
   - SEPA Direct Debit `direct` orders
   - Bancontact QR and iDEAL QR orders
-
 type: object
 properties:
   issuer_id:
@@ -55,14 +54,14 @@ properties:
       Required if `allow_change_amount` is set to true.
     type: string
   account_id:
-    description: For SEPA Direct Debit `direct` orders (required), the international bank account number (IBAN).
+    description: For SEPA Direct Debit `direct` orders (**required**), the international bank account number (IBAN).
     type: string
   account_holder_name:
-    description: For SEPA Direct Debit `direct` orders (required), the name of the account holder.
+    description: For SEPA Direct Debit `direct` orders (**required**), the name of the account holder.
     type: string
   account_holder_iban:
-    description: For SEPA Direct Debit `direct` orders (required), the international bank account number (IBAN).
+    description: For SEPA Direct Debit `direct` orders (**required**), the international bank account number (IBAN).
     type: string
   emandate:
-    description: For SEPA Direct Debit `direct` orders (required), the unique emandate identifier (for your own administration).
+    description: For SEPA Direct Debit `direct` orders (**required**), the unique emandate identifier (for your own administration).
     type: string

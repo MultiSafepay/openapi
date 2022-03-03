@@ -42,9 +42,7 @@ properties:
                     example: 0.0825
                     minimum: 0
                   country:
-                    description: |
-                      The country where the tax rate applies.
-
-                      Format: ISO – [3166-1 alpha-2](https://www.iso.org/iso-3166-country-codes.html)
+                    description: The country where the tax rate applies.
                     type: string
+                    format: country alpha-2
                     example: US

@@ -1,4 +1,4 @@
 description: The prefix in the customer's last name.
 type: string
 maxLength: 10
-example: ""
+example: "van"

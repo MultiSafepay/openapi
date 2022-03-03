@@ -1,4 +1,4 @@
-description: |
-  The [order status](https://docs.multisafepay.com/payments/multisafepay-statuses/).
+description: The [order status](https://docs.multisafepay.com/payments/multisafepay-statuses/).
 type: string
 enum: [cancelled, completed, declined, expired, initialized, refunded, reserved, shipped, uncleared, void]
+example: completed

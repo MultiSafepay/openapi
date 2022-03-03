@@ -89,8 +89,7 @@ properties:
           type: object
           properties:
             bic:
-              description: the BIC number of the issuing bank.
-              type: string
+              $ref: 'Bic.yaml'
             code:
               description: The issuer ID, for direct iDEAL payments.
               type: string

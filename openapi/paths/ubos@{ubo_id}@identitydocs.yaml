@@ -34,7 +34,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/GenericErrorResponse.yaml
+            $ref: ../components/errors/404Error.yaml
     '422':
       description: Validation errors
       content:
@@ -71,7 +71,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/GenericErrorResponse.yaml
+            $ref: ../components/errors/404Error.yaml
     '422':
       description: Validation errors
       content:
