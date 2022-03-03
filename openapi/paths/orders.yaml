@@ -31,6 +31,7 @@ post:
             - $ref: '../components/schemas/orders/Wallet.yaml'
             - $ref: '../components/schemas/orders/PrepaidCard.yaml'
             - $ref: '../components/schemas/orders/PayLater.yaml'
+            - $ref: '../components/schemas/orders/PaymentComponent.yaml'
             - $ref: '../components/schemas/orders/FastCheckout.yaml'
         examples:
           Payment Page:

@@ -52,8 +52,6 @@ properties:
     $ref: '../ShoppingCartPayLater.yaml'
   items:
     $ref: '../Items.yaml'
-  payment_data:
-    $ref: '../PaymentData.yaml'
   affiliate:
     $ref: '../Affiliate.yaml'
   second_chance:

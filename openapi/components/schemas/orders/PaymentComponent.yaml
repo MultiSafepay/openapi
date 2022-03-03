@@ -1,21 +1,18 @@
-title: Banking order
-description: Banking order
+title: Payment Component
+description: Payment Component
 properties:
   type:
     description: |
-      - `redirect`: Redirects the customer to a [MultiSafepay payment page](https://docs.multisafepay.com/payment-pages/), where they can select a payment method and complete payment. 
-      - `direct`: Redirects the customer to an authentication or success page, depending on the payment method. 
-      
-      For more information, see [Direct vs redirect API requests](https://docs.multisafepay.com/developer/direct-vs-redirect).
+      `direct`: Redirects the customer to an authentication or success page, depending on the payment method. 
     type: string
-    enum: [direct, redirect]
-    example: redirect
+    enum: [direct]
+    example: direct
   gateway:
     allOf:
       - description: "The unique gateway identifier for the payment method.<br><br>If unset, and `type` is set to `redirect`, a MultiSafepay payment page with all available payment methods is returned."
       - type: string
       - example: IDEAL
-      - $ref: '../GatewayIdentifiersBanking.yaml'
+      - $ref: '../GatewayIdentifiersPaymentComponent.yaml'
   order_id:
     $ref: '../OrderId.yaml'
   currency:
@@ -27,20 +24,19 @@ properties:
   payment_options:
     $ref: '../PaymentOptions.yaml'
   customer:
-    allOf:
-      - $ref: '../CustomerObject.yaml'
+    $ref: '../CustomerObject.yaml'
   gateway_info:
-    $ref: '../GatewayInfoBanking.yaml'
+    $ref: '../GatewayInfo.yaml'
   delivery:
-    allOf:
-      - $ref: '../Delivery.yaml'
+    $ref: '../Delivery.yaml'
   checkout_options:
-    allOf:
-      - $ref: '../CheckoutOptions.yaml'
+    $ref: '../CheckoutOptions.yaml'
   shopping_cart:
     $ref: '../ShoppingCart.yaml'
   items:
     $ref: '../Items.yaml'
+  payment_data:
+    $ref: '../PaymentData.yaml'
   recurring_model:
     $ref: '../RecurringModel.yaml'
   recurring_id:
@@ -71,3 +67,4 @@ required:
   - currency
   - amount
   - description
+  - payment_data

@@ -17,7 +17,7 @@ properties:
       - description: |
           The unique identifier for the payment method (gateway).
 
-         For `redirect` requests using the generic `CREDITCARD` gateway, a payment page is returned that automatically detects the card scheme.
+          For `redirect` requests using the generic `CREDITCARD` gateway, a payment page is returned that automatically detects the card scheme.
       - type: string
       - example: CREDITCARD
       - $ref: '../GatewayIdentifiersCreditCard.yaml'
@@ -54,8 +54,6 @@ properties:
     $ref: '../ShoppingCart.yaml'
   items:
     $ref: '../Items.yaml'
-  payment_data:
-    $ref: '../PaymentData.yaml'
   recurring_model:
     $ref: '../RecurringModel.yaml'
   recurring_id:
