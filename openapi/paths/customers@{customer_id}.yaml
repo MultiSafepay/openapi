@@ -53,7 +53,6 @@ patch:
         schema:
           allOf:
             - $ref: '../components/schemas/CustomerProfile.yaml'
-            - required: [address1, brand, city, country, email, first_name, house_number, last_name, locale, zip_code]
   responses:
     '200':
       description: Request successful
