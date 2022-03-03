@@ -47,7 +47,6 @@ patch:
         schema:
           allOf:
             - $ref: '../components/schemas/ShippingAddress.yaml'
-            - required: [address1, city, country, first_name, house_number, last_name, status, zip_code]
   responses:
     '200':
       description: Request successful
