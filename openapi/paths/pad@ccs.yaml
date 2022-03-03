@@ -95,9 +95,7 @@ post:
               type: string
               example: SimonSmit123
             merchant_id:
-              description: The unique identifier of the merchant.
-              type: integer
-              example: 12345678
+              $ref: '../components/schemas/MerchantID.yaml'
             merchant_sub_id:
               description: The unique identifier of the affiliated merchant. 
               type: integer

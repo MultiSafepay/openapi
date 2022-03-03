@@ -1,26 +1,15 @@
 post:
   description: | 
-    Create an order to collect payment from a customer, including:
-
-    - FastCheckout orders: See `type`.
-    - [Payment Component](https://docs.multisafepay.com/payment-components/) orders: See `payment_data`.
-    - [Payment links](https://docs.multisafepay.com/payment-links/): See `type`, `days_active`, and `seconds_active`.
-    - [Recurring Payments](https://docs.multisafepay.com/features/recurring-payments/) orders: See `customer.reference`.
-    - [Split Payments](https://docs.multisafepay.com/features/split-payments/) orders: See `affiliate.split_payments` and `var3`.
-
-    You can also use this request to apply the following payment features:
+    Create an order to collect payment from a customer.
     
-    - Credit card payments: 
-      - [Flexible 3D](https://docs.multisafepay.com/features/3d-secure/flexible/): See `gateway_info`.
-      - [Manual Capture](https://docs.multisafepay.com/features/manual-capture/): See `capture`.
-      - [MOTO](https://docs.multisafepay.com/features/moto/): See `gateway_info`.
-      - [Credit card direct](https://docs.multisafepay.com/features/server-to-server/): See `type` and `gateway_info`.
-      - [Zero Authorization](https://docs.multisafepay.com/features/zero-authorization/): Set `amount` to 0.
+    - [Payment links](https://docs.multisafepay.com/payment-links/): Under **Request body schema**, see Payment page.
+    - [Recurring payments](https://docs.multisafepay.com/features/recurring-payments/): See `customer.reference`.
     - [Second Chance](https://docs.multisafepay.com/features/second-chance/): See `second_chance`.
-    - Styling [MultiSafepay payment pages](https://docs.multisafepay.com/payment-pages/): See `payment_options`.
+    - [Split payments](https://docs.multisafepay.com/features/split-payments/): See `affiliate.split_payments` and `var3`.
   operationId: 'CreateOrder'
   parameters: []
   requestBody:
+    required: true
     content:
       application/json:
         schema:
@@ -29,8 +18,8 @@ post:
             - $ref: '../components/schemas/orders/Banking.yaml'
             - $ref: '../components/schemas/orders/CreditCard.yaml'
             - $ref: '../components/schemas/orders/Wallet.yaml'
-            - $ref: '../components/schemas/orders/PrepaidCard.yaml'
             - $ref: '../components/schemas/orders/PayLater.yaml'
+            - $ref: '../components/schemas/orders/PrepaidCard.yaml'
             - $ref: '../components/schemas/orders/FastCheckout.yaml'
         examples:
           Payment Page:
@@ -273,10 +262,9 @@ post:
             summary: Dynamic template
             value:
               $ref: '../components/examples/requests/post-orders/dynamic-template.json'
-    required: true
   responses:
     '200':
-      description: Successful request
+      description: Request successful
       content:
         application/json:
           schema:

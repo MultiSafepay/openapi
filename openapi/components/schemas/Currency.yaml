@@ -1,7 +1,4 @@
-description: |
-  The currency of the transaction.
-
-  See Wikipedia – [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217).
+description: The currency of the payment.
 type: string
 maxLength: 3
 minLength: 3

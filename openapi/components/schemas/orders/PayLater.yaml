@@ -5,7 +5,6 @@ properties:
     description: |
       - `redirect`: Redirects the customer to a [MultiSafepay payment page](https://docs.multisafepay.com/payment-pages/), where they can select a payment method and complete payment. 
       - `direct`: Redirects the customer to an authentication or success page, depending on the payment method. 
-      - `paymentlink`: Creates a [payment link](https://docs.multisafepay.com/payment-links/).
       
       For more information, see [Direct vs redirect API requests](https://docs.multisafepay.com/developer/direct-vs-redirect).
     type: string
@@ -13,7 +12,7 @@ properties:
     example: redirect
   gateway:
     allOf:
-      - description: "The unique identifier for the payment method (gateway).<br><br>If unset, and `type` is set to `redirect`, a MultiSafepay payment page with all available payment methods is returned."
+      - description: "The unique identifier for the payment method (gateway).<br><br>If unset for `redirect` orders, the payment page displays **all** available payment methods."
       - type: string
       - example: PAYAFTER
       - $ref: '../GatewayIdentifiersPayLater.yaml'
@@ -29,7 +28,7 @@ properties:
     $ref: '../PaymentOptions.yaml'
   customer:
     allOf:
-      - $ref: '../CustomerObject.yaml'
+      - $ref: '../Customer.yaml'  
   gateway_info:
     $ref: '../GatewayInfoPayLater.yaml'
   delivery:

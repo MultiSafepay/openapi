@@ -1,5 +1,3 @@
-description: |
-  Creates a [Manual Capture](https://docs.multisafepay.com/features/manual-capture/) order.
-
-  Set to `manual`.
+description: For [Manual Capture](https://docs.multisafepay.com/features/manual-capture/) orders (**required**).
+enum: [manual]
 type: string

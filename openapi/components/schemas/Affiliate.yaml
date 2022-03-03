@@ -1,4 +1,4 @@
-description: Creates a [Split Payments](https://docs.multisafepay.com/features/split-payments/) order.
+description: For [Split Payments](https://docs.multisafepay.com/features/split-payments/) (**required**).
 type: object
 properties:
   split_payments:
@@ -15,11 +15,11 @@ properties:
           type: string
           example: 1001001
         fixed: 
-          description: Specify the amount to split in cents.
+          description: The amount to split in cents.
           type: integer
           minimum: 1
         percentage: 
-          description: Specify a percentage of the amount to split.
+          description: A percentage of the amount to split.
           type: number
           format: float
           minimum: 1

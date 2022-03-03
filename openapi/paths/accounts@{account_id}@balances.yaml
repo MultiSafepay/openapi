@@ -44,9 +44,7 @@ get:
                   type: object
                   properties:
                     account_id:
-                      description: The unique identifier of the account.
-                      type: integer
-                      example: 12345678
+                      $ref: '../components/schemas/AccountID.yaml'
                     amount_available:
                       description: The amount of funds available in the account's MultiSafepay balance.
                       type: integer
@@ -83,7 +81,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/GenericErrorResponse.yaml
+            $ref: ../components/errors/404Error.yaml
     '422':
       description: Validation errors
       content:

@@ -26,7 +26,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/GenericErrorResponse.yaml
+            $ref: ../components/errors/404Error.yaml
   summary: Get identity document
   tags:
     - Onboard affiliates

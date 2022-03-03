@@ -1,4 +1,7 @@
-description: The state where the customer lives.
+description: |
+  The state of the address. 
+  
+  **Required for:** PayPal Seller Protection
 type: string
 maxLength: 6
 example: ""

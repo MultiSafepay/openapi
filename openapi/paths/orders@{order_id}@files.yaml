@@ -44,7 +44,7 @@ post:
             - type
   responses:
     '200':
-      description: Successful request
+      description: Request successful
       content:
         application/json:
           schema:

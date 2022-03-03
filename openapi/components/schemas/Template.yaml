@@ -1,5 +1,5 @@
 description: |
-      For [styling MultiSafepay payment pages](https://docs.multisafepay.com/payment-pages/styling/), applies a template object structure.
+      Applies a template object structure for styling [MultiSafepay payment pages](https://docs.multisafepay.com/payment-pages/styling/).
       
       Overrides the `payment_options.template_id`.
 properties:

@@ -1,4 +1,4 @@
-description: The customer’s house number.
+description: The house number of the address.
 type: string
 maxLength: 10
 example: 39C

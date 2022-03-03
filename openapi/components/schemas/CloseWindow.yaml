@@ -1,3 +1,4 @@
-    description: To display the MultiSafepay payment page in a new window that automatically closes after the customer completes payment, set to `true`.
-    type: boolean
-    default: false
+description: Whether to display the MultiSafepay payment page in a new window that automatically closes after the customer completes payment.
+type: boolean
+default: false
+example: false
