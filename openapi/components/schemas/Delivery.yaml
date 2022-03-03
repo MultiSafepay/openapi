@@ -1,0 +1,17 @@
+description: The customer's shipping address.
+type: object
+properties:
+  first_name:
+    $ref: 'FirstName.yaml'
+  last_name:
+    $ref: 'LastName.yaml'
+  address1:
+    $ref: 'Address1.yaml'
+  house_number:
+    $ref: 'Apartment.yaml'
+  zip_code:
+    $ref: 'ZIP.yaml'
+  city:
+   $ref: 'City.yaml'
+  country:
+    $ref: 'Country.yaml'

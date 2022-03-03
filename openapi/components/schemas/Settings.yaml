@@ -1,0 +1,11 @@
+description: For [gift card](https://docs.multisafepay.com/payment-methods/gift-cards/) payments.
+type: object
+properties:
+  coupons: 
+    description: Contains optional settings for gift cards.
+    properties:
+      allow:
+        description: Specifies which gift cards the customer can pay with.
+        type: array
+        example: EDENCO
+        enum: [BABYCAD, BEAUTYWELL, BLOEMENCAD, BOEKENBON, DEGROTESPL, EDENCOM, EDENCO, EDENRES, EDENSPORTS, FASHIONCHQ, FASHIONGFT, FIETSENBON, GOOD4FUN, GEZONDHEID, NATNLBIOSC, NATNLETUIN, PARFUMCADE, SPORTENFIT, VRGIFTCARD, VVVGIFTCRD, WEBSHOPGFT, WIJNCADEAU, YOURGIFT]

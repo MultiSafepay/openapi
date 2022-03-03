@@ -1,0 +1,100 @@
+title: FastCheckout order
+description: FastCheckout order
+properties:
+  type:
+    description: Specifies the order type.  
+    type: string
+    enum: [checkout]
+    example: checkout
+  gateway:
+    allOf:
+      - description: "The unique identifier for the payment method (gateway).<br><br>If unset, a FastCheckout page with all available payment methods is returned."
+      - type: string
+      - example: IDEAL
+      - $ref: '../GatewayIdentifiers.yaml'
+  order_id:
+    $ref: '../OrderId.yaml'
+  currency:
+    $ref: '../Currency.yaml'
+  amount:
+    $ref: '../Amount.yaml'
+  description:
+    $ref: '../Description.yaml'
+  payment_options:
+    description: |
+      Contains: 
+  
+      - URLs to your success page and cancel page
+      - Your [webhook endpoint](https://docs.multisafepay.com/developer/api/notification-url/)
+      - Templates for styling [MultiSafepay payment pages](https://docs.multisafepay.com/payment-pages/)
+      - Settings for displaying available [gift cards](https://docs.multisafepay.com/payment-methods/gift-cards/)
+    type: object
+    properties:
+      notification_url:
+        $ref: '../NotificationUrl.yaml'
+      notification_method:
+        $ref: '../NotificationMethod.yaml'
+      redirect_url:
+        $ref: '../RedirectUrl.yaml'
+      cancel_url:
+        $ref: '../CancelUrl.yaml'
+      close_window:
+        $ref: '../CloseWindow.yaml'
+      settings:
+        description: Settings for FastCheckout
+        type: object
+        properties:
+          fco:
+            $ref: '../Fco.yaml'
+      template_id:
+        $ref: '../TemplateId.yaml'
+      template:
+        $ref: '../Template.yaml'
+  customer:
+    allOf:
+      - $ref: '../CustomerObject.yaml'
+  gateway_info:
+    $ref: '../GatewayInfo.yaml'
+  delivery:
+    allOf:
+      - $ref: '../Delivery.yaml'
+      - required:
+        - address1
+        - city
+        - country
+        - first_name
+        - house_number
+        - last_name
+        - zip_code
+  checkout_options:
+    allOf:
+      - $ref: '../CheckoutOptions.yaml'
+      - required:
+        - tax_tables
+  shopping_cart:
+    $ref: '../ShoppingCart.yaml'
+  items:
+    $ref: '../Items.yaml'
+  recurring_model:
+    $ref: '../RecurringModel.yaml'
+  recurring_id:
+    $ref: '../RecurringId.yaml'
+  affiliate:
+    $ref: '../Affiliate.yaml'
+  second_chance:
+   $ref: '../SecondChance.yaml'
+  custom_info:
+    $ref: '../CustomInfo.yaml'
+  days_active:
+    $ref: '../DaysActive.yaml'
+  seconds_active: 
+    $ref: '../SecondsActive.yaml'
+  var1:
+    $ref: '../var12.yaml'
+  var2:
+    $ref: '../var12.yaml'
+  var3:
+    $ref: '../var3.yaml'
+  plugin:
+    $ref: '../Plugin.yaml'
+type: object

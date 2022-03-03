@@ -1,0 +1,7 @@
+description: |
+      For `redirect` and `paymentlink` orders, sets the number of seconds the link to the MultiSafepay payment page is valid.
+
+      See `days_active` above. If `days_active` is also set, `seconds_active` is used. If neither is set, the default is used.
+type: integer
+minimum: 1
+default: 2592000

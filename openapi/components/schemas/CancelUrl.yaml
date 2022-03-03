@@ -1,0 +1,3 @@
+description: The page customers are redirected to after **unsuccessful** payments.
+type: string
+example: https://www.example.com/test-order-0001/unsuccessful/

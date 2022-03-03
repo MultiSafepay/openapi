@@ -1,0 +1,5 @@
+description: |
+  Creates a [Manual Capture](https://docs.multisafepay.com/features/manual-capture/) order.
+
+  Set to `manual`.
+type: string

@@ -1,0 +1,101 @@
+title: Prepaid card order
+description: Prepaid card order
+properties:
+  type:
+    description: |
+      - `redirect`: Redirects the customer to a [MultiSafepay payment page](https://docs.multisafepay.com/payment-pages/), where they can select a payment method and complete payment. 
+      - `direct`: Redirects the customer to an authentication or success page, depending on the payment method. 
+      - `paymentlink`: Creates a [payment link](https://docs.multisafepay.com/payment-links/).
+      
+      For more information, see [Direct vs redirect API requests](https://docs.multisafepay.com/developer/direct-vs-redirect).
+    type: string
+    enum: [direct, redirect]
+    example: redirect
+  gateway:
+    allOf:
+      - description: |
+          The unique identifier for the payment method (gateway).
+         
+          If unset, and `type` is set to `redirect`, a MultiSafepay payment page with all available payment methods is returned.
+
+          | Prepaid card | Gateway identifier |
+          |--------------|--------------------|
+          |[Baby Cadeaubon](https://www.babycadeaubon.nl/)|`BABYCAD`|
+          |[Beauty Cadeau](https://www.beautycadeau.nl/)| `BEAUTYCAD`|
+          |[Wellness & Beauty](https://www.wellnessbeautycadeau.nl/page/hoe-het-werkt/)| `BEAUTYWELL`|
+          |[Biercheque](https://biercheque.nl/)| `BIERCHEQUE`|
+          | [Bloemen Cadeaukaart](https://www.bloemen-cadeaukaart.nl/)| `BLOEMENCAD`|
+          | [Boekenbon](https://bestel.boekenbon.nl/)| `BOEKENBON`|
+          | [Boeken Voordeel](https://www.boekenVoordeel.nl/)| `BOEKENVOOR`|
+          | [Fashioncheque](https://www.fashioncheque.com/)| `FASHIONCHQ`|
+          | [Fashion Giftcard](https://www.fashion-giftcard.nl/)| `FASHIONGFT`|
+          | [Gezondheidsbon](https://www.gezondheidsbon.nl/)| `GEZONDHEID`|
+          | [Good4fun](https://www.good4fun.nl/)| `GOOD4FUN`|
+          | [Huis & Tuin Cadeau](https://www.huisentuincadeau.com/)| `HUISTUIN`|
+          | [Kids' Cadeau](https://www.dekidscadeaukaart.nl/)| `KIDSCADEAU`|
+          | [Klus Cadeau](https://www.kluscadeau.nl/)| `KLUSCADEAU`|
+          | [Nationale Bioscoopbon](https://www.bioscoopbon.nl/)| `NATNLBIOSC`|
+          | [Nationale Entertainment Card](https://www.nationale-entertainmentcard.nl/)| `NATENCRD`|
+          | [Nationale Tuinbon](https://www.nationale-tuinbon.nl/)| `NATNLETUIN`|
+          | [Ohmygood Giftcard](https://ohmygood.nl/)| `OHMYGOOD`|
+          | [Speelgoedwinkel Cadeaukaart](https://www.speelgoedwinkel.nl/)| `SPEELGOED`|
+          | [Sport & Fit](https://www.sportenfitcadeau.nl/)| `SPORTENFIT`|
+          | [Sports Gift Card](https://www.sports-giftcard.com/)| `SPORTSGIFT`|
+          | [VVV Cadeaukaart](https://www.vvvcadeaukaarten.nl/)| `VVVGIFTCRD`|
+          | [Wijn Cadeaukaart](https://www.wijn-cadeaukaart.nl/)| `WIJNCADEAU`|
+          | [YourGift](https://www.yourgift.nl/)| `YOURGIFT`|
+      - type: string
+      - example: BOEKENBON
+      - $ref: '../GatewayIdentifiersPrepaidCard.yaml'
+  order_id:
+    $ref: '../OrderId.yaml'
+  currency:
+    $ref: '../Currency.yaml'
+  amount:
+    $ref: '../Amount.yaml'
+  description:
+    $ref: '../Description.yaml'
+  payment_options:
+    $ref: '../PaymentOptions.yaml'
+  customer:
+    allOf:
+      - $ref: '../CustomerObject.yaml'
+  delivery:
+    allOf:
+      - $ref: '../Delivery.yaml'
+      - required:
+        - address1
+        - city
+        - country
+        - first_name
+        - house_number
+        - last_name
+        - zip_code
+  checkout_options:
+    allOf:
+      - $ref: '../CheckoutOptions.yaml'
+  shopping_cart:
+    $ref: '../ShoppingCart.yaml'
+  items:
+    $ref: '../Items.yaml'
+  payment_data:
+    $ref: '../PaymentData.yaml'
+  affiliate:
+    $ref: '../Affiliate.yaml'
+  second_chance:
+   $ref: '../SecondChance.yaml'
+  custom_info:
+    $ref: '../CustomInfo.yaml'
+  days_active:
+    $ref: '../DaysActive.yaml'
+  seconds_active: 
+    $ref: '../SecondsActive.yaml'
+  var1:
+    $ref: '../var12.yaml'
+  var2:
+    $ref: '../var12.yaml'
+  var3:
+    $ref: '../var3.yaml'
+  plugin:
+    $ref: '../Plugin.yaml'
+type: object

@@ -13,10 +13,26 @@ properties:
         - [Cartes Bancaires](https://docs.multisafepay.com/payment-methods/cartes-bancaires), set to `fr_FR`.
         - [Dankort](https://docs.multisafepay.com/payment-methods/dankort), set to `da_DK`.
         - [Postepay](https://docs.multisafepay.com/payment-methods/postepay), set to `it_IT`.
+      
+      |Locale|Language|
+      |--------|--------|
+      |`de_AT`|German Austria|
+      |`de_DE`|German Germany|
+      |`en_US`|American English|
+      |`fi_FI`|Finnish|
+      |`fr_BE`|French Belgium|
+      |`it_IT`|Italian|
+      |`nl_BE`|Dutch Belgium|
+      |`nl_NL`|Dutch Netherlands|
+      |`pl_PL`|Polish|
+      |`es_ES`|Spanish|
+      |`sv_SE`|Swedish|
+      |`zh_CN`|Chinese|
+
     format: ab_CD with ISO 639 language codes and ISO 3166 country codes
-    enum: [ de_AT (German Austria), de_DE (German Germany), en_US (American English), fi_FI (Finnish), fr_BE (French Belgium), it_IT (Italian), nl_BE (Dutch Belgium), nl_NL (Dutch Netherlands), pl_PL (Polish), es_ES (Spanish), sv_SE (Swedish), zh_CN (Chinese)]
+    enum: [de_AT, de_DE, en_US, fi_FI, fr_BE, it_IT, nl_BE, nl_NL, pl_PL, es_ES, sv_SE, zh_CN]
     example: nl_NL
-    default: 'en_US (American English)'
+    default: 'en_US'
   ip_address: 
     description: |
       The customer’s IP address.
@@ -86,22 +102,4 @@ properties:
       **Required for:** [Recurring payments](https://docs.multisafepay.com/api/#recurring-payments-orders) orders, both initial and subsequent payments.
     type: string
     example: customer-0001
-required:
-- address1
-- address2
-- birthday
-- city
-- country
-- email
-- first_name
-- forwarded_ip
-- gender
-- house_number
-- ip_address
-- last_name
-- locale
-- phone
-- reference
-- referrer
-- user_agent
-- zip_code
+

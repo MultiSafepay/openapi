@@ -1,0 +1,83 @@
+description: Settings for FastCheckout.
+type: object
+properties:
+  version:
+    description: The FastCheckout version to use.
+    type: string
+    example: "1.0"
+  redirect_mode:
+    description: |
+      Specifies how the customer is redirected to an authentication page, if relevant e.g. for iDEAL payments or 3D Secure.
+
+      Open the authentication page:
+      
+      
+      `redirect`: In the current browser tab
+      `iframe`: As an iframe within the current page
+      `modal`: As a modal window over the current page
+    type: string
+    enum: [iframe, modal, redirect]
+  checkout: 
+    description: Settings for the checkout.
+    type: object
+    properties:
+      user_login:
+        description: The customer's login settings. 
+        type: object
+        properties:
+          enabled:
+            description: Whether the customer can sign in to an existing FastCheckout account.
+            type: boolean
+            example: true
+          force:
+            description: Whether to require the customer to sign in to an existing FastCheckout account.
+            type: boolean
+            example: false
+      flow:
+        description: |
+          Specifies the layout of the FastCheckout page, i.e. whether to collect the billing, shipping, and payment details in:
+
+          `primary`: 3 columns on a single page
+          `secondary`: 3 steps on separate pages
+        type: string
+        enum: [primary, secondary]
+  qr:
+    description: Settings for QR code payments.
+    type: object
+    properties: 
+      enabled:
+        description: Whether to display a QR code on the FastCheckout page.
+        type: boolean
+        example: true
+  cart:
+    description: Settings for the shopping cart. 
+    type: object
+    properties:
+      disabled:
+        description: Whether to display the shopping cart items on the FastCheckout page.
+        type: boolean
+        example: false
+      edit:
+        description: Whether the customer can edit their shopping cart on the FastCheckout page.
+        type: boolean
+        example: false
+  shipping:
+    description: Settings for the customer's shipping address.
+    type: object
+    properties:
+      address:
+        description: Settings for the customer's shipping address.
+        type: object
+        properties:
+          required:
+            description: Whether the customer is required to provide a shipping address on the FastCheckout page.
+            type: boolean
+            example: true
+      invoice:
+        description: Settings for sending the customer an invoice.
+        type: object
+        properties:
+          enabled:
+            description: Whether to send the customer an invoice.
+            type: boolean
+            example: true

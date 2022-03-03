@@ -1,0 +1,2 @@
+description: For subsequent [Recurring payments](https://docs.multisafepay.com/features/recurring-payments/) orders (required), the unique identifier of the recurring payment.
+type: string

@@ -6,3 +6,4 @@ type: string
 format: url
 maxLength: 150
 example: https://www.examplewebsite.com/payment-updates/
+

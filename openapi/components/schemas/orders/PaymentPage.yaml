@@ -1,0 +1,78 @@
+title: Payment page
+description: Payment page
+properties:
+  type:
+    description: |
+      - `redirect`: Redirects the customer to a [MultiSafepay payment page](https://docs.multisafepay.com/payment-pages/), where they can select a payment method and complete payment. 
+      - `paymentlink`: Creates a [payment link](https://docs.multisafepay.com/payment-links/), which is useful when manually managing the order through the merchant dashboard.
+      
+    type: string
+    enum: [paymentlink, redirect]
+    example: redirect
+  gateway:
+    allOf:
+      - description: |
+          The unique identifier for the payment method (gateway).
+          
+          If unset a MultiSafepay payment page with all available payment methods is returned.
+      - type: string
+      - example: IDEAL
+      - $ref: '../GatewayIdentifiers.yaml'
+  order_id:
+    $ref: '../OrderId.yaml'
+  currency:
+    $ref: '../Currency.yaml'
+  amount:
+    $ref: '../Amount.yaml'
+  description:
+    $ref: '../Description.yaml'
+  payment_options:
+    $ref: '../PaymentOptions.yaml'
+  customer:
+    allOf:
+      - $ref: '../CustomerObject.yaml'
+  gateway_info:
+    $ref: '../GatewayInfo.yaml'
+  delivery:
+    allOf:
+      - $ref: '../Delivery.yaml'
+      - required:
+        - address1
+        - city
+        - country
+        - first_name
+        - house_number
+        - last_name
+        - zip_code
+  checkout_options:
+    allOf:
+      - $ref: '../CheckoutOptions.yaml'
+  shopping_cart:
+    $ref: '../ShoppingCart.yaml'
+  items:
+    $ref: '../Items.yaml'
+  affiliate:
+    $ref: '../Affiliate.yaml'
+  second_chance:
+   $ref: '../SecondChance.yaml'
+  custom_info:
+    $ref: '../CustomInfo.yaml'
+  days_active:
+    $ref: '../DaysActive.yaml'
+  seconds_active: 
+    $ref: '../SecondsActive.yaml'
+  var1:
+    $ref: '../var12.yaml'
+  var2:
+    $ref: '../var12.yaml'
+  var3:
+    $ref: '../var3.yaml'
+  plugin:
+    $ref: '../Plugin.yaml'
+type: object
+required:
+  - type
+  - order_id
+  - currency
+  - amount
+  - description

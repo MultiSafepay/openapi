@@ -1,0 +1,79 @@
+title: Wallet order
+description: Wallet order
+properties:
+  type:
+    description: |
+      - `redirect`: Redirects the customer to a [MultiSafepay payment page](https://docs.multisafepay.com/payment-pages/), where they can select a payment method and complete payment. 
+      - `direct`: Redirects the customer to an authentication or success page, depending on the payment method. 
+      
+      For more information, see [Direct vs redirect API requests](https://docs.multisafepay.com/developer/direct-vs-redirect).
+    type: string
+    enum: [direct, redirect]
+    example: redirect
+  gateway:
+    allOf:
+      - description: "The unique identifier for the payment method (gateway).<br><br>If unset, and `type` is set to `redirect`, a MultiSafepay payment page with all available payment methods is returned."
+      - type: string
+      - example: GOOGLEPAY
+      - $ref: '../GatewayIdentifiersWallet.yaml'
+  order_id:
+    $ref: '../OrderId.yaml'
+  currency:
+    $ref: '../Currency.yaml'
+  amount:
+    $ref: '../Amount.yaml'
+  description:
+    $ref: '../Description.yaml'
+  payment_options:
+    $ref: '../PaymentOptions.yaml'
+  customer:
+    allOf:
+      - $ref: '../CustomerObject.yaml'
+  gateway_info:
+    $ref: '../GatewayInfoWallet.yaml'
+  delivery:
+    allOf:
+      - $ref: '../Delivery.yaml'
+      - required:
+        - address1
+        - city
+        - country
+        - first_name
+        - house_number
+        - last_name
+        - zip_code
+  checkout_options:
+    allOf:
+      - $ref: '../CheckoutOptions.yaml'
+  shopping_cart:
+    $ref: '../ShoppingCart.yaml'
+  items:
+    $ref: '../Items.yaml'
+  payment_data:
+    $ref: '../PaymentData.yaml'
+  affiliate:
+    $ref: '../Affiliate.yaml'
+  second_chance:
+   $ref: '../SecondChance.yaml'
+  custom_info:
+    $ref: '../CustomInfo.yaml'
+  days_active:
+    $ref: '../DaysActive.yaml'
+  seconds_active: 
+    $ref: '../SecondsActive.yaml'
+  var1:
+    $ref: '../var12.yaml'
+  var2:
+    $ref: '../var12.yaml'
+  var3:
+    $ref: '../var3.yaml'
+  plugin:
+    $ref: '../Plugin.yaml'
+type: object
+required:
+  - type
+  - gateway
+  - order_id
+  - currency
+  - amount
+  - description
