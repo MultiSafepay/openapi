@@ -2,28 +2,30 @@ description: Information about the payment method.
 type: object
 properties:
   allowed_amount:
-    description: The minimum and maximum amounts allowed for the payment method.
+    description: The minimum and maximum `amount` allowed for the payment method.
     type: object
     properties:
       min:
-        description: The minimum amount (in eurocents) allowed for the payment method.
+        description: The minimum `amount` (in eurocents) allowed for the payment method.
         type: integer
         example: 0
       max:
-        description: The maximum amount (in eurocents) allowed for the payment method.
+        description: The maximum `amount` (in eurocents) allowed for the payment method.
         type: integer
         example: 1000000
   allowed_apps:
-    description: Apps supported by the payment method.
+    description: Applications supported by the payment method.
     type: array
     example: APIFCO
     items:
       type: string
+      enum: [APIFCO, APIFCOJS, APIFCOWEB, APIJSON:V1, APIXML:V1, payments:V2]
   allowed_currencies:
-    description: The currencies supported by the payment method.
+    description: Currencies supported by the payment method.
     example: EUR, USD, GBP
     items:
       type: string
+      format: ISO 4217
     type: array
   brands:
     description: Information about any co-branded versions of the payment method.
@@ -59,37 +61,42 @@ properties:
           type: string
           example: PostePay
   checkout_data_required:
-    description: Whether checkout information is required for payments.
+    description: Whether checkout information (i.e. `shopping_cart` and `customer`) is required for payments.
     type: boolean
     example: false
-  component_available:
-    description: Whether the payment method supports [Payment Components](https://docs.multisafepay.com/payment-components/).
-    type: boolean
-    example: true
   country_preferred:
-    description: The merchant's preferred country for using this payment method. 
+    description: |
+      Countries where customers prefer the payment method.
+
+      The list is curated by payment experts based on historical transaction data.
     example: NL
     type: array
     items:
       type: string
-  direct_available:
-    description: |
-      Whether the payment method supports `type`: `direct` orders.
-    type: boolean
-    example: true
-  direct_preferred:
-    description: |
-      Whether the merchant prefers `type`:`direct` orders for this payment method.
-    type: boolean
-    example: false
   extras:
-    description: Additional information about issuers for the payment method.
+    description: Additional data for the payment method.
     type: object
     example:
       issuers:
         - bic: ABNANL2A
           code: '0031'
           name: ABN Amro Bank
+    properties:
+      issuers:
+        description: "Additional information about iDEAL issuers"
+        type: array
+        items:
+          type: object
+          properties:
+            bic:
+              description: the BIC number of the issuing bank.
+              type: string
+            code:
+              description: The issuer ID, for direct iDEAL payments.
+              type: string
+            name:
+              description: The name of the issuing bank.
+              type: string
   icon_urls:
     description: URLs to versions of the payment method logo.
     type: object
@@ -110,7 +117,7 @@ properties:
         example: >-
           https://media.multisafepay.com/img/methods/svg/visa.svg
   id:
-    description: The identifier of the payment method.
+    description: The identifier of the payment method (also known as gateway identifier).
     type: string
     example: VISA
   name:
@@ -118,6 +125,7 @@ properties:
     type: string
     example: Visa
   required_fields:
+    description: An array of fields that are required for the payment method.
     example: []
     type: array
     items:

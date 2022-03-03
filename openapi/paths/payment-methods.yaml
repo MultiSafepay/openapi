@@ -3,25 +3,20 @@ get:
   operationId: listPaymentMethods
   parameters:
     - name: currency
-      description: The currencies supported by the payment method.
+      description: Filter payment methods by availability for a given currency.
       in: query
       required: false
       schema:
         type: string
+        format: ISO 4217
     - name: amount
-      description: The maximum and minimum amount allowed for the payment method.
+      description: Filter payment methods by availability for a given order amount in eurocents.
       in: query
       required: false
       schema:
         type: string
     - name: country
-      description: The countries supported by the payment method. 
-      in: query
-      required: false
-      schema:
-        type: string
-    - name: locale
-      description: The locales supported by the payment method. 
+      description: Filter payment methods by availability in a given country.
       in: query
       required: false
       schema:
@@ -37,7 +32,7 @@ get:
               success:
                 $ref: '../components/schemas/Success.yaml'
               data:
-                 description: Array of payment methods
+                 description: Array of activated payment methods (meeting filter criteria if relevant).
                  type: array
                  items: 
                    $ref: '../components/schemas/PaymentMethod.yaml'
