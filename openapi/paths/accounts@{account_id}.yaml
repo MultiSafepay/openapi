@@ -47,7 +47,6 @@ patch:
         schema:
           allOf:
             - $ref: '../components/schemas/Account.yaml'
-            - required: [company_name, country, email]
   responses:
     '200':
       description: Request successful
