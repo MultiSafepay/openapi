@@ -94,8 +94,19 @@ properties:
               $ref: 'UnitPrice.yaml'
             weight:
               $ref: 'Weight.yaml'
+<<<<<<< HEAD
           required: [merchant_item_id, name, quantity, unit_price]
     required: [amount, currency]
+=======
+          required:
+            - name
+            - merchant_item_id
+            - quantity
+            - unit_price
+    required:
+      - amount
+      - currency
+>>>>>>> 70bfa27cac411628d73168c37f6d6d842ea85058
     type: object
   max_amount_outstanding:
     type: number
