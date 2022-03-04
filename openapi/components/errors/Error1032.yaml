@@ -4,9 +4,7 @@ properties:
     type: boolean
     example: false
   data:
-    description: Empty
-    type: object
-    example: []
+    $ref: '../schemas/DataEmpty.yaml'
   error_code:
     description: "1032"
     type: integer

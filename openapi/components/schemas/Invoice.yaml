@@ -4,5 +4,4 @@ properties:
     description: The date the invoice is due to be paid.
     type: string
     format: date
-required:
-  - due
+required: [due]

@@ -3,16 +3,18 @@ get:
   operationId: listWebsiteCategories
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           example:
             $ref: '../components/examples/responses/listWebsiteCategories.json'
           schema:
+            type: object
             properties:
               success:
                 $ref: '../components/schemas/Success.yaml'
               data:
-                description: Array of website categories.
+                description: All website categories.
                 type: array
                 items: 
                   type: object
@@ -23,15 +25,13 @@ get:
                     description: 
                       description: The website category name.
                       type: string
-            type: object
-      description: ''
     '404':
+      description: Error 
       content:
         application/json:
           schema:
             $ref: '../components/errors/404Error.yaml'
-      description: Error 
   summary: List website categories
   tags:
-    - My account
+    - Manage affiliates
 

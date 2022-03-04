@@ -6,6 +6,4 @@ properties:
     $ref: 'AccountID.yaml'
   site_id:
     $ref: 'SiteID.yaml'
-required:
-  - merchant_id
-  - site_id
+required: [merchant_id, site_id]

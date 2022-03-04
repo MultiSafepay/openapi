@@ -1,11 +1,12 @@
 get:
-  description: List all transactions under a MultiSafepay account or website.
+  description: List all transactions under an account or website.
   operationId: listTransactions
   parameters:
     - name: site_id
       description: |
-        Returns transactions for a specific website under your account.  
-        **Default**: Returns transactions for **all** sites under your account.
+        The unique identifier of the website. 
+        
+        If unset, transactions for **all** sites under your account are returned.
       in: query
       required: false
       schema:
@@ -68,9 +69,9 @@ get:
       schema:
         type: array
         items:
+          type: string
           allOf:
             - $ref: '../components/schemas/GatewayIdentifiers.yaml'
-          type: string
     - name: status
       description: Returns transactions with the specified [order status](https://docs.multisafepay.com/about-payments/multisafepay-statuses/).
       in: query
@@ -83,43 +84,44 @@ get:
       in: query
       required: false
       schema:
+        type: integer
         default: 100
         maximum: 1000
         minimum: 1
-        type: integer
     - name: after
-      description: Use the `after` cursor to request the next page of paginated results.
+      description: Use the `after` cursor to request the next page of results.
       in: query
       required: false
       schema:
         type: string
     - name: before
-      description: Use the `before` cursor to request the previous page of paginated results.
+      description: Use the `before` cursor to request the previous page of results.
       in: query
       required: false
       schema:
         type: string
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           example: 
             $ref: '../components/examples/responses/listTransactions.json'
           schema:
             properties: 
+              success:
+                $ref: '../components/schemas/Success.yaml'
               data:
-                allOf:
-                  - $ref: '../components/schemas/Transaction.yaml'
-                  - description: Details about the transaction.
+                $ref: '../components/schemas/Transaction.yaml'
               pager:
                 description: The page navigation details.
                 type: object
                 properties:
                   after:
-                    description: The URL for the next page of paginated results.
+                    description: The URL for the next page of results.
                     type: string
                   before:
-                    description: The URL for the previous page of paginated results.
+                    description: The URL for the previous page of results.
                     type: string
                   cursor:
                     description: The cursor navigation details.
@@ -134,11 +136,8 @@ get:
                   limit:
                     description: The number of results returned per page.
                     type: integer
-              success:
-                $ref: '../components/schemas/Success.yaml'
-      description: ''
     '403':
-      description: ''
+      description: Invalid API key
       content:
         application/json:
           schema:

@@ -1,3 +1,4 @@
 description: The type of account.
 type: string
+enum: [merchant, partner]
 example: merchant

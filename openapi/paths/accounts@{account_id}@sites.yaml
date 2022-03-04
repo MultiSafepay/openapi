@@ -1,5 +1,5 @@
 post:
-  description: Add a website to an affiliated account.
+  description: Add a website to an affiliated merchant's account.
   operationId: Partner::CreateAccountSite
   parameters:
     - name: account_id
@@ -9,7 +9,6 @@ post:
       schema:
         type: string
   requestBody:
-    description: ''
     required: true
     content:
       application/json:
@@ -29,17 +28,23 @@ post:
                 $ref: '../components/schemas/Success.yaml'
               data:
                 $ref: '../components/schemas/Site.yaml'
+    '404':
+      description: Account not found
+      content:
+        application/json:
+          schema:
+            $ref: '../components/errors/404Error.yaml'
     '422':
       description: Validation errors
       content:
         application/json:
           schema:
-            $ref: ../components/errors/422Error.yaml
+            $ref: '../components/errors/422Error.yaml'
   summary: Add website
   tags:
     - Onboard affiliates
 get:
-  description: List all websites under an affiliated account.
+  description: List all websites under an affiliated merchant's account.
   operationId: Partner::ListAccountSites
   parameters:
     - name: account_id
@@ -60,12 +65,18 @@ get:
                 $ref: '../components/schemas/Success.yaml'
               data:
                 $ref: '../components/schemas/Site.yaml'
+    '404':
+      description: Account not found
+      content:
+        application/json:
+          schema:
+            $ref: '../components/errors/404Error.yaml'
     '422':
       description: Validation errors
       content:
         application/json:
           schema:
-            $ref: ../components/errors/422Error.yaml
+            $ref: '../components/errors/422Error.yaml'
   summary: List websites
   tags:
     - Onboard affiliates

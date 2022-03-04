@@ -1,5 +1,5 @@
 post:
-  description: Make a payout to an affiliated account.
+  description: Make a payout to an affiliated merchant's account.
   operationId: Partner::CreatePayoutForSubaccount
   parameters:
     - name: account_id
@@ -9,7 +9,6 @@ post:
       schema:
         type: string
   requestBody:
-    description: ''
     required: true
     content:
       application/json:
@@ -29,12 +28,18 @@ post:
                 $ref: '../components/schemas/Success.yaml'
               data:
                 $ref: '../components/schemas/AffiliateTransaction.yaml'
+    '404':
+      description: Account not found
+      content:
+        application/json:
+          schema:
+            $ref: '../components/errors/404Error.yaml'
     '422':
       description: Validation errors
       content:
         application/json:
           schema:
-            $ref: ../components/errors/422Error.yaml
+            $ref: '../components/errors/422Error.yaml'
   summary: Pay out affiliate
   tags:
     - Manage affiliates

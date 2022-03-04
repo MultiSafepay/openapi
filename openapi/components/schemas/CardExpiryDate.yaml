@@ -1,3 +1,4 @@
-description: The expiry date of the credit or debit card.
-type: string
-format: YYMM
+description: The card expiry date.
+type: integer
+format: MMYY
+example: 1225

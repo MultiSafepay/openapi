@@ -26,11 +26,4 @@ properties:
   status:
     type: string
     enum: [active, disabled, hidden]
-required:
-  - interval
-  - interval_count
-  - merchant_item_id
-  - name
-  - status
-  - amount
-  - currency
+required: [amount, currency, interval, interval_count, merchant_item_id, name, status]

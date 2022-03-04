@@ -25,9 +25,9 @@ properties:
           type: string
           example: '#/email'
   message:
-    description: Validation failure
+    description: Validation error
     type: string
-    example: Validation failure
+    example: Validation error
   success:
     description: "False"
     type: boolean

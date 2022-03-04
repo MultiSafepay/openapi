@@ -1,8 +1,9 @@
 post:
-  description: Create a new affiliated account.
+  description: Create an account for an affiliated merchant.
   operationId: Partner::SignupAccount
   parameters: []
   requestBody:
+    required: true
     content:
       application/json:
         schema:
@@ -20,32 +21,8 @@ post:
                 format: ISO 4217
               example: EUR
             user:
-              description: The affiliate's user information for their MultiSafepay account. 
-              type: object
-              properties:
-                email:
-                  description: The affiliate's email address used to sign in to the MultiSafepay account.
-                  type: string
-                  format: email
-                  example: user@example.com
-                name:
-                  description: The affiliate's username. 
-                  type: string
-                  example: Simon Smit
-                password:
-                  description: The affiliate's password.
-                  type: string
-                  example: Mypassword123
-              required:
-                - email
-                - name
-                - password
-          required:
-            - account
-            - currencies
-            - user
-    description: ''
-    required: true
+              $ref: '../components/schemas/User.yaml'
+          required: [account, currencies, user]
   responses:
     '200':
       description: Request successful
@@ -72,28 +49,13 @@ post:
                         format: ISO 4217
                       example: EUR
                     user:
-                      description: The affiliate's user information for their MultiSafepay account. 
-                      type: object
-                      properties:
-                        email:
-                          description: The affiliate's email address.
-                          type: string
-                          format: email
-                          example: user@example.com
-                        name:
-                          description: The affiliate's username. 
-                          type: string
-                          example: Simon Smit
-                        password:
-                          description: The affiliate's password.
-                          type: string
-                          example: Mypassword123
+                      $ref: '../components/schemas/User.yaml'
     '422':
       description: Validation errors
       content:
         application/json:
           schema:
-            $ref: ../components/errors/422Error.yaml
-  summary: Create affiliated account
+            $ref: '../components/errors/422Error.yaml'
+  summary: Create affiliate
   tags:
     - Onboard affiliates

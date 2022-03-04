@@ -1,5 +1,6 @@
 title: Payment page
 description: Payment page
+type: object
 properties:
   type:
     description: |
@@ -38,14 +39,7 @@ properties:
   delivery:
     allOf:
       - $ref: '../Delivery.yaml'
-      - required:
-        - address1
-        - city
-        - country
-        - first_name
-        - house_number
-        - last_name
-        - zip_code
+      - required: [address1, city, country, first_name, house_number, last_name, zip_code]
   checkout_options:
     allOf:
       - $ref: '../CheckoutOptions.yaml'
@@ -71,10 +65,4 @@ properties:
     $ref: '../var3.yaml'
   plugin:
     $ref: '../Plugin.yaml'
-type: object
-required:
-  - type
-  - order_id
-  - currency
-  - amount
-  - description
+required: [amount, currency, description, order_id, type]

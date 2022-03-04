@@ -3,7 +3,7 @@ get:
   operationId: getShippingAddress
   parameters:
     - name: delivery_details_id
-      description: The unique identifier for the shipping address.
+      description: The unique identifier of the shipping address.
       in: path
       required: true
       schema:
@@ -14,18 +14,18 @@ get:
       content:
         application/json:
           schema:
+            type: object
             properties:
               success:
                 $ref: '../components/schemas/Success.yaml'
               data:
                 $ref: '../components/schemas/ShippingAddress.yaml'
-            type: object
     '404':
-      description: Delivery details not found
+      description: Shipping address not found
       content:
         application/json:
           schema:
-            $ref: ../components/errors/404Error.yaml
+            $ref: '../components/errors/404Error.yaml'
   summary: Get shipping address
   tags:
     - Customers
@@ -34,19 +34,17 @@ patch:
   operationId: updateShippingAddress
   parameters:
     - name: delivery_details_id
-      description: The unique identifier for the shipping address. 
+      description: The unique identifier of the shipping address. 
       in: path
       required: true
       schema:
         type: string
   requestBody:
-    description: ''
     required: true
     content:
       application/json:
         schema:
-          allOf:
-            - $ref: '../components/schemas/ShippingAddress.yaml'
+          $ref: '../components/schemas/ShippingAddress.yaml'
   responses:
     '200':
       description: Request successful
@@ -60,11 +58,11 @@ patch:
               data:
                 $ref: '../components/schemas/ShippingAddress.yaml'
     '422':
-      description: Validation failure
+      description: Validation error
       content:
         application/json:
           schema:
-            $ref: ../components/errors/422Error.yaml
+            $ref: '../components/errors/422Error.yaml'
   summary: Update shipping address
   tags:
     - Customers

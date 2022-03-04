@@ -48,14 +48,7 @@ properties:
   delivery:
     allOf:
       - $ref: '../Delivery.yaml'
-      - required:
-        - address1
-        - city
-        - country
-        - first_name
-        - house_number
-        - last_name
-        - zip_code
+      - required: [address1, city, country, first_name, house_number, last_name, zip_code]
   checkout_options:
     allOf:
       - $ref: '../CheckoutOptions.yaml'
@@ -92,10 +85,4 @@ properties:
   plugin:
     $ref: '../Plugin.yaml'
 type: object
-required:
-  - type
-  - gateway
-  - order_id
-  - currency
-  - amount
-  - description
+required: [amount, currency, description, gateway, order_id, type]

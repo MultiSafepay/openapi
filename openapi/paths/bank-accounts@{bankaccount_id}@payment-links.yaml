@@ -20,14 +20,6 @@ post:
               success:
                 $ref: '../components/schemas/Success.yaml'
               data:
-                properties:
-                  paymentlink:
-                    type: object
-                    properties:
-                      bankaccount_id:
-                        type: string
-                      payment_link: 
-                        type: string
                 description: Information about the payment link.
                 type: array
                 items: 
@@ -50,13 +42,13 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/errors/404Error.yaml
+            $ref: '../components/errors/404Error.yaml'
     '422':
       description: Validation errors
       content:
         application/json:
           schema:
-            $ref: ../components/errors/422Error.yaml
+            $ref: '../components/errors/422Error.yaml'
   summary: Validate bank account
   tags:
     - Onboard affiliates

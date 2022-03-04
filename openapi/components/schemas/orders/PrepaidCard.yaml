@@ -62,14 +62,7 @@ properties:
   delivery:
     allOf:
       - $ref: '../Delivery.yaml'
-      - required:
-        - address1
-        - city
-        - country
-        - first_name
-        - house_number
-        - last_name
-        - zip_code
+      - required: [address1, city, country, first_name, house_number, last_name, zip_code]
   checkout_options:
     allOf:
       - $ref: '../CheckoutOptions.yaml'

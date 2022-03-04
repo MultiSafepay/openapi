@@ -28,6 +28,4 @@ properties:
     $ref: '../schemas/var12.yaml'
   var3:
     $ref: '../schemas/var3.yaml'
-required:
-  - currency
-  - amount
+required: [amount, currency]

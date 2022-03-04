@@ -1,3 +1,5 @@
+description: Information about the transaction.
+type: object
 properties:
   amount:
     allOf:
@@ -7,16 +9,17 @@ properties:
     description: The timestamp for when the transaction was completed.
     type: string
     format: datetime
+    example: 23-02-2022 23:31:31
   costs:
     description: The fees for the transaction.
+    type: array
     items:
+      type: object
       properties:
         amount:
           $ref: 'Amount.yaml'
         description:
           $ref: 'Description.yaml'
-      type: object
-    type: array
   created:
     $ref: 'Created.yaml'
   currency:
@@ -36,9 +39,7 @@ properties:
   debit_credit:
     description: Whether the transaction is a credit (C) or a debit (D).
     type: string
-    enum:
-      - C
-      - D
+    enum: [C, D]
   description:
     $ref: 'Description.yaml'
   financial_status:
@@ -48,8 +49,7 @@ properties:
     type: integer
     example: 940
   invoice_id:
-    description: Your unique identifier for the invoice.
-    type: string
+    $ref: 'InvoiceId.yaml'
   order_id:
     $ref: 'OrderId.yaml'
   payment_method:
@@ -68,13 +68,10 @@ properties:
     enum: [automatic_payout, coupon, payment, refund]
     example: 'payment'
   updated:
-    description: The timestamp for when the transaction was updated.
-    type: string
-    format: datetime
+    $ref: 'Modified.yaml'
   var1:
     $ref: 'var12.yaml'
   var2:
     $ref: 'var12.yaml'
   var3:
     $ref: 'var3.yaml'
-type: object

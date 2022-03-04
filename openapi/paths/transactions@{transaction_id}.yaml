@@ -3,24 +3,24 @@ get:
   operationId: getTransaction
   parameters:
     - name: transaction_id
+      description: The unique identifier of the transaction.
       in: path
       required: true
       schema:
         $ref: '../components/schemas/TransactionId.yaml'
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           schema:
             properties: 
-              data:
-                allOf:
-                  - $ref: '../components/schemas/Transaction.yaml'
-                  - description: Details about the transaction.
               success:
                 $ref: '../components/schemas/Success.yaml'
-      description: ''
+              data:
+                $ref: '../components/schemas/Transaction.yaml'
     '404':
+      description: Transaction not found
       content:
         application/json:
           schema:
@@ -29,7 +29,6 @@ get:
                 description: The transaction was not found.
                 type: string
                 example: Not found
-      description: ''
   summary: Get transaction
   tags:
     - Reconciliation

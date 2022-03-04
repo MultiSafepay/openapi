@@ -1,5 +1,5 @@
 get:
-  description: List the balances of affiliated accounts.
+  description: List the balances of affiliated merchant accounts.
   operationId: listAccountBalances
   parameters:
     - name: account_id
@@ -13,7 +13,7 @@ get:
       in: query
       required: false
       schema:
-        description: Return results starting from the offset position
+        description: Return results starting from the offset position.
         type: integer
         minimum: 0
         example: 5
@@ -50,17 +50,17 @@ get:
                       type: integer
                       example: 500000
                     amount_reserved:
-                      description: The amount the MultiSafepay balance is not allowed to go below.
+                      description: The amount reserved in the MultiSafepay balance.
                       type: integer
                       example: 1000
                     currency:
-                      description: The currency of the account's MultiSafepay balance.
+                      description: The currency of the MultiSafepay balance.
                       type: string
                       maxLength: 3
                       minLength: 3
                       example: EUR
                     id:
-                      description: The identifier of the MultiSafepay balance.
+                      description: The unique identifier of the MultiSafepay balance.
                       type: string
                       maxLength: 64
                       example: AB12345678
@@ -69,25 +69,19 @@ get:
                       type: string
                       format: date
               page:
-                description: The pages of results.
-                type: object
-                properties:
-                  total:
-                    description: The total number of pages of results. 
-                    type: integer
-                    example: 1
+                $ref: '../components/schemas/Page.yaml'
     '404':
-      description: Account not found
+      description: No accounts found
       content:
         application/json:
           schema:
-            $ref: ../components/errors/404Error.yaml
+            $ref: '../components/errors/404Error.yaml'
     '422':
       description: Validation errors
       content:
         application/json:
           schema:
-            $ref: ../components/errors/422Error.yaml
-  summary: List account balances
+            $ref: '../components/errors/422Error.yaml'
+  summary: List affiliate balances
   tags:
     - Manage affiliates

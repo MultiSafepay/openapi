@@ -42,14 +42,11 @@ properties:
     type: integer
     example: 25
   state:
-    description: The state of the UBO's address.
+    description: The state of the address.
     type: string
     maxLength: 100
   title:
-    description: The UBO's personal title.
-    type: string
-    enum: [mr, mrs]
-    example: Mr
+    $ref: 'Title.yaml'
   type:
     description: The type of control the UBO has in the company.
     type: string

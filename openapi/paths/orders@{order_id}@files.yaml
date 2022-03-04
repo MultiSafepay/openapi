@@ -15,6 +15,7 @@ post:
       schema:
         type: string
   requestBody:
+    required: true
     content:
       application/json:
         schema:
@@ -37,24 +38,19 @@ post:
               description: The filename of the file.
               type: string
               example: EmailsWithCustomerX.pdf
-          required:
-            - base64
-            - description
-            - name
-            - type
+          required: [base64, description, name, type]
   responses:
     '200':
       description: Request successful
       content:
         application/json:
           schema:
+            type: object
             properties:
               success:
                 $ref: '../components/schemas/Success.yaml'
               data: 
-                description: Empty
-                type: object
-                example: ''
+                $ref: '../components/schemas/DataEmpty.yaml'
     '404':
       description: Error
       content:

@@ -16,8 +16,7 @@ properties:
   external_transaction_id:
     $ref: 'ExternalTransactionId.yaml'
   last4:
-    type: integer
-    description: "The last 4 digits of the customer’s credit card number."
+    $ref: 'Last4.yaml'
   payment_description:
     description: The payment method.
     type: string

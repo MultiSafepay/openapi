@@ -9,17 +9,11 @@ properties:
         type: string
       iban:
         $ref: 'Iban.yaml'
-    required:
-      - holder_name
-      - iban
-      - bic
+    required: [bic, iban, holder_name]
   status:
     type: string
     enum: [active]
   type:
     type: string
     enum: [direct_debit]
-required:
-  - direct_debit
-  - type
-  - status
+required: [direct_debit, status, type]

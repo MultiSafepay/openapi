@@ -3,8 +3,7 @@ properties:
     type: boolean
     example: false
   data:
-    description: "Empty"
-    type: object
+    $ref: '../schemas/DataEmpty.yaml'
   error_code:
     description: "1023"
     type: integer

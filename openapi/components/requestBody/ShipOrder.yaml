@@ -8,17 +8,13 @@ properties:
     type: string
     example: shipped
   tracktrace_code:
-    description: The track and trace code provided by the shipping company. 
-    type: string
-    example: 3SMSP0123456789
+    $ref: '../schemas/TrackTraceCode.yaml'
   tracktrace_url:
     description: The track and trace URL provided by the shipping company.
     type: string
     example: https://tracktrace-url.com/
   carrier:
-    description: The name of the shipping company.
-    type: string
-    example: MSP Logistics
+    $ref: '../schemas/Carrier.yaml'
   ship_date:
     description: The date you shipped the order.
     type: string
@@ -28,10 +24,7 @@ properties:
     type: string
     example: Fulfilled by warehouse
   invoice_id:
-    description: | 
-      Adds your invoice ID to the order, which appears on [MultiSafepay reports](https://docs.multisafepay.com/business/accounting/reports/).
-    type: string
-    example: AB12345
+    $ref: '../schemas/InvoiceId.yaml'
   invoice_url:
     description: | 
       The invoice URL to the `invoice_id`. 
@@ -41,5 +34,4 @@ properties:
     description: The shipping company's purchase order number. 
     type: string
     example: XY123456789
-required:
-  - status
+required: [status]

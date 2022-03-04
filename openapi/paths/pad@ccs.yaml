@@ -3,6 +3,7 @@ post:
   operationId: PAD::CustomerCreditScore
   parameters: []
   requestBody:
+    required: true
     content:
       application/json:
         schema:
@@ -22,12 +23,7 @@ post:
                   $ref: '../components/schemas/Street.yaml'
                 zipcode:
                   $ref: '../components/schemas/ZIP.yaml'
-              required:
-                - street
-                - apartment
-                - zipcode
-                - city
-                - country
+              required: [apartment, city, country, street, zipcode]
             browser_info:
               description: Information about the customer's browser.
               type: object
@@ -40,8 +36,7 @@ post:
                   type: boolean
                   example: true
                 ip_address:
-                  description: The customer's IP address.
-                  type: string
+                  $ref: '../components/schemas/IPAddress.yaml'
                 java_enabled:
                   description: Whether Java is enabled in the browser.
                   type: boolean
@@ -67,9 +62,7 @@ post:
                   description: The time zone of the browser.
                   type: integer
                 user_agent:
-                  description: The user agent of the browser.
-                  type: string
-              required: []
+                  $ref: '../components/schemas/UserAgent.yaml'
             customer_info:
               description: Information about the customer.
               type: object
@@ -84,12 +77,7 @@ post:
                   $ref: '../components/schemas/LastName.yaml'
                 phone:
                   $ref: '../components/schemas/Phone.yaml'
-              required:
-                - birthdate
-                - email
-                - first_name
-                - last_name
-                - phone
+              required: [birthdate, email, first_name, last_name, phone]
             customer_reference:
               description: Your unique identifier of the customer.
               type: string
@@ -110,10 +98,7 @@ post:
                   $ref: '../components/schemas/Currency.yaml'
                 description:
                   $ref: '../components/schemas/Description.yaml'
-              required:
-                - amount
-                - currency
-                - description
+              required: [amount, currency, description]
             shipping_address:
               description: The customer's shipping address.
               type: object
@@ -128,19 +113,8 @@ post:
                   $ref: '../components/schemas/Street.yaml'
                 zipcode:
                   $ref: '../components/schemas/ZIP.yaml'
-              required:
-                - apartment
-                - city
-                - country
-                - street
-                - zipcode
-          required:
-            - customer_reference
-            - merchant_id
-            - merchant_sub_id
-            - order
-    description: ''
-    required: true
+              required: [apartment, city, country, street, zipcode]
+          required: [customer_reference, merchant_id, merchant_sub_id, order]
   responses:
     '200':
       description: Request successful
@@ -156,7 +130,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/errors/422Error.yaml
+            $ref: '../components/errors/422Error.yaml'
   summary: Request customer credit score (BETA)
   tags:
     - Pay After Delivery (BETA)

@@ -12,6 +12,7 @@ post:
       schema:
         type: string
   requestBody:
+    required: true
     content:
       application/json:
         examples:
@@ -33,7 +34,7 @@ post:
                 - Decimal currencies: Value for 10 EUR = 1000 (1000 cents)
                 - Zero-decimal currencies: Value for 10 YEN = 10 
 
-                **Full captures:** You can omit this parameter, or specify the original amount.
+                **Full captures:** Omit this parameter, or specify the original amount.
 
                 **Partial captures:** Specify the amount to capture. 
               type: integer
@@ -44,23 +45,13 @@ post:
               maxLength: 50
               example: my-order-id-01
             new_order_status:
-              description: The [order status](https://docs.multisafepay.com/payments/multisafepay-statuses/) of the capture order.
-              type: string
-              enum: [cancelled, completed, declined, expired, initialized, refunded, reserved, shipped, uncleared, void]
-              example: completed
+              $ref: '../components/schemas/Status.yaml'
             invoice_id:
-              description: Your unique identifier for the invoice, which appears in [reports](https://docs.multisafepay.com/business/accounting/reports/).
-              type: string
-              maxLength: 50  
-              example: AB123456
+              $ref: '../components/schemas/InvoiceId.yaml'
             tracktrace_code:
-              description: The track and trace code provided by the shipping company. 
-              type: string
-              example: 3SYXTC0706148
+              $ref: '../components/schemas/TrackTraceCode.yaml'
             carrier:
-              description: The name of the shipping company. 
-              type: string
-              example: DHL
+              $ref: '../components/schemas/Carrier.yaml'
             reason:
               description: The reason for capturing the order.
               type: string
@@ -68,9 +59,7 @@ post:
             description:
               description: Any additional information.
               type: string
-          required:
-            - new_order_status
-    required: true
+          required: [new_order_status]
   responses:
     '200':
       description: Request successful

@@ -1,13 +1,13 @@
 get:
   description: |
-    List all [tokens](https://docs.multisafepay.com/features/recurring-payments/) linked to a specific customer reference. 
+    List all of a customer's [tokens](https://docs.multisafepay.com/features/recurring-payments/). 
 
-    If the customer has multiple tokens and you want to paginate the response, use the `limit` and `offset` query parameters. 
+    To paginate the response, use the `limit` and `offset` query parameters. 
   operationId: listTokens
   parameters:
     - name: your_customer_reference
       in: path
-      description: 'The customer reference.'
+      description: Your unique identifier of the customer.
       required: true
       schema:
         type: string
@@ -31,6 +31,7 @@ get:
         type: integer
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           example: 
@@ -45,16 +46,15 @@ get:
                 properties: 
                   tokens:
                     type: array
-                    description: The list of tokens linked to the customer. 
+                    description: The customer's tokens. 
                     items:  
                       $ref: '../components/schemas/Token.yaml'
-      description: ''
     '410':
+      description: Error
       content:
         application/json:
           schema:
-            $ref: '../components/errors/410Error.yaml'
-      description: Error 
+            $ref: '../components/errors/410Error.yaml' 
   summary: List tokens
   tags:
     - Tokens

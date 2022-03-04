@@ -18,7 +18,7 @@ properties:
     description: |
       The unique identifier of the issuer.
 
-      See List gateway issuers.
+      See `ListIdealIssuers`.
     type: integer
   external_transaction_id:
     $ref: 'ExternalTransactionId.yaml'

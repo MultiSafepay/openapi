@@ -2,7 +2,7 @@ post:
   description: | 
     Process a [full or partial refund](https://docs.multisafepay.com/refunds/full-partial/) for an order.
 
-    Refunding creates a new order with its own order ID linked to the original order. 
+    Refunding creates a new order (with its own order ID) linked to the original order. 
     
     To refund pay later orders, see `RefundPayLater`. 
   operationId: refundOrder
@@ -40,6 +40,7 @@ post:
       content:
         application/json:
           schema:
+            type: object
             properties:
               success:
                 $ref: '../components/schemas/Success.yaml'

@@ -26,7 +26,7 @@ get:
               data: 
                 $ref: '../components/schemas/OrderDetails.yaml'
     '404':
-      description: Error
+      description: Order not found
       content:
         application/json:
           schema:
@@ -35,7 +35,10 @@ get:
   tags:
     - Payments
 patch:
-  description: Update information about an order. Use this request to change the status of pay later orders to shipped, or to cancel orders.
+  description: |
+    Update information about an order, or cancel it. 
+    
+    **Note:** Use this request to change the status of pay later orders to **Shipped**.
   operationId: updateOrder
   parameters:
     - name: order_id
@@ -48,6 +51,7 @@ patch:
       schema:
         type: string
   requestBody:
+    required: true
     content:
       application/json:
         schema:
@@ -63,7 +67,6 @@ patch:
           Cancel an order:
             value:
               $ref: '../components/examples/requests/patch-orders/cancelOrder.json'
-    required: true
   responses:
     '200':
       description: Request successful
@@ -75,15 +78,19 @@ patch:
               success:
                 $ref: '../components/schemas/Success.yaml'
               data: 
-                description: Empty
-                type: object
-                example: ''              
+                $ref: '../components/schemas/DataEmpty.yaml'              
     '404':
-      description: Error
+      description: Order not found
       content:
         application/json:
           schema:
             $ref: '../components/errors/404Error.yaml'
-  summary: Update order
+    '410':
+      description: Invalid request
+      content:
+        application/json:
+          schema:
+            $ref: '../components/errors/410Error.yaml'       
+  summary: Update or cancel order
   tags:
     - Payments

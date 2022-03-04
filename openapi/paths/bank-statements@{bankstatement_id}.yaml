@@ -25,7 +25,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/errors/404Error.yaml
+            $ref: '../components/errors/404Error.yaml'
   summary: Get bank statement
   tags:
     - Onboard affiliates

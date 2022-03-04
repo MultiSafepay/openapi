@@ -99,9 +99,7 @@ properties:
     type: string
     example: customer@emailprovider.com
   user_agent:
-    description: The characteristic string that identifies the customer's browser.
-    type: string
-    example: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36
+    $ref: 'UserAgent.yaml'
   referrer: 
     description: The unique identifier for where the customer/browser originates from.
     type: string

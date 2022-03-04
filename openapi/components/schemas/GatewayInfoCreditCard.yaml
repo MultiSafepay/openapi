@@ -17,10 +17,7 @@ properties:
     type: name
     example: John Doe
   card_expiry_date:
-    description: The expiry date of the credit or debit card.
-    type: string
-    format: yyMM
-    example: "2412"
+    $ref: 'CardExpiryDate.yaml'
   card_cvc:
     description: |
       The card verification code (CVC) – a 3 or 4 digit number used as an additional security feature for card-not-present transactions.  

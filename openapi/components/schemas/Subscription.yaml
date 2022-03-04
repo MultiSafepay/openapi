@@ -94,14 +94,8 @@ properties:
               $ref: 'UnitPrice.yaml'
             weight:
               $ref: 'Weight.yaml'
-          required:
-            - name
-            - merchant_item_id
-            - quantity
-            - unit_price
-    required:
-      - amount
-      - currency
+          required: [merchant_item_id, name, quantity, unit_price]
+    required: [amount, currency]
     type: object
   max_amount_outstanding:
     type: number
@@ -129,12 +123,4 @@ properties:
   status:
     type: string
     enum: [active, inactive]
-required:
-  - collecting_flow_id
-  - collecting_method
-  - customer_id
-  - delivery_details_id
-  - items
-  - payment_method_id
-  - start_date
-  - status
+required: [collecting_flow_id, collecting_method, customer_id, delivery_details_id, items, payment_method_id, start_date, status]
