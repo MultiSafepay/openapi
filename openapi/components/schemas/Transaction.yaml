@@ -9,7 +9,7 @@ properties:
     description: The timestamp for when the transaction was completed.
     type: string
     format: datetime
-    example: 23-02-2022 23:31:31
+    example: "23-02-2022 23:31:31"
   costs:
     description: The fees for the transaction.
     type: array
