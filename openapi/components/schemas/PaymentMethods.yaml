@@ -21,7 +21,7 @@ properties:
     description: The payment method.
     type: string
   status:
-    $ef: 'Status.yaml'
+    $ref: 'Status.yaml'
   type:
     description: The payment gateway.
     type: string
