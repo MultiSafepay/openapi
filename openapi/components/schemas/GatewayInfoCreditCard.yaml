@@ -14,7 +14,7 @@ properties:
     example: "4111111111111111"
   card_holder_name:
     description: The cardholder's name.
-    type: name
+    type: string
     example: John Doe
   card_expiry_date:
     $ref: 'CardExpiryDate.yaml'
