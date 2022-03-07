@@ -9,7 +9,7 @@ properties:
     example: direct
   gateway:
     allOf:
-      - description: "The unique gateway identifier for the payment method.<br><br>If unset, and `type` is set to `redirect`, a MultiSafepay payment page with all available payment methods is returned."
+      - description: "The unique identifier for the payment method (gateway).<br><br>If unset for `redirect` orders, the MultiSafepay payment page displays **all** available payment methods."
       - type: string
       - example: IDEAL
       - $ref: '../GatewayIdentifiersPaymentComponent.yaml'
