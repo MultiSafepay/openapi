@@ -1,16 +1,17 @@
+description: Information about the token.
 type: object
 properties:
   token:
-    description: The unique token linked to the customer reference.
+    description: The unique identifier of the token.
     type: string
     example: azbkvsE0up4
   code:
     description: The unique identifier of the payment gateway.
     type: string
-    example: MASTERCARD
     enum: [AMEX, CREDITCARD, DIRDEB, DIRECTBANK, IDEAL, MAESTRO, MASTERCARD, MISTERCASH, VISA]
+    example: MASTERCARD
   display:
-    description: How the customer’s card number is displayed.
+    description: How the card number is displayed.
     type: string
     example: 'Card xxxx xxxx xxxx 4444'
   name_holder:
@@ -18,27 +19,12 @@ properties:
     type: string
     example: Testperson-nl
   expiry_date:
-    description: |
-      The card expiry date.
-      
-      Example: December 2025 is formatted as `1225`.
-    type: integer
-    example: 3166
-    format: MMYY
+    $ref: 'CardExpiryDate.yaml'
   expired:
     description: Whether the card has expired. If `1`, the card has expired. If `0`, the card is valid.
     type: integer
     example: 0
   last4:
-    description: The last 4 digits of the card number.
-    type: string
-    example: 4444
+    $ref: 'Last4.yaml'
   model:
-    description: |
-      The [recurring model](https://docs.multisafepay.com/features/recurring-payments/).
-    type: string
-    example: cardOnFile
-    enum: 
-      - cardOnFile
-      - subscription
-      - unscheduled
+    $ref: 'RecurringModel.yaml'

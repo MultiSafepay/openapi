@@ -1,9 +1,7 @@
 description: |
-  Sets the notification method.
+  Sets the webhook [notification method](https://docs.multisafepay.com/developer/webhooks/).
   
   We recommend setting this to `POST` to reduce network load and increase security.
-
-  See [Webhook](https://docs.multisafepay.com/developer/webhooks/).
 type: string
 enum: [POST, GET]
 default: GET

@@ -4,18 +4,19 @@ get:
   parameters:
     - name: your_customer_reference
       in: path
-      description: The customer reference.
+      description: Your unique identifier of the customer.
       required: true
       schema:
         type: string
     - name: your_token
       in: path
-      description: The unique token linked to the customer reference.
+      description: The unique identifier of the token.
       required: true
       schema:
         type: string
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           schema:
@@ -23,11 +24,9 @@ get:
               success:
                 $ref: '../components/schemas/Success.yaml'
               data:
-                allOf:
-                  - $ref: '../components/schemas/Token.yaml'
-                  - description: Information about the token.
-      description: ''
+                $ref: '../components/schemas/Token.yaml'
     '410':
+      description: Token not found
       content:
         application/json:
           schema:
@@ -36,9 +35,7 @@ get:
                 type: boolean
                 example: "false"
               data:
-                description: Empty
-                type: object
-                example: []
+                $ref: '../components/schemas/DataEmpty.yaml'
               error_code:
                 description: "1000"
                 type: integer
@@ -46,8 +43,7 @@ get:
               error_info:
                 description: Token not found.
                 type: string
-                example: "Token not found"
-      description: Error 
+                example: "Token not found" 
   summary: Get token
   tags:
     - Tokens

@@ -1,15 +1,14 @@
 post:
-  description: Add a bank account to an affiliated account.
+  description: Add a bank account to an affiliated merchant account.
   operationId: Partner::CreateAccountBankAccount
   parameters:
     - name: account_id
-      description: The unique identifier for the account.
+      description: The unique identifier of the account.
       in: path
       required: true
       schema:
         type: string
   requestBody:
-    description: ''
     required: true
     content:
       application/json:
@@ -34,22 +33,22 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/errors/404Error.yaml
+            $ref: '../components/errors/404Error.yaml'
     '422':
       description: Validation errors
       content:
         application/json:
           schema:
-            $ref: ../components/errors/422Error.yaml
+            $ref: '../components/errors/422Error.yaml'
   summary: Add bank account
   tags:
     - Onboard affiliates
 get:
-  description: List all bank accounts linked to an affiliated account.
+  description: List all bank accounts linked to an affiliated merchant account.
   operationId: 'Partner::ListAccountBankAccounts'
   parameters:
     - name: account_id
-      description: The unique identifier for the account.
+      description: The unique identifier of the account.
       in: path
       required: true
       schema:
@@ -71,7 +70,13 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/errors/404Error.yaml
+            $ref: '../components/errors/404Error.yaml'
+    '422':
+      description: Validation errors
+      content:
+        application/json:
+          schema:
+            $ref: '../components/errors/422Error.yaml'
   summary: List bank accounts
   tags:
     - Onboard affiliates

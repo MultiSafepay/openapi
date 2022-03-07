@@ -1,22 +1,21 @@
 post:
-  description: Add an ultimate beneficiary owner (UBO) profile to an affiliated account.
+  description: Add an ultimate beneficiary owner (UBO) profile to an affiliated merchant's account.
   operationId: Partner::CreateAccountUbo
   parameters:
     - name: account_id
-      description: The unique identifier for the account.
+      description: The unique identifier of the account.
       in: path
       required: true
       schema:
         type: string
   requestBody:
+    required: true
     content:
       application/json:
         schema:
           allOf:
             - $ref: '../components/schemas/Ubo.yaml'
             - required: [birthday, country, country_of_birth, email, job_title, name, percentage, title, type]
-    description: ''
-    required: true
   responses:
     '200':
       description: Request successful
@@ -34,18 +33,18 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/GenericErrorResponse.yaml
+            $ref: '../components/errors/404Error.yaml'
     '422':
       description: Validation errors
       content:
         application/json:
           schema:
-            $ref: ../components/errors/422Error.yaml
+            $ref: '../components/errors/422Error.yaml'
   summary: Add UBO
   tags:
     - Onboard affiliates
 get:
-  description: List all of the ultimate beneficiary owners (UBOs) for an affiliated account.
+  description: List all ultimate beneficiary owners (UBOs) for an affiliated merchant's account.
   operationId: Partner::ListAccountUbos
   parameters:
     - name: account_id
@@ -66,12 +65,18 @@ get:
                 $ref: '../components/schemas/Success.yaml'
               data:
                 $ref: '../components/schemas/Ubo.yaml'
+    '404':
+      description: Account not found
+      content:
+        application/json:
+          schema:
+            $ref: '../components/errors/404Error.yaml'
     '422':
       description: Validation errors
       content:
         application/json:
           schema:
-            $ref: ../components/errors/422Error.yaml
+            $ref: '../components/errors/422Error.yaml'
   summary: List UBOs
   tags:
     - Onboard affiliates

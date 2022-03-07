@@ -1,6 +1,6 @@
 get:
   description: |
-    Get the following details about an account:
+    Get the following identifiers for a site-level API key:
 
     - Account ID
     - Account type
@@ -9,31 +9,24 @@ get:
   parameters: []
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           schema:
+            type: object
             properties:
               success:
                 $ref: '../components/schemas/Success.yaml'
               data:
+                description: The identifiers for the site-level API key.
+                type: object
                 properties:
                   account_id:
-                    description: The unique identifier for the account.
-                    type: integer
-                    example: 12345678
+                    $ref: '../components/schemas/AccountID.yaml'
                   role:
-                    description: The type of account.
-                    type: string
-                    example: merchant
+                    $ref: '../components/schemas/Role.yaml'
                   site_id:
-                    type: integer
-                    example: 12345
-                required:
-                  - account_id
-                  - site_id
-                type: object
-            type: object
-      description: ''
-  summary: Get account 
+                    $ref: '../components/schemas/SiteID.yaml'
+  summary: Get my identifiers 
   tags:
-    - My account
+    - Manage affiliates

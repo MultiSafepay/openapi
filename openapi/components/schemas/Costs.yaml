@@ -8,9 +8,9 @@ properties:
       - $ref: 'Amount.yaml'
       - example: 60
   description:
+    description: A description of the transaction.
     type: string
-    description: The description of the transaction.
-    example: "For VISA credit card transactions"
+    example: "For VISA orders"
   type:
     type: string
     enum: [SYSTEM, internal]

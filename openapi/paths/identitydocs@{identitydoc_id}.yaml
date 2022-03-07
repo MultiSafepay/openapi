@@ -1,10 +1,9 @@
 get:
-  description: Get information about a passport or other identification document uploaded for an ultimate
-    beneficiary owner (UBO).
+  description: Get information about an identity document uploaded for an ultimate beneficiary owner (UBO).
   operationId: getIdentityDoc
   parameters:
     - name: identitydoc_id
-      description: The unique identifier for the identity document.
+      description: The unique identifier of the identity document.
       in: path
       required: true
       schema:
@@ -26,7 +25,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/GenericErrorResponse.yaml
+            $ref: '../components/errors/404Error.yaml'
   summary: Get identity document
   tags:
     - Onboard affiliates

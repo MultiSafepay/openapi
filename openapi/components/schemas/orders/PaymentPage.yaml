@@ -1,10 +1,11 @@
 title: Payment page
 description: Payment page
+type: object
 properties:
   type:
     description: |
       - `redirect`: Redirects the customer to a [MultiSafepay payment page](https://docs.multisafepay.com/payment-pages/), where they can select a payment method and complete payment. 
-      - `paymentlink`: Creates a [payment link](https://docs.multisafepay.com/payment-links/), which is useful when manually managing the order through the merchant dashboard.
+      - `paymentlink`: Creates a [payment link](https://docs.multisafepay.com/payment-links/).
       
     type: string
     enum: [paymentlink, redirect]
@@ -14,7 +15,7 @@ properties:
       - description: |
           The unique identifier for the payment method (gateway).
           
-          If unset a MultiSafepay payment page with all available payment methods is returned.
+          If unset, the payment page displays **all** available payment methods.
       - type: string
       - example: IDEAL
       - $ref: '../GatewayIdentifiers.yaml'
@@ -30,20 +31,15 @@ properties:
     $ref: '../PaymentOptions.yaml'
   customer:
     allOf:
-      - $ref: '../CustomerObject.yaml'
+      - $ref: '../Customer.yaml'
   gateway_info:
-    $ref: '../GatewayInfo.yaml'
+    allOf:
+      - $ref: '../GatewayInfo.yaml'
+      - required: [card_holder_name, card_number, card_expiry_date]
   delivery:
     allOf:
       - $ref: '../Delivery.yaml'
-      - required:
-        - address1
-        - city
-        - country
-        - first_name
-        - house_number
-        - last_name
-        - zip_code
+      - required: [address1, city, country, first_name, house_number, last_name, zip_code]
   checkout_options:
     allOf:
       - $ref: '../CheckoutOptions.yaml'
@@ -69,10 +65,4 @@ properties:
     $ref: '../var3.yaml'
   plugin:
     $ref: '../Plugin.yaml'
-type: object
-required:
-  - type
-  - order_id
-  - currency
-  - amount
-  - description
+required: [amount, currency, description, order_id, type]

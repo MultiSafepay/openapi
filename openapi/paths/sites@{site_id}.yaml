@@ -1,5 +1,5 @@
 get:
-  description: Get information about your own or an affiliate's website.
+  description: Get information about a website.
   operationId: getWebsite
   parameters:
     - name: site_id
@@ -14,19 +14,21 @@ get:
       content:
         application/json:
           schema:
+            type: object
             properties:
+              success:
+                $ref: '../components/schemas/Success.yaml'
               data:
+                type: object
                 properties:
                   account_id:
-                    description: The identifier for the account the website is under.
-                    type: integer
-                    example: 12345678
+                    $ref: '../components/schemas/AccountID.yaml'
                   api_key:
                     description: The website API key.
                     type: string
                     example: c2693951893e065830ad99e3540c3e417dcb1937
                   id:
-                    description: The website identifier.
+                    description: The unique identifier of the website.
                     type: integer
                     example: 12345
                   name:
@@ -45,15 +47,7 @@ get:
                     $ref: '../components/schemas/SupportPhone.yaml'
                   url:
                     $ref: '../components/schemas/URL.yaml'
-                required:
-                  - name
-                  - url
-                type: object
-              success:
-                description: "True"
-                type: boolean
-                example: true
-            type: object
+                required: [name, url]
     '404':
       description: Site not found
       content:
@@ -66,21 +60,23 @@ get:
                 example: Not found
   summary: Get website
   tags:
-    - My account
+    - Manage affiliates
 patch:
-  description: Update information about your own or an affiliate's a website.
+  description: Update information about a website.
   operationId: updateWebsite
   parameters:
     - name: site_id
-      description: The website identifier.
+      description: The unique identifier of the website.
       in: path
       required: true
       schema:
         type: string
   requestBody:
+    required: true
     content:
       application/json:
         schema:
+          type: object
           properties:
             name:
               description: The website name.
@@ -98,22 +94,18 @@ patch:
               $ref: '../components/schemas/SupportPhone.yaml'
             url:
               $ref: '../components/schemas/URL.yaml'
-          required: []
-          type: object
-    description: ''
-    required: true
   responses:
     '200':
       description: Request successful
       content:
         application/json:
           schema:
+            type: object
             properties:
               data:
                 $ref: '../components/schemas/Site.yaml'
               success:
                 $ref: '../components/schemas/Success.yaml'
-            type: object
     '404':
       description: Site not found
       content:
@@ -123,13 +115,13 @@ patch:
               message:
                 description: The site was not found.
                 type: string
-                example: Not found
+                example: Site not found
     '422':
       description: Validation errors
       content:
         application/json:
           schema:
-            $ref: ../components/errors/422Error.yaml
+            $ref: '../components/errors/422Error.yaml'
   summary: Update website
   tags:
-    - My account
+    - Manage affiliates

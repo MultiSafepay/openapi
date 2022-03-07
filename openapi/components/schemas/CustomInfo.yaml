@@ -1,5 +1,5 @@
-description: |
-      Stores additional information about the order.
+description: Additional information about the order.
+type: object
 properties:
   custom_1:
     description: Information about the order. 

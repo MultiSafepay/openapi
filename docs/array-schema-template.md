@@ -12,5 +12,4 @@ items:
       description: "Add a description."
       type: Choose a type
       example: Add an example
-  required:
-  - List which parameters are required.
+  required: [List which parameters are required in alphabetical order, separated by commas]

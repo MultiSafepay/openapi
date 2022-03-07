@@ -3,18 +3,17 @@ post:
   operationId: addCustomerPaymentDetails
   parameters:
     - name: customer_id
-      description: The unique identifier for the customer.
+      description: The unique identifier of the customer.
       in: path
       required: true
       schema:
         type: string
   requestBody:
+    required: true
     content:
       application/json:
         schema:
           $ref: '../components/schemas/CustomerPaymentDetails.yaml'
-    description: ''
-    required: true
   responses:
     '200':
       description: Request successful
@@ -32,7 +31,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/errors/422Error.yaml
+            $ref: '../components/errors/422Error.yaml'
   summary: Add customer payment details
   tags:
     - Customers
@@ -41,7 +40,7 @@ get:
   operationId: listCustomerPaymentDetails
   parameters:
     - name: customer_id
-      description: The unique identifier for the customer.
+      description: The unique identifier of the customer.
       in: path
       required: true
       schema:
@@ -59,11 +58,11 @@ get:
               data:
                 $ref: '../components/schemas/CustomerPaymentDetails.yaml'
     '422':
-      description: Validation failure
+      description: Validation error
       content:
         application/json:
           schema:
-            $ref: ../components/errors/422Error.yaml
+            $ref: '../components/errors/422Error.yaml'
     '403':
       description: Invalid API key
       content:

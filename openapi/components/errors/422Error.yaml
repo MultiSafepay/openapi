@@ -4,6 +4,7 @@ properties:
     description: Identifies the validation errors.
     type: array
     items:
+      type: object
       properties:
         attribute:
           description: Indicates which attributes in the request were invalid.
@@ -23,11 +24,10 @@ properties:
           description: Specifies the unique resource indicator of the error. 
           type: string
           example: '#/email'
-      type: object
   message:
-    description: Validation failure
+    description: Validation error
     type: string
-    example: Validation failure
+    example: Validation error
   success:
     description: "False"
     type: boolean

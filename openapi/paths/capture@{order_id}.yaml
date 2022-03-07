@@ -12,6 +12,7 @@ patch:
       schema:
         type: string
   requestBody:
+    required: true
     content:
       application/json:
         schema:
@@ -30,10 +31,7 @@ patch:
               description: Any additional information.
               type: string
               example: Suspiciously large order from unusual country. 
-          required:
-          - reason
-          - status
-    required: true
+          required: [reason, status]
   responses:
     '200':
       description: Request successful
@@ -45,8 +43,7 @@ patch:
               success:
                 $ref: '../components/schemas/Success.yaml'
               data: 
-                description: Empty.
-                type: object
+                $ref: '../components/schemas/DataEmpty.yaml'
     '404':
       description: Error
       content:

@@ -32,7 +32,7 @@ get:
               success:
                 $ref: '../components/schemas/Success.yaml'
               data:
-                 description: Array of activated payment methods (meeting filter criteria if relevant).
+                 description: The relevant activated payment methods.
                  type: array
                  items: 
                    $ref: '../components/schemas/PaymentMethod.yaml'

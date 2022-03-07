@@ -1,3 +1,3 @@
-description: The maximum transaction amount (in EUR cents) for the website.
+description: The maximum transaction amount (in eurocents) for the website.
 type: integer
 example: 100000

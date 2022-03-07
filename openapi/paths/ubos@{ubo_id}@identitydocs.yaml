@@ -1,5 +1,5 @@
 post:
-  description: Upload a passport or other identity document for an ultimate beneficiary owner (UBO).
+  description: Upload an identity document for an ultimate beneficiary owner (UBO).
   operationId: addIdentityDoc
   parameters:
     - name: ubo_id
@@ -9,14 +9,13 @@ post:
       schema:
         type: string
   requestBody:
+    required: true
     content:
       application/json:
         schema:
           allOf:
             - $ref: '../components/schemas/IdentityDoc.yaml'
             - required: [filename, mime_type, encoded_content, document_type]
-    description: ''
-    required: true
   responses:
     '200':
       description: Request successful
@@ -34,13 +33,13 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/GenericErrorResponse.yaml
+            $ref: '../components/errors/404Error.yaml'
     '422':
       description: Validation errors
       content:
         application/json:
           schema:
-            $ref: ../components/errors/422Error.yaml
+            $ref: '../components/errors/422Error.yaml'
   summary: Add identity document
   tags:
     - Onboard affiliates
@@ -71,13 +70,13 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/GenericErrorResponse.yaml
+            $ref: '../components/errors/404Error.yaml'
     '422':
       description: Validation errors
       content:
         application/json:
           schema:
-            $ref: ../components/errors/422Error.yaml
+            $ref: '../components/errors/422Error.yaml'
   summary: List identity documents
   tags:
     - Onboard affiliates

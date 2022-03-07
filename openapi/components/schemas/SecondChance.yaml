@@ -1,4 +1,4 @@
-description: Sends a [Second Chance](https://docs.multisafepay.com/features/second-chance/) reminder email to the customer containing a payment link to complete an abandoned payment.
+description: For [Second Chance](https://docs.multisafepay.com/features/second-chance/).
 type: object
 properties:
   send_mail:

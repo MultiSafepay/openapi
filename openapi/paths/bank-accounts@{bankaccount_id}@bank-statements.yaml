@@ -9,7 +9,6 @@ post:
       schema:
         type: string
   requestBody:
-    description: ''
     required: true
     content:
       application/json:
@@ -34,13 +33,13 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/GenericErrorResponse.yaml
+            $ref: '../components/errors/404Error.yaml'
     '422':
       description: Validation errors
       content:
         application/json:
           schema:
-            $ref: ../components/errors/422Error.yaml
+            $ref: '../components/errors/422Error.yaml'
   summary: Add bank statement
   tags:
     - Onboard affiliates
@@ -71,7 +70,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/GenericErrorResponse.yaml
+            $ref: '../components/errors/404Error.yaml'
   summary: List bank statements
   tags:
     - Onboard affiliates

@@ -17,6 +17,7 @@ post:
         type: Specify the type.
   requestBody:
     description: "If necessary, add a description of the request body."
+    required: true/false
     content:
       application/json:
         schema:
@@ -26,9 +27,7 @@ post:
               description: Describe the property.
               type: Specify the type.
               format: Specify the format, if relevant.
-          required:
-            - List which parameters are required.
-    required: true/false
+          required: [List which parameters are required in alphabetical order, separated by commas]
   responses:
     '200':
       description: Request successful
@@ -52,7 +51,7 @@ post:
                     items:
                       $ref: '../link-to-example_with_array-items-schema.yaml'
     '404':
-      description: Error
+      description: Describe the error.
       content:
         application/json:
           schema:
