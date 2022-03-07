@@ -1,0 +1,63 @@
+title: Payment Component
+description: Payment Component
+properties:
+  type:
+    description: |
+      `direct`: Redirects the customer to an authentication or success page, depending on the payment method. 
+    type: string
+    enum: [direct]
+    example: direct
+  gateway:
+    allOf:
+      - description: "The unique identifier for the payment method (gateway).<br><br>If unset for `redirect` orders, the MultiSafepay payment page displays **all** available payment methods."
+      - type: string
+      - example: IDEAL
+      - $ref: '../GatewayIdentifiersPaymentComponent.yaml'
+  order_id:
+    $ref: '../OrderId.yaml'
+  currency:
+    $ref: '../Currency.yaml'
+  amount:
+    $ref: '../Amount.yaml'
+  description:
+    $ref: '../Description.yaml'
+  payment_options:
+    $ref: '../PaymentOptions.yaml'
+  customer:
+    $ref: '../Customer.yaml'
+  gateway_info:
+    $ref: '../GatewayInfo.yaml'
+  delivery:
+    $ref: '../Delivery.yaml'
+  checkout_options:
+    $ref: '../CheckoutOptions.yaml'
+  shopping_cart:
+    $ref: '../ShoppingCart.yaml'
+  items:
+    $ref: '../Items.yaml'
+  payment_data:
+    $ref: '../PaymentData.yaml'
+  recurring_model:
+    $ref: '../RecurringModel.yaml'
+  recurring_id:
+    $ref: '../RecurringId.yaml'
+  affiliate:
+    $ref: '../Affiliate.yaml'
+  second_chance:
+   $ref: '../SecondChance.yaml'
+  custom_info:
+    $ref: '../CustomInfo.yaml'
+  days_active:
+    $ref: '../DaysActive.yaml'
+  seconds_active: 
+    $ref: '../SecondsActive.yaml'
+  var1:
+    $ref: '../var12.yaml'
+  var2:
+    $ref: '../var12.yaml'
+  var3:
+    $ref: '../var3.yaml'
+  plugin:
+    $ref: '../Plugin.yaml'
+type: object
+required: [amount, currency, description, gateway, order_id, payment_data, type]

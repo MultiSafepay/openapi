@@ -42,8 +42,6 @@ properties:
     $ref: '../ShoppingCart.yaml'
   items:
     $ref: '../Items.yaml'
-  payment_data:
-    $ref: '../PaymentData.yaml'
   recurring_model:
     $ref: '../RecurringModel.yaml'
   recurring_id:
