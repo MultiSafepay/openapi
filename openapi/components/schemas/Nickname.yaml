@@ -1,5 +1,5 @@
 description: The name the customer prefers to be addressed by.
 type: string
 maxLength: 30
-example: ""
+exampl
     

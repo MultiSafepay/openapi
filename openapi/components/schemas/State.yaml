@@ -4,4 +4,3 @@ description: |
   **Required for:** PayPal Seller Protection
 type: string
 maxLength: 6
-example: ""
