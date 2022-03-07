@@ -15,5 +15,4 @@ properties:
       To cancel the order, set to `true`.
     type: boolean
     example: true
-required:
-  - status
+required: [status]

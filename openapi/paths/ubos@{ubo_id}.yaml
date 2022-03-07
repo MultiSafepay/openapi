@@ -25,7 +25,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/GenericErrorResponse.yaml
+            $ref: '../components/errors/404Error.yaml'
   summary: Get UBO
   tags:
     - Onboard affiliates
@@ -40,12 +40,11 @@ patch:
       schema:
         type: string
   requestBody:
+    required: true
     content:
       application/json:
         schema:
           $ref: '../components/schemas/Ubo.yaml'
-    description: ''
-    required: true
   responses:
     '200':
       description: Request successful
@@ -63,13 +62,13 @@ patch:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/GenericErrorResponse.yaml
+            $ref: '../components/errors/404Error.yaml'
     '422':
       description: Validation errors
       content:
         application/json:
           schema:
-            $ref: ../components/errors/422Error.yaml
+            $ref: '../components/errors/422Error.yaml'
   summary: Update UBO
   tags:
     - Onboard affiliates

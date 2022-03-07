@@ -14,19 +14,14 @@ properties:
   description:
     $ref: 'Description.yaml' 
   external_transaction_id:
-    type: string
-    description: |
-      The order reference number of a third party, e.g. the payment method.
+    $ref: 'ExternalTransactionId.yaml'
   last4:
-    type: integer
-    description: "The last 4 digits of the customer’s credit card number."
+    $ref: 'Last4.yaml'
   payment_description:
-    type: string
     description: The payment method.
+    type: string
   status:
-    type: string
-    description: |
-      The [order status](https://docs.multisafepay.com/payments/multisafepay-statuses/).
+    $ef: 'Status.yaml'
   type:
-    type: string
     description: The payment gateway.
+    type: string

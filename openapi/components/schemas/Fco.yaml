@@ -7,14 +7,13 @@ properties:
     example: "1.0"
   redirect_mode:
     description: |
-      Specifies how the customer is redirected to an authentication page, if relevant e.g. for iDEAL payments or 3D Secure.
+      Specifies how to redirect the customer to an authentication page, if relevant e.g. for iDEAL payments or 3D Secure.
 
-      Open the authentication page:
+      Open the authentication page:      
       
-      
-      `redirect`: In the current browser tab
-      `iframe`: As an iframe within the current page
-      `modal`: As a modal window over the current page
+      - `redirect`: In the current browser tab
+      - `iframe`: As an iframe within the current page
+      - `modal`: As a modal window over the current page
     type: string
     enum: [iframe, modal, redirect]
   checkout: 
@@ -37,8 +36,8 @@ properties:
         description: |
           Specifies the layout of the FastCheckout page, i.e. whether to collect the billing, shipping, and payment details in:
 
-          `primary`: 3 columns on a single page
-          `secondary`: 3 steps on separate pages
+          - `primary`: 3 columns on a single page
+          - `secondary`: 3 steps on separate pages
         type: string
         enum: [primary, secondary]
   qr:

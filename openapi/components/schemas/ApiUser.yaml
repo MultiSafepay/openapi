@@ -1,11 +1,9 @@
+type: object
 properties:
   merchant_id:
-    type: integer
+    $ref: 'MerchantID.yaml'
   role:
-    type: string
+    $ref: 'AccountID.yaml'
   site_id:
-    type: integer
-required:
-  - merchant_id
-  - site_id
-type: object
+    $ref: 'SiteID.yaml'
+required: [merchant_id, site_id]

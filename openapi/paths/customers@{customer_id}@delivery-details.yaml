@@ -3,13 +3,12 @@ post:
   operationId: addCustomerShippingAddress
   parameters:
     - name: customer_id
-      description: The unique identifier for the customer.
+      description: The unique identifier of the customer.
       in: path
       required: true
       schema:
         type: string
   requestBody:
-    description: ''
     required: true
     content:
       application/json:
@@ -19,7 +18,7 @@ post:
             - required: [address1, city, country, first_name, house_number, last_name, status, zip_code]
   responses:
     '200':
-      description: Address added successfully
+      description: Request successful
       content:
         application/json:
           schema:
@@ -34,7 +33,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/errors/422Error.yaml
+            $ref: '../components/errors/422Error.yaml'
     '403':
       description: Invalid API key
       content:
@@ -49,7 +48,7 @@ get:
   operationId: getCustomerShippingAddress
   parameters:
     - name: customer_id
-      description: The unique identifier for the customer.
+      description: The unique identifier of the customer.
       in: path
       required: true
       schema:
@@ -67,7 +66,7 @@ get:
               data:
                 $ref: '../components/schemas/ShippingAddress.yaml'
     '422':
-      description: Validation failure
+      description: Validation error
       content:
         application/json:
           schema:

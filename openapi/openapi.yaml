@@ -113,8 +113,6 @@ tags:
     description: Request customer credit scores, and track collecting statuses.
   - name: Refunds and chargebacks
     description: Process refunds and challenge chargebacks.
-  - name: My account
-    description: Create and manage affiliated accounts.
   - name: Onboard affiliates
     description: Onboard affiliated merchant accounts.
   - name: Manage affiliates

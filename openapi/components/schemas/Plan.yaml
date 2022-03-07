@@ -1,44 +1,29 @@
+type: object
 properties:
   amount:
-    minimum: 0
     type: integer
+    minimum: 0
   currency:
-    example: EUR
+    type: string
     maxLength: 3
     minLength: 3
-    type: string
+    example: EUR
   description:
+    type: string
     maxLength: 256
-    type: string
   interval:
-    enum:
-      - 1 day
-      - 1 week
-      - 1 mon
-      - 1 year
+    type: string
+    enum: [1 day, 1 week, 1 mon, 1 year]
     example: 1 mon
-    type: string
   interval_count:
-    minimum: 0
     type: integer
+    minimum: 0
   merchant_item_id:
-    example: item-1-2-3
-    type: string
+    $ref: 'MerchantItemId.yaml'
   name:
     maxLength: 64
     type: string
   status:
-    enum:
-      - active
-      - hidden
-      - disabled
     type: string
-required:
-  - interval
-  - interval_count
-  - merchant_item_id
-  - name
-  - status
-  - amount
-  - currency
-type: object
+    enum: [active, disabled, hidden]
+required: [amount, currency, interval, interval_count, merchant_item_id, name, status]

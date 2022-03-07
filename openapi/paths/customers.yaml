@@ -3,7 +3,6 @@ post:
   operationId: createCustomerProfile
   parameters: []
   requestBody:
-    description: ''
     required: true
     content:
       application/json:
@@ -24,11 +23,11 @@ post:
               data:
                 $ref: '../components/schemas/CustomerProfile.yaml'
     '422':
-      description: Validation failure
+      description: Validation error
       content:
         application/json:
           schema:
-            $ref: ../components/errors/422Error.yaml
+            $ref: '../components/errors/422Error.yaml'
   summary: Create customer profile
   tags:
     - Customers
@@ -42,19 +41,19 @@ get:
       required: false
       schema:
         description: Limits the number of results returned.
-        example: 5
+        type: integer
         maximum: 1000
         minimum: 1
-        type: integer
+        example: 5
     - name: offset
       description: Returns results starting from the offset position.
       in: query
       required: false
       schema:
         description: Returns results starting from the offset position.
-        example: 5
-        minimum: 0
         type: integer
+        minimum: 0
+        example: 5
   responses:
     '200':
       description: Request successful
@@ -70,12 +69,7 @@ get:
               data:
                 $ref: '../components/schemas/CustomerProfile.yaml'
               page:
-                description: The number of pages returned.
-                type: object
-                properties:
-                  total:
-                    description: The total number of pages returned.
-                    type: integer
+                $ref: '../components/schemas/Page.yaml'
     '403':
       description: Invalid API key
       content:

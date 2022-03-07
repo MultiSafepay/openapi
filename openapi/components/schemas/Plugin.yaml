@@ -1,11 +1,11 @@
-description: Specifies information about your integration, which is useful for debugging.
+description: Information about your integration (useful for debugging).
 properties:
   shop:
-    description: The name of your ecommerce application
+    description: The name of your ecommerce application.
     type: string
     example: "My self-made integration"
   shop_version: 
-    description: The version of your ecommerce application application.
+    description: The version of your ecommerce application.
     type: string
     example: ""
   plugin_version:

@@ -13,5 +13,4 @@ properties:
         type: array
         items:
           $ref: '../schemas/ItemRefund.yaml'
-required:
-  - checkout_data
+required: [checkout_data]

@@ -1,7 +1,7 @@
+type: object
 properties:
   due:
-    format: date
+    description: The date the invoice is due to be paid.
     type: string
-required:
-  - due
-type: object
+    format: date
+required: [due]

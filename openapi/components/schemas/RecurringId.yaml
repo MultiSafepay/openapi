@@ -1,2 +1,3 @@
-description: For subsequent [Recurring payments](https://docs.multisafepay.com/features/recurring-payments/) orders (required), the unique identifier of the recurring payment.
+description: For subsequent [Recurring payments](https://docs.multisafepay.com/features/recurring-payments/) (**required**), the unique identifier of the recurring payment.
 type: string
+example: 133761993_gTp2

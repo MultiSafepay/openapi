@@ -1,7 +1,7 @@
 description: | 
-  Information specific to the payment method (`gateway`). 
+  Information specific to the payment method (gateway). 
   
-  Required for AfterPay, E-Invoicing, in3, Klarna, and Pay After Delivery orders for credit checks in the Netherlands and Belgium.
+  **Required for:** AfterPay, E-Invoicing, in3, Klarna, and Pay After Delivery orders for credit checks in the Netherlands and Belgium
 type: object
 properties:
   birthday:

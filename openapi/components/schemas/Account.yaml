@@ -23,8 +23,6 @@ properties:
     format: email
     maxLength: 100
     example: "merchant@example.com"
-  fax:
-    $ref: 'Fax.yaml'
   phone:
     description: The company phone number.
     type: string

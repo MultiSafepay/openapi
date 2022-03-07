@@ -1,5 +1,5 @@
 get:
-  description: List the account details of affiliated merchants.
+  description: List the account information of affiliated merchants.
   operationId: listAffiliatedAccounts
   parameters: []
   responses:
@@ -24,6 +24,6 @@ get:
         application/json:
           schema:
             $ref: '../components/errors/403Error.yaml' 
-  summary: List affiliated accounts
+  summary: List affiliates
   tags:
     - Manage affiliates

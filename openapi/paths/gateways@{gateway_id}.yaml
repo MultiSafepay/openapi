@@ -1,20 +1,21 @@
 get:
-  description: Get the name of the payment method for a particular gateway identifier.
+  description: Get the name of the payment method for a gateway identifier.
   operationId: getGateway
   parameters:
-    - description: The unique identifier of the gateway. **Not** case sensitive.
+    - name: gateway_id
+      description: The unique identifier of the gateway. **Not** case sensitive.
       in: path
-      name: gateway_id
       required: true
       schema:
-        allOf: 
-          - $ref: '../components/schemas/GatewayIdentifiers.yaml'
         type: string
+        $ref: '../components/schemas/GatewayIdentifiers.yaml'
   responses:
     '200':
+      description: Request successful
       content:
         application/json:
           schema:
+            type: object
             properties:
               success:
                 $ref: '../components/schemas/Success.yaml'
@@ -29,16 +30,14 @@ get:
                     description: The name of the payment method.
                     type: string
                     example: "Bancontact"
-            type: object
-      description: ''
     '404':
-      description: Error 
+      description: Gateway not found 
       content:
         application/json:
           schema:
             $ref: '../components/errors/Error1023.yaml'
     '401':
-      description: Error
+      description: Invalid API key
       content:
         application/json:
           schema:

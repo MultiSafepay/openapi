@@ -48,11 +48,11 @@ get:
                       description: The name of the issuer (see table above).
                       type: string
     '404':
-      description: Error
+      description: Invalid iDEAL issuer ID
       content:
         application/json:
           schema:
-            $ref: ../components/errors/404Error.yaml 
+            $ref: '../components/errors/404Error.yaml' 
   summary: List iDEAL issuers
   tags:
     - Payments

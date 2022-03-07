@@ -1,3 +1,5 @@
+description: Information about the transaction.
+type: object
 properties:
   amount:
     allOf:
@@ -7,16 +9,17 @@ properties:
     description: The timestamp for when the transaction was completed.
     type: string
     format: datetime
+    example: "23-02-2022 23:31:31"
   costs:
     description: The fees for the transaction.
+    type: array
     items:
+      type: object
       properties:
         amount:
-          $ref: 'Costs.yaml#/properties/amount/'
+          $ref: 'Amount.yaml'
         description:
-          $ref: 'Costs.yaml#/properties/description/'
-      type: object
-    type: array
+          $ref: 'Description.yaml'
   created:
     $ref: 'Created.yaml'
   currency:
@@ -26,21 +29,17 @@ properties:
     type: object
     properties:
       email:
-        $ref: 'CustomerObject.yaml#/properties/email/'
+        $ref: 'Email.yaml'
       first_name:
-        $ref: 'CustomerObject.yaml#/properties/first_name/'
+        $ref: 'FirstName.yaml'
       iban:
-        description: The international bank account number (IBAN) charged for the transaction.
-        type: string
-        example: ""
+        $ref: 'Iban.yaml'
       last_name:
-        $ref: 'CustomerObject.yaml#/properties/last_name/'
+        $ref: 'LastName.yaml'
   debit_credit:
     description: Whether the transaction is a credit (C) or a debit (D).
     type: string
-    enum:
-      - C
-      - D
+    enum: [C, D]
   description:
     $ref: 'Description.yaml'
   financial_status:
@@ -50,8 +49,7 @@ properties:
     type: integer
     example: 940
   invoice_id:
-    description: Your unique identifier for the invoice.
-    type: string
+    $ref: 'InvoiceId.yaml'
   order_id:
     $ref: 'OrderId.yaml'
   payment_method:
@@ -59,13 +57,7 @@ properties:
     type: string
     example: VISA
   site_id:
-    description: |
-      The website identifier.
-
-      See [Site ID, API key, and secure code](https://multisafepay-docs.netlify.app/account/site-id-api-key-secure-code/).
-    type: integer
-    format: 5-digit number
-    example: 12345
+    $ref: 'SiteID.yaml'
   status:
     $ref: 'Status.yaml'
   transaction_id:
@@ -76,13 +68,10 @@ properties:
     enum: [automatic_payout, coupon, payment, refund]
     example: 'payment'
   updated:
-    description: The timestamp for when the transaction was updated.
-    type: string
-    format: datetime
+    $ref: 'Modified.yaml'
   var1:
     $ref: 'var12.yaml'
   var2:
     $ref: 'var12.yaml'
   var3:
     $ref: 'var3.yaml'
-type: object

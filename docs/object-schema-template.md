@@ -8,8 +8,7 @@ type: object
 properties:
   example_parameter:
     description: Add a description.
-    type: Specify the type
-    example: Add an example
-required:
-  - List which parameters are required.
+    type: Specify the type.
+    example: Add an example.
+required: [List which parameters are required in alphabetical order, separated by commas]
 
