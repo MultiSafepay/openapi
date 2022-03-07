@@ -1,6 +1,5 @@
 get:
   description: Get information about an identity document uploaded for an ultimate beneficiary owner (UBO).
-    beneficiary owner (UBO).
   operationId: getIdentityDoc
   parameters:
     - name: identitydoc_id
