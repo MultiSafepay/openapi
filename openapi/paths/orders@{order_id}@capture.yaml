@@ -38,6 +38,7 @@ post:
 
                 **Partial captures:** Specify the amount to capture. 
               type: integer
+              minimum: 0
               example: 10000
             new_order_id:
               description: Your unique identifier for the capture order. 

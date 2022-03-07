@@ -4,5 +4,5 @@ description: |
   - Decimal currencies: Value for 10 EUR = 1000 (1000 cents)
   - Zero-decimal currencies: Value for 10 YEN = 10
 type: integer
-inimum: 0
+minimum: 0
 example: 1000
