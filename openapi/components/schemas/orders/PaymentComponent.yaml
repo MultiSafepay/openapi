@@ -24,7 +24,7 @@ properties:
   payment_options:
     $ref: '../PaymentOptions.yaml'
   customer:
-    $ref: '../CustomerObject.yaml'
+    $ref: '../Customer.yaml'
   gateway_info:
     $ref: '../GatewayInfo.yaml'
   delivery:
