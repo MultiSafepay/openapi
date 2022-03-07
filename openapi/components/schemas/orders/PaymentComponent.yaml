@@ -60,11 +60,4 @@ properties:
   plugin:
     $ref: '../Plugin.yaml'
 type: object
-required:
-  - type
-  - gateway
-  - order_id
-  - currency
-  - amount
-  - description
-  - payment_data
+required: [amount, currency, description, gateway, order_id, payment_data, type]
