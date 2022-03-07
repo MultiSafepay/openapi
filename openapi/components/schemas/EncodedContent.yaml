@@ -1,3 +1,2 @@
 description: The encoded format of the document. 
 type: string
-format: base64-encoded-content
