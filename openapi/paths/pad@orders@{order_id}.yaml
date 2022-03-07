@@ -31,7 +31,7 @@ get:
                   amount_paid:
                     description: The amount the customer has already paid.
                     type: integer
-                    exampe: 5000
+                    example: 5000
                   created:
                     $ref: '../components/schemas/Created.yaml'
                   history:
